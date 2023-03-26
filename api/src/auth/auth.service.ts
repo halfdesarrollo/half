@@ -1,8 +1,9 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import * as bcrypt from 'bcrypt';
+
 import { LoginDTO } from 'src/users/dto/login.dto';
 import { UsersService } from 'src/users/users.service';
-import * as bcrypt from 'bcrypt';
 import { JwtPayload } from './jwt.strategy';
 
 @Injectable()
@@ -14,10 +15,11 @@ export class AuthService {
 
   async validateUserById(userId: string): Promise<any> {
     const user = await this.usersService.findOne(userId);
-    console.log('user', user);
+
     if (!user) {
       throw new UnauthorizedException();
     }
+
     return user;
   }
 
@@ -25,17 +27,28 @@ export class AuthService {
     const { email, password } = loginDTO;
 
     try {
-      const user = await this.usersService.findOne(email);
-      const passwordMatches = await bcrypt.compare(password, user.password);
+      const loginUser = await this.usersService.findOne(email);
 
-      if (user && passwordMatches) {
+      const passwordMatches = await bcrypt.compare(
+        password,
+        loginUser.password,
+      );
+
+      if (loginUser && passwordMatches) {
         const payload: JwtPayload = {
-          sub: user.email,
-          email: user.email,
+          sub: loginUser.email,
+          email: loginUser.email,
+          rol: loginUser.rol,
         };
-        console.log('payload', payload);
+
+        const token = this.jwtService.sign({
+          sub: payload.email,
+          email: payload.email,
+          rol: payload.rol,
+        });
+
         return {
-          access_token: this.jwtService.sign(payload),
+          access_token: token,
         };
       } else {
         throw new UnauthorizedException('Invalid Credentials');

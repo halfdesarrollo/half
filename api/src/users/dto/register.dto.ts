@@ -12,8 +12,4 @@ export class RegisterDTO {
   @IsNotEmpty()
   @IsString()
   password: string;
-
-  @IsNotEmpty()
-  @IsNumber()
-  phoneNumber: number;
 }
