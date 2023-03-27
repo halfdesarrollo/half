@@ -1,3 +1,9 @@
+import { View, Text } from "react-native"
+
 export const LandingScreen = () => {
-  return <div>LandingScreen</div>
-}
+  return (
+    <View>
+      <Text>LandingScreen</Text>
+    </View>
+  );
+};

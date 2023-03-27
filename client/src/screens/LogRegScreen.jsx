@@ -1,3 +1,9 @@
+import { View, Text } from "react-native"
+
 export const LogRegScreen = () => {
-  return <div>LogRegScreen</div>
-}
+  return (
+    <View>
+      <Text>LogRegScreen</Text>
+    </View>
+  );
+};

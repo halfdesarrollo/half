@@ -1,3 +1,9 @@
+import { View, Text } from "react-native"
+
 export const MainMenuScreen = () => {
-  return <div>MainMenuScreen</div>
-}
+  return (
+    <View>
+      <Text>MainMenuScree</Text>
+    </View>
+  );
+};
