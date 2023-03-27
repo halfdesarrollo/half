@@ -1,3 +1,9 @@
+import { View, Text } from "react-native"
+
 export const MenuCardScreen = () => {
-  return <div>MenuCardScreen</div>
-}
+  return (
+    <View>
+      <Text>MenuCardScreen</Text>
+    </View>
+  );
+};
