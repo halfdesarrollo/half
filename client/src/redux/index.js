@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
-import storage from 'redux-persist/lib/storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import { persistReducer } from 'redux-persist'
 
 //Slices
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
 
 const persistConfig = {
   key: 'root',
-  storage,
+  storage: AsyncStorage,
   whitelist: ['sessionState'],
 }
 
