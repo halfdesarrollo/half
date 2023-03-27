@@ -1,6 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { Strategy, ExtractJwt } from 'passport-jwt';
+import { ExtractJwt } from 'passport-jwt';
+import { Strategy } from 'passport-local';
 
 import { Users } from 'src/users/schema/users.schema';
 import { AuthService } from './auth.service';
