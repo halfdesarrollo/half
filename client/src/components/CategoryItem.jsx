@@ -1,10 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
-import image from "../../assets/favicon.png";
+import { View, Text, StyleSheet, Image } from "react-native";
 
-const CategoryItem = ({ item, i }) => {
-  console.log(item);
-  console.log(item.index);
+const CategoryItem = ({ item }) => {
 
   return (
     <View key={item.id} style={styles.conteiners}>

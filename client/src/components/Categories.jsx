@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
-import categories from "./categorias";
+import categories from "../mocks/categorias";
 import CategoryItem from "./CategoryItem";
 
 const Categories = () => {
