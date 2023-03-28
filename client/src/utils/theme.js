@@ -7,3 +7,8 @@ export const colors = {
     secundary4: '#4B5563',
     secundary5: '#EB5757',
 }
+
+export const fonts = {
+    poppins: 'Poppins_400Regular',
+    roboto: 'Roboto_400Regular'
+}
