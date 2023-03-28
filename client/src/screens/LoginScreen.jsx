@@ -14,13 +14,15 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch, useSelector } from "react-redux";
 
 import facebookLogo from "../../assets/facebook-logo.png";
 import gmailLogo from "../../assets/gmail-logo.png";
 import halfLogo from "../../assets/Icon-half.png";
-import ecliplseTopLogo from "../../assets/Ellipse 172.png";
-import ecliplseBotLogo from "../../assets/Ellipse 170.png";
+import ecliplseTopLogo from "../../assets/Ellipse-172.png";
+import ecliplseBotLogo from "../../assets/Ellipse-170.png";
 import { styles } from "../styles/loginStyles";
+import { login } from "../redux/slices/user/userSlice";
 
 //Schema para validacion de formulario
 const schema = yup.object().shape({
@@ -29,6 +31,8 @@ const schema = yup.object().shape({
 });
 
 export const LoginScreen = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
   const {
     control,
     handleSubmit,
@@ -37,6 +41,7 @@ export const LoginScreen = () => {
 
   const onPressButton = (data) => {
     console.log(data);
+    dispatch(login(data.email, data.password));
   };
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
@@ -106,7 +111,12 @@ export const LoginScreen = () => {
               <Image source={gmailLogo} style={styles.socialMedia_logo} />
               <Image source={facebookLogo} style={styles.socialMedia_logo} />
             </View>
-
+            {user && (
+              <View>
+                <Text>{user.email}</Text>
+                <Text>{user.token}</Text>
+              </View>
+            )}
             <Image style={styles.image_eclipseBot} source={ecliplseBotLogo} />
           </View>
         </View>
