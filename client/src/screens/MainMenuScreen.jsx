@@ -7,7 +7,7 @@ import {
 import Logo from '../../assets/halflogo.svg'
 
 // components
-import Search from '../components/Search/Search'
+import Search from '../components/Search'
 
 export const MainMenuScreen = () => {
   return (

@@ -5,9 +5,11 @@ import {
   TouchableOpacity,
   Text,
   Alert,
+  Image
 } from 'react-native';
 import React, { useState } from 'react';
-import { searchValidationSchema } from './validationSearchScheme';
+import { searchValidationSchema } from '../utils/validationSearchScheme';
+import SearchIconSvg from '../componentsSvg/SearchIconSvg';
 
 const Search = () => {
 
@@ -35,40 +37,46 @@ const Search = () => {
   };
 
   return (
-    <>
+    <View style={styles.search}>
       <View style={styles.searchContainer}>
         <TextInput
           placeholder="¿Tienes algún local o comida en mente?"
           onChangeText={onChangeInput}
           name='data'
           value={input.data}
+          style={styles.searchInput}
         />
-        <TouchableOpacity onPress={onSearchButton} style={styles.searchInput}>
-          <Text>Search</Text>
+        <TouchableOpacity onPress={onSearchButton} style={styles.searchTouch}>
+          <SearchIconSvg width={15} height={15}/>
         </TouchableOpacity>
       </View>
       {viewError && viewError}
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  search: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   searchContainer: {
-    width: 260,
+    width: 240,
     flexDirection: 'row',
-    gap: 10,
+    gap: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#a8a8a8',
+    borderBottomColor: '#4B5563',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   searchInput: {
+  },
+  searchTouch: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    backgroundColor: 'steelblue',
-    paddingHorizontal: 6,
-    paddingVertical: 10,
-    width: 50,
+    backgroundColor: 'transparent',
   },
 });
 
