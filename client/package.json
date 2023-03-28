@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
+    "@hookform/resolvers": "^3.0.0",
     "@reduxjs/toolkit": "^1.9.3",
     "expo": "~48.0.9",
     "expo-status-bar": "~1.4.4",
