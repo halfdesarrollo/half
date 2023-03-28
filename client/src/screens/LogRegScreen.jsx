@@ -6,6 +6,7 @@ import {
   Button,
   StyleSheet,
   Dimensions,
+  SafeAreaView,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
@@ -31,7 +32,7 @@ export const LogRegScreen = () => {
   };
 
   return (
-    <View style={styles.container_logReg}>
+    <SafeAreaView style={styles.container_logReg}>
       <View style={styles.container_logo}>
         <Text>Logo Half</Text>
       </View>
@@ -80,14 +81,14 @@ export const LogRegScreen = () => {
       <View>
         <Text>O ingresa con</Text>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container_logReg: {
     display: "flex",
-    backgroundColor: "white",
+    backgroundColor: "red",
     alignItems: "center",
     width: Dimensions.get("window").width,
     height: "100%",
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   button: {
-    backgroundColor: "#87BE56",
+    backgroundColor: "black",
     width: Dimensions.get("window").width,
   },
   container_logo: {
