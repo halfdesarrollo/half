@@ -1,7 +1,7 @@
 import React from "react";
 import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
 
-const AgegarTarjeta = () => {
+const AddCard = () => {
   return (
     <View style={styles.conteiner}>
       <TouchableOpacity>
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AgegarTarjeta;
+export default AddCard;
