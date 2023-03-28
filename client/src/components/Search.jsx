@@ -3,13 +3,11 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity,
-  Text,
   Alert,
-  Image
 } from 'react-native';
 import React, { useState } from 'react';
 import { searchValidationSchema } from '../utils/validationSearchScheme';
-import SearchIconSvg from '../componentsSvg/SearchIconSvg';
+import SearchSvg from '../../assets/search.svg';
 
 const Search = () => {
 
@@ -47,7 +45,7 @@ const Search = () => {
           style={styles.searchInput}
         />
         <TouchableOpacity onPress={onSearchButton} style={styles.searchTouch}>
-          <SearchIconSvg width={15} height={15}/>
+          <SearchSvg/>
         </TouchableOpacity>
       </View>
       {viewError && viewError}
