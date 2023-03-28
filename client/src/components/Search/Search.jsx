@@ -1,22 +1,56 @@
-import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native'
-import React, {useState} from 'react'
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  Alert,
+} from 'react-native';
+import React, { useState } from 'react';
+import { searchValidationSchema } from './validationSearchScheme';
 
 const Search = () => {
-  // guardamos los datos del input
-  const [input, setInput] = useState();
 
-  // funcion para enviar los datos del input
+  // guardamos los datos del input
+  const [input, setInput] = useState({
+    data: ""
+  });
+
+  // estado para manejo de errores
+  const [viewError, setViewError] = useState();
+
+  // capturamos el texto ingresado en el TextInput
+  const onChangeInput = (text) => {
+    setInput({data:text});
+  };
+
+  // funcion para enviar los datos del input validando con el esquema creado en yup
   const onSearchButton = () => {
-    console.log(input);
-  }
+    searchValidationSchema.validate(input).then(()=>{
+      console.log(input);
+      setInput({data: ""})
+    }).catch((error)=>{
+      setViewError(Alert.alert(error.message))
+    })
+  };
 
   return (
-    <View style={styles.searchContainer}>
-      <TextInput placeholder='¿Tienes algún local o comida en mente?' onChangeText={setInput} value={input}/>
-      <TouchableOpacity onPress={onSearchButton} style={styles.searchInput}><Text>Search</Text></TouchableOpacity>
-    </View>
-  )
-}
+    <>
+      <View style={styles.searchContainer}>
+        <TextInput
+          placeholder="¿Tienes algún local o comida en mente?"
+          onChangeText={onChangeInput}
+          name='data'
+          value={input.data}
+        />
+        <TouchableOpacity onPress={onSearchButton} style={styles.searchInput}>
+          <Text>Search</Text>
+        </TouchableOpacity>
+      </View>
+      {viewError && viewError}
+    </>
+  );
+};
 
 const styles = StyleSheet.create({
   searchContainer: {
@@ -24,7 +58,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#a8a8a8'
+    borderBottomColor: '#a8a8a8',
   },
   searchInput: {
     display: 'flex',
@@ -34,8 +68,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'steelblue',
     paddingHorizontal: 6,
     paddingVertical: 10,
-    width: 50
-  }
-})
+    width: 50,
+  },
+});
 
-export default Search
+export default Search;
