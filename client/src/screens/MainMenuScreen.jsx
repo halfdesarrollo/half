@@ -6,10 +6,14 @@ import {
 } from 'react-native-responsive-screen'
 import Logo from '../../assets/halflogo.svg'
 
+// components
+import Search from '../components/Search/Search'
+
 export const MainMenuScreen = () => {
   return (
     <View>
-      <Text> Hola</Text>
+      <Text>MainMenuScree</Text>
+      <Search />
     </View>
   )
 }
