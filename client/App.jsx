@@ -7,6 +7,8 @@ import { Provider } from 'react-redux'
 import Main from './Main'
 import store from './src/redux'
 
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
+
 const persistor = persistStore(store)
 
 export default function App() {
@@ -16,7 +18,11 @@ export default function App() {
       <PersistGate persistor={persistor}>
         <Provider store={store}>
           <NativeRouter>
-            <Main />
+            <SafeAreaProvider>
+              <SafeAreaView edges={['top']}>
+                <Main />
+              </SafeAreaView>
+            </SafeAreaProvider>
           </NativeRouter>
         </Provider>
       </PersistGate>
