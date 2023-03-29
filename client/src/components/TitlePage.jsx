@@ -6,16 +6,18 @@ import {
     widthPercentageToDP as wp,
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
+import { useState } from 'react';
 
 const TitlePage = ({ text, route }) => {
     const navigate = useNavigate()
+    const [white, setWhite] = useState(false)
 
     const handlePress = () => {
         navigate(route)
     }
 
     return (
-        <View style={styles.container}>
+        <View style={white ? styles.whiteContainer : styles.container}>
             <View style={styles.box} >
                 <Back style={styles.back} onPress={handlePress} />
                 <Text style={styles.text} >{text}</Text>
@@ -33,7 +35,14 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
         paddingHorizontal: 25,
         paddingVertical: 15,
-
+        width: wp('100%')
+    },
+    whiteContainer: {
+        backgroundColor: '#fff',
+        height: 80,
+        justifyContent: 'flex-end',
+        paddingHorizontal: 25,
+        paddingVertical: 15,
     },
     box: {
         flexDirection: 'row',
