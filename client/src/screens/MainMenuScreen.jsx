@@ -7,8 +7,10 @@ import {
 import Logo from "../../assets/halflogo.svg";
 import Navbar from "../components/Navbar";
 // components
+
 import SpecialHalf from "../components/SpecialHalf"
 import Search from "../components/Search/Search";
+
 
 export const MainMenuScreen = () => {
   return (
