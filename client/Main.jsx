@@ -12,7 +12,7 @@ export default function Main() {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/welcome" element={<WelcomeScreen />} />
         <Route path="/howdoesitworks" element={<HowDoesItWorksScreen />} />
-        <Route path="/" element={<LoginScreen />} />
+        <Route path="/" element={<MainMenuScreen />} />
       </Routes>
     </View>
   );
