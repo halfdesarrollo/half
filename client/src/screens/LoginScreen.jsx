@@ -40,7 +40,6 @@ export const LoginScreen = () => {
   } = useForm({ mode: "onChange", resolver: yupResolver(schema) });
 
   const onPressButton = (data) => {
-    console.log(data);
     dispatch(login(data.email, data.password));
   };
   return (

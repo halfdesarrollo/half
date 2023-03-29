@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
-const URL_LOGIN = "http://localhost:3000/auth/login";
+const URL_LOGIN = "http://192.168.1.15:3000/auth/login";
 
 const initialState = {
   user: {},
