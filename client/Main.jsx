@@ -6,13 +6,15 @@ import { WelcomeScreen } from "./src/screens/WelcomeScreen";
 import { MainMenuScreen } from "./src/screens/MainMenuScreen";
 import { HowDoesItWorksScreen } from "./src/screens/HowDoesItWorksScreen";
 import { LoginScreen } from "./src/screens/LoginScreen";
+import Navbar from "./src/components/Navbar";
 
 export default function Main() {
   return (
     <View>
       <Routes>
+        <Route path="/login" element={<LoginScreen />} />
         <Route path="/welcome" element={<WelcomeScreen />} />
-        <Route path="/" element={<LoginScreen />} />
+        <Route path="/" element={<MainMenuScreen />} />
         <Route path="/howdoesitworks" element={<HowDoesItWorksScreen />} />
       </Routes>
     </View>
