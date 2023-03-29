@@ -24,7 +24,7 @@ export const WelcomeScreen = () => {
       </View>
       <View>
         <WelcomeFood style={styles.welcomeFood} />
-        <ContinueButton />
+        <ContinueButton to={'/howdoesitworks'} />
         <WelcomeEllipse style={styles.welcomeEllipse} />
       </View>
     </View>
@@ -69,22 +69,5 @@ const styles = StyleSheet.create({
     height: hp('60.00%'),
     position: 'absolute',
     top: 50,
-  },
-  button: {
-    zIndex: 1,
-    backgroundColor: '#FFAD3F',
-    bottom: 150,
-    left: 100,
-    width: wp('50.00%'),
-    height: hp('6.00%'),
-    borderRadius: 7,
-  },
-  textButton: {
-    textAlign: 'center',
-    justifyContent: 'center',
-    fontSize: 25,
-    color: '#FFFFFF',
-    fontWeight: 'bold',
-    paddingTop: 9,
   },
 })
