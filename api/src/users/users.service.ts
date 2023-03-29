@@ -18,14 +18,13 @@ export class UsersService {
   }
 
   async create(registerDTO: RegisterDTO): Promise<Users> {
-    const { email, password } = registerDTO;
+    const { email } = registerDTO;
 
     const existingUser = await this._usersModel.findOne({ email }).exec();
     if (existingUser) {
       throw new ConflictException('Email is alreay Exist');
     }
 
-    console.log(password);
     const createdUser = new this._usersModel(registerDTO);
     return createdUser.save();
   }
