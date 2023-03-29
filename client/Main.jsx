@@ -1,11 +1,9 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { Routes, Route } from "react-router-native";
-
-//Screens
+import { LoginScreen } from "./src/screens/LoginScreen";
 import { WelcomeScreen } from "./src/screens/WelcomeScreen";
 import { MainMenuScreen } from "./src/screens/MainMenuScreen";
 import { HowDoesItWorksScreen } from "./src/screens/HowDoesItWorksScreen";
-import { LoginScreen } from "./src/screens/LoginScreen";
 
 export default function Main() {
   return (
@@ -13,8 +11,8 @@ export default function Main() {
       <Routes>
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/welcome" element={<WelcomeScreen />} />
-        <Route path="/" element={<MainMenuScreen />} />
         <Route path="/howdoesitworks" element={<HowDoesItWorksScreen />} />
+        <Route path="/" element={<LoginScreen />} />
       </Routes>
     </View>
   );
