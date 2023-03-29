@@ -1,16 +1,17 @@
-/* eslint-disable prettier/prettier */
-import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UsersModule } from './users/users.module';
-import { AuthModule } from './auth/auth.module';
+import { Module } from "@nestjs/common";
+import { MiddlewareConsumer } from "@nestjs/common/interfaces";
+import { ConfigModule } from "@nestjs/config";
+import { MongooseModule } from "@nestjs/mongoose";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { UsersModule } from "./users/users.module";
+import { AuthModule } from "./auth/auth.module";
+import * as cors from "cors";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: ".env",
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.MONGODB_URI),
@@ -20,4 +21,8 @@ import { AuthModule } from './auth/auth.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(cors()).forRoutes("*");
+  }
+}
