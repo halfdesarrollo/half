@@ -5,20 +5,22 @@ import {
   SafeAreaView,
   StyleSheet,
   TouchableHighlight,
-  Image,
 } from "react-native";
 import PerfilLogo from "../../assets/hombre 1.svg";
 import HomeLogo from "../../assets/Home-logo.svg";
 import QrLogo from "../../assets/QR.svg";
+import { useNavigate } from "react-router-native";
 
 const Navbar = () => {
   const [activeButton, setActiveButton] = useState("home");
+  const navigation = useNavigate();
 
   return (
     <SafeAreaView style={styles.navbar_container}>
       <TouchableHighlight
         underlayColor="white"
         onPress={() => {
+          navigation("/");
           setActiveButton("home");
         }}
       >
@@ -39,6 +41,7 @@ const Navbar = () => {
       <TouchableHighlight
         underlayColor="white"
         onPress={() => {
+          //navigation("/qr"); descomentar para agregar navegacion en la pagina aun no creada qr
           setActiveButton("qr");
         }}
       >
@@ -59,6 +62,7 @@ const Navbar = () => {
       <TouchableHighlight
         underlayColor="white"
         onPress={() => {
+          //navigation("/perfil"); descomentar para agregar navegacion en la pagina aun no creada perfil
           setActiveButton("perfil");
         }}
       >
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
     height: 90,
     flexDirection: "row",
     elevation: 3,
-    paddingHorizontal: 25,
+    paddingHorizontal: 35,
     position: "absolute",
     bottom: 0,
     left: 0,

@@ -7,11 +7,14 @@ import { useNavigate } from 'react-router-native'
 
 import React from 'react'
 
-export default function ContinueButton() {
+export default function ContinueButton({ to }) {
   const navigate = useNavigate()
 
+  console.log('====================================')
+  console.log('to', to)
+  console.log('====================================')
   const continueButtonOnPress = () => {
-    navigate('/howdoesitworks')
+    navigate(to)
   }
   return (
     <TouchableOpacity style={styles.button} onPress={continueButtonOnPress}>
