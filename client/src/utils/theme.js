@@ -16,5 +16,10 @@ export const fonts = {
     },
     roboto: {
         regular: 'Roboto_400Regular'
+    },
+    stick: {
+        regular: 'StickNoBills_400Regular',
+        semiBold: 'StickNoBills_600SemiBold',
+        bold: 'StickNoBills_700Bold'
     }
 }

@@ -24,6 +24,13 @@ import {
   Roboto_400Regular,
 } from '@expo-google-fonts/roboto';
 
+import {
+  useFonts as useStick,
+  StickNoBills_400Regular,
+  StickNoBills_600SemiBold,
+  StickNoBills_700Bold
+} from '@expo-google-fonts/stick-no-bills';
+
 
 const persistor = persistStore(store)
 
@@ -38,8 +45,13 @@ export default function App() {
   const [robotoLoaded] = useRoboto({
     Roboto_400Regular,
   });
+  const [stickLoaded] = useStick({
+    StickNoBills_400Regular,
+    StickNoBills_600SemiBold,
+    StickNoBills_700Bold
+  });
 
-  if (!poppinsLoaded || !robotoLoaded) return null
+  if (!poppinsLoaded || !robotoLoaded || !stickLoaded) return null
 
   //>
 
