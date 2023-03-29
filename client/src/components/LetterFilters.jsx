@@ -12,7 +12,7 @@ import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
 
-const Filterletter = () => {
+const LetterFilters = () => {
     return(
         <ScrollView 
         horizontal={true}
@@ -68,6 +68,6 @@ const style = StyleSheet.create({
 })
 
 
-export default Filterletter;
+export default LetterFilters;
 
 
