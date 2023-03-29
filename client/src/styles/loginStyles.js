@@ -10,10 +10,11 @@ export const styles = StyleSheet.create({
 
   login_topLogo: {
     backgroundColor: "white",
-    height: "30%",
+    height: "25%",
     justifyContent: "center",
     alignItems: "center",
     width: "80%",
+    top: -40,
   },
   image_logo: {
     width: 290,
@@ -23,7 +24,7 @@ export const styles = StyleSheet.create({
   image_eclipseTop: {
     backgroundColor: "#FFAD3F",
     position: "absolute",
-    top: -240,
+    top: -270,
     width: 400,
     height: 300,
     borderRadius: 50,
@@ -31,8 +32,8 @@ export const styles = StyleSheet.create({
   image_eclipseBot: {
     backgroundColor: "#87BE56",
     position: "absolute",
-    bottom: -360,
-    right: -75,
+    bottom: -260,
+    right: -55,
     width: 500,
     height: 300,
     borderRadius: 100,
@@ -41,7 +42,7 @@ export const styles = StyleSheet.create({
   inputs_container: {
     height: Dimensions.get("window").height / 2.5,
     backgroundColor: "white",
-    width: "90%",
+    width: 350,
     borderTopColor: "#A4A4A4",
     borderTopWidth: 1,
   },
@@ -56,7 +57,7 @@ export const styles = StyleSheet.create({
   inputs: {
     borderWidth: 1,
     borderColor: "#A4A4A4",
-    marginHorizontal: 5,
+    marginHorizontal: 1,
     marginVertical: 20,
     paddingVertical: 10,
     backgroundColor: "white",
@@ -66,10 +67,13 @@ export const styles = StyleSheet.create({
 
   socialMedia_container: {
     display: "flex",
-    justifyContent: "space-around",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    marginHorizontal: 50,
+    justifyContent: "space-between",
     flexDirection: "row",
     position: "absolute",
-    width: "100%",
+    width: "70%",
     bottom: -60,
   },
 
