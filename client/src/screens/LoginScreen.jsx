@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import facebookLogo from "../../assets/facebook-logo.png";
 import gmailLogo from "../../assets/gmail-logo.png";
 import halfLogo from "../../assets/Icon-half.png";
+
 import ecliplseTopLogo from "../../assets/Ellipse-172.png";
 import ecliplseBotLogo from "../../assets/Ellipse-170.png";
 import { styles } from "../styles/loginStyles";
