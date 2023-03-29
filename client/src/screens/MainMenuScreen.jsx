@@ -8,7 +8,7 @@ import Logo from "../../assets/halflogo.svg";
 import Navbar from "../components/Navbar";
 
 // components
-import Search from "../components/Search/Search";
+import Search from '../components/Search'
 
 export const MainMenuScreen = () => {
   return (
