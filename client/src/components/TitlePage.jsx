@@ -41,8 +41,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#fff',
-        fontFamily: fonts.poppins,
-        fontWeight: 'bold',
+        fontFamily: fonts.poppins.bold,
         fontSize: 16,
         alignSelf: 'center'
     },
