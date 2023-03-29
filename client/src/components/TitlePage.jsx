@@ -1,4 +1,3 @@
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useNavigate } from 'react-router-native';
 import { colors, fonts } from '../utils/theme'
@@ -8,7 +7,7 @@ import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
 
-const TitlePage = ({ value, route }) => {
+const TitlePage = ({ text, route }) => {
     const navigate = useNavigate()
 
     const handlePress = () => {
@@ -19,7 +18,7 @@ const TitlePage = ({ value, route }) => {
         <View style={styles.container}>
             <View style={styles.box} >
                 <Back style={styles.back} onPress={handlePress} />
-                <Text style={styles.text} >{value}</Text>
+                <Text style={styles.text} >{text}</Text>
             </View>
         </View>
     );
