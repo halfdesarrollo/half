@@ -6,13 +6,17 @@ import { persistStore } from 'redux-persist'
 import { Provider } from 'react-redux'
 import Main from './Main'
 import store from './src/redux'
-
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
+
+//Instalar nueva fuente
+//npm install @expo-google-fonts/nombreDeLaFuente
 
 //Fonts
 import {
   useFonts as usePoppins,
   Poppins_400Regular,
+  Poppins_500Medium,
+  Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
 
 import {
@@ -28,6 +32,8 @@ export default function App() {
   //<!Fonts
   const [poppinsLoaded] = usePoppins({
     Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_700Bold
   });
   const [robotoLoaded] = useRoboto({
     Roboto_400Regular,

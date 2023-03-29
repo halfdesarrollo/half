@@ -9,6 +9,12 @@ export const colors = {
 }
 
 export const fonts = {
-    poppins: 'Poppins_400Regular',
-    roboto: 'Roboto_400Regular'
+    poppins: {
+        regular: 'Poppins_400Regular',
+        medium: 'Poppins_500Medium',
+        bold: 'Poppins_700Bold'
+    },
+    roboto: {
+        regular: 'Roboto_400Regular'
+    }
 }
