@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     },
     box: {
         flexDirection: 'row',
-        gap: 15,
+        gap: 20,
     },
     text: {
         color: '#fff',
