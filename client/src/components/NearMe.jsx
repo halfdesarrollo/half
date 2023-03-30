@@ -5,6 +5,7 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import Svg, { Image } from "react-native-svg";
+import { fonts } from '../utils/theme';
 
 const NearMe = () => {
   const [pressedNearMe, setPressedNearMe] = useState(false);
@@ -13,16 +14,16 @@ const NearMe = () => {
 
 
   const handlePressNearMe = () => {
-      setPressedNearMe(true)
+    setPressedNearMe(true)
   };
 
   const handlePressPromo = () => {
     setPressedPromo(true)
-};
+  };
 
-const handlePressPopu = () => {
-  setPressedPopular(true)
-};
+  const handlePressPopu = () => {
+    setPressedPopular(true)
+  };
 
   const handleRelease = () => {
     setPressedNearMe(false);
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 10,
     fontWeight: "bold",
-    // fontFamily: "Poppins",
+    fontFamily: fonts.poppins.regular,
     width: "auto",
     alignItems: "center",
   },
@@ -173,7 +174,7 @@ const styles = StyleSheet.create({
   text2: {
     fontSize: 10,
     fontWeight: "bold",
-    // fontFamily: "Poppins",
+    fontFamily: fonts.poppins.regular,
     width: "auto",
     alignItems: "center",
   },

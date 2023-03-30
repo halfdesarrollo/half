@@ -1,17 +1,15 @@
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text } from "react-native";
 import { StyleSheet } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import Logo from "../../assets/halflogo.svg";
 import Navbar from "../components/Navbar";
 // components
 
 import SpecialHalf from "../components/SpecialHalf";
 import Search from "../components/Search";
 import TitlePageLocation from "../components/TitlePageLocation";
-import { QrScreen } from "./QrScreen";
 
 export const MainMenuScreen = () => {
   return (
