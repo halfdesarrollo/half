@@ -6,6 +6,7 @@ export const colors = {
     secundary3: '#EOEOEO',
     secundary4: '#4B5563',
     secundary5: '#EB5757',
+    secundary6: '#F0ECE6',
 }
 
 export const fonts = {
@@ -15,7 +16,9 @@ export const fonts = {
         bold: 'Poppins_700Bold'
     },
     roboto: {
-        regular: 'Roboto_400Regular'
+        regular: 'Roboto_400Regular',
+        medium: 'Roboto_500Medium',
+        bold: 'Roboto_700Bold',
     },
     stick: {
         regular: 'StickNoBills_400Regular',

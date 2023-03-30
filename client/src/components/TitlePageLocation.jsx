@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         paddingHorizontal: 25,
         paddingVertical: 10,
+        width: wp('100%')
     },
     box: {
         flexDirection: 'row',
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#fff',
-        fontFamily: fonts.poppins,
+        fontFamily: fonts.poppins.bold,
         fontWeight: 'bold',
         fontSize: 16,
         alignSelf: 'center'

@@ -9,13 +9,15 @@ import Navbar from '../components/Navbar'
 
 import SpecialHalf from '../components/SpecialHalf'
 import Search from '../components/Search'
+import TitlePageLocation from '../components/TitlePageLocation'
 
 export const MainMenuScreen = () => {
   return (
     <View style={styles.container}>
+      <TitlePageLocation />
       <Search />
-      <Navbar />
       <SpecialHalf />
+      <Navbar />
     </View>
   )
 }
