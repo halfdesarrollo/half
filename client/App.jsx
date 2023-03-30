@@ -22,13 +22,15 @@ import {
 import {
   useFonts as useRoboto,
   Roboto_400Regular,
+  Roboto_500Medium,
+  Roboto_700Bold,
 } from '@expo-google-fonts/roboto';
 
 import {
   useFonts as useStick,
   StickNoBills_400Regular,
   StickNoBills_600SemiBold,
-  StickNoBills_700Bold
+  StickNoBills_700Bold,
 } from '@expo-google-fonts/stick-no-bills';
 
 
@@ -44,6 +46,8 @@ export default function App() {
   });
   const [robotoLoaded] = useRoboto({
     Roboto_400Regular,
+    Roboto_500Medium,
+    Roboto_700Bold,
   });
   const [stickLoaded] = useStick({
     StickNoBills_400Regular,
