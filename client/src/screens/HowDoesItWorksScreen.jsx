@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     marginTop: hp('10.00%'),
   },
   title: {
-    fontFamily: fonts.poppins,
+    fontFamily: fonts.poppins.bold,
     fontWeight: 'bold',
     fontSize: 25,
     textAlign: 'center',
