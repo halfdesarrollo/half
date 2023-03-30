@@ -26,14 +26,14 @@ const CategoryItem = ({ item }) => {
 const styles = StyleSheet.create({
   conteiners: {
     flexDirection: "row",
-    justifyContent:"center",
-    fontFamily: "Poppins",
+    justifyContent: "center",
+    fontFamily: fonts.poppins.regular,
     color: "#87BE56",
     marginLeft: 25,
-    marginTop:30,
+    marginTop: 30,
 
   },
-  nombres:{
+  nombres: {
     padding: 10,
     top: 10,
     marginTop: 55,
