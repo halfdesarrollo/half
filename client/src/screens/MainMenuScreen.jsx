@@ -11,6 +11,7 @@ import Navbar from "../components/Navbar";
 import SpecialHalf from "../components/SpecialHalf"
 import Search from "../components/Search";
 import TitlePageLocation from '../components/TitlePageLocation';
+import InviteBtn from "../components/InviteBtn";
 
 
 export const MainMenuScreen = () => {
@@ -18,6 +19,7 @@ export const MainMenuScreen = () => {
     <View style={styles.container}>
       <TitlePageLocation />
       <Search />
+      <InviteBtn/>
       <SpecialHalf />
       <Navbar />
     </View>
