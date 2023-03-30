@@ -6,9 +6,11 @@ import {
 } from "react-native-responsive-screen";
 import Logo from "../../assets/halflogo.svg";
 import Navbar from "../components/Navbar";
-
 // components
-import Search from '../components/Search'
+
+import SpecialHalf from "../components/SpecialHalf"
+import Search from "../components/Search/Search";
+
 
 export const MainMenuScreen = () => {
   return (
@@ -16,6 +18,7 @@ export const MainMenuScreen = () => {
       <Text>MainMenuScree</Text>
       <Search />
       <Navbar />
+      <SpecialHalf/>
     </View>
   );
 };
