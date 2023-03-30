@@ -4,7 +4,7 @@ import { LoginScreen } from './src/screens/LoginScreen'
 import { WelcomeScreen } from './src/screens/WelcomeScreen'
 import { MainMenuScreen } from './src/screens/MainMenuScreen'
 import { HowDoesItWorksScreen } from './src/screens/HowDoesItWorksScreen'
-import { AddPayMethodScreen } from './src/screens/HowDoesItWorksScreen'
+import { AddPayMethodScreen } from './src/screens/AddPayMethodScreen'
 
 export default function Main() {
   return (
