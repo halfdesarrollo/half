@@ -6,17 +6,19 @@ import {
 } from "react-native-responsive-screen";
 import Logo from "../../assets/halflogo.svg";
 import Navbar from "../components/Navbar";
-
 // components
-import Search from "../components/Search/Search";
+
+import SpecialHalf from "../components/SpecialHalf";
+import Search from "../components/Search";
+import TitlePageLocation from "../components/TitlePageLocation";
 import { QrScreen } from "./QrScreen";
-import ScanQRScreen from "./ScanQRScreen";
 
 export const MainMenuScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>MainMenuScree</Text>
+      <TitlePageLocation />
       <Search />
+      <SpecialHalf />
       <Navbar />
     </View>
   );
