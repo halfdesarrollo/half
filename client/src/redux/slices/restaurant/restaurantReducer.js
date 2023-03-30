@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import restaurantMocks from "../../__mocks__/restaurant-mocks.json";
+import restaurantMocks from "../../../mocks/restaurant-mocks.json";
 
 const initialState = {
   restaurants: restaurantMocks,
