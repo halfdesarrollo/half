@@ -1,5 +1,6 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import { StyleSheet } from "react-native";
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
