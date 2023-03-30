@@ -4,7 +4,6 @@ import {
     StyleSheet, 
     ScrollView,
     TouchableOpacity,
-    Alert
 } from "react-native"
 import { 
     fonts,

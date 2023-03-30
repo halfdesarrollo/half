@@ -4,7 +4,6 @@ import { LoginScreen } from "./src/screens/LoginScreen";
 import { WelcomeScreen } from "./src/screens/WelcomeScreen";
 import { MainMenuScreen } from "./src/screens/MainMenuScreen";
 import { HowDoesItWorksScreen } from "./src/screens/HowDoesItWorksScreen";
-
 export default function Main() {
   return (
     <View>

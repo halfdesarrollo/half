@@ -24,12 +24,12 @@ const OffersHalf = () => {
   )
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   offers: {
     paddingHorizontal: 10,
   },
   offersTitle: {
-    fontFamily: fonts.poppins,
+    fontFamily: fonts.poppins.medium,
     paddingLeft: 10,
     fontSize: 20,
   },
@@ -58,12 +58,12 @@ const styles = StyleSheet.create({
   },
   offersSubtitle: {
     fontSize: 16,
-    fontFamily: fonts.poppins,
+    fontFamily: fonts.poppins.regular,
     fontWeight: 'bold'
   },
   offersParagraph: {
     fontSize: 12,
-    fontFamily: fonts.poppins,
+    fontFamily: fonts.poppins.regular,
     color: colors.secundary4,
   }
 })
