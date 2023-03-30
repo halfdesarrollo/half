@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { AddCard } from '../components/AddCard'
 
 export const AddPayMethodScreen = () => {
   return (
     <View>
-      <Text>AddPayMethodScreen</Text>
+      <AddCard />
     </View>
   )
 }
