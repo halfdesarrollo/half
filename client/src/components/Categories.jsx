@@ -8,7 +8,7 @@ const Categories = () => {
     <View style={styles.conteiner}>
       <Text style={styles.title}>Categorias</Text>
       <FlatList
-      style={styles.flatList}
+        style={styles.flatList}
         data={categories}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
@@ -23,17 +23,17 @@ const Categories = () => {
 
 const styles = StyleSheet.create({
   conteiner: {
-    fontFamily: "Poppins",
+    fontFamily: fonts.poppins.regular,
   },
 
   title: {
     color: "#4B5563",
-    fontFamily: "Poppins",
+    fontFamily: fonts.poppins.regular,
     width: 94,
     height: 13,
     left: 24,
     fontSize: 20,
-    fontWeight:"bold",
+    fontWeight: "bold",
   },
 
 });
