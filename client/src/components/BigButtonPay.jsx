@@ -1,6 +1,10 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { useNavigate } from 'react-router-native';
 import { colors, fonts } from '../utils/theme';
+import {
+    widthPercentageToDP as wp,
+    heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 const BigButtonPay = ({ text, route }) => {
     const navigate = useNavigate()
@@ -21,13 +25,13 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primaryGreen,
         paddingVertical: 13,
         borderRadius: 5,
-        marginHorizontal: 30,
+        width: wp('80%')
     },
     text: {
         color: '#fff',
         fontSize: 17,
         fontWeight: 'bold',
         textAlign: 'center',
-        fontFamily: fonts.poppins
+        fontFamily: fonts.poppins.bold
     }
 })
