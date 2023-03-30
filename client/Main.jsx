@@ -5,18 +5,17 @@ import { WelcomeScreen } from "./src/screens/WelcomeScreen";
 import { MainMenuScreen } from "./src/screens/MainMenuScreen";
 import { HowDoesItWorksScreen } from "./src/screens/HowDoesItWorksScreen";
 import { ScanQRScreen } from "./src/screens/ScanQRScreen";
-import { useRef } from "react";
+import { QrScreen } from "./src/screens/QrScreen";
 
 export default function Main() {
-  const cameraRef = useRef(null);
-
   return (
     <View>
       <Routes>
+        <Route path="/qr" element={<QrScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/welcome" element={<WelcomeScreen />} />
         <Route path="/howdoesitworks" element={<HowDoesItWorksScreen />} />
-        <Route path="/" element={<ScanQRScreen />} />
+        <Route path="/" element={<MainMenuScreen />} />
       </Routes>
     </View>
   );

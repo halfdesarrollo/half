@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, SafeAreaView } from "react-native";
 import { StyleSheet } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -9,6 +9,8 @@ import Navbar from "../components/Navbar";
 
 // components
 import Search from "../components/Search/Search";
+import { QrScreen } from "./QrScreen";
+import ScanQRScreen from "./ScanQRScreen";
 
 export const MainMenuScreen = () => {
   return (

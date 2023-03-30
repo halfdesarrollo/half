@@ -10,15 +10,18 @@ import {
 import PerfilLogo from "../../assets/hombre 1.svg";
 import HomeLogo from "../../assets/Home-logo.svg";
 import QrLogo from "../../assets/QR.svg";
+import { useNavigate } from "react-router-native";
 
 const Navbar = () => {
   const [activeButton, setActiveButton] = useState("home");
+  const navigation = useNavigate();
 
   return (
     <SafeAreaView style={styles.navbar_container}>
       <TouchableHighlight
         underlayColor="white"
         onPress={() => {
+          navigation("/");
           setActiveButton("home");
         }}
       >
@@ -39,6 +42,7 @@ const Navbar = () => {
       <TouchableHighlight
         underlayColor="white"
         onPress={() => {
+          navigation("/qr");
           setActiveButton("qr");
         }}
       >

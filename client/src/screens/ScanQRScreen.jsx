@@ -1,34 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Camera, CameraView } from "react-native-vision-camera";
+import { BarCodeScanner } from "expo-barcode-scanner";
+import { StatusBar } from "expo-status-bar";
 
 export default function ScanQRScreen() {
-  const [isCameraReady, setIsCameraReady] = useState(false);
-  const [scannedData, setScannedData] = useState(null);
+  const [hasPermission, setHasPermission] = useState(null);
+  const [scanned, setScanned] = useState(false);
 
   useEffect(() => {
-    if (isCameraReady) {
-      Camera.startScanningQRCodes(({ value }) => {
-        console.log("Scanned QR code:", value);
-        setScannedData(value);
-      });
-    }
-  }, [isCameraReady]);
+    (async () => {
+      const { status } = await BarCodeScanner.requestPermissionsAsync();
+      setHasPermission(status === "granted");
+    })();
+  }, []);
+
+  const handleBarCodeScanned = ({ type, data }) => {
+    setScanned(true);
+
+    console.log(data);
+    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+  };
+
+  if (hasPermission === null) {
+    return <Text>Requesting for camera permission</Text>;
+  }
+  if (hasPermission === false) {
+    return <Text>No access to camera</Text>;
+  }
 
   return (
     <View style={styles.container}>
-      <Camera
-        style={styles.camera}
-        onCameraReady={() => setIsCameraReady(true)}
-        cameraConfig={{ captureQuality: "1080p" }}
-      >
-        <CameraView style={styles.cameraView} />
-      </Camera>
-      {scannedData && (
-        <View style={styles.overlay}>
-          <Text style={styles.scannedData}>{scannedData}</Text>
-        </View>
-      )}
+      <BarCodeScanner
+        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+        style={StyleSheet.absoluteFillObject}
+      />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -36,28 +42,10 @@ export default function ScanQRScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  camera: {
-    flex: 1,
-    justifyContent: "flex-end",
     alignItems: "center",
+    width: 350,
+    height: 20,
+    backgroundColor: "red",
   },
-  cameraView: {
-    width: "100%",
-    height: "100%",
-  },
-  overlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
-  },
-  scannedData: {
-    color: "#fff",
-    fontSize: 24,
-  },
+  absoluteFillObject: {},
 });
