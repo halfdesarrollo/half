@@ -1,35 +1,35 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import React, {useState} from 'react'
-import PropinaIcon from '../../assets/propinaIcon.svg'
+import TipIcon from '../../assets/tipIcon.svg'
 import { fonts, colors } from '../utils/theme'
 
-const Propina = () => {
+const Tip = () => {
   // guarda el valor ingresado en el input
-  const [propinaInput, setPropinaInput] = useState()
+  const [tipInput, setTipInput] = useState()
 
   // capturamos el texto ingresado en el input
-  const onChangePropinaInput = (value) => {
-    setPropinaInput(parseInt(value))
+  const onChangeTipInput = (value) => {
+    setTipInput(parseInt(value))
   }
 
   return (
     <>
-      <View style={styles.propinaContent}>
-        <View style={styles.propinaItems}>
-          <PropinaIcon/>
-          <Text style={styles.propinaText}>Propina</Text>
+      <View style={styles.tipContent}>
+        <View style={styles.tipItems}>
+          <TipIcon/>
+          <Text style={styles.tipText}>Propina</Text>
         </View>
-        <TextInput value={propinaInput} onChangeText={onChangePropinaInput} style={styles.propinaInput} inputMode='numeric'/>
+        <TextInput value={tipInput} onChangeText={onChangeTipInput} style={styles.tipInput} inputMode='numeric'/>
       </View>
     </>
   )
 }
 
 const styles = StyleSheet.create({
-  propina: {
+  tip: {
 
   },
-  propinaContent:{
+  tipContent:{
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -37,18 +37,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 14,
   },
-  propinaItems: {
+  tipItems: {
     flexDirection: 'row',
     gap: 10,
     alignItems: 'center'
   },
-  propinaIcon: {
+  tipIcon: {
 
   },
-  propinaText: {
+  tipText: {
     fontFamily: fonts.poppins.medium,
   },
-  propinaInput: {
+  tipInput: {
     borderBottomColor: colors.secundary2,
     borderBottomWidth: 1,
     width: 100,
@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Propina
+export default Tip

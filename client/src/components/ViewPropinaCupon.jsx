@@ -1,6 +1,6 @@
 import { View, StyleSheet } from 'react-native'
 import React from 'react'
-import Propina from './Propina'
+import Tip from './Tip'
 import AddCuponBtn from './AddCuponBtn'
 import { colors } from '../utils/theme'
 
@@ -8,7 +8,7 @@ const ViewPropinaCupon = () => {
   return (
     <View style={[styles.viewPropinaCupon, styles.shadowProps]}>
       <View style={styles.viewPropinaContentPropina}>
-        <Propina/>
+        <Tip/>
       </View>
       <View style={styles.viewPropinaContentCupon}>
         <AddCuponBtn/>
