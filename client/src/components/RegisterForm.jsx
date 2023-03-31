@@ -32,14 +32,15 @@ export default function RegisterForm() {
         )}
         name="name"
         />
-        {errors.firstName && <Text>This is required.</Text>}
+        {errors.name && <Text style={styles.text4}>Ingresar nombre</Text>}
       </View>
       <View>
         <Text>Correo</Text>
         <Controller
         control={control}
         rules={{
-         maxLength: 100,
+         maxLength: 30,
+         required: true,
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
@@ -52,13 +53,15 @@ export default function RegisterForm() {
         )}
         name="email"
         />
+        {errors.email && <Text style={styles.text4}>Ingresar correo</Text>}
       </View>
       <View>
         <Text>Contraseña</Text>
         <Controller
         control={control}
         rules={{
-          maxLength: 100, 
+          minLength: 8,
+          required: true, 
         }}
         render={({ field: { onChange, onBlur, value } }) => (
           <TextInput
@@ -71,6 +74,7 @@ export default function RegisterForm() {
           )}
         name='password'
         />
+        {errors.password && <Text style={styles.text4}>Contraseña no menor a 8 caracteres</Text>}
       </View>  
       <View>
         <View style={styles.checkContainer}><CheckBox checked={isSelected} onPress={() => setSelection(!isSelected)} /></View>
@@ -135,5 +139,8 @@ const styles = StyleSheet.create({
     fontFamily: fonts.poppins.bold, 
     fontSize: 16,
     color: 'white',
+  },
+  text4: {
+    color: 'red'
   }
 });
