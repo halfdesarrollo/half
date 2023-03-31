@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         width: wp('88%'),
         flexDirection: 'row',
         alignItems: 'flex-end',
-        gap: 10,
+        gap: 15,
     },
     box: {
         alignItems: 'center',
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#555',
-        paddingTop: 5
+        paddingTop: 3,
+        fontSize: 12
     }
 })
