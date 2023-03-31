@@ -41,7 +41,7 @@ const Navbar = () => {
       <TouchableHighlight
         underlayColor="white"
         onPress={() => {
-          //navigation("/qr"); descomentar para agregar navegacion en la pagina aun no creada qr
+          navigation("/qrscreen");
           setActiveButton("qr");
         }}
       >
