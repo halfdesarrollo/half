@@ -14,11 +14,8 @@ import {
 } from "react-native-responsive-screen";
 import EclipseBot from "../../assets/green-bottom-ellipse.svg";
 import HalfLogo from "../../assets/HalfSVG.svg";
-import LoginComponent from "../components/LoginComponent";
-import WelcomeElipse from "../../assets/EllipseOrange.svg";
-import ElipseHalf1 from "../../assets/elipseHalf1.svg";
-import ElipseHalf2 from "../../assets/elipseHalf2.svg";
-import { Button } from "react-native-elements";
+// import LoginComponent from "../components/LoginComponent";
+import RegsiterForm from "../components/RegisterForm";
 
 export const LoginScreen = () => {
   const [login, setLogin] = useState(false);
@@ -60,7 +57,10 @@ export const LoginScreen = () => {
             <Button title="Inicia Sesion" onPress={() => setLogin(true)} />
             <Button title="Registrate" onPress={() => setLogin(false)} />
           </View>
-          {login ? <LoginComponent /> : <Text>Register</Text>}
+          <Image style={styles.image_eclipseTop} source={ecliplseTopLogo} />
+          <Text style={{ fontSize: 20 }}>Inicia Sesion | Registro </Text>
+          {/* <LoginComponent /> */}
+          <RegsiterForm />
         </View>
       </KeyboardAvoidingView>
     </SafeAreaView>
