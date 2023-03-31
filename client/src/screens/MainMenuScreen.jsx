@@ -11,14 +11,12 @@ import Navbar from "../components/Navbar";
 import SpecialHalf from "../components/SpecialHalf";
 import Search from "../components/Search";
 import TitlePageLocation from "../components/TitlePageLocation";
-import OffersHalf from "../components/OffersHalf";
 
 export const MainMenuScreen = () => {
   return (
     <View style={styles.container}>
       <TitlePageLocation />
       <Search />
-      <OffersHalf />
       <SpecialHalf />
       <Navbar />
     </View>
