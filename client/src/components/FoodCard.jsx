@@ -27,17 +27,17 @@ const FoodCard = ({title, description, image_plato, price}) => {
     else if (sign === '+') 
       calculate = Number(quantity) + 1;
     else return;
-    const result = calculate.toString().at(1)? calculate.toString() : '0'+calculate
+    const result = calculate.toString().at(1)? calculate.toString() : '0' + calculate;
     setQuantity(result);
   }
     return(
           <View style={styles.containerFoodCard}>
             <View style={styles.viewImage}>
-              <Image style={styles.image} source={image_plato || 'https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg'}/>
+              <Image style={styles.image} source={image_plato || undefined} alt="imagen de la comida" />
             </View>
             <View style={styles.viewText}>
-              <Text style={styles.title}>{title || 'Papa a la huancaína' ||'Sin titulo'}</Text>
-              <Text style={styles.description}>{description || 'Papa andina mediana, con aceituna, huevo y toque de leche.' ||'Sin descripcion'}</Text>
+              <Text style={styles.title}>{title || 'Sin titulo'}</Text>
+              <Text style={styles.description}>{description ||'Sin descripcion'}</Text>
               <View style={styles.viewOrder}>
                 <Text style={styles.priceAndQuantity}>S/.{price || '13.90'}</Text>
                 <View style={styles.viewSvgs}>
@@ -45,7 +45,7 @@ const FoodCard = ({title, description, image_plato, price}) => {
                     onPress={()=>quantityCalculate('-')}>
                     <MinusButton style={styles.svgs}/>
                   </TouchableOpacity>
-                  <Text style={styles.priceAndQuantity}>{String(quantity) || '00'}</Text>
+                  <Text style={styles.priceAndQuantity}>{quantity || '00'}</Text>
                   <TouchableOpacity 
                     onPress={()=>quantityCalculate('+')}>
                     <MoreButton style={styles.svgs}/>
