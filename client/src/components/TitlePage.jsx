@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         width: wp('100%'),
         borderBottomWidth: 1,
-        borderBottomColor: '#4B5563',
+        borderBottomColor: '#4B556355',
     },
     box: {
         flexDirection: 'row',
