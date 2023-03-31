@@ -18,7 +18,7 @@ import MoreButton from '../../assets/more-button';
 import MinusButton from '../../assets/minus-button';
 import { useState } from "react";
 
-const FoodCard = ({title, description,image, price}) => {
+const FoodCard = ({title, description, image_plato, price}) => {
   const [quantity, setQuantity] = useState('00')
   const quantityCalculate = (sign) => {
     let calculate;
@@ -33,7 +33,7 @@ const FoodCard = ({title, description,image, price}) => {
     return(
           <View style={styles.containerFoodCard}>
             <View style={styles.viewImage}>
-              <Image style={styles.image} source={image || undefined}/>
+              <Image style={styles.image} source={image_plato || 'https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg'}/>
             </View>
             <View style={styles.viewText}>
               <Text style={styles.title}>{title || 'Papa a la huancaína' ||'Sin titulo'}</Text>
