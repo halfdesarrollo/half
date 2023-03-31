@@ -5,7 +5,7 @@ import {
 } from 'react-native-responsive-screen'
 import { colors, fonts } from '../utils/theme';
 import contacts from '../mocks/contactos'
-import { CheckBox } from 'react-native-elements';
+import InviteCard from './InviteCard';
 
 const Contacts = () => {
     return (
@@ -13,15 +13,9 @@ const Contacts = () => {
             <Text style={styles.title}>Contactos que ya tienen Half</Text>
             <ScrollView style={styles.contactsBox}>
                 {
-                    contacts?.map((e, i) => {
+                    contacts?.map(e => {
                         return (
-                            <View key={i} style={styles.contacts}>
-                                <View style={styles.box}>
-                                    <Image style={styles.img} source={{ uri: e.img }} />
-                                    <Text style={styles.name}>{e.name}</Text>
-                                </View>
-                                <CheckBox />
-                            </View>
+                            <InviteCard key={e.id} name={e.name} img={e.img} />
                         )
                     })
                 }
@@ -43,27 +37,7 @@ const styles = StyleSheet.create({
         color: colors.secundary4,
         paddingBottom: 5
     },
-    contacts: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingVertical: 10,
-        borderBottomWidth: 1,
-        borderBottomColor: '#4B556333',
-    },
     contactsBox: {
         height: 460,
     },
-    box: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 20
-    },
-    img: {
-        width: 50,
-        height: 50,
-        borderRadius: 50
-    },
-    name: {
-        fontFamily: fonts.poppins.medium,
-    }
 })
