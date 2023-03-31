@@ -4,7 +4,7 @@ import {
     Image,
     TouchableOpacity,
     StyleSheet,
-    Alert
+    Alert,
 } from "react-native";
 import {
     widthPercentageToDP as wp,
@@ -16,88 +16,44 @@ import {
 } from "../utils/theme";
 import MoreButton from '../../assets/more-button';
 import MinusButton from '../../assets/minus-button';
+import { useState } from "react";
 
 const FoodCard = ({title, description,image, price}) => {
-  let cantidad = '00'; 
+  const [quantity, setQuantity] = useState('00')
+  const quantityCalculate = (sign) => {
+    let calculate;
+    if(sign === '-' && Number(quantity) > 0) 
+      calculate = Number(quantity)-1;
+    else if (sign === '+') 
+      calculate = Number(quantity) + 1;
+    else return;
+    const result = calculate.toString().at(1)? calculate.toString() : '0'+calculate
+    setQuantity(result);
+  }
     return(
-      <View>
-        
-          
-            <View style={styles.containerFoodCard}>
-              <View style={styles.viewImage}>
-                <Image style={styles.image} source={image || undefined}/>
-              </View>
-              <View style={styles.viewText}>
-                <Text style={styles.title}>{title || 'Papa a la huancaína' ||'Sin titulo'}</Text>
-                <Text style={styles.description}>{description || 'Papa andina mediana, con aceituna, huevo y toque de leche.' ||'Sin descripcion'}</Text>
-                <View style={styles.viewOrder}>
-                  <Text style={styles.price}>S/.{price || '13.90'}</Text>
-                  <View style={styles.viewSvgs}>
-                    <TouchableOpacity 
-                      onPress={()=>Alert.alert('menos')}>
-                      <MinusButton style={styles.svgs}/>
-                    </TouchableOpacity>
-                    <Text style={styles.price}>{cantidad}</Text>
-                    <TouchableOpacity 
-                      onPress={()=>Alert.alert('mas')}>
-                      <MoreButton style={styles.svgs}/>
-                    </TouchableOpacity>
-                  </View>
+          <View style={styles.containerFoodCard}>
+            <View style={styles.viewImage}>
+              <Image style={styles.image} source={image || undefined}/>
+            </View>
+            <View style={styles.viewText}>
+              <Text style={styles.title}>{title || 'Papa a la huancaína' ||'Sin titulo'}</Text>
+              <Text style={styles.description}>{description || 'Papa andina mediana, con aceituna, huevo y toque de leche.' ||'Sin descripcion'}</Text>
+              <View style={styles.viewOrder}>
+                <Text style={styles.priceAndQuantity}>S/.{price || '13.90'}</Text>
+                <View style={styles.viewSvgs}>
+                  <TouchableOpacity 
+                    onPress={()=>quantityCalculate('-')}>
+                    <MinusButton style={styles.svgs}/>
+                  </TouchableOpacity>
+                  <Text style={styles.priceAndQuantity}>{String(quantity) || '00'}</Text>
+                  <TouchableOpacity 
+                    onPress={()=>quantityCalculate('+')}>
+                    <MoreButton style={styles.svgs}/>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
-          
-            <View style={styles.containerFoodCard}>
-              <View style={styles.viewImage}>
-                <Image style={styles.image} source={image || undefined}/>
-              </View>
-              <View style={styles.viewText}>
-                <Text style={styles.title}>{title || 'Papa a la huancaína' ||'Sin titulo'}</Text>
-                <Text style={styles.description}>{description || 'Papa andina mediana, con aceituna, huevo y toque de leche.' ||'Sin descripcion'}</Text>
-                <View style={styles.viewOrder}>
-                  <Text style={styles.price}>S/.{price || '13.90'}</Text>
-                  <View style={styles.viewSvgs}>
-                    <TouchableOpacity 
-                      onPress={()=>Alert.alert('menos')}>
-                      <MinusButton style={styles.svgs}/>
-                    </TouchableOpacity>
-                    <Text style={styles.price}>{cantidad}</Text>
-                    <TouchableOpacity 
-                      onPress={()=>Alert.alert('mas')}>
-                      <MoreButton style={styles.svgs}/>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              </View>
-            </View>
-          
-         
-            <View style={styles.containerFoodCard}>
-              <View style={styles.viewImage}>
-                <Image style={styles.image} source={image || undefined}/>
-              </View>
-              <View style={styles.viewText}>
-                <Text style={styles.title}>{title || 'Papa a la huancaína' ||'Sin titulo'}</Text>
-                <Text style={styles.description}>{description || 'Papa andina mediana, con aceituna, huevo y toque de leche.' ||'Sin descripcion'}</Text>
-                <View style={styles.viewOrder}>
-                  <Text style={styles.price}>S/.{price || '13.90'}</Text>
-                  <View style={styles.viewSvgs}>
-                    <TouchableOpacity 
-                      onPress={()=>cantidad = cantidad - 1}>
-                      <MinusButton style={styles.svgs}/>
-                    </TouchableOpacity>
-                    <Text style={styles.price}>{cantidad || '00'}</Text>
-                    <TouchableOpacity 
-                      onPress={()=>cantidad = cantidad + 1}>
-                      <MoreButton style={styles.svgs}/>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              </View>
-            </View>
-
-
-        </View>
+          </View>
     )
 }
 
@@ -150,7 +106,7 @@ export const styles = StyleSheet.create({
     justifyContent:'space-between',
     alignItems:'center',
   },
-  price:{
+  priceAndQuantity:{
     textAlignVertical:'center',
     textAlign:'center',
     fontSize:16,
