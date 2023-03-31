@@ -4,8 +4,16 @@ export default [
         img: 'https://i.pravatar.cc/150?img=1'
     },
     {
+        name: 'Andres',
+        img: 'https://i.pravatar.cc/150?img=8'
+    },
+    {
         name: 'Arturo',
         img: 'https://i.pravatar.cc/150?img=2'
+    },
+    {
+        name: 'Belen',
+        img: 'https://i.pravatar.cc/150?img=9'
     },
     {
         name: 'Gerardo',

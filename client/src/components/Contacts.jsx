@@ -5,7 +5,7 @@ import {
 } from 'react-native-responsive-screen'
 import { colors, fonts } from '../utils/theme';
 import contacts from '../mocks/contactos'
-// import {CheckBox} from 'react-native'
+import { CheckBox } from 'react-native-elements';
 
 const Contacts = () => {
     return (
@@ -13,13 +13,14 @@ const Contacts = () => {
             <Text style={styles.title}>Contactos que ya tienen Half</Text>
             <ScrollView style={styles.contactsBox}>
                 {
-                    contacts?.map(e => {
+                    contacts?.map((e, i) => {
                         return (
-                            <View style={styles.contacts}>
+                            <View key={i} style={styles.contacts}>
                                 <View style={styles.box}>
                                     <Image style={styles.img} source={{ uri: e.img }} />
                                     <Text style={styles.name}>{e.name}</Text>
                                 </View>
+                                <CheckBox />
                             </View>
                         )
                     })
@@ -44,6 +45,7 @@ const styles = StyleSheet.create({
     },
     contacts: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         paddingVertical: 10,
         borderBottomWidth: 1,
         borderBottomColor: '#4B556333',
