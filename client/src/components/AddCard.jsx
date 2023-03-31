@@ -1,47 +1,40 @@
-import React from "react";
-import { TouchableOpacity, Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen'
+import AddCardButton from '../components/AddCardButton'
+import { fonts } from '../utils/theme'
+import DebitCard from '../../assets/debit-card.svg'
 
-const AddCard = () => {
+export const AddCard = () => {
   return (
-    <View style={styles.conteiner}>
-      <TouchableOpacity>
-        <Text style={styles.text}>Agregar tarjeta</Text>
-      </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.cardContainer}>
+        <DebitCard style={styles.debitCard} />
+        <Text style={styles.title}>Puedes agregar un TC o débito</Text>
+      </View>
+      <AddCardButton />
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
-  conteiner: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignContent: "center",
-    fontFamily: fonts.poppins.regular,
-    marginTop: 30,
-    marginLeft: 25,
-    backgroundColor: "#FFC107",
-    width: 270,
-    height: 45,
-    textAlign: "center",
-    left: 27,
-    right: 28,
-    borderRadius: 5,
-    shadowColor: "#000000",
-    shadowOffset: { width: 3, height: 5 },
-    shadowOpacity: 0.2,
+  cardContainer: {
+    flexDirection: 'row',
+    textAlign: 'center',
+    alignItems: 'center',
+    gap: wp(6),
+    marginLeft: wp(10),
+    marginBottom: hp(-3),
   },
-  text: {
-    color: "#ffff",
-    width: 128,
-    height: 24,
-    fontStyle: "normal",
-    fontWeight: 700,
+  title: {
+    fontFamily: fonts.poppins.medium,
     fontSize: 16,
-    lineHeight: 24,
-    textAlign: "center",
-    marginTop: 7,
-    fontWeight: "bold",
   },
-});
-
-export default AddCard;
+  debitCard: {
+    width: wp(9),
+    height: hp(9),
+  },
+})

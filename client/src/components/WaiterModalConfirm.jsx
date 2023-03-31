@@ -155,7 +155,6 @@ const styles = StyleSheet.create({
   modalText: {
     fontSize: 26,
     fontWeight: 'bold',
-    // fontFamily: fonts.roboto.regular,
     fontFamily: fonts.roboto.regular,
     marginBottom: 15,
     textAlign: 'center',
@@ -165,7 +164,6 @@ const styles = StyleSheet.create({
   modalText2: {
     fontSize: 26,
     fontWeight: 'bold',
-    // fontFamily: fonts.roboto.regular,
     fontFamily: fonts.roboto.regular,
     marginBottom: 15,
     textAlign: 'center',
@@ -180,6 +178,5 @@ const styles = StyleSheet.create({
   waiterIconModal: {
     width: wp('29.00%'),
     height: hp('15.00%'),
-    // backgroundColor: 'red',
   },
 })
