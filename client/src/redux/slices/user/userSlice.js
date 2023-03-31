@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-
-const URL_LOGIN = "http://192.168.1.15:3000/auth/login";
+import { URL_LOGIN } from "react-native-dotenv";
 
 const initialState = {
   user: {},

@@ -15,7 +15,7 @@ export default function Main() {
         <Route path="/qrscreen" element={<QrScreen />} />
         <Route path="/welcome" element={<WelcomeScreen />} />
         <Route path="/howdoesitworks" element={<HowDoesItWorksScreen />} />
-        <Route path="/" element={<MainMenuScreen />} />
+        <Route path="/" element={<LoginScreen />} />
         <Route path="/addpaymethod" element={<AddPayMethodScreen />} />
       </Routes>
     </View>

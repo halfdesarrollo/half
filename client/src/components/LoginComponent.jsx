@@ -5,6 +5,8 @@ import {
   SafeAreaView,
   TouchableHighlight,
   TextInput,
+  StyleSheet,
+  Dimensions,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
