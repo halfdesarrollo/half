@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: colors.primaryGreen,
         borderRadius: 6,
-        width: wp('80%'),
+        width: wp('90%'),
         height: wp('11%'),
         flexDirection: 'row',
         alignItems: 'center',

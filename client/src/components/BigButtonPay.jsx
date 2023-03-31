@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.primaryGreen,
         paddingVertical: 11,
         borderRadius: 6,
-        width: wp('80%')
+        width: wp('90%')
     },
     text: {
         color: '#fff',
