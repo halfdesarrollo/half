@@ -6,6 +6,10 @@ import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { UsersModule } from "./users/users.module";
 import { AuthModule } from "./auth/auth.module";
+import { TablesModule } from './tables/tables.module';
+import { MenusModule } from './menus/menus.module';
+import { OrdersModule } from './orders/orders.module';
+import { RestaurantsModule } from './restaurants/restaurants.module';
 import * as cors from "cors";
 
 @Module({
@@ -17,6 +21,10 @@ import * as cors from "cors";
     MongooseModule.forRoot(process.env.MONGODB_URI),
     UsersModule,
     AuthModule,
+    TablesModule,
+    MenusModule,
+    OrdersModule,
+    RestaurantsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
