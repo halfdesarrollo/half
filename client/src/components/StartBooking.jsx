@@ -28,7 +28,7 @@ const StartBooking = () => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    width: wp('80%'),
+    width: wp('85%'),
     justifyContent: 'space-between',
   },
   title: {
@@ -41,21 +41,24 @@ const styles = StyleSheet.create({
     borderColor: colors.primaryOrange,
     borderWidth: 2,
     borderStyle: 'solid',
-    paddingHorizontal: 4,
+    paddingHorizontal: 5,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    width: wp('60%')
+    width: wp('65%')
 
   },
   boxText: {
     color: '#BDBDBD',
-    paddingVertical: 10,
+    paddingVertical: 8,
+    fontFamily: fonts.poppins.regular,
+    fontSize: 12
   },
   bar: {
     color: colors.primaryOrange,
-    fontSize: 30,
-    bottom: 2
+    fontSize: 36,
+    lineHeight: 36,
+    top: 1
   }
 });
 
