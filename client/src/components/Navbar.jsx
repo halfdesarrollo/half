@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableHighlight,
 } from "react-native";
-import PerfilLogo from "../../assets/hombre 1.svg";
+import PerfilLogo from "../../assets/whitePerson.svg";
 import HomeLogo from "../../assets/Home-logo.svg";
 import QrLogo from "../../assets/QR.svg";
 import { useNavigate } from "react-router-native";
@@ -18,7 +18,8 @@ const Navbar = () => {
   return (
     <SafeAreaView style={styles.navbar_container}>
       <TouchableHighlight
-        underlayColor="white"
+        underlayColor="none"
+        activeOpacity={1}
         onPress={() => {
           navigation("/");
           setActiveButton("home");
@@ -28,21 +29,25 @@ const Navbar = () => {
           style={[
             styles.navbar_button,
             {
-              bottom: activeButton === "home" ? 25 : 0,
-              color: activeButton === "home" ? "white" : "#ffffff",
+              bottom: activeButton === "home" ? 30 : 0,
               backgroundColor: activeButton === "home" ? "#87BE56" : "#fff",
             },
           ]}
         >
-          <HomeLogo fill="#000000" />
-          <Text>Home</Text>
+          <HomeLogo stroke={activeButton === "home" ? "#fff" : "#000"} />
+          <Text style={{ color: activeButton === "home" ? "#fff" : "#000" }}>
+            Home
+          </Text>
         </View>
       </TouchableHighlight>
       <TouchableHighlight
-        underlayColor="white"
+        underlayColor="none"
+        activeOpacity={1}
         onPress={() => {
-          navigation("/qrscreen");
           setActiveButton("qr");
+          setTimeout(() => {
+            navigation("/qrscreen");
+          }, 300);
         }}
       >
         <View
@@ -50,17 +55,19 @@ const Navbar = () => {
             styles.navbar_button,
             {
               bottom: activeButton === "qr" ? 25 : 0,
-              color: activeButton === "qr" ? "white" : "white",
               backgroundColor: activeButton === "qr" ? "#87BE56" : "#fff",
             },
           ]}
         >
-          <QrLogo fill={activeButton === "qr" ? "#000000" : "#ffffff"} />
-          <Text>QR</Text>
+          <QrLogo fill={activeButton === "qr" ? "#fff" : "#000"} />
+          <Text style={{ color: activeButton === "qr" ? "#fff" : "#000" }}>
+            QR
+          </Text>
         </View>
       </TouchableHighlight>
       <TouchableHighlight
-        underlayColor="white"
+        underlayColor="none"
+        activeOpacity={1}
         onPress={() => {
           //navigation("/perfil"); descomentar para agregar navegacion en la pagina aun no creada perfil
           setActiveButton("perfil");
@@ -70,14 +77,15 @@ const Navbar = () => {
           style={[
             styles.navbar_button,
             {
-              bottom: activeButton === "perfil" ? 25 : 0,
-              color: activeButton === "perfil" ? "#fff" : "#000",
+              bottom: activeButton === "perfil" ? 30 : 0,
               backgroundColor: activeButton === "perfil" ? "#87BE56" : "#fff",
             },
           ]}
         >
-          <PerfilLogo />
-          <Text>Perfil</Text>
+          <PerfilLogo stroke={activeButton === "perfil" ? "#fff" : "black"} />
+          <Text style={{ color: activeButton === "perfil" ? "#fff" : "#000" }}>
+            Perfil
+          </Text>
         </View>
       </TouchableHighlight>
     </SafeAreaView>
@@ -89,24 +97,34 @@ export default Navbar;
 const styles = StyleSheet.create({
   navbar_container: {
     backgroundColor: "white",
+    borderRadius: 80,
     height: 90,
     flexDirection: "row",
     elevation: 3,
-    paddingHorizontal: 35,
+    paddingHorizontal: 30,
     position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    borderTopWidth: 1,
+    bottom: 15,
+    left: 10,
+    right: 10,
+    borderTopWidth: 0.5,
     borderTopColor: "#ccc",
     alignItems: "center",
     justifyContent: "space-between",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 4,
+      height: 5,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 5.84,
+    elevation: 7,
   },
   navbar_button: {
     width: 90,
-    borderColor: "red",
+    backgroundColor: "red",
     height: 90,
-    marginVertical: 30,
+    marginVertical: -40,
+    transitionDuration: "0.6s",
     paddingVertical: 20,
     alignItems: "center",
     justifyContent: "center",
