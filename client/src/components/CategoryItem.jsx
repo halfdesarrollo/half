@@ -1,57 +1,43 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+import { colors, fonts } from '../utils/theme';
 
-const CategoryItem = ({ item }) => {
+const CategoryItem = ({ item, index }) => {
 
   return (
-    <View key={item.id} style={styles.conteiners}>
-      <View style={styles.view}>
-        <Image style={styles.categoryImage} source={{ uri: item.item.imagen }} />
-      </View>
-      <View style={styles.nombres}>
-        <Text
-          style={
-            item.index % 2 === 0
-              ? styles.categorySecondaryColor
-              : styles.categoryPrymaryColor
-          }
-        >
-          {item.item.nombre}
-        </Text>
-      </View>
+    <View key={item.id} style={styles.container}>
+      <Image style={styles.img} source={{ uri: item.img }} />
+      <Text style={
+        index % 2 === 0
+          ? styles.greenText
+          : styles.orangeText
+      }>
+        {item.name}
+      </Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  conteiners: {
-    flexDirection: "row",
+  container: {
     justifyContent: "center",
-    fontFamily: fonts.poppins.regular,
-    color: "#87BE56",
-    marginLeft: 25,
-    marginTop: 30,
+    alignItems: 'center',
 
   },
-  nombres: {
-    padding: 10,
-    top: 10,
-    marginTop: 55,
-    textAlign: "center",
+  greenText: {
+    color: colors.primaryGreen,
+    fontFamily: fonts.poppins.bold,
   },
+  orangeText: {
+    color: colors.primaryOrange,
+    fontFamily: fonts.poppins.bold,
 
-  categoryImage: {
-    width: 58,
-    height: 58,
-    borderRadius: 38,
   },
-
-  categorySecondaryColor: {
-    color: "#87BE56",
-  },
-  categoryPrymaryColor: {
-    color: "#FFAD3F",
-  },
+  img: {
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+  }
 });
 
 export default CategoryItem;
