@@ -11,7 +11,7 @@ import {
 import Confeti from "../../assets/confeti";
 import ButtonReutil from "./ButtonReutil";
 
-const ModalProofOfPayment = ({paymentCode}) => {
+const ModalPaymentConfirmed = ({paymentCode}) => {
   return(
       <View style={styles.container}>
         <View style={styles.containerDatas}>
@@ -99,4 +99,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ModalProofOfPayment;
+export default ModalPaymentConfirmed;
