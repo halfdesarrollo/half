@@ -10,6 +10,7 @@ import { QrScreen } from './src/screens/QrScreen'
 import OrderScreen from './src/screens/OrderScreen'
 import PayScreen from './src/screens/PayScreen'
 import ViewOrderScreen from './src/screens/ViewOrderScreen'
+import { MenuCardScreen } from "./src/screens/MenuCardScreen";
 
 
 export default function Main() {
@@ -25,6 +26,7 @@ export default function Main() {
         <Route path='/order' element={<OrderScreen />} />
         <Route path='/pay' element={<PayScreen />} />
         <Route path='/vieworder' element={<ViewOrderScreen />} />
+        <Route path="/menucard" element={<MenuCardScreen/>}/>
       </Routes>
     </View>
   )
