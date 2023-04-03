@@ -69,7 +69,7 @@ const Navbar = () => {
         underlayColor="none"
         activeOpacity={1}
         onPress={() => {
-          //navigation("/perfil"); descomentar para agregar navegacion en la pagina aun no creada perfil
+          navigation("/login");
           setActiveButton("perfil");
         }}
       >
