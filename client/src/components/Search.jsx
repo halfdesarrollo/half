@@ -8,6 +8,11 @@ import {
 import React, { useState } from 'react';
 import { searchValidationSchema } from '../utils/validationSearchScheme';
 import SearchSvg from '../../assets/search.svg';
+import { colors, fonts } from '../utils/theme';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen'
 
 const Search = () => {
 
@@ -56,18 +61,22 @@ const Search = () => {
 const styles = StyleSheet.create({
   search: {
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    width: wp('100%'),
+    height: hp('8%'),
   },
   searchContainer: {
-    width: 240,
+    width: wp('80%'),
     flexDirection: 'row',
     gap: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#4B5563',
+    borderBottomColor: colors.secundary2,
     justifyContent: 'center',
     alignItems: 'center',
   },
   searchInput: {
+    fontFamily: fonts.poppins.regular,
+    width: wp('70%'),
   },
   searchTouch: {
     display: 'flex',
