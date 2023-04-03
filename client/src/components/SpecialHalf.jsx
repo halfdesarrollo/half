@@ -7,35 +7,44 @@ import {
   Text,
   StyleSheet,
   Image,
-  Dimensions,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-const { width: SCREEN_WIDTH } = Dimensions.get("window");
 
-const handleScroll = () => {
+const SpecialHalf = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
   const scrollViewRef = useRef(null);
 
+
   const data = [
-    "https://source.unsplash.com/1600x900/?nature",
-    "https://source.unsplash.com/1600x900/?water",
-    "https://source.unsplash.com/1600x900/?mountains",
-    "https://source.unsplash.com/1600x900/?door",
+    {
+      name: 'Image 1',
+      uri: require('../../assets/carrS1.png')
+    },
+    {
+      name: 'Image 2',
+      uri: require('../../assets/carrS2.png')
+    },
+    {
+      name: 'Image 3',
+      uri: require('../../assets/carrS1.png')
+    }
   ];
-
-
   const handleButtonPress = (index) => {
     setActiveIndex(index);
-    const x = index * (SCREEN_WIDTH - 225);
+    const x = index * 220;
     scrollViewRef.current.scrollTo({ x: x, y: 0, animated: true });
   };
 
+  const handleScroll = (event) => {
+    const index = Math.round(event.nativeEvent.contentOffset.x / 220);
+    setActiveIndex(index);
+  };
   return (
     <View style={styles.carouselContainer}>
       <View style={styles.borderContainer}>
@@ -46,17 +55,15 @@ const handleScroll = () => {
       <ScrollView
         ref={scrollViewRef}
         horizontal
-        pagingEnabled
-        // showsHorizontalScrollIndicator={false}
-        onScroll={(event) => {
-          const slideWidth = event.nativeEvent.layoutMeasurement.width - 25;
-          const offset = event.nativeEvent.contentOffset.x;
-          setActiveIndex(Math.floor(offset / slideWidth));
-        }}
+        pagingEnabled={true}
+        snapToInterval={220}
+        showsHorizontalScrollIndicator={false}
+        onScroll={handleScroll}
       >
         {data.map((item, index) => (
           <View key={index} style={styles.slideContainer}>
-            <Image source={{ uri: item }} style={styles.image} />
+          <Image source={item.uri} />
+            {/* <Image source={{ uri: item }} style={styles.image} /> */}
             <Text style={styles.slideText}>{}</Text>
           </View>
         ))}
@@ -67,6 +74,7 @@ const handleScroll = () => {
             key={index}
             style={[
               styles.indicator,
+              // activeIndex === index ? styles.activeButton : null
               activeIndex === index && styles.activeButton,
             ]}
             onPress={() => handleButtonPress(index)}
@@ -82,9 +90,6 @@ const handleScroll = () => {
 const styles = StyleSheet.create({
   carouselContainer: {
     width: wp("100.00%"),
-
-    // width: SCREEN_WIDTH,
-    marginTop: 200,
     overflow: "hidden",
   },
   slideContainer: {
@@ -117,7 +122,7 @@ const styles = StyleSheet.create({
   },
   indicator: {
     width: 35,
-    height: 5,
+    height: 4,
     borderRadius: 4,
     marginHorizontal: 5,
     backgroundColor: "#87BE56",
@@ -145,4 +150,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default handleScroll;
+export default SpecialHalf;
