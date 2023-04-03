@@ -16,30 +16,40 @@ import {
 } from "../utils/theme";
 import MoreButton from '../../assets/more-button';
 import MinusButton from '../../assets/minus-button';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const FoodCard = ({title, description, image_plato, price}) => {
-  const [quantity, setQuantity] = useState('00')
+const FoodCard = ({name, description, image, price}) => {
+  const [ quantity, setQuantity ] = useState('00')
+  const [ originPrice, setOriginPrice ] = useState(null)
+  useEffect(()=>{
+    const priceSplit = price?.toString().split('.')
+    price = !priceSplit[1]
+      ? price?.toString() + '.00'
+      : !priceSplit[1].at(1)
+        ? price?.toString() + '0'
+        : price?.toString()
+    setOriginPrice(price)
+  },[])
   const quantityCalculate = (sign) => {
-    let calculate;
-    if(sign === '-' && Number(quantity) > 0) 
-      calculate = Number(quantity)-1;
-    else if (sign === '+') 
-      calculate = Number(quantity) + 1;
-    else return;
-    const result = calculate.toString().at(1)? calculate.toString() : '0' + calculate;
-    setQuantity(result);
+      let calculate;
+      if(sign === '-' && Number(quantity) > 0) 
+        calculate = Number(quantity)-1;
+      else if (sign === '+') 
+        calculate = Number(quantity) + 1;
+      else return;
+      const result = calculate.toString().at(1)? calculate.toString() : '0' + calculate;
+      setQuantity(result);
   }
     return(
           <View style={styles.containerFoodCard}>
             <View style={styles.viewImage}>
-              <Image style={styles.image} source={image_plato || undefined} alt="imagen de la comida" />
+              <Image style={styles.image} source={image || require('../../assets/NotFound.png')} alt="imagen de la comida" />
             </View>
             <View style={styles.viewText}>
-              <Text style={styles.title}>{title || 'Sin titulo'}</Text>
+              <Text style={styles.title}>{name || 'Sin titulo'}</Text>
               <Text style={styles.description}>{description ||'Sin descripcion'}</Text>
               <View style={styles.viewOrder}>
-                <Text style={styles.priceAndQuantity}>S/.{price || '13.90'}</Text>
+                <Text style={styles.priceAndQuantity}>S/.{originPrice || '0.00'}</Text>
                 <View style={styles.viewSvgs}>
                   <TouchableOpacity 
                     onPress={()=>quantityCalculate('-')}>
@@ -76,10 +86,12 @@ export const styles = StyleSheet.create({
     borderRadius:8
   },
   image: {
+    borderColor:'red',
+    borderWidth:1,
     borderRadius:5,
-    backgroundColor:'red',
     width: 82,
-    height: 82, 
+    height: 82,
+    resizeMode:"contain"
   },
   viewText: {
     width: wp(74),
