@@ -8,6 +8,7 @@ export const colors = {
   secundary5: '#EB5757', // rojo claro / rosa oscuro
   secundary6: '#F0ECE6',
   secundary7: '#8C8A9D',
+  secundary8: '#898989',
 }
 
 export const fonts = {
