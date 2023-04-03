@@ -7,7 +7,7 @@ import { persistReducer } from 'redux-persist'
 import user from './slices/user/userSlice'
 import restaurant from './slices/restaurant/restaurantSlice'
 import order from './slices/order/orderSlice'
-import table from './slices/order/tableSlice'
+import table from './slices/table/tableSlice'
 
 const rootReducer = combineReducers({
   userState: user,
