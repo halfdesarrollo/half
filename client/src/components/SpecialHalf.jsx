@@ -49,9 +49,9 @@ const SpecialHalf = () => {
     <View style={styles.carouselContainer}>
       <View style={styles.borderContainer}>
         <View style={styles.rfBorder} />
-          <Text style={styles.text}>Especiales Half</Text>
+        <Text style={styles.text}>Especiales Half</Text>
         <View style={styles.rfBorder} />
-    </View>
+      </View>
       <ScrollView
         ref={scrollViewRef}
         horizontal
@@ -62,9 +62,9 @@ const SpecialHalf = () => {
       >
         {data.map((item, index) => (
           <View key={index} style={styles.slideContainer}>
-          <Image source={item.uri} />
+            <Image source={item.uri} />
             {/* <Image source={{ uri: item }} style={styles.image} /> */}
-            <Text style={styles.slideText}>{}</Text>
+            <Text style={styles.slideText}>{ }</Text>
           </View>
         ))}
       </ScrollView>
@@ -89,7 +89,7 @@ const SpecialHalf = () => {
 
 const styles = StyleSheet.create({
   carouselContainer: {
-    width: wp("100.00%"),
+    width: wp("90%"),
     overflow: "hidden",
   },
   slideContainer: {
@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
   },
 
   borderContainer: {
-    display:"flex",
-    justifyContent:"center",
+    display: "flex",
+    justifyContent: "center",
     flexDirection: "row",
     alignItems: "center",
   },
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     width: 77,
     backgroundColor: "#FFAD3F",
   },
-  text: { 
+  text: {
     fontStyle: 'normal',
     marginLeft: 10,
     marginRight: 10,

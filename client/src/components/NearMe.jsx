@@ -47,6 +47,7 @@ const NearMe = () => {
     shadowOffset: { width: 0.5, height: 2 },
     flexDirection: "row",
     width: 110,
+    gap: 5
   };
 
   const buttonStylePromociones = {
@@ -62,6 +63,7 @@ const NearMe = () => {
     shadowOffset: { width: 0.5, height: 2 },
     flexDirection: "row",
     width: 110,
+    gap: 5
   };
 
   const buttonStylePopulares = {
@@ -77,6 +79,7 @@ const NearMe = () => {
     shadowOffset: { width: 0.5, height: 2 },
     flexDirection: "row",
     width: 110,
+    gap: 5
   };
 
   return (
@@ -100,7 +103,7 @@ const NearMe = () => {
           onPressOut={handleRelease}
         >
           <Promo />
-          <Text style={styles.text2}>Promociones</Text>
+          <Text style={styles.text}>Promociones</Text>
         </TouchableOpacity>
       </View>
       <View>
@@ -111,7 +114,7 @@ const NearMe = () => {
           onPressOut={handleRelease}
         >
           <Populars />
-          <Text style={styles.text2}>Populares</Text>
+          <Text style={styles.text}>Populares</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -125,60 +128,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     gap: 10
   },
-  button: {
-    // backgroundColor: pressed ? 'red' : 'blue',    
-    paddingVertical: 6,
-    paddingHorizontal: 5,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1.7,
-    shadowOpacity: 0.1,
-    shadowColor: "#000000",
-    shadowOffset: { width: 0.5, height: 2 },
-    flexDirection: "row",
-    width: 110,
-  },
-  button2: {
-    // backgroundColor: pressed ? 'red' : 'blue',  
-    paddingVertical: 6,
-    paddingHorizontal: 5,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1.7,
-    shadowOpacity: 0.1,
-    shadowColor: "#000000",
-    shadowOffset: { width: 0.5, height: 2 },
-    flexDirection: "row",
-    width: 110,
-    height: 30,
-  },
   text: {
     fontSize: 10,
     fontWeight: "bold",
     fontFamily: fonts.poppins.regular,
     width: "auto",
     alignItems: "center",
-  },
-  svg: {
-    maginLeft: 5,
-    marginRight: 5,
-    width: "auto",
-    height: 15,
-  },
-
-  text2: {
-    fontSize: 10,
-    fontWeight: "bold",
-    fontFamily: fonts.poppins.regular,
-    width: "auto",
-    alignItems: "center",
-  },
-
-  mapa: {
-    width: wp("1.50%"),
-    height: hp("1.50%"),
   },
 });
 

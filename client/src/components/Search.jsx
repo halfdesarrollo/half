@@ -21,15 +21,15 @@ const Search = () => {
 
   // capturamos el texto ingresado en el TextInput
   const onChangeInput = (text) => {
-    setInput({data:text});
+    setInput({ data: text });
   };
 
   // funcion para enviar los datos del input validando con el esquema creado en yup
   const onSearchButton = () => {
-    searchValidationSchema.validate(input).then(()=>{
+    searchValidationSchema.validate(input).then(() => {
       console.log(input);
-      setInput({data: ""})
-    }).catch((error)=>{
+      setInput({ data: "" })
+    }).catch((error) => {
       setViewError(Alert.alert(error.message))
     })
   };
@@ -45,7 +45,7 @@ const Search = () => {
           style={styles.searchInput}
         />
         <TouchableOpacity onPress={onSearchButton} style={styles.searchTouch}>
-          <SearchSvg/>
+          <SearchSvg />
         </TouchableOpacity>
       </View>
       {viewError && viewError}
