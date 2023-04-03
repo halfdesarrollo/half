@@ -7,6 +7,9 @@ import {
   Image,
   StyleSheet,
   Dimensions,
+  Button,
+  TouchableHighlight,
+  ScrollView,
 } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -17,9 +20,34 @@ import HalfLogo from "../../assets/HalfSVG.svg";
 // import LoginComponent from "../components/LoginComponent";
 import RegsiterForm from "../components/RegisterForm";
 
+import WelcomeElipse from "../../assets/orange-top-ellipse.svg";
+import ElipseHalf1 from "../../assets/elipseHalf1.svg";
+import ElipseHalf2 from "../../assets/elipseHalf2.svg";
+import LoginComponent from "../components/LoginComponent";
+import BotElipse from "../../assets/welcome-ellipse.svg";
+
+export const LoginScreen = () => {
+  const [login, setLogin] = useState(true);
+  return (
+    <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
+      <KeyboardAvoidingView
+        keyboardVerticalOffset={-200}
+        behavior="height"
+        style={{ flex: 1 }}
+      >
+        <WelcomeElipse
+          style={{
+            position: "absolute",
+            marginHorizontal: -3,
+            marginVertical: 15,
+            width: 400,
+            height: 200,
+            top: -110,
+            zIndex: 1,
+
+
 export const LoginScreen = () => {
   const [login, setLogin] = useState(false);
-  console.log(login);
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
       <KeyboardAvoidingView style={{ flex: 1 }}>
@@ -40,7 +68,7 @@ export const LoginScreen = () => {
                 width: 480,
                 height: 373,
                 left: -93,
-                top: -174,
+                top: -144,
               }}
             />
             <ElipseHalf2
@@ -49,6 +77,25 @@ export const LoginScreen = () => {
                 width: 480,
                 height: 373,
                 left: -93,
+
+                top: -154,
+              }}
+            />
+          </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-around",
+              width: "100%",
+            }}
+          >
+            <TouchableHighlight onPress={() => setLogin(true)}>
+              <Text>Registrate</Text>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => setLogin(false)}>
+              <Text>Inicia Sesion</Text>
+            </TouchableHighlight>
+
                 top: -184,
               }}
             />
@@ -56,12 +103,20 @@ export const LoginScreen = () => {
           <View style={{ flexDirection: "row" }}>
             <Button title="Inicia Sesion" onPress={() => setLogin(true)} />
             <Button title="Registrate" onPress={() => setLogin(false)} />
+
           </View>
-          <Image style={styles.image_eclipseTop} source={ecliplseTopLogo} />
-          <Text style={{ fontSize: 20 }}>Inicia Sesion | Registro </Text>
-          {/* <LoginComponent /> */}
-          <RegsiterForm />
+          {login ? <RegsiterForm /> : <LoginComponent />}
         </View>
+        
+        <BotElipse
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            bottom: -520,
+            with: 300,
+          }}
+        />
+
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -86,7 +141,7 @@ export const styles = StyleSheet.create({
   image_logo: {
     width: 290,
     height: 100,
-    top: -40,
+    top: -6,
     resizeMode: "contain",
   },
   image_eclipseTop: {
