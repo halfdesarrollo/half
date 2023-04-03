@@ -10,9 +10,6 @@ import React from "react";
 export default function ContinueButton({ to }) {
   const navigate = useNavigate();
 
-  console.log("====================================");
-  console.log("to", to);
-  console.log("====================================");
   const continueButtonOnPress = () => {
     navigate(to);
   };

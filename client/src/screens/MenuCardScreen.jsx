@@ -1,9 +1,12 @@
-import { View, Text } from "react-native"
+import { View, Text } from 'react-native'
+import OptionsViewRestorant from '../components/OptionsViewRestorant'
+import ViewOrderButton from '../components/ViewOrderButton'
 
 export const MenuCardScreen = () => {
   return (
     <View>
-      <Text>MenuCardScreen</Text>
+      <ViewOrderButton />
+      <OptionsViewRestorant />
     </View>
-  );
-};
+  )
+}
