@@ -6,6 +6,9 @@ import {
 } from "react-native-responsive-screen";
 import Svg, { Image } from "react-native-svg";
 import { fonts } from '../utils/theme';
+import Promo from '../../assets/promociones.svg'
+import Map from '../../assets/mapa.svg'
+import Populars from '../../assets/populares.svg'
 
 const NearMe = () => {
   const [pressedNearMe, setPressedNearMe] = useState(false);
@@ -85,9 +88,7 @@ const NearMe = () => {
           onPress={handlePressNearMe}
           onPressOut={handleRelease}
         >
-          <Svg width="15" height="16" margin="" style={styles.svg}>
-            <Image href={require("../../assets/mapa.svg")} />
-          </Svg>
+          <Map />
           <Text style={styles.text}>Cerca a mí</Text>
         </TouchableOpacity>
       </View>
@@ -98,9 +99,7 @@ const NearMe = () => {
           onPress={handlePressPromo}
           onPressOut={handleRelease}
         >
-          <Svg width="15" height="16" style={styles.svg}>
-            <Image href={require("../../assets/promociones.svg")} />
-          </Svg>
+          <Promo />
           <Text style={styles.text2}>Promociones</Text>
         </TouchableOpacity>
       </View>
@@ -111,9 +110,7 @@ const NearMe = () => {
           onPress={handlePressPopu}
           onPressOut={handleRelease}
         >
-          <Svg width="20" height="16" style={styles.svg}>
-            <Image href={require("../../assets/populares.svg")} />
-          </Svg>
+          <Populars />
           <Text style={styles.text2}>Populares</Text>
         </TouchableOpacity>
       </View>
@@ -124,9 +121,9 @@ const NearMe = () => {
 const styles = StyleSheet.create({
   conteiners: {
     flexDirection: "row",
-    marginTop: 30,
     borderRadius: 5,
     justifyContent: "space-evenly",
+    gap: 10
   },
   button: {
     // backgroundColor: pressed ? 'red' : 'blue',    
