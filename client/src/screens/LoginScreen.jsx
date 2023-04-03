@@ -11,7 +11,8 @@ import ecliplseBotLogo from "../../assets/Ellipse-170.png";
 import { styles } from "../styles/loginStyles";
 import HalfLogo from "../../assets/HalfSVG.svg";
 // import LoginComponent from "../components/LoginComponent";
-import RegsiterForm from '../components/RegisterForm'
+import RegsiterForm from "../components/RegisterForm";
+import WelcomeElipse from "../../assets/logtopscreenorange.svg";
 
 export const LoginScreen = () => {
   return (
@@ -21,7 +22,7 @@ export const LoginScreen = () => {
           <View style={styles.login_topLogo}>
             <HalfLogo style={styles.image_logo} />
           </View>
-          <Image style={styles.image_eclipseTop} source={ecliplseTopLogo} />
+          <WelcomeElipse style={styles.image_eclipseTop} />
           <Text style={{ fontSize: 20 }}>Inicia Sesion | Registro </Text>
           {/* <LoginComponent /> */}
           <RegsiterForm />

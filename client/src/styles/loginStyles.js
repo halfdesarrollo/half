@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "column",
   },
-
   login_topLogo: {
     backgroundColor: "white",
     height: "25%",
@@ -24,10 +23,9 @@ export const styles = StyleSheet.create({
   image_eclipseTop: {
     backgroundColor: "#FFAD3F",
     position: "absolute",
-    top: -270,
-    width: 400,
-    height: 300,
-    borderRadius: 50,
+    top: 20,
+    width: 100,
+    height: 50,
   },
   image_eclipseBot: {
     backgroundColor: "#87BE56",
