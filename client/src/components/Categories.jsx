@@ -2,39 +2,42 @@ import React from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import categories from "../mocks/categorias";
 import CategoryItem from "./CategoryItem";
+import { fonts, colors } from '../utils/theme';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 const Categories = () => {
   return (
-    <View style={styles.conteiner}>
+    <View style={styles.container}>
       <Text style={styles.title}>Categorias</Text>
-      <FlatList
-        style={styles.flatList}
-        data={categories}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
-        horizontal={true}
-        renderItem={(item, i) => {
-          return <CategoryItem item={item} i={i} />;
-        }}
-      />
+      <View style={styles.list}>
+        {
+          categories.map((e, i) => (
+            <CategoryItem key={i} item={e} index={i} />
+          ))
+        }
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  conteiner: {
-    fontFamily: fonts.poppins.regular,
+  container: {
+    width: wp('85%')
   },
 
   title: {
-    color: "#4B5563",
-    fontFamily: fonts.poppins.regular,
-    width: 94,
-    height: 13,
-    left: 24,
-    fontSize: 20,
-    fontWeight: "bold",
+    color: colors.secundary2,
+    fontFamily: fonts.poppins.bold,
+    fontSize: 18,
+    marginBottom: 10
   },
+  list: {
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  }
 
 });
 
