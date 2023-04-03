@@ -19,6 +19,7 @@ import EclipseBot from "../../assets/green-bottom-ellipse.svg";
 import HalfLogo from "../../assets/HalfSVG.svg";
 // import LoginComponent from "../components/LoginComponent";
 import RegsiterForm from "../components/RegisterForm";
+
 import WelcomeElipse from "../../assets/orange-top-ellipse.svg";
 import ElipseHalf1 from "../../assets/elipseHalf1.svg";
 import ElipseHalf2 from "../../assets/elipseHalf2.svg";
@@ -27,7 +28,6 @@ import BotElipse from "../../assets/welcome-ellipse.svg";
 
 export const LoginScreen = () => {
   const [login, setLogin] = useState(true);
-  console.log(login);
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
       <KeyboardAvoidingView
@@ -44,6 +44,19 @@ export const LoginScreen = () => {
             height: 200,
             top: -110,
             zIndex: 1,
+
+
+export const LoginScreen = () => {
+  const [login, setLogin] = useState(false);
+  return (
+    <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
+      <KeyboardAvoidingView style={{ flex: 1 }}>
+        <WelcomeElipse
+          style={{
+            marginHorizontal: -50,
+            marginVertical: 15,
+            width: 40,
+            top: -49,
           }}
         />
         <View style={styles.login_container}>
@@ -64,6 +77,7 @@ export const LoginScreen = () => {
                 width: 480,
                 height: 373,
                 left: -93,
+
                 top: -154,
               }}
             />
@@ -81,9 +95,19 @@ export const LoginScreen = () => {
             <TouchableHighlight onPress={() => setLogin(false)}>
               <Text>Inicia Sesion</Text>
             </TouchableHighlight>
+
+                top: -184,
+              }}
+            />
+          </View>
+          <View style={{ flexDirection: "row" }}>
+            <Button title="Inicia Sesion" onPress={() => setLogin(true)} />
+            <Button title="Registrate" onPress={() => setLogin(false)} />
+
           </View>
           {login ? <RegsiterForm /> : <LoginComponent />}
         </View>
+        
         <BotElipse
           style={{
             zIndex: -1,
@@ -92,6 +116,7 @@ export const LoginScreen = () => {
             with: 300,
           }}
         />
+
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
