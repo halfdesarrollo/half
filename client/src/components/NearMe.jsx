@@ -6,6 +6,9 @@ import {
 } from "react-native-responsive-screen";
 import Svg, { Image } from "react-native-svg";
 import { fonts } from '../utils/theme';
+import Promo from '../../assets/promociones.svg'
+import Map from '../../assets/mapa.svg'
+import Populars from '../../assets/populares.svg'
 
 const NearMe = () => {
   const [pressedNearMe, setPressedNearMe] = useState(false);
@@ -44,6 +47,7 @@ const NearMe = () => {
     shadowOffset: { width: 0.5, height: 2 },
     flexDirection: "row",
     width: 110,
+    gap: 5
   };
 
   const buttonStylePromociones = {
@@ -59,6 +63,7 @@ const NearMe = () => {
     shadowOffset: { width: 0.5, height: 2 },
     flexDirection: "row",
     width: 110,
+    gap: 5
   };
 
   const buttonStylePopulares = {
@@ -74,6 +79,7 @@ const NearMe = () => {
     shadowOffset: { width: 0.5, height: 2 },
     flexDirection: "row",
     width: 110,
+    gap: 5
   };
 
   return (
@@ -85,9 +91,7 @@ const NearMe = () => {
           onPress={handlePressNearMe}
           onPressOut={handleRelease}
         >
-          <Svg width="15" height="16" margin="" style={styles.svg}>
-            <Image href={require("../../assets/mapa.svg")} />
-          </Svg>
+          <Map />
           <Text style={styles.text}>Cerca a mí</Text>
         </TouchableOpacity>
       </View>
@@ -98,10 +102,8 @@ const NearMe = () => {
           onPress={handlePressPromo}
           onPressOut={handleRelease}
         >
-          <Svg width="15" height="16" style={styles.svg}>
-            <Image href={require("../../assets/promociones.svg")} />
-          </Svg>
-          <Text style={styles.text2}>Promociones</Text>
+          <Promo />
+          <Text style={styles.text}>Promociones</Text>
         </TouchableOpacity>
       </View>
       <View>
@@ -111,10 +113,8 @@ const NearMe = () => {
           onPress={handlePressPopu}
           onPressOut={handleRelease}
         >
-          <Svg width="20" height="16" style={styles.svg}>
-            <Image href={require("../../assets/populares.svg")} />
-          </Svg>
-          <Text style={styles.text2}>Populares</Text>
+          <Populars />
+          <Text style={styles.text}>Populares</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -124,38 +124,9 @@ const NearMe = () => {
 const styles = StyleSheet.create({
   conteiners: {
     flexDirection: "row",
-    marginTop: 30,
     borderRadius: 5,
     justifyContent: "space-evenly",
-  },
-  button: {
-    // backgroundColor: pressed ? 'red' : 'blue',    
-    paddingVertical: 6,
-    paddingHorizontal: 5,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1.7,
-    shadowOpacity: 0.1,
-    shadowColor: "#000000",
-    shadowOffset: { width: 0.5, height: 2 },
-    flexDirection: "row",
-    width: 110,
-  },
-  button2: {
-    // backgroundColor: pressed ? 'red' : 'blue',  
-    paddingVertical: 6,
-    paddingHorizontal: 5,
-    borderRadius: 5,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1.7,
-    shadowOpacity: 0.1,
-    shadowColor: "#000000",
-    shadowOffset: { width: 0.5, height: 2 },
-    flexDirection: "row",
-    width: 110,
-    height: 30,
+    gap: 10
   },
   text: {
     fontSize: 10,
@@ -163,25 +134,6 @@ const styles = StyleSheet.create({
     fontFamily: fonts.poppins.regular,
     width: "auto",
     alignItems: "center",
-  },
-  svg: {
-    maginLeft: 5,
-    marginRight: 5,
-    width: "auto",
-    height: 15,
-  },
-
-  text2: {
-    fontSize: 10,
-    fontWeight: "bold",
-    fontFamily: fonts.poppins.regular,
-    width: "auto",
-    alignItems: "center",
-  },
-
-  mapa: {
-    width: wp("1.50%"),
-    height: hp("1.50%"),
   },
 });
 
