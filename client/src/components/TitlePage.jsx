@@ -9,12 +9,6 @@ import {
 } from 'react-native-responsive-screen'
 
 
-const randomHexColor = () => {
-    return '#000000'.replace(/0/g, () => {
-        return Math.round(Math.random() * 16).toString(16);
-    });
-};
-
 const TitlePage = ({ text, route, white }) => {
     const navigate = useNavigate()
 
@@ -64,7 +58,7 @@ const styles = StyleSheet.create({
     },
     text: {
         color: '#fff',
-        fontFamily: fonts.poppins.bold,
+        fontFamily: fonts.roboto.medium,
         fontSize: 16,
         alignSelf: 'center'
     },
