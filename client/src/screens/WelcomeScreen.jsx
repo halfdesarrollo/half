@@ -1,6 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import WelcomePingIcon from '../../assets/welcome-ping-icon.svg'
-import WelcomeFood from '../../assets/welcome-food.svg'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import WelcomeEllipse from '../../assets/welcome-ellipse.svg'
 import {
   widthPercentageToDP as wp,
@@ -22,10 +20,15 @@ export const WelcomeScreen = () => {
           Te invitamos a vivir la experiencia {'\n'} HALF con nosotros.
         </Text>
       </View>
-      <View>
-        <WelcomeFood style={styles.welcomeFood} />
-        <ContinueButton to={'/howdoesitworks'} />
+      <View style={styles.ellipseContainer}>
+        <View style={styles.continueBtn}>
+          <ContinueButton to={'/howdoesitworks'} />
+        </View>
         <WelcomeEllipse style={styles.welcomeEllipse} />
+        <Image
+          style={styles.welcomeFood}
+          source={require('../../assets/welcome-food-png.png')}
+        />
       </View>
     </View>
   )
@@ -36,38 +39,34 @@ const styles = StyleSheet.create({
     width: wp('100.00%'),
     height: hp('100.00%'),
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  welcomeHalf: {
-    marginTop: 50,
-    marginLeft: 50,
-    fontSize: 28,
-  },
-  logo: {
-    width: wp('15.00%'),
-    height: hp('10.00%'),
-    marginTop: 40,
-    marginLeft: 2,
-  },
   text: {
     fontSize: 18,
     textAlign: 'center',
     marginTop: 40,
     lineHeight: 30,
   },
-  welcomeFood: {
-    width: wp('60.00%'),
-    height: hp('60.00%'),
+  ellipseContainer: {
+    position: 'relative',
+  },
+  continueBtn: {
     zIndex: 1,
-    left: 85,
-    bottom: 100,
+    position: 'absolute',
+    bottom: hp('-50.00%'),
+    left: wp(25),
+    borderRadius: 7,
+  },
+  welcomeFood: {
+    width: wp('50.00%'),
+    height: hp('25.00%'),
+    position: 'absolute',
+    left: wp(25),
+    bottom: hp(-30),
   },
   welcomeEllipse: {
     width: wp('100.00%'),
-    height: hp('60.00%'),
+    height: hp('100.00%'),
     position: 'absolute',
-    top: 50,
+    top: hp(-10),
+    zIndex: 0,
   },
 })

@@ -24,7 +24,7 @@ import { fonts } from '../utils/theme'
 export const HowDoesItWorksScreen = () => {
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.ellipseContainer}>
         <OrangeTopEllipse style={styles.topEllipse} />
         <OrangeThinEllipse style={styles.orangeThinEllipse} />
         <GreenThinEllipse style={styles.greenThinEllipse} />
@@ -62,10 +62,10 @@ export const HowDoesItWorksScreen = () => {
           </Text>
         </View>
       </View>
-      <View style={styles.continueButton}>
-        <ContinueButton to={'/login'} />
-      </View>
-      <View>
+      <View style={styles.ellipseContainer}>
+        <View style={styles.continueButton}>
+          <ContinueButton to={'/login'} />
+        </View>
         <GreenBottomThinEllipse style={styles.greenBottomThinEllipse} />
         <GreenBottomEllipse style={styles.greenBottomEllipse} />
       </View>
@@ -78,6 +78,9 @@ const styles = StyleSheet.create({
     width: wp('100.00%'),
     height: hp('100.00%'),
   },
+  ellipseContainer: {
+    position: 'relative',
+  },
   topEllipse: {
     width: wp('100.00%'),
     height: hp('10.00%'),
@@ -86,6 +89,7 @@ const styles = StyleSheet.create({
   orangeThinEllipse: {
     width: wp('100.00%'),
     height: hp('30.00%'),
+
     top: hp('-2.00%'),
     position: 'absolute',
   },
@@ -163,18 +167,23 @@ const styles = StyleSheet.create({
     marginLeft: wp('7.00%'),
   },
   continueButton: {
-    marginTop: hp('26.00%'),
+    zIndex: 1,
+    position: 'absolute',
+    bottom: hp('-12.00%'),
+    left: wp(25),
   },
   greenBottomThinEllipse: {
     width: wp('100.00%'),
     height: hp('100.00%'),
     position: 'absolute',
-    bottom: hp('-40.00%'),
+    bottom: hp('-70.00%'),
+    zIndex: 0,
   },
   greenBottomEllipse: {
     width: wp('100.00%'),
     height: hp('100.00%'),
     position: 'absolute',
-    bottom: hp('-40.00%'),
+    bottom: hp('-70.00%'),
+    zIndex: 0,
   },
 })
