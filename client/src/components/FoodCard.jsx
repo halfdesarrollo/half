@@ -14,11 +14,19 @@ import { fonts, colors } from "../utils/theme";
 import MoreButton from "../../assets/more-button";
 import MinusButton from "../../assets/minus-button";
 import { useEffect, useState } from "react";
+import {
+  addOrder,
+  decreaseOrderQuantity,
+  increaseOrderQuantity,
+} from "../redux/slices/order/orderActions";
+import { useDispatch, useSelector } from "react-redux";
 
-const FoodCard = ({ name, description, image, price }) => {
+const FoodCard = ({ name, description, image, price, id, onDelete }) => {
+  const dispatch = useDispatch();
+  const { order } = useSelector((state) => state.orderState);
   const [quantity, setQuantity] = useState("00");
   const [originPrice, setOriginPrice] = useState(null);
-  console.log(typeof image);
+
   useEffect(() => {
     const priceSplit = price?.toString().split(".");
     price = !priceSplit[1]
@@ -28,15 +36,35 @@ const FoodCard = ({ name, description, image, price }) => {
       : price?.toString();
     setOriginPrice(price);
   }, []);
+
   const quantityCalculate = (sign) => {
     let calculate;
-    if (sign === "-" && Number(quantity) > 0) calculate = Number(quantity) - 1;
-    else if (sign === "+") calculate = Number(quantity) + 1;
-    else return;
+    const currentQuantityIndex = order.findIndex((item) => item.id === id);
+    if (sign === "-" && currentQuantityIndex !== -1) {
+      calculate = order[currentQuantityIndex].quantity - 1;
+      dispatch(decreaseOrderQuantity({ id }));
+    } else if (sign === "+") {
+      calculate = currentQuantityIndex + 1;
+      dispatch(
+        currentQuantityIndex === -1
+          ? addOrder({
+              id,
+              name,
+              description,
+              image,
+              price,
+              quantity: 1,
+            })
+          : increaseOrderQuantity({ id })
+      );
+    } else return;
     const result = calculate.toString().at(1)
       ? calculate.toString()
       : "0" + calculate;
     setQuantity(result);
+  };
+  const handleDelete = () => {
+    onDelete(id);
   };
   return (
     <View style={styles.containerFoodCard}>

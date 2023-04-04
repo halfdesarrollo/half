@@ -19,6 +19,7 @@ export default [
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
+          orderStatus: "Entregado",
         },
         {
           id: "1.2",
@@ -27,6 +28,7 @@ export default [
           imageDish:
             "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
+          orderStatus: "Entregado",
         },
       ],
       PlatoDeFondo: [
@@ -36,6 +38,7 @@ export default [
           description: "Plato bandera de la comida peruana",
           imageDish: "https://i.blogs.es/5620ff/lomo-saltado-dap/840_560.jpg",
           price: 25.0,
+          orderStatus: "Entregado",
         },
         {
           id: "1.4",
@@ -44,6 +47,7 @@ export default [
           imageDish:
             "https://comidasperuanas.net/wp-content/uploads/2015/11/Arroz-con-mariscos.jpg",
           price: 32.5,
+          orderStatus: "Entregado",
         },
       ],
       Bebidas: [
@@ -54,6 +58,7 @@ export default [
           imageDrink:
             "https://www.cocacola.es/content/dam/GO/es/es-1/home/Products/product-tiles/coca-cola-product-tile.png",
           price: 3.5,
+          orderStatus: "Entregado",
         },
         {
           id: "1.6",
@@ -62,6 +67,7 @@ export default [
           imageDrink:
             "https://cdn.pixabay.com/photo/2017/08/08/08/00/orange-2605032_960_720.jpg",
           price: 5.0,
+          orderStatus: "Entregado",
         },
       ],
     },
@@ -84,6 +90,7 @@ export default [
           description: "Un plato de pescado marinado",
           imageDish: "https://cdn7.kiwilimon.com/recetaimagen/26255/23270.jpg",
           price: 25.9,
+          orderStatus: "Entregado",
         },
         {
           id: "2",
@@ -92,6 +99,7 @@ export default [
           imageDish:
             "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
+          orderStatus: "Entregado",
         },
       ],
       PlatoDeFondo: [
@@ -101,6 +109,7 @@ export default [
           description: "Plato típico peruano a base de pescado y mariscos",
           imageDish: "https://i.imgur.com/UCIOzJh.jpg",
           price: 27.0,
+          orderStatus: "Entregado",
         },
         {
           id: "5",
@@ -108,6 +117,7 @@ export default [
           description: "Pollo deshilachado en salsa de ají amarillo y leche",
           imageDish: "https://i.imgur.com/pqCwv20.jpg",
           price: 20.0,
+          orderStatus: "Entregado",
         },
       ],
       Bebidas: [
@@ -118,6 +128,7 @@ export default [
           imageDrink:
             "https://www.naturaselection.com/pub/media/catalog/product/cache/2ee41b7f542b240f20e88c99180a138f/a/g/agua-mineral-natura-500-ml.png",
           price: 2.5,
+          orderStatus: "Entregado",
         },
         {
           id: "4",
@@ -126,6 +137,7 @@ export default [
           imageDrink:
             "https://cdn.pixabay.com/photo/2017/12/09/08/18/beer-3008177_960_720.jpg",
           price: 8.0,
+          orderStatus: "Entregado",
         },
       ],
     },
@@ -149,6 +161,7 @@ export default [
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
+          orderStatus: "Entregado",
         },
         {
           id: "2",
@@ -157,6 +170,7 @@ export default [
           imageDish:
             "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
+          orderStatus: "Entregado",
         },
       ],
       PlatoDeFondo: [
@@ -167,6 +181,7 @@ export default [
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2019/06/arroz-con-pollo-peruano.jpg",
           price: 15.9,
+          orderStatus: "Entregado",
         },
         {
           id: "3",
@@ -175,6 +190,7 @@ export default [
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2020/04/lomo-saltado.jpg",
           price: 21.9,
+          orderStatus: "Entregado",
         },
       ],
       Bebidas: [
@@ -186,6 +202,7 @@ export default [
           imageDrink:
             "https://i.pinimg.com/originals/19/2c/1b/192c1b9f7ea9df5262f8eb8e161dc0c1.jpg",
           price: 8.0,
+          orderStatus: "Entregado",
         },
         {
           id: "11",
@@ -195,6 +212,7 @@ export default [
           imageDrink:
             "https://unareceta.com/wp-content/uploads/2020/09/receta-de-pisco-sour.jpg",
           price: 12.5,
+          orderStatus: "Entregado",
         },
       ],
     },
@@ -219,6 +237,7 @@ export default [
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
+          orderStatus: "Entregado",
         },
         {
           id: "2",
@@ -227,6 +246,7 @@ export default [
           imageDish:
             "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
+          orderStatus: "Entregado",
         },
       ],
       PlatoDeFondo: [
@@ -237,6 +257,7 @@ export default [
           imageDish:
             "https://assets.unileversolutions.com/recipes-v2/234472.jpg",
           price: 18.5,
+          orderStatus: "Entregado",
         },
         {
           id: "3",
@@ -244,6 +265,7 @@ export default [
           description: "Un plato de carne saltada con cebolla y tomate",
           imageDish: "https://i.blogs.es/5620ff/lomo-saltado-dap/840_560.jpg",
           price: 21.9,
+          orderStatus: "Entregado",
         },
       ],
       Bebidas: [
@@ -255,6 +277,7 @@ export default [
           imageDrink:
             "https://www.comidasperuanas.vip/wp-content/uploads/2020/03/jugo-de-maracuya.jpg",
           price: 6.5,
+          orderStatus: "Entregado",
         },
         {
           id: "10",
@@ -263,6 +286,7 @@ export default [
           imageDrink:
             "https://okdiario.com/img/2019/08/25/receta-de-chicha-morada-de-peru-1.jpg",
           price: 7.0,
+          orderStatus: "Entregado",
         },
       ],
     },
@@ -285,6 +309,7 @@ export default [
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
+          orderStatus: "Entregado",
         },
         {
           id: "2",
@@ -293,6 +318,7 @@ export default [
           imageDish:
             "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
+          orderStatus: "Entregado",
         },
       ],
       PlatoDeFondo: [
@@ -303,6 +329,7 @@ export default [
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2019/06/arroz-con-pollo-peruano.jpg",
           price: 15.9,
+          orderStatus: "Entregado",
         },
         {
           id: "5",
@@ -311,6 +338,7 @@ export default [
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2019/07/aji-de-gallina.jpg",
           price: 16.9,
+          orderStatus: "Entregado",
         },
       ],
       Bebidas: [
@@ -322,6 +350,7 @@ export default [
           imageDrink:
             "https://unareceta.com/wp-content/uploads/2020/09/receta-de-pisco-sour.jpg",
           price: 12.5,
+          orderStatus: "Entregado",
         },
         {
           id: "12",
@@ -331,6 +360,7 @@ export default [
           imageDrink:
             "https://i.pinimg.com/originals/19/2c/1b/192c1b9f7ea9df5262f8eb8e161dc0c1.jpg",
           price: 8.0,
+          orderStatus: "Entregado",
         },
       ],
     },

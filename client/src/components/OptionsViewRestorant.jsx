@@ -11,6 +11,7 @@ const OptionsViewRestorant = () => {
 
   // controla si el boton fue presionado o no
   const [statusBtn, setStatusBtn] = useState("carta");
+  const [shouldRefresh, setShouldRefresh] = useState(false);
 
   const handleViewOffert = () => {
     setViewOffer(<OffersHalf />);
@@ -18,8 +19,12 @@ const OptionsViewRestorant = () => {
     setStatusBtn("offer");
   };
 
+  const handleRemoveProduct = () => {
+    setShouldRefresh((prevState) => !prevState);
+  };
+
   const handleViewLetter = () => {
-    setViewLetter(<LetterFilters />);
+    setViewLetter(<LetterFilters onProductRemoved={handleRemoveProduct} />);
     setViewOffer();
     setStatusBtn("carta");
   };

@@ -10,47 +10,49 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-native";
 import { useSelector } from "react-redux";
 import { styles } from "./OffersHalf";
 import FoodCard from "./FoodCard";
 import BigButtonOrder from "./BigButtonOrder";
 
-const LetterFilters = () => {
-  const [switchs, setSwitchs] = useState(false);
-  const [select, setSelect] = useState("Entradas");
-
+const LetterFilters = ({ onProductRemoved }) => {
   //Traemos el estado restaurante del redux
   const { restaurants } = useSelector((state) => state.restaurantState);
+  const { order } = useSelector((state) => state.orderState);
 
-  //Filtramos restaurante por id params
+  const [select, setSelect] = useState("Entradas");
+  const [orders, setOrders] = useState([]);
+
+  const handleDeleteOrder = (id) => {
+    const newOrder = order.filter((item) => item.id !== id);
+    setOrders(newOrder);
+  };
+
+  const handleAddOrder = (item, quantity) => {
+    const index = order.findIndex((orderItem) => orderItem.id === item.id);
+    if (index === -1) {
+      const newOrder = [...order, { ...item, quantity }];
+      setOrders(newOrder);
+    } else {
+      const newOrder = [...order];
+      newOrder[index].quantity = quantity;
+      setOrders(newOrder);
+    }
+  };
+
   const { id } = useParams();
   const filterRestaurant = restaurants.filter(
     (restaurant) => restaurant.id === id
   );
-  console.log(filterRestaurant);
+
   //Filtramos menu del restaurante para hacerlos keys dinamicos
   const filterMenu = filterRestaurant.map((restaurant) => {
     const menu = Object.keys(restaurant.menu);
     menu[1] = menu[1].replace(/([A-Z])/g, " $1");
     return menu;
   });
-  //console.log(filterMenu);
-  //Filtramos las Bebidas del Restaurante
-  const filterDrinks = filterRestaurant.map(
-    (restaurant) => restaurant.menu.drinks
-  );
-
-  //Filtramos las Entradas del Restaurante
-  const filterStarters = filterRestaurant.map(
-    (restaurante) => restaurante.menu.starters
-  );
-
-  //Filtramos los platos de Fondo del Restaurante
-  const filterMainDishes = filterRestaurant.map(
-    (restaurant) => restaurant.menu.mainDishes
-  );
 
   // const [info, setInfo] = useState([
   //   "Entradas",
@@ -60,7 +62,6 @@ const LetterFilters = () => {
   // ]);
   const filter = (el) => {
     setSelect(el);
-    console.log(el);
   };
 
   return (
@@ -82,16 +83,23 @@ const LetterFilters = () => {
           </TouchableOpacity>
         ))}
       </View>
+
       {
         <ScrollView>
           {select === "Entradas" &&
             filterRestaurant[0].menu.Entradas.map((Entradas, index) => (
               <View key={index} style={styles.menu_container}>
                 <FoodCard
+                  id={Entradas.id}
                   name={Entradas.name}
                   description={Entradas.description}
                   image={Entradas.imageDish}
                   price={Entradas.price}
+                  onAddOrder={handleAddOrder}
+                  onDelete={handleDeleteOrder}
+                  quantity={order.find(
+                    (orderItem) => (orderItem.id === id)?.quantity || "0"
+                  )}
                 />
               </View>
             ))}
@@ -99,10 +107,16 @@ const LetterFilters = () => {
             filterRestaurant[0].menu.Bebidas.map((Bebidas, index) => (
               <View key={index}>
                 <FoodCard
+                  id={Bebidas.id}
                   name={Bebidas.name}
                   description={Bebidas.description}
                   image={Bebidas.imageDrink}
                   price={Bebidas.price}
+                  onAddOrder={handleAddOrder}
+                  onDelete={handleDeleteOrder}
+                  quantity={order.find(
+                    (orderItem) => (orderItem.id === id)?.quantity || "0"
+                  )}
                 />
               </View>
             ))}
@@ -110,10 +124,16 @@ const LetterFilters = () => {
             filterRestaurant[0].menu.PlatoDeFondo.map((PlatoDeFondo, index) => (
               <View key={index}>
                 <FoodCard
+                  id={PlatoDeFondo.id}
                   name={PlatoDeFondo.name}
                   description={PlatoDeFondo.description}
                   image={PlatoDeFondo.imageDish}
                   price={PlatoDeFondo.price}
+                  onAddOrder={handleAddOrder}
+                  onDelete={handleDeleteOrder}
+                  quantity={order.find(
+                    (orderItem) => (orderItem.id === id)?.quantity || "0"
+                  )}
                 />
               </View>
             ))}
