@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
         width: wp("85"),
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 20
     },
     text: {
         color: colors.secundary4,

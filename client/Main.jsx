@@ -9,7 +9,8 @@ import { QrScreen } from './src/screens/QrScreen'
 import OrderScreen from './src/screens/OrderScreen'
 import PayScreen from './src/screens/PayScreen'
 import ViewOrderScreen from './src/screens/ViewOrderScreen'
-import { MenuCardScreen } from "./src/screens/MenuCardScreen";
+import { MenuCardScreen } from './src/screens/MenuCardScreen'
+import InviteFriendsScreen from './src/screens/InviteFriendsScreen'
 
 export default function Main() {
   return (
@@ -24,7 +25,8 @@ export default function Main() {
         <Route path='/order' element={<OrderScreen />} />
         <Route path='/pay' element={<PayScreen />} />
         <Route path='/vieworder' element={<ViewOrderScreen />} />
-        <Route path="/menucard" element={<MenuCardScreen/>}/>
+        <Route path='/menucard' element={<MenuCardScreen />} />
+        <Route path='/invitefriends' element={<InviteFriendsScreen />} />
       </Routes>
     </View>
   )

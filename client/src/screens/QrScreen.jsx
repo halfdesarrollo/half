@@ -9,8 +9,12 @@ import {
 import React, { useState, useEffect } from "react";
 import QrImage from "../../assets/qrscreenpng.png";
 import { useNavigate } from "react-router-native";
-import TitlePageLocation from "../components/TitlePageLocation";
 import ScanQRComponent from "../components/ScanQRComponent.jsx";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+import TitlePage from "../components/TitlePage";
 
 export function QrScreen() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -25,7 +29,7 @@ export function QrScreen() {
 
   return (
     <SafeAreaView style={styles.container_Qr}>
-      <TitlePageLocation />
+      <TitlePage text="Volver a Inicio" route="/" />
       <View style={{ height: Dimensions.get("window").height / 1.2 }}>
         <Image source={QrImage} style={styles.image} />
         {hasPermission && (
@@ -40,19 +44,22 @@ export function QrScreen() {
 
 const styles = StyleSheet.create({
   container_Qr: {
+    top: wp("-7%"),
     backgroundColor: "white",
     textAlign: "center",
     justifyContent: "center",
+    width: wp("100.00%"),
+    height: hp("100.00%"),
   },
   image: {
-    width: "100%",
+    width: wp("100.00%"),
   },
 
   container_scanQr: {
     position: "absolute",
-    top: 220,
-    marginHorizontal: 60,
-    width: Dimensions.get("window").width / 1.4,
-    height: Dimensions.get("window").height / 2.2,
+    top: 200,
+    marginHorizontal: 45,
+    width: wp("100.00%"),
+    height: hp("100.00%"),
   },
 });

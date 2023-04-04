@@ -1,33 +1,31 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { useNavigate } from 'react-router-native';
-import { colors, fonts } from '../utils/theme'
-import Back from '../../assets/back-arrow.svg'
-import BackBlack from '../../assets/back-arrow-black.svg'
+import { StyleSheet, Text, View } from "react-native";
+import { useNavigate } from "react-router-native";
+import { colors, fonts } from "../utils/theme";
+import Back from "../../assets/back-arrow.svg";
+import BackBlack from "../../assets/back-arrow-black.svg";
 import {
-    widthPercentageToDP as wp,
-    heightPercentageToDP as hp,
-} from 'react-native-responsive-screen'
-
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 const TitlePage = ({ text, route, white }) => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const handlePress = () => {
+    navigate(route);
+  };
 
-    const handlePress = () => {
-        navigate(route)
-    }
-
-    return (
-        <View style={white ? styles.whiteContainer : styles.container}>
-            <View style={styles.box} >
-                {
-                    white
-                        ? <BackBlack style={styles.back} onPress={handlePress} />
-                        : <Back style={styles.back} onPress={handlePress} />
-                }
-                <Text style={white ? styles.whiteText : styles.text} >{text}</Text>
-            </View>
-        </View>
-    );
+  return (
+    <View style={white ? styles.whiteContainer : styles.container}>
+      <View style={styles.box}>
+        {white ? (
+          <BackBlack style={styles.back} onPress={handlePress} />
+        ) : (
+          <Back style={styles.back} onPress={handlePress} />
+        )}
+        <Text style={white ? styles.whiteText : styles.text}>{text}</Text>
+      </View>
+    </View>
+  );
 };
 
 export default TitlePage;
@@ -40,7 +38,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25,
         paddingVertical: 15,
         width: wp('100%'),
-
+        top: 300
     },
     whiteContainer: {
         backgroundColor: '#fff',
