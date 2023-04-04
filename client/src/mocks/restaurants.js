@@ -1,199 +1,199 @@
 export default [
   {
-    id: '1',
-    name: 'Mayta',
+    id: "1",
+    name: "Mayta",
     description:
-      'Matya, que significa Tierra Noble en el idioma aymara, es una expresion personal y contemporanea de la gastronomia y territorio peruano',
+      "Matya, que significa Tierra Noble en el idioma aymara, es una expresion personal y contemporanea de la gastronomia y territorio peruano",
     image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0RiIMSJCpmW4rb6j9ma3M_N6dDpilcj4udA&usqp=CAU',
-    distance: '500m',
-    payment: ['online', 'cash', 'card'],
-    tables: '5',
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0RiIMSJCpmW4rb6j9ma3M_N6dDpilcj4udA&usqp=CAU",
+    distance: "500m",
+    payment: ["online", "cash", "card"],
+    tables: "5",
 
     menu: {
       starters: [
         {
-          id: '1',
-          name: 'Papa a la Huancaina',
-          description: 'Un plato muy delicioso',
+          id: "1",
+          name: "Papa a la Huancaina",
+          description: "Un plato muy delicioso",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
         },
         {
-          id: '2',
-          name: 'Leche de Tigre',
-          description: 'Otro plato muy delicioso',
+          id: "2",
+          name: "Leche de Tigre",
+          description: "Otro plato muy delicioso",
           imageDish:
-            'https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg',
+            "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
         },
       ],
       mainDishes: [
         {
-          id: '1',
-          name: 'Lomo Saltado',
-          description: 'Plato bandera de la comida peruana',
-          imageDish: 'https://i.imgur.com/qejdzAK.jpg',
+          id: "1",
+          name: "Lomo Saltado",
+          description: "Plato bandera de la comida peruana",
+          imageDish: "https://i.imgur.com/qejdzAK.jpg",
           price: 25.0,
         },
         {
-          id: '2',
-          name: 'Arroz con Mariscos',
-          description: 'Arroz salteado con mariscos y un toque de cilantro',
-          imageDish: 'https://i.imgur.com/l8WY5E5.jpg',
+          id: "2",
+          name: "Arroz con Mariscos",
+          description: "Arroz salteado con mariscos y un toque de cilantro",
+          imageDish: "https://i.imgur.com/l8WY5E5.jpg",
           price: 32.5,
         },
       ],
       drinks: [
         {
-          id: '1',
-          name: 'Coca-Cola',
-          description: 'Bebida gaseosa refrescante',
+          id: "1",
+          name: "Coca-Cola",
+          description: "Bebida gaseosa refrescante",
           imageDrink:
-            'https://www.cocacola.es/content/dam/GO/es/es-1/home/Products/product-tiles/coca-cola-product-tile.png',
+            "https://www.cocacola.es/content/dam/GO/es/es-1/home/Products/product-tiles/coca-cola-product-tile.png",
           price: 3.5,
         },
         {
-          id: '2',
-          name: 'Jugo de Naranja',
-          description: 'Jugo natural de naranjas frescas',
+          id: "2",
+          name: "Jugo de Naranja",
+          description: "Jugo natural de naranjas frescas",
           imageDrink:
-            'https://cdn.pixabay.com/photo/2017/08/08/08/00/orange-2605032_960_720.jpg',
+            "https://cdn.pixabay.com/photo/2017/08/08/08/00/orange-2605032_960_720.jpg",
           price: 5.0,
         },
       ],
     },
   },
   {
-    id: '2',
-    name: 'Papachos',
+    id: "2",
+    name: "Papachos",
     description:
-      'PAPACHOS PROVOCA A DIARIO, CON CARIÑO, ARTESANALMENTE Y CON LOS INSUMOS MÁS FRESCOS. ASÍ PREPARAMOS TODO. ASÍ HACEMOS QUE NUESTRAS HAMBURGUESAS Y TODA NUESTRA CARTA TENGA ESE SABOR ACHORADO QUE TANTO TE GUSTA.',
+      "PAPACHOS PROVOCA A DIARIO, CON CARIÑO, ARTESANALMENTE Y CON LOS INSUMOS MÁS FRESCOS. ASÍ PREPARAMOS TODO. ASÍ HACEMOS QUE NUESTRAS HAMBURGUESAS Y TODA NUESTRA CARTA TENGA ESE SABOR ACHORADO QUE TANTO TE GUSTA.",
     image:
-      'https://tofuu.getjusto.com/orioneat-prod-resized/bYNu7rJd9pGprdsYu-200-x.webp',
-    distance: '500m',
-    payment: ['online', 'cash', 'card'],
-    tables: '5',
+      "https://tofuu.getjusto.com/orioneat-prod-resized/bYNu7rJd9pGprdsYu-200-x.webp",
+    distance: "500m",
+    payment: ["online", "cash", "card"],
+    tables: "5",
     menu: {
       starters: [
         {
-          id: '1',
-          name: 'Papa a la Huancaina',
-          description: 'Un plato muy delicioso',
+          id: "1",
+          name: "Papa a la Huancaina",
+          description: "Un plato muy delicioso",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
         },
         {
-          id: '2',
-          name: 'Leche de Tigre',
-          description: 'Otro plato muy delicioso',
+          id: "2",
+          name: "Leche de Tigre",
+          description: "Otro plato muy delicioso",
           imageDish:
-            'https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg',
+            "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
         },
       ],
       mainDishes: [
         {
-          id: '4',
-          name: 'Ceviche Mixto',
-          description: 'Plato típico peruano a base de pescado y mariscos',
-          imageDish: 'https://i.imgur.com/UCIOzJh.jpg',
+          id: "4",
+          name: "Ceviche Mixto",
+          description: "Plato típico peruano a base de pescado y mariscos",
+          imageDish: "https://i.imgur.com/UCIOzJh.jpg",
           price: 27.0,
         },
         {
-          id: '5',
-          name: 'Ají de Gallina',
-          description: 'Pollo deshilachado en salsa de ají amarillo y leche',
-          imageDish: 'https://i.imgur.com/pqCwv20.jpg',
+          id: "5",
+          name: "Ají de Gallina",
+          description: "Pollo deshilachado en salsa de ají amarillo y leche",
+          imageDish: "https://i.imgur.com/pqCwv20.jpg",
           price: 20.0,
         },
       ],
       drinks: [
         {
-          id: '3',
-          name: 'Agua Mineral',
-          description: 'Agua purificada sin gas',
+          id: "3",
+          name: "Agua Mineral",
+          description: "Agua purificada sin gas",
           imageDrink:
-            'https://www.naturaselection.com/pub/media/catalog/product/cache/2ee41b7f542b240f20e88c99180a138f/a/g/agua-mineral-natura-500-ml.png',
+            "https://www.naturaselection.com/pub/media/catalog/product/cache/2ee41b7f542b240f20e88c99180a138f/a/g/agua-mineral-natura-500-ml.png",
           price: 2.5,
         },
         {
-          id: '4',
-          name: 'Cerveza',
-          description: 'Cerveza artesanal hecha con ingredientes naturales',
+          id: "4",
+          name: "Cerveza",
+          description: "Cerveza artesanal hecha con ingredientes naturales",
           imageDrink:
-            'https://cdn.pixabay.com/photo/2017/12/09/08/18/beer-3008177_960_720.jpg',
+            "https://cdn.pixabay.com/photo/2017/12/09/08/18/beer-3008177_960_720.jpg",
           price: 8.0,
         },
       ],
     },
   },
   {
-    id: '3',
-    name: 'Central',
+    id: "3",
+    name: "Central",
     description:
-      'PAPACHOS PROVOCA A DIARIO, CON CARIÑO, ARTESANALMENTE Y CON LOS INSUMOS MÁS FRESCOS. ASÍ PREPARAMOS TODO. ASÍ HACEMOS QUE NUESTRAS HAMBURGUESAS Y TODA NUESTRA CARTA TENGA ESE SABOR ACHORADO QUE TANTO TE GUSTA.',
+      "PAPACHOS PROVOCA A DIARIO, CON CARIÑO, ARTESANALMENTE Y CON LOS INSUMOS MÁS FRESCOS. ASÍ PREPARAMOS TODO. ASÍ HACEMOS QUE NUESTRAS HAMBURGUESAS Y TODA NUESTRA CARTA TENGA ESE SABOR ACHORADO QUE TANTO TE GUSTA.",
     image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7hJXKvIa3jsD51UTiFhWhgCxpUWHbxe2atQ&usqp=CAU',
-    distance: '500m',
-    payment: ['online', 'cash', 'card'],
-    tables: '5',
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7hJXKvIa3jsD51UTiFhWhgCxpUWHbxe2atQ&usqp=CAU",
+    distance: "500m",
+    payment: ["online", "cash", "card"],
+    tables: "5",
     menu: {
       starters: [
         {
-          id: '1',
-          name: 'Papa a la Huancaina',
-          description: 'Un plato muy delicioso',
+          id: "1",
+          name: "Papa a la Huancaina",
+          description: "Un plato muy delicioso",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
         },
         {
-          id: '2',
-          name: 'Leche de Tigre',
-          description: 'Otro plato muy delicioso',
+          id: "2",
+          name: "Leche de Tigre",
+          description: "Otro plato muy delicioso",
           imageDish:
-            'https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg',
+            "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
         },
       ],
       mainDishes: [
         {
-          id: '4',
-          name: 'Arroz con Pollo',
-          description: 'Un plato tradicional de arroz con pollo',
+          id: "4",
+          name: "Arroz con Pollo",
+          description: "Un plato tradicional de arroz con pollo",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2019/06/arroz-con-pollo-peruano.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2019/06/arroz-con-pollo-peruano.jpg",
           price: 15.9,
         },
         {
-          id: '3',
-          name: 'Lomo Saltado',
-          description: 'Un plato de carne saltada con cebolla y tomate',
+          id: "3",
+          name: "Lomo Saltado",
+          description: "Un plato de carne saltada con cebolla y tomate",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2020/04/lomo-saltado.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2020/04/lomo-saltado.jpg",
           price: 21.9,
         },
       ],
       drinks: [
         {
-          id: '12',
-          name: 'Chicha de Jora',
+          id: "12",
+          name: "Chicha de Jora",
           description:
-            'Otra bebida típica peruana hecha de maíz jora fermentado.',
+            "Otra bebida típica peruana hecha de maíz jora fermentado.",
           imageDrink:
-            'https://i.pinimg.com/originals/19/2c/1b/192c1b9f7ea9df5262f8eb8e161dc0c1.jpg',
+            "https://i.pinimg.com/originals/19/2c/1b/192c1b9f7ea9df5262f8eb8e161dc0c1.jpg",
           price: 8.0,
         },
         {
-          id: '11',
-          name: 'Pisco Sour',
+          id: "11",
+          name: "Pisco Sour",
           description:
-            'Una bebida alcohólica peruana hecha de pisco, jugo de limón y clara de huevo.',
+            "Una bebida alcohólica peruana hecha de pisco, jugo de limón y clara de huevo.",
           imageDrink:
-            'https://unareceta.com/wp-content/uploads/2020/09/receta-de-pisco-sour.jpg',
+            "https://unareceta.com/wp-content/uploads/2020/09/receta-de-pisco-sour.jpg",
           price: 12.5,
         },
       ],
@@ -201,139 +201,138 @@ export default [
   },
 
   {
-    id: '4',
-    name: 'La 22',
+    id: "4",
+    name: "La 22",
     description:
-      'PAPACHOS PROVOCA A DIARIO, CON CARIÑO, ARTESANALMENTE Y CON LOS INSUMOS MÁS FRESCOS. ASÍ PREPARAMOS TODO. ASÍ HACEMOS QUE NUESTRAS HAMBURGUESAS Y TODA NUESTRA CARTA TENGA ESE SABOR ACHORADO QUE TANTO TE GUSTA.',
+      "PAPACHOS PROVOCA A DIARIO, CON CARIÑO, ARTESANALMENTE Y CON LOS INSUMOS MÁS FRESCOS. ASÍ PREPARAMOS TODO. ASÍ HACEMOS QUE NUESTRAS HAMBURGUESAS Y TODA NUESTRA CARTA TENGA ESE SABOR ACHORADO QUE TANTO TE GUSTA.",
     image:
-      'https://restaurantela22.com/media/uploads/e896040c945411ea8f5cb67ac514398a.png',
-    distance: '500m',
-    payment: ['online', 'cash', 'card'],
-    tables: '5',
+      "https://restaurantela22.com/media/uploads/e896040c945411ea8f5cb67ac514398a.png",
+    distance: "500m",
+    payment: ["online", "cash", "card"],
+    tables: "5",
     menu: {
       starters: [
         {
-          id: '1',
-          name: 'Papa a la Huancaina',
-          description: 'Un plato muy delicioso',
+          id: "1",
+          name: "Papa a la Huancaina",
+          description: "Un plato muy delicioso",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
         },
         {
-          id: '2',
-          name: 'Leche de Tigre',
-          description: 'Otro plato muy delicioso',
+          id: "2",
+          name: "Leche de Tigre",
+          description: "Otro plato muy delicioso",
           imageDish:
-            'https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg',
+            "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
         },
       ],
       mainDishes: [
         {
-          id: '2',
-          name: 'Ceviche Mixto',
-          description: 'Un plato muy popular en la costa peruana',
+          id: "2",
+          name: "Ceviche Mixto",
+          description: "Un plato muy popular en la costa peruana",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2018/06/ceviche-mixto.jpg',
+            "https://assets.unileversolutions.com/recipes-v2/234472.jpg",
           price: 18.5,
         },
         {
-          id: '3',
-          name: 'Lomo Saltado',
-          description: 'Un plato de carne saltada con cebolla y tomate',
-          imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2020/04/lomo-saltado.jpg',
+          id: "3",
+          name: "Lomo Saltado",
+          description: "Un plato de carne saltada con cebolla y tomate",
+          imageDish: "https://i.blogs.es/5620ff/lomo-saltado-dap/840_560.jpg",
           price: 21.9,
         },
       ],
       drinks: [
         {
-          id: '9',
-          name: 'Jugo de Maracuyá',
+          id: "9",
+          name: "Jugo de Maracuyá",
           description:
-            'Un jugo refrescante y delicioso hecho de maracuyá fresco.',
+            "Un jugo refrescante y delicioso hecho de maracuyá fresco.",
           imageDrink:
-            'https://www.sweetysalado.com/wp-content/uploads/2015/07/Maracuya-01.jpg',
+            "https://www.sweetysalado.com/wp-content/uploads/2015/07/Maracuya-01.jpg",
           price: 6.5,
         },
         {
-          id: '10',
-          name: 'Chicha Morada',
-          description: 'Una bebida típica peruana hecha de maíz morado.',
+          id: "10",
+          name: "Chicha Morada",
+          description: "Una bebida típica peruana hecha de maíz morado.",
           imageDrink:
-            'https://recetasdecomidaperuana.biz/wp-content/uploads/2021/02/Chicha-morada.jpg',
+            "https://recetasdecomidaperuana.biz/wp-content/uploads/2021/02/Chicha-morada.jpg",
           price: 7.0,
         },
       ],
     },
   },
   {
-    id: '5',
-    name: 'La 22',
+    id: "5",
+    name: "La 22",
     description:
-      'PAPACHOS PROVOCA A DIARIO, CON CARIÑO, ARTESANALMENTE Y CON LOS INSUMOS MÁS FRESCOS. ASÍ PREPARAMOS TODO. ASÍ HACEMOS QUE NUESTRAS HAMBURGUESAS Y TODA NUESTRA CARTA TENGA ESE SABOR ACHORADO QUE TANTO TE GUSTA.',
-    image: 'http://admin.tantaperu.com/wp-content/uploads/2019/09/tanta-fb.png',
-    distance: '500m',
-    payment: ['online', 'cash', 'card'],
-    tables: '5',
+      "PAPACHOS PROVOCA A DIARIO, CON CARIÑO, ARTESANALMENTE Y CON LOS INSUMOS MÁS FRESCOS. ASÍ PREPARAMOS TODO. ASÍ HACEMOS QUE NUESTRAS HAMBURGUESAS Y TODA NUESTRA CARTA TENGA ESE SABOR ACHORADO QUE TANTO TE GUSTA.",
+    image: "http://admin.tantaperu.com/wp-content/uploads/2019/09/tanta-fb.png",
+    distance: "500m",
+    payment: ["online", "cash", "card"],
+    tables: "5",
     menu: {
       starters: [
         {
-          id: '1',
-          name: 'Papa a la Huancaina',
-          description: 'Un plato muy delicioso',
+          id: "1",
+          name: "Papa a la Huancaina",
+          description: "Un plato muy delicioso",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
         },
         {
-          id: '2',
-          name: 'Leche de Tigre',
-          description: 'Otro plato muy delicioso',
+          id: "2",
+          name: "Leche de Tigre",
+          description: "Otro plato muy delicioso",
           imageDish:
-            'https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg',
+            "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
         },
       ],
       mainDishes: [
         {
-          id: '4',
-          name: 'Arroz con Pollo',
-          description: 'Un plato tradicional de arroz con pollo',
+          id: "4",
+          name: "Arroz con Pollo",
+          description: "Un plato tradicional de arroz con pollo",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2019/06/arroz-con-pollo-peruano.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2019/06/arroz-con-pollo-peruano.jpg",
           price: 15.9,
         },
         {
-          id: '5',
-          name: 'Ají de Gallina',
-          description: 'Un plato con pollo deshilachado y una salsa de ají',
+          id: "5",
+          name: "Ají de Gallina",
+          description: "Un plato con pollo deshilachado y una salsa de ají",
           imageDish:
-            'https://unacomidaperuana.com/wp-content/uploads/2019/07/aji-de-gallina.jpg',
+            "https://unacomidaperuana.com/wp-content/uploads/2019/07/aji-de-gallina.jpg",
           price: 16.9,
         },
       ],
       drinks: [
         {
-          id: '11',
-          name: 'Pisco Sour',
+          id: "11",
+          name: "Pisco Sour",
           description:
-            'Una bebida alcohólica peruana hecha de pisco, jugo de limón y clara de huevo.',
+            "Una bebida alcohólica peruana hecha de pisco, jugo de limón y clara de huevo.",
           imageDrink:
-            'https://unareceta.com/wp-content/uploads/2020/09/receta-de-pisco-sour.jpg',
+            "https://unareceta.com/wp-content/uploads/2020/09/receta-de-pisco-sour.jpg",
           price: 12.5,
         },
         {
-          id: '12',
-          name: 'Chicha de Jora',
+          id: "12",
+          name: "Chicha de Jora",
           description:
-            'Otra bebida típica peruana hecha de maíz jora fermentado.',
+            "Otra bebida típica peruana hecha de maíz jora fermentado.",
           imageDrink:
-            'https://i.pinimg.com/originals/19/2c/1b/192c1b9f7ea9df5262f8eb8e161dc0c1.jpg',
+            "https://i.pinimg.com/originals/19/2c/1b/192c1b9f7ea9df5262f8eb8e161dc0c1.jpg",
           price: 8.0,
         },
       ],
     },
   },
-]
+];

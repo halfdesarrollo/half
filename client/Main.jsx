@@ -24,7 +24,7 @@ export default function Main() {
         <Route path="/order" element={<OrderScreen />} />
         <Route path="/pay" element={<PayScreen />} />
         <Route path="/vieworder" element={<ViewOrderScreen />} />
-        <Route path="/menucard" element={<MenuCardScreen />} />
+        <Route path="/menucard/:id" element={<MenuCardScreen />} />
       </Routes>
     </View>
   );
