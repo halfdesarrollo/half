@@ -40,8 +40,10 @@ export const LoginScreen = () => {
             height: 200,
             top: -110,
             zIndex: 1,
+            top: -184,
           }}
         />
+
         <View style={styles.login_container}>
           <View style={styles.login_topLogo}>
             <HalfLogo style={styles.image_logo} />
@@ -60,7 +62,6 @@ export const LoginScreen = () => {
                 width: 480,
                 height: 373,
                 left: -93,
-
                 top: -154,
               }}
             />
