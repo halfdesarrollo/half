@@ -38,13 +38,13 @@ const FoodCard = ({ name, description, image, price, id, onDelete }) => {
   }, []);
 
   const quantityCalculate = (sign) => {
-    let calculate;
     const currentQuantityIndex = order.findIndex((item) => item.id === id);
+    let newQuantity;
+
     if (sign === "-" && currentQuantityIndex !== -1) {
-      calculate = order[currentQuantityIndex].quantity - 1;
       dispatch(decreaseOrderQuantity({ id }));
+      newQuantity = order[currentQuantityIndex].quantity - 1;
     } else if (sign === "+") {
-      calculate = currentQuantityIndex + 1;
       dispatch(
         currentQuantityIndex === -1
           ? addOrder({
@@ -57,10 +57,12 @@ const FoodCard = ({ name, description, image, price, id, onDelete }) => {
             })
           : increaseOrderQuantity({ id })
       );
-    } else return;
-    const result = calculate.toString().at(1)
-      ? calculate.toString()
-      : "0" + calculate;
+      newQuantity = order[currentQuantityIndex]?.quantity + 1 || 1;
+    } else {
+      return;
+    }
+
+    const result = newQuantity.toString().padStart(2, "0");
     setQuantity(result);
   };
   const handleDelete = () => {
@@ -123,7 +125,7 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     width: 82,
     height: 82,
-    resizeMode: "contain",
+    resizeMode: "cover",
   },
   viewText: {
     width: wp(74),
@@ -158,8 +160,9 @@ export const styles = StyleSheet.create({
     height: hp(6),
   },
   svgs: {
-    width: 42,
-    height: 42,
+    width: 35,
+    height: 35,
+    marginVertical: 5,
   },
   viewSvgs: {
     flexDirection: "row",

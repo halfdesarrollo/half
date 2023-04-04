@@ -17,7 +17,7 @@ import { styles } from "./OffersHalf";
 import FoodCard from "./FoodCard";
 import BigButtonOrder from "./BigButtonOrder";
 
-const LetterFilters = ({ onProductRemoved }) => {
+const LetterFilters = () => {
   //Traemos el estado restaurante del redux
   const { restaurants } = useSelector((state) => state.restaurantState);
   const { order } = useSelector((state) => state.orderState);

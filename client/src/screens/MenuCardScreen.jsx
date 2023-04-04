@@ -8,11 +8,16 @@ import ViewOrderButton from "../components/ViewOrderButton";
 import BackgroundCard from "../components/BackgroundCard";
 import BigButtonOrder from "../components/BigButtonOrder";
 
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-native";
+
 export const MenuCardScreen = () => {
+  const { id } = useParams();
+  const { restaurants } = useSelector((state) => state.restaurantState);
+  const logo = restaurants[id].image;
   return (
     <SafeAreaView style={styles.container}>
-      <BackgroundCard />
-      {/* <ViewOrderButton /> */}
+      <BackgroundCard logo={logo} />
       <OptionsViewRestorant />
     </SafeAreaView>
   );
