@@ -24,7 +24,7 @@ const OffersHalf = () => {
   )
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   offers: {
     paddingHorizontal: 10,
   },

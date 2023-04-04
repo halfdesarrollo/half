@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { colors, fonts } from '../utils/theme';
 
 const CategoryItem = ({ item, index }) => {
 
   return (
-    <View key={item.id} style={styles.container}>
+    <TouchableOpacity key={item.id} style={styles.container}>
       <Image style={styles.img} source={{ uri: item.img }} />
       <Text style={
         index % 2 === 0
@@ -14,7 +14,7 @@ const CategoryItem = ({ item, index }) => {
       }>
         {item.name}
       </Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
