@@ -11,9 +11,9 @@ export default [
     tables: "5",
 
     menu: {
-      starters: [
+      Entradas: [
         {
-          id: "1",
+          id: "1.1",
           name: "Papa a la Huancaina",
           description: "Un plato muy delicioso",
           imageDish:
@@ -21,7 +21,7 @@ export default [
           price: 13.9,
         },
         {
-          id: "2",
+          id: "1.2",
           name: "Leche de Tigre",
           description: "Otro plato muy delicioso",
           imageDish:
@@ -29,25 +29,26 @@ export default [
           price: 19.9,
         },
       ],
-      mainDishes: [
+      PlatoDeFondo: [
         {
-          id: "1",
+          id: "1.3",
           name: "Lomo Saltado",
           description: "Plato bandera de la comida peruana",
-          imageDish: "https://i.imgur.com/qejdzAK.jpg",
+          imageDish: "https://i.blogs.es/5620ff/lomo-saltado-dap/840_560.jpg",
           price: 25.0,
         },
         {
-          id: "2",
+          id: "1.4",
           name: "Arroz con Mariscos",
           description: "Arroz salteado con mariscos y un toque de cilantro",
-          imageDish: "https://i.imgur.com/l8WY5E5.jpg",
+          imageDish:
+            "https://comidasperuanas.net/wp-content/uploads/2015/11/Arroz-con-mariscos.jpg",
           price: 32.5,
         },
       ],
-      drinks: [
+      Bebidas: [
         {
-          id: "1",
+          id: "1.5",
           name: "Coca-Cola",
           description: "Bebida gaseosa refrescante",
           imageDrink:
@@ -55,7 +56,7 @@ export default [
           price: 3.5,
         },
         {
-          id: "2",
+          id: "1.6",
           name: "Jugo de Naranja",
           description: "Jugo natural de naranjas frescas",
           imageDrink:
@@ -76,14 +77,13 @@ export default [
     payment: ["online", "cash", "card"],
     tables: "5",
     menu: {
-      starters: [
+      Entradas: [
         {
-          id: "1",
-          name: "Papa a la Huancaina",
-          description: "Un plato muy delicioso",
-          imageDish:
-            "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
-          price: 13.9,
+          id: "2-1",
+          name: "Ceviche Mixto",
+          description: "Un plato de pescado marinado",
+          imageDish: "https://cdn7.kiwilimon.com/recetaimagen/26255/23270.jpg",
+          price: 25.9,
         },
         {
           id: "2",
@@ -94,7 +94,7 @@ export default [
           price: 19.9,
         },
       ],
-      mainDishes: [
+      PlatoDeFondo: [
         {
           id: "4",
           name: "Ceviche Mixto",
@@ -110,7 +110,7 @@ export default [
           price: 20.0,
         },
       ],
-      drinks: [
+      Bebidas: [
         {
           id: "3",
           name: "Agua Mineral",
@@ -141,7 +141,7 @@ export default [
     payment: ["online", "cash", "card"],
     tables: "5",
     menu: {
-      starters: [
+      Entradas: [
         {
           id: "1",
           name: "Papa a la Huancaina",
@@ -159,7 +159,7 @@ export default [
           price: 19.9,
         },
       ],
-      mainDishes: [
+      PlatoDeFondo: [
         {
           id: "4",
           name: "Arroz con Pollo",
@@ -177,7 +177,7 @@ export default [
           price: 21.9,
         },
       ],
-      drinks: [
+      Bebidas: [
         {
           id: "12",
           name: "Chicha de Jora",
@@ -211,7 +211,7 @@ export default [
     payment: ["online", "cash", "card"],
     tables: "5",
     menu: {
-      starters: [
+      Entradas: [
         {
           id: "1",
           name: "Papa a la Huancaina",
@@ -229,7 +229,7 @@ export default [
           price: 19.9,
         },
       ],
-      mainDishes: [
+      PlatoDeFondo: [
         {
           id: "2",
           name: "Ceviche Mixto",
@@ -246,14 +246,14 @@ export default [
           price: 21.9,
         },
       ],
-      drinks: [
+      Bebidas: [
         {
           id: "9",
           name: "Jugo de Maracuyá",
           description:
             "Un jugo refrescante y delicioso hecho de maracuyá fresco.",
           imageDrink:
-            "https://www.sweetysalado.com/wp-content/uploads/2015/07/Maracuya-01.jpg",
+            "https://www.comidasperuanas.vip/wp-content/uploads/2020/03/jugo-de-maracuya.jpg",
           price: 6.5,
         },
         {
@@ -261,7 +261,7 @@ export default [
           name: "Chicha Morada",
           description: "Una bebida típica peruana hecha de maíz morado.",
           imageDrink:
-            "https://recetasdecomidaperuana.biz/wp-content/uploads/2021/02/Chicha-morada.jpg",
+            "https://okdiario.com/img/2019/08/25/receta-de-chicha-morada-de-peru-1.jpg",
           price: 7.0,
         },
       ],
@@ -277,7 +277,7 @@ export default [
     payment: ["online", "cash", "card"],
     tables: "5",
     menu: {
-      starters: [
+      Entradas: [
         {
           id: "1",
           name: "Papa a la Huancaina",
@@ -295,7 +295,7 @@ export default [
           price: 19.9,
         },
       ],
-      mainDishes: [
+      PlatoDeFondo: [
         {
           id: "4",
           name: "Arroz con Pollo",
@@ -313,7 +313,7 @@ export default [
           price: 16.9,
         },
       ],
-      drinks: [
+      Bebidas: [
         {
           id: "11",
           name: "Pisco Sour",

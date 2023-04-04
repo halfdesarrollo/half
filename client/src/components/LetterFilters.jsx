@@ -19,7 +19,7 @@ import BigButtonOrder from "./BigButtonOrder";
 
 const LetterFilters = () => {
   const [switchs, setSwitchs] = useState(false);
-  const [select, setSelect] = useState("starters");
+  const [select, setSelect] = useState("Entradas");
 
   //Traemos el estado restaurante del redux
   const { restaurants } = useSelector((state) => state.restaurantState);
@@ -29,12 +29,14 @@ const LetterFilters = () => {
   const filterRestaurant = restaurants.filter(
     (restaurant) => restaurant.id === id
   );
-
+  console.log(filterRestaurant);
   //Filtramos menu del restaurante para hacerlos keys dinamicos
-  const filterMenu = filterRestaurant.map((restaurant) =>
-    Object.keys(restaurant.menu)
-  );
-
+  const filterMenu = filterRestaurant.map((restaurant) => {
+    const menu = Object.keys(restaurant.menu);
+    menu[1] = menu[1].replace(/([A-Z])/g, " $1");
+    return menu;
+  });
+  //console.log(filterMenu);
   //Filtramos las Bebidas del Restaurante
   const filterDrinks = filterRestaurant.map(
     (restaurant) => restaurant.menu.drinks
@@ -82,36 +84,36 @@ const LetterFilters = () => {
       </View>
       {
         <ScrollView>
-          {select === "starters" &&
-            filterRestaurant[0].menu.starters.map((starters, index) => (
+          {select === "Entradas" &&
+            filterRestaurant[0].menu.Entradas.map((Entradas, index) => (
               <View key={index} style={styles.menu_container}>
                 <FoodCard
-                  name={starters.name}
-                  description={starters.description}
-                  image={starters.imageDish}
-                  price={starters.price}
+                  name={Entradas.name}
+                  description={Entradas.description}
+                  image={Entradas.imageDish}
+                  price={Entradas.price}
                 />
               </View>
             ))}
-          {select === "drinks" &&
-            filterRestaurant[0].menu.drinks.map((drinks, index) => (
+          {select === "Bebidas" &&
+            filterRestaurant[0].menu.Bebidas.map((Bebidas, index) => (
               <View key={index}>
                 <FoodCard
-                  name={drinks.name}
-                  description={drinks.description}
-                  image={drinks.imageDrink}
-                  price={drinks.price}
+                  name={Bebidas.name}
+                  description={Bebidas.description}
+                  image={Bebidas.imageDrink}
+                  price={Bebidas.price}
                 />
               </View>
             ))}
-          {select === "mainDishes" &&
-            filterRestaurant[0].menu.mainDishes.map((mainDishes, index) => (
+          {select === " Plato De Fondo" &&
+            filterRestaurant[0].menu.PlatoDeFondo.map((PlatoDeFondo, index) => (
               <View key={index}>
                 <FoodCard
-                  name={mainDishes.name}
-                  description={mainDishes.description}
-                  image={mainDishes.imageDish}
-                  price={mainDishes.price}
+                  name={PlatoDeFondo.name}
+                  description={PlatoDeFondo.description}
+                  image={PlatoDeFondo.imageDish}
+                  price={PlatoDeFondo.price}
                 />
               </View>
             ))}
@@ -151,11 +153,11 @@ const style = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 8,
     backgroundColor: colors.secundary6,
-    width: wp(27),
+    width: wp(30),
     height: hp(4),
   },
   buttonSelected: {
-    width: wp(30),
+    width: wp(32),
     height: hp(4),
     backgroundColor: colors.primaryGreen,
     padding: 5,

@@ -6,13 +6,15 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 import BackgroundImage from "../../assets/backgroundCard.svg";
+import { useParams } from "react-router-native";
+import { useSelector } from "react-redux";
 
 const BackgroundCard = () => {
   return (
     <SafeAreaView>
       <TitlePage text="Inicio" route={"/"} />
       <View style={styles.backgroundCard_container}>
-        <BackgroundImage />
+        <BackgroundImage style={{ resizeMode: "contain" }} />
       </View>
     </SafeAreaView>
   );
@@ -23,6 +25,8 @@ const styles = StyleSheet.create({
     width: wp("100"),
     maxWidth: wp("100"),
     height: hp("25"),
+    backgroundColor: "#fff",
+    marginHorizontal: -105,
   },
   backgroundCard_top: {
     backgroundColor: "blue",

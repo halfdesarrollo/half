@@ -90,9 +90,9 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   image: {
-    borderColor: "red",
+    borderColor: "#fff",
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 15,
     width: 82,
     height: 82,
     resizeMode: "contain",
