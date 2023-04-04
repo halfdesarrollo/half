@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import {
   widthPercentageToDP as wp,
@@ -6,6 +6,9 @@ import {
 } from "react-native-responsive-screen";
 
 const YourProductList = () => {
+
+  const [state, setState] = useState("entregado")
+
   return (
     <View style={styles.container}>
         <View style={styles.container2}>
@@ -17,15 +20,15 @@ const YourProductList = () => {
       <View style={styles.container3}>
         <View style={styles.spaceText}>
           <Text style={styles.text}>Caldo de Gallina</Text>
-          <Text style={styles.text}>Entregado</Text>
+          <Text style={styles.text}>{state}</Text>
         </View>
         <View style={styles.spaceText}>
           <Text style={styles.text}>Papa a la huancaína</Text>
-          <Text style={styles.text}>Entregado</Text>
+          <Text style={styles.text}>{state}</Text>
         </View>
         <View style={styles.spaceText}>
           <Text style={styles.text}>Jarra de chicha morada</Text>
-          <Text style={styles.text}>Entregado</Text>
+          <Text style={styles.text}>{state}</Text>
         </View>
       </View>
     </View>
@@ -47,6 +50,7 @@ const styles = StyleSheet.create({
     overflow : "hidden" ,
     shadowColor: 'transparent',
     elevation: 3,
+    marginBottom: 250,
   },
 
   container2:{
