@@ -1,7 +1,7 @@
 import { View, StyleSheet } from 'react-native'
 import React from 'react'
 import Tip from './Tip'
-import AddCuponBtn from './AddCuponBtn'
+import AddCouponBtn from './AddCouponBtn'
 import { colors } from '../utils/theme'
 
 const ViewPropinaCupon = () => {
@@ -11,7 +11,7 @@ const ViewPropinaCupon = () => {
         <Tip/>
       </View>
       <View style={styles.viewPropinaContentCupon}>
-        <AddCuponBtn/>
+        <AddCouponBtn/>
       </View>
     </View>
   )

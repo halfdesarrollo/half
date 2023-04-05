@@ -4,7 +4,7 @@ import IconAdd from '../../assets/icon-add-cupon.svg'
 import { fonts } from '../utils/theme'
 import { useNavigate } from 'react-router-native'
 
-const AddCuponBtn = () => {
+const AddCouponBtn = () => {
   const navigate = useNavigate();
 
   // me lleva a la screen de CouponScreen
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AddCuponBtn
+export default AddCouponBtn
