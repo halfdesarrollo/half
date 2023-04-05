@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
 import { View, Text, StyleSheet } from "react-native";
 
-const ListOfProducts = ({plate, i}) => {
-  console.log(plate)
+const ListOfOrder = ({plate}) => {
   const [state, setState] = useState("Entregado")
 
   return (
-        <View style={styles.spaceText} key={i}>
+        <View style={styles.spaceText}>
           <Text style={styles.text}>{plate}</Text>
           <Text style={styles.text}>{state}</Text>
         </View>
@@ -30,4 +29,4 @@ const styles = StyleSheet.create({
       },
 })
 
-export default ListOfProducts
+export default ListOfOrder
