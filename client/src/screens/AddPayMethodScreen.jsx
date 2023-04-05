@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import ViewPropinaCupon from '../components/ViewPropinaCupon'
+import ViewTipCoupon from '../components/ViewTipCoupon'
 import { AddCard } from '../components/AddCard'
 import { CashPayment } from '../components/CashPayment'
 import { OrderSummary } from '../components/OrderSummary'
@@ -11,7 +11,7 @@ export const AddPayMethodScreen = () => {
       <Text>AddPayMethodScreen</Text>
       <AddCard />
       <CashPayment />
-      <ViewPropinaCupon/>
+      <ViewTipCoupon/>
       <OrderSummary/>
     </View>
   )

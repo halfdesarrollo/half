@@ -4,7 +4,7 @@ import Tip from './Tip'
 import AddCouponBtn from './AddCouponBtn'
 import { colors } from '../utils/theme'
 
-const ViewPropinaCupon = () => {
+const ViewTipCoupon = () => {
   return (
     <View style={[styles.viewPropinaCupon, styles.shadowProps]}>
       <View style={styles.viewPropinaContentPropina}>
@@ -37,4 +37,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ViewPropinaCupon
+export default ViewTipCoupon
