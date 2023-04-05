@@ -88,7 +88,7 @@ const LetterFilters = () => {
         <ScrollView>
           {select === "Entradas" &&
             filterRestaurant[0].menu.Entradas.map((Entradas, index) => (
-              <View key={index} style={styles.menu_container}>
+              <View key={index}>
                 <FoodCard
                   id={Entradas.id}
                   name={Entradas.name}
