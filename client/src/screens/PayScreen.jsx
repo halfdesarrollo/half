@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import TitlePage from "../components/TitlePage"
 
 const PayScreen = () => {
   return (
     <View>
-      <Text>PayScreen</Text>
+    <TitlePage  text="Pagar" route="/vieworder" white={false}/>
     </View>
   )
 }
