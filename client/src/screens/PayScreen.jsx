@@ -1,11 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+
+import TotalCost from '../components/TotalCost'
 import TitlePage from "../components/TitlePage"
+
 
 const PayScreen = () => {
   return (
     <View>
-    <TitlePage  text="Pagar" route="/vieworder" white={false}/>
+      <Text>PayScreen</Text>
+       <TotalCost/>
+       <TitlePage  text="Pagar" route="/vieworder" white={false}/>
     </View>
   )
 }
