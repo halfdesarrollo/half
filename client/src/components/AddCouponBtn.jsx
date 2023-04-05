@@ -1,12 +1,20 @@
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native'
 import React from 'react'
 import IconAdd from '../../assets/icon-add-cupon.svg'
-import { colors, fonts } from '../utils/theme'
+import { fonts } from '../utils/theme'
+import { useNavigate } from 'react-router-native'
 
-const AddCuponBtn = () => {
+const AddCouponBtn = () => {
+  const navigate = useNavigate();
+
+  // me lleva a la screen de CouponScreen
+  const viewCouponScreen = () => {
+    navigate('/CouponScreen')
+  }
+
   return (
     <View style={styles.addCupon}>
-      <TouchableOpacity style={styles.addCuponContent}>
+      <TouchableOpacity style={styles.addCuponContent} onPress={viewCouponScreen}>
         <IconAdd style={styles.addCuponImage} />
         <Text style={styles.addCuponText}>Agregar Cupón</Text>
       </TouchableOpacity>
@@ -36,4 +44,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default AddCuponBtn
+export default AddCouponBtn
