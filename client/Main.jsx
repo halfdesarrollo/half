@@ -20,10 +20,10 @@ export default function Main() {
         <Route path="/qrscreen" element={<QrScreen />} />
         <Route path="/welcome" element={<WelcomeScreen />} />
         <Route path="/howdoesitworks" element={<HowDoesItWorksScreen />} />
-        <Route path="/s" element={<MainMenuScreen />} />
+        <Route path="/" element={<MainMenuScreen />} />
         <Route path="/addpaymethod" element={<AddPayMethodScreen />} />
         <Route path="/order" element={<OrderScreen />} />
-        <Route path="/" element={<PayScreen />} />
+        <Route path="/pay" element={<PayScreen />} />
         <Route path="/vieworder" element={<ViewOrderScreen />} />
         <Route path="/menucard/:id" element={<MenuCardScreen />} />
         <Route path="/invitefriends" element={<InviteFriendsScreen />} />
