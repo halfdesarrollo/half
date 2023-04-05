@@ -22,7 +22,7 @@ const TitlePage = ({ text, route, white }) => {
         ) : (
           <Back style={styles.back} onPress={handlePress} />
         )}
-        <Text style={white ? styles.whiteText : styles.text}>{text}</Text>
+        <Text onPress={handlePress}  style={white ? styles.whiteText : styles.text}>{text}</Text>
       </View>
     </View>
   );
