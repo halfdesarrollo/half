@@ -9,9 +9,9 @@ export const AddPayMethodScreen = () => {
   return (
     <View>
       <Text>AddPayMethodScreen</Text>
-      <ViewPropinaCupon/>
       <AddCard />
       <CashPayment />
+      <ViewPropinaCupon/>
       <OrderSummary/>
     </View>
   )
