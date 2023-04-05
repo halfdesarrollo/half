@@ -4,10 +4,15 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
+import ListOfProducts from "./ListOfProducts";
+import { useSelector } from "react-redux";
 
 const YourProductList = () => {
-
-  const [state, setState] = useState("entregado")
+   const [plates, setPlates] = useState([
+    "Caldo de Gallina",
+    "Papa a la huancaína",
+    "Jarra de chicha morada"
+   ])
 
   return (
     <View style={styles.container}>
@@ -18,18 +23,13 @@ const YourProductList = () => {
       </View>
         </View>
       <View style={styles.container3}>
-        <View style={styles.spaceText}>
-          <Text style={styles.text}>Caldo de Gallina</Text>
-          <Text style={styles.text}>{state}</Text>
-        </View>
-        <View style={styles.spaceText}>
-          <Text style={styles.text}>Papa a la huancaína</Text>
-          <Text style={styles.text}>{state}</Text>
-        </View>
-        <View style={styles.spaceText}>
-          <Text style={styles.text}>Jarra de chicha morada</Text>
-          <Text style={styles.text}>{state}</Text>
-        </View>
+        {
+          plates?.map((plate, i)=>{
+            return (
+                <ListOfProducts plate={plate} i={i}/>
+                )
+          })
+        }
       </View>
     </View>
   );
@@ -57,8 +57,8 @@ const styles = StyleSheet.create({
     borderColor: "000000",
     borderBottomWidth:2,
     top: 20,
-    textAlign: "center",
-    justifyContent:"center",
+    // textAlign: "center",
+    // justifyContent:"center",
   },
 
   container3:{
