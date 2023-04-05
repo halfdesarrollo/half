@@ -69,7 +69,7 @@ const Navbar = () => {
         underlayColor="none"
         activeOpacity={1}
         onPress={() => {
-          navigation("/login");
+          navigation("/menucard/4");
           setActiveButton("perfil");
         }}
       >
