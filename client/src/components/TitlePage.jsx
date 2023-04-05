@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 25,
         paddingVertical: 15,
         width: wp('100%'),
-        top: 300
     },
     whiteContainer: {
         backgroundColor: '#fff',
