@@ -31,5 +31,5 @@ export default function Main() {
         <Route path='/couponscreen' element={<CouponScreen/>}/>
       </Routes>
     </View>
-  )
+  );
 }
