@@ -16,6 +16,7 @@ import {
   useFonts as usePoppins,
   Poppins_400Regular,
   Poppins_500Medium,
+  Poppins_600SemiBold,
   Poppins_700Bold,
 } from '@expo-google-fonts/poppins';
 
@@ -42,6 +43,7 @@ export default function App() {
   const [poppinsLoaded] = usePoppins({
     Poppins_400Regular,
     Poppins_500Medium,
+    Poppins_600SemiBold,
     Poppins_700Bold
   });
   const [robotoLoaded] = useRoboto({
