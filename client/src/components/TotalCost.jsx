@@ -1,10 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { 
+  widthPercentageToDP as wp 
+} from "react-native-responsive-screen";
 import { useSelector } from 'react-redux';
+import { colors, fonts } from '../utils/theme';
 
-const TotalCost = () => {
-    
+const TotalCost = ({titleTwo}) => {
 const totalPrice = useSelector(state => state.orderState.cash)
 const precioTotal = totalPrice ==  0  ? "49.70" : totalPrice.toFixed(2)
 
@@ -12,10 +14,18 @@ const precioTotal = totalPrice ==  0  ? "49.70" : totalPrice.toFixed(2)
     <View>
         <View style={styles.conteiner}>
             <View style={styles.box}>
-            <Text style={styles.title}>Costo total</Text>
-            <View style={styles.line}></View>
-            <Text style={styles.price}>S/.{precioTotal}</Text>
-        </View>
+              <View style={styles.boxText}>  
+                <Text style={styles.title}>Costo total</Text>
+                {titleTwo && 
+                <Text 
+                  style={[styles.title, styles.titleTwo]}>
+                  {titleTwo}
+                </Text>
+                }
+              </View>
+              <View style={styles.line}></View>
+              <Text style={styles.price}>S/.{precioTotal}</Text>
+            </View>
         </View>
     </View>
   )
@@ -36,7 +46,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     display: "flex",
     justifyContent: "center",
-    // alignItems: "center",
     backgroundColor: "#fff",
     elevation: 4,
     shadowColor: "#000",
@@ -47,19 +56,38 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
   },
+  boxText:{
+    width: wp(85),
+    flexDirection:'row',
+  },
   title: {
-    fontWeight: "500",
-    margin: 5,
+    fontFamily: fonts.poppins.semiBold,
+    fontSize: 12,
+    lineHeight: 18,
+    letterSpacing: 0,
+    margin: 6,
+    marginEnd:0,
+    color:colors.secundary4,
+    paddingStart:wp(1.5),
+  },
+  titleTwo:{
+    marginStart:0
   },
   line: {
     borderBottomWidth: 1,
-    borderColor: "#4B5563",
+    borderColor: colors.secundary4,
     width: "99%",
-    margin: 5,
     flexDirection: "row",
     justifyContent: "space-between",
+    marginHorizontal:wp(0.5),
   },
   price: { 
+    color:colors.secundary2,
+    fontFamily: fonts.poppins.regular,
+    fontSize: 16,
+    lineHeight: 24,
+    letterSpacing: 0,
     margin: 5,
+    paddingStart:wp(2),
   }
 });
