@@ -80,10 +80,6 @@ export const LoginScreen = () => {
               <Text>Inicia Sesion</Text>
             </TouchableHighlight>
           </View>
-          <View style={{ flexDirection: "row" }}>
-            <Button title="Inicia Sesion" onPress={() => setLogin(true)} />
-            <Button title="Registrate" onPress={() => setLogin(false)} />
-          </View>
           {login ? <RegsiterForm /> : <LoginComponent />}
         </View>
 

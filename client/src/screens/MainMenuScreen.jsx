@@ -1,26 +1,29 @@
 import { View } from "react-native";
 import { StyleSheet } from "react-native";
-
+import { useSelector } from "react-redux";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import Navbar from "../components/Navbar";
 // components
 
+import Navbar from "../components/Navbar";
 import SpecialHalf from "../components/SpecialHalf";
 import Search from "../components/Search";
 import TitlePageLocation from "../components/TitlePageLocation";
-import WelcomeUser from '../components/WelcomeUser';
-import StartBooking from '../components/StartBooking';
-import Categories from '../components/Categories';
-import NearMe from '../components/NearMe';
+import WelcomeUser from "../components/WelcomeUser";
+import StartBooking from "../components/StartBooking";
+import Categories from "../components/Categories";
+import NearMe from "../components/NearMe";
 
 export const MainMenuScreen = () => {
+  const { user } = useSelector((state) => state.userState);
+  console.log(user);
+
   return (
     <View style={styles.container}>
       <TitlePageLocation />
-      <WelcomeUser user={'Usuario'} />
+      <WelcomeUser user={"Usuario"} />
       <Search />
       <StartBooking />
       <SpecialHalf />
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
     height: hp("100.00%"),
     alignItems: "center",
     backgroundColor: "white",
-    gap: 15
+    gap: 15,
   },
   logo: {
     width: wp("50.00%"),

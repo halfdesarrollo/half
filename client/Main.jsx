@@ -19,9 +19,9 @@ export default function Main() {
       <Routes>
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/qrscreen" element={<QrScreen />} />
-        <Route path="/welcome" element={<WelcomeScreen />} />
+        <Route path="/" element={<WelcomeScreen />} />
         <Route path="/howdoesitworks" element={<HowDoesItWorksScreen />} />
-        <Route path="/" element={<MainMenuScreen />} />
+        <Route path="/mainmenu" element={<MainMenuScreen />} />
         <Route path="/addpaymethod" element={<AddPayMethodScreen />} />
         <Route path="/order" element={<OrderScreen />} />
         <Route path="/pay" element={<PayScreen />} />
