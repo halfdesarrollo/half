@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import TrashIcon from '../../assets/trash.svg'
 import { fonts } from '../utils/theme'
@@ -54,14 +54,10 @@ const styles = StyleSheet.create({
     gap: 10,
   },
 
-  //
   payContainer: {
     gap: 8,
     marginTop: 15,
   },
-  // payText: {
-  //   fontFamily
-  // },
 })
 
 export default OrderList
