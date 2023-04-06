@@ -4,15 +4,16 @@ import ViewTipCoupon from '../components/ViewTipCoupon'
 import { AddCard } from '../components/AddCard'
 import { CashPayment } from '../components/CashPayment'
 import { OrderSummary } from '../components/OrderSummary'
+import TitlePage from '../components/TitlePage'
 
 export const AddPayMethodScreen = () => {
   return (
     <View>
-      <Text>AddPayMethodScreen</Text>
+      <TitlePage text='Agregar método de pago' route='/pay' />
       <AddCard />
       <CashPayment />
-      <ViewTipCoupon/>
-      <OrderSummary/>
+      <ViewTipCoupon />
+      <OrderSummary />
     </View>
   )
 }
