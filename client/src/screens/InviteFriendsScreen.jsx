@@ -12,7 +12,7 @@ import SendInviteModal from '../components/SendInviteModal'
 const InviteFriendsScreen = () => {
   return (
     <View style={styles.container}>
-      <TitlePage text={'Invita amigos a tu mesa'} white={true} />
+      <TitlePage text={'Invita amigos a tu mesa'} white={true} route={'/menucard/4'} />
       <SearchFriends />
       <SocialMedias />
       <Contacts />

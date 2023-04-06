@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import {
     widthPercentageToDP as wp,
@@ -8,8 +7,7 @@ import Close from '../../assets/close.svg'
 import { colors, fonts } from '../utils/theme';
 import { useSelector } from 'react-redux'
 import GuestCard from './GuestCard';
-const ModalGuests = () => {
-    const [displayGuests, setDisplayGuests] = useState(true)
+const ModalGuests = ({ displayGuests, setDisplayGuests }) => {
     const guests = useSelector(state => state.tableState.guests)
     return (
         <Modal
