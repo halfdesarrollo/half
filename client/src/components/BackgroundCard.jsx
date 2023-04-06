@@ -14,7 +14,6 @@ import ProfileLogo from "../../assets/ProfilePicture.svg";
 import InviteBtn from "./InviteBtn";
 
 const BackgroundCard = ({ logo }) => {
-  console.log(logo);
   return (
     <SafeAreaView>
       <TitlePage text="Inicio" route={"/"} />
