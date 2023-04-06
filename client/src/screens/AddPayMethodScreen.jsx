@@ -8,14 +8,16 @@ import PaymentProof from '../components/PaymentProof'
 
 export const AddPayMethodScreen = () => {
   return (
-    <ScrollView>
-      <Text>AddPayMethodScreen</Text>
-      <AddCard />
-      <CashPayment />
-      <ViewTipCoupon/>
-      <PaymentProof />
-      <OrderSummary/>
-    </ScrollView>
+    <View>
+      <ScrollView>
+        <Text>AddPayMethodScreen</Text>
+        <AddCard />
+        <CashPayment />
+        <ViewTipCoupon/>
+        <PaymentProof />
+        <OrderSummary/>
+      </ScrollView>
+    </View>
   )
 }
 
