@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Button, StyleSheet, Text, View } from "react-native";
+import {
+  Button,
+  StyleSheet,
+  Text,
+  View,
+  TouchableHighlight,
+} from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { StatusBar } from "expo-status-bar";
 import { useNavigate } from "react-router-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
+
+import TopLeft from "../../assets/qrtopizquierdo.svg";
+import TopRight from "../../assets/qrtopderecho.svg";
+import BotRight from "../../assets/qrbotderecho.svg";
+import BotLeft from "../../assets/qrbotizquierdo.svg";
 
 export default function ScanQRComponent() {
   const [hasPermission, setHasPermission] = useState(false);
@@ -39,13 +54,14 @@ export default function ScanQRComponent() {
     <View style={styles.container}>
       <BarCodeScanner
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-        style={StyleSheet.absoluteFillObject}
+        style={[styles.barscan, StyleSheet.absoluteFillObject]}
       />
       <StatusBar style="auto" />
       <View style={{ bottom: 430, position: "absolute" }}>
-        <Text style={styles.top_text}>
-          Usa la cámara de tu móvil para escanear el código QR.
-        </Text>
+        <TopLeft style={{ position: "absolute", top: -260, left: -180 }} />
+        <TopRight style={{ position: "absolute", top: -260, left: 110 }} />
+        <BotLeft style={{ position: "absolute", top: 130, left: -180 }} />
+        <BotRight style={{ position: "absolute", top: 140, left: 100 }} />
       </View>
     </View>
   );
@@ -54,10 +70,14 @@ export default function ScanQRComponent() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    top: -200,
+    marginHorizontal: -45,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "white",
+    backgroundColor: "red",
     flexDirection: "column",
+    width: wp("100.00%"),
+    height: hp("100.00%"),
   },
   scanner: {
     ...StyleSheet.absoluteFillObject,
@@ -69,5 +89,16 @@ const styles = StyleSheet.create({
     textShadowColor: "grey",
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 4,
+  },
+  barscan: {
+    marginVertical: -5,
+    paddingHorizontal: 200,
+    width: wp("150.00%"),
+    height: hp("100.00%"),
+  },
+  icons_container: {
+    backgroundColor: "red",
+    width: wp("100.00%"),
+    position: "relative",
   },
 });

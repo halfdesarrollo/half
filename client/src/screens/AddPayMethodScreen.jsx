@@ -1,18 +1,22 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View ,ScrollView} from 'react-native'
 import React from 'react'
-import ViewPropinaCupon from '../components/ViewPropinaCupon'
+import ViewTipCoupon from '../components/ViewTipCoupon'
 import { AddCard } from '../components/AddCard'
 import { CashPayment } from '../components/CashPayment'
 import { OrderSummary } from '../components/OrderSummary'
+import PaymentProof from '../components/PaymentProof'
 
 export const AddPayMethodScreen = () => {
   return (
     <View>
-      <Text>AddPayMethodScreen</Text>
-      <ViewPropinaCupon/>
-      <AddCard />
-      <CashPayment />
-      <OrderSummary/>
+      <ScrollView>
+        <Text>AddPayMethodScreen</Text>
+        <AddCard />
+        <CashPayment />
+        <ViewTipCoupon/>
+        <PaymentProof />
+        <OrderSummary/>
+      </ScrollView>
     </View>
   )
 }

@@ -9,10 +9,6 @@ import React from 'react'
 
 export default function ContinueButton({ to }) {
   const navigate = useNavigate()
-
-  console.log('====================================')
-  console.log('to', to)
-  console.log('====================================')
   const continueButtonOnPress = () => {
     navigate(to)
   }
@@ -25,10 +21,7 @@ export default function ContinueButton({ to }) {
 
 const styles = StyleSheet.create({
   button: {
-    zIndex: 1,
     backgroundColor: '#FFAD3F',
-    bottom: 150,
-    left: 100,
     width: wp('50.00%'),
     height: hp('6.00%'),
     borderRadius: 7,

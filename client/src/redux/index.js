@@ -5,11 +5,15 @@ import { persistReducer } from "redux-persist";
 
 //Slices
 import user from "./slices/user/userSlice";
-import restaurant from "./slices/restaurant/restaurantReducer";
+import restaurant from "./slices/restaurant/restaurantSlice";
+import order from "./slices/order/orderSlice";
+import table from "./slices/table/tableSlice";
 
 const rootReducer = combineReducers({
   userState: user,
   restaurantState: restaurant,
+  orderState: order,
+  tableState: table,
 });
 
 const persistConfig = {
