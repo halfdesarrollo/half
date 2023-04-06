@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 import SearchFriends from '../components/SearchFriends'
 import TitlePage from '../components/TitlePage'
@@ -10,13 +11,15 @@ import Contacts from '../components/Contacts'
 import SendInviteModal from '../components/SendInviteModal'
 
 const InviteFriendsScreen = () => {
+  const [modalVisible, setModalVisible] = useState(false)
+
   return (
     <View style={styles.container}>
       <TitlePage text={'Invita amigos a tu mesa'} white={true} route={'/menucard/4'} />
       <SearchFriends />
       <SocialMedias />
-      <Contacts />
-      <SendInviteModal />
+      <Contacts modalVisible={modalVisible} setModalVisible={setModalVisible} />
+      <SendInviteModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </View>
   )
 }
