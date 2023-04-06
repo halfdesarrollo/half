@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { useBoolean } from "../customHooks";
 import { CheckBox } from 'react-native-elements';
 
-const RequestsFromOtherMembers = () => {
+const OrdersFromOthersMembers = () => {
   const membersOrders = useSelector(state => state.tableState.orders)
   const finalPriceMore = (price) => {
     console.log('mas',price)
@@ -85,15 +85,15 @@ const styles = StyleSheet.create({
     width:wp(90),
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor: '#FFFFFF',  
-    shadowColor: '#000',
+    backgroundColor: "#fff",
+    elevation: 4,
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: -9,
+      height: 4,
     },
     shadowOpacity: 0.25,
-    shadowRadius: 5,
-    elevation: 3,
+    shadowRadius: 4,
   },
   text:{
     width:wp(85),
@@ -155,4 +155,4 @@ const stylesMembers = StyleSheet.create({
 
 
 
-export default RequestsFromOtherMembers;
+export default OrdersFromOthersMembers;

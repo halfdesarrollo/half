@@ -26,13 +26,13 @@ const PaymentProof = () => {
   }
   const styleButtons = (name) => {
     return name === paymentProof?
-      [styles.button, styles.buttonSelected]
-      : [styles.button]
+      [styles.button, styles.buttonSelected]:
+      [styles.button]
   }
   const styleTextButton = (name) => {
     return name === paymentProof?
-    [styles.textButton, styles.textButtonSelected]
-    : [styles.textButton]
+    [styles.textButton, styles.textButtonSelected]:
+    [styles.textButton]
   }
   return(
     <View style={styles.contain}>
@@ -97,11 +97,12 @@ const styles = StyleSheet.create({
     gap:5,
   },
   subTitle:{
-    marginLeft:27,
+    width: wp(86),
     fontFamily:fonts.poppins.medium,
     fontSize:14,
+    textAlign:'left',
     lineHeight:21,
-    marginVertical:27,
+    marginVertical:hp(3),
   },
   button:{
     minWidth: wp(41), 
@@ -120,11 +121,11 @@ const styles = StyleSheet.create({
     textAlign:'center',
     fontSize:14,
     fontFamily: fonts.poppins.medium,
-    fontWeight:600,
     lineHeight:21,
     color: colors.secundary2,
   },
   textButtonSelected:{
+    fontFamily:fonts.poppins.semiBold,
     color:'#FFFFFF',
   },  
 })
