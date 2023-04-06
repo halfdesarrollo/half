@@ -8,62 +8,80 @@ import { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { colors, fonts } from "../utils/theme";
 import { useSelector } from 'react-redux';
+import { useBoolean } from "../customHooks";
+import { CheckBox } from 'react-native-elements';
 
 const RequestsFromOtherMembers = () => {
   const membersOrders = useSelector(state => state.tableState.orders)
-  console.log(membersOrders)
+  const finalPriceMore = (price) => {
+    console.log('mas',price)
+  }
+  const finalPriceMinus = (price) => {
+    console.log('menos',price)
+  }
   return(
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <View style={styles.containerInfo}>
           <Text style={styles.text}>Pedidos de los demás miembros</Text>
-            <View style={styles.line}></View>
-              <RequestCardMembers 
-                name={'Anibal López'}
-                foodDish={'Caldo de Gallina'}
-                price={'22.90'}
-              />
+              {membersOrders?.map(el=>
+              <>
+                  <View style={styles.line} />
+                  <MembersOrdersCard 
+                    key={el.user.id}
+                    userName={el.user.name}
+                    foodName={el.name}
+                    foodPrice={el.price}
+                    finalPriceMore={finalPriceMore}
+                    finalPriceMinus={finalPriceMinus}
+                  />
+                </>
+                )
+              }
         </View>
+      </View>
   )
 }
 
+const MembersOrdersCard  = ({userName, foodPrice, foodName, finalPriceMore, finalPriceMinus}) => {
+  const { boolean, changeOpposite} = useBoolean();
 
-const RequestCardMembers = ({name, price, foodDish}) => {
-  const [ select, setSelect ] = useState(false)
+  const handleChangeSelect = () => {
+    boolean?
+      finalPriceMore(+foodPrice):
+      finalPriceMinus(+foodPrice)
+    changeOpposite()
+  }
   return(
     <View style={stylesMembers.container}>
         <View style={stylesMembers.viewDatas}>
-            <Text style={stylesMembers.name}>{name ||'Sin nombre'}</Text>
-            <Text style={stylesMembers.food}>{foodDish || 'Sin nombre'}</Text>
-            <Text style={stylesMembers.price}>S/.{price || 'Sin precio'}</Text>
+            <Text style={stylesMembers.name}>{userName ||'Sin nombre'}</Text>
+            <Text style={stylesMembers.food}>{foodName || 'Sin nombre'}</Text>
+            <Text style={stylesMembers.price}>S/.{foodPrice || 'Sin precio'}</Text>
         </View>
         <View style={stylesMembers.viewCheckBox}>
-          <CheckBox 
-            select={select} 
-            setSelect={setSelect}
+          <CheckBox
+            checked={boolean}
+            onPress={handleChangeSelect}
+            iconType="material-community"
+            checkedIcon="checkbox-marked"
+            uncheckedIcon="checkbox-blank-outline"
+            uncheckedColor={colors.primaryGreen}
+            checkedColor={colors.primaryGreen}
+            size={28}
           />
         </View>
     </View>
   )
 }
 
-const CheckBox = ({select, setSelect}) => {
-  const changeStyle = () => {
-    return select
-      ? [stylesCheck.CheckBox, stylesCheck.backgroundGreen]
-      : stylesCheck.CheckBox
-  }
-  return(
-    <View style={stylesCheck.container}>
-      <TouchableOpacity
-        style={changeStyle()}
-        onPress={() => setSelect(!select) }
-      >
-      </TouchableOpacity>
-    </View>
-  )
-}
-
 const styles = StyleSheet.create({
   container:{
+    padding:hp(3),
+    width:wp(100),
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  containerInfo:{
     width:wp(90),
     justifyContent:'center',
     alignItems:'center',
@@ -134,24 +152,7 @@ const stylesMembers = StyleSheet.create({
     letterSpacing: 0,
   }
 })
-const stylesCheck = StyleSheet.create({
-  container:{
-    width:wp(100),
-    height:hp(100),
-    justifyContent:'center',
-    alignItems:'center',
-  },
-  CheckBox:{
-    width:24,
-    height:24,
-    borderColor:colors.primaryGreen,
-    borderWidth:1,
-    borderRadius:5,
-  },
-  backgroundGreen:{
-    backgroundColor:colors.primaryGreen,
-  }
-})
+
 
 
 export default RequestsFromOtherMembers;

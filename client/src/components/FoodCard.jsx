@@ -25,17 +25,6 @@ const FoodCard = ({ name, description, image, price, id, onDelete }) => {
   const dispatch = useDispatch();
   const { order } = useSelector((state) => state.orderState);
   const [quantity, setQuantity] = useState("00");
-  const [originPrice, setOriginPrice] = useState(null);
-
-  useEffect(() => {
-    const priceSplit = price?.toString().split(".");
-    price = !priceSplit[1]
-      ? price?.toString() + ".00"
-      : !priceSplit[1].at(1)
-      ? price?.toString() + "0"
-      : price?.toString();
-    setOriginPrice(price);
-  }, []);
 
   const quantityCalculate = (sign) => {
     const currentQuantityIndex = order.findIndex((item) => item.id === id);
@@ -84,7 +73,7 @@ const FoodCard = ({ name, description, image, price, id, onDelete }) => {
         </Text>
         <View style={styles.viewOrder}>
           <Text style={styles.priceAndQuantity}>
-            S/.{originPrice || "0.00"}
+            S/.{price.toFixed(2) || "0.00"}
           </Text>
           <View style={styles.viewSvgs}>
             <TouchableOpacity onPress={() => quantityCalculate("-")}>
