@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useNavigate } from "react-router-native";
 import { colors, fonts } from "../utils/theme";
 import Back from "../../assets/back-arrow.svg";
@@ -17,12 +17,14 @@ const TitlePage = ({ text, route, white }) => {
   return (
     <View style={white ? styles.whiteContainer : styles.container}>
       <View style={styles.box}>
-        {white ? (
-          <BackBlack style={styles.back} onPress={handlePress} />
-        ) : (
-          <Back style={styles.back} onPress={handlePress} />
-        )}
-        <Text onPress={handlePress}  style={white ? styles.whiteText : styles.text}>{text}</Text>
+        <TouchableOpacity>
+          {
+            white
+              ? <BackBlack style={styles.back} onPress={handlePress} />
+              : <Back style={styles.back} onPress={handlePress} />
+          }
+        </TouchableOpacity>
+        <Text onPress={handlePress} style={white ? styles.whiteText : styles.text}>{text}</Text>
       </View>
     </View>
   );

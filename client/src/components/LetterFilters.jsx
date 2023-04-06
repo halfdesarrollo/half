@@ -167,6 +167,7 @@ const style = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fonts.roboto.bold,
     color: colors.primaryGreen,
+    lineHeight: 16.41,
     fontSize: 15,
   },
   button: {
@@ -193,6 +194,7 @@ const style = StyleSheet.create({
     textAlign: 'center',
     fontFamily: fonts.roboto.bold,
     fontSize: 15,
+    lineHeight: 16.41,
     color: colors.secundary6,
   },
 
