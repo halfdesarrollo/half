@@ -88,7 +88,7 @@ const LetterFilters = () => {
         <ScrollView>
           {select === "Entradas" &&
             filterRestaurant[0].menu.Entradas.map((Entradas, index) => (
-              <View key={index} style={styles.menu_container}>
+              <View key={index}>
                 <FoodCard
                   id={Entradas.id}
                   name={Entradas.name}
@@ -165,8 +165,9 @@ const style = StyleSheet.create({
   },
   textButton: {
     textAlign: "center",
-    fontFamily: fonts.roboto.bold,
+    fontFamily: fonts.roboto.medium,
     color: colors.primaryGreen,
+    lineHeight:16.41,
     fontSize: 15,
   },
   button: {
@@ -191,8 +192,9 @@ const style = StyleSheet.create({
   },
   textbuttonSelected: {
     textAlign: "center",
-    fontFamily: fonts.roboto.bold,
+    fontFamily: fonts.roboto.medium,
     fontSize: 15,
+    lineHeight:16.41,
     color: colors.secundary6,
   },
 

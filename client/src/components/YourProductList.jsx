@@ -4,8 +4,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import ListOfProducts from "./ListOfProducts";
-import { useSelector } from "react-redux";
+import ListOfOrder from "./ListOfOrder";
 
 const YourProductList = () => {
    const [plates, setPlates] = useState([
@@ -26,7 +25,9 @@ const YourProductList = () => {
         {
           plates?.map((plate, i)=>{
             return (
-                <ListOfProducts plate={plate} i={i}/>
+              <View  key={i}>
+                <ListOfOrder plate={plate} />
+              </View>
                 )
           })
         }
@@ -46,19 +47,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     textAlign: "center",
-    padding: 25,
     overflow : "hidden" ,
-    shadowColor: 'transparent',
     elevation: 3,
-    marginBottom: 250,
+    marginBottom: hp('90'),
   },
 
   container2:{
     borderColor: "000000",
     borderBottomWidth:2,
     top: 20,
-    // textAlign: "center",
-    // justifyContent:"center",
   },
 
   container3:{
