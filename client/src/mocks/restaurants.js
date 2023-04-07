@@ -15,7 +15,7 @@ export default [
         {
           id: "1.1",
           name: "Papa a la Huancaina",
-          description: "Un plato muy delicioso",
+          description: "Papa andina mediana, con aceituna, huevo y toque de leche.",
           imageDish:
             "https://unacomidaperuana.com/wp-content/uploads/2020/04/papa-a-la-huacaina.jpg",
           price: 13.9,
@@ -24,10 +24,36 @@ export default [
         {
           id: "1.2",
           name: "Leche de Tigre",
-          description: "Otro plato muy delicioso",
+          description: "Macerado de ceviche concentrado, con su toque de ají.",
           imageDish:
             "https://www.recetasderechupete.com/wp-content/uploads/2019/09/Leche-de-tigre.jpg",
           price: 19.9,
+          orderStatus: "Entregado",
+        },
+        {
+          id: "1.3",
+          name: "Ceviche Mixto",
+          description: "una sabrosa combinación de pescado y mariscos marinados en jugo de limón, cebolla roja, ají limo y cilantro. Servido con choclo, camote y cancha tostada",
+          imageDish: "https://cdn7.kiwilimon.com/recetaimagen/26255/23270.jpg",
+          price: 38.5,
+          orderStatus: "Entregado",
+        },
+        {
+          id: "1.4",
+          name: "Causa Rellena",
+          description: "una deliciosa entrada fría hecha de puré de papa amarilla, sazonada con limón, ají amarillo y aceite. Rellena de pollo, atún o langostinos, y acompañada de aguacate, huevo y aceitunas. Una opción deliciosa y colorida que deleitará su paladar.",
+          imageDish:
+            "https://comidaperuanaweb.org/wp-content/uploads/2018/10/Receta-de-Causa-Rellena-de-Pollo-1-1-300x203.jpg.webp",
+          price: 28.20,
+          orderStatus: "Entregado",
+        },
+        {
+          id: "1.5",
+          name: "Choritos a la chalaca",
+          description: "mejillones frescos en su concha, acompañados de una mezcla picante de cebolla roja, tomate, cilantro y ají limo, todo sazonado con limón y sal. Una opción refrescante y deliciosa para comenzar su comida o compartir.",
+          imageDish:
+            "https://comidaperuanaweb.org/wp-content/uploads/2018/10/Receta-de-Choritos-a-la-Chalaca-1-1-300x170.jpg.webp",
+          price: 27.00,
           orderStatus: "Entregado",
         },
       ],
@@ -47,6 +73,22 @@ export default [
           imageDish:
             "https://comidasperuanas.net/wp-content/uploads/2015/11/Arroz-con-mariscos.jpg",
           price: 32.5,
+          orderStatus: "Entregado",
+        },
+        {
+          id: "4",
+          name: "Ceviche Mixto",
+          description: "Plato típico peruano a base de pescado y mariscos",
+          imageDish: "https://i.imgur.com/UCIOzJh.jpg",
+          price: 27.0,
+          orderStatus: "Entregado",
+        },
+        {
+          id: "5",
+          name: "Ají de Gallina",
+          description: "Pollo deshilachado en salsa de ají amarillo y leche",
+          imageDish: "https://i.imgur.com/pqCwv20.jpg",
+          price: 20.0,
           orderStatus: "Entregado",
         },
       ],

@@ -20,54 +20,31 @@ import BigButtonOrder from './BigButtonOrder'
 const LetterFilters = () => {
   //Traemos el estado restaurante del redux
   const { restaurants } = useSelector((state) => state.restaurantState)
-  const { order } = useSelector((state) => state.orderState)
+  const { preOrder } = useSelector((state) => state.orderState)
 
   const [select, setSelect] = useState('Entradas')
-  const [orders, setOrders] = useState([])
-
-  const handleDeleteOrder = (id) => {
-    const newOrder = order.filter((item) => item.id !== id)
-    setOrders(newOrder)
-  }
-
-  const handleAddOrder = (item, quantity) => {
-    const index = order.findIndex((orderItem) => orderItem.id === item.id)
-    if (index === -1) {
-      const newOrder = [...order, { ...item, quantity }]
-      setOrders(newOrder)
-    } else {
-      const newOrder = [...order]
-      newOrder[index].quantity = quantity
-      setOrders(newOrder)
-    }
-  }
-
-  const { id } = useParams()
-  const filterRestaurant = restaurants.filter(
-    (restaurant) => restaurant.id === id
-  )
+  //No borrar lo que esta comentado: razon: porque se necesita para un futuro
+  // const { id } = useParams()
+  // const filterRestaurant = restaurants.filter(
+  //   (restaurant) => restaurant.id === 0
+  // )
 
   //Filtramos menu del restaurante para hacerlos keys dinamicos
-  const filterMenu = filterRestaurant.map((restaurant) => {
-    const menu = Object.keys(restaurant.menu)
-    menu[1] = menu[1].replace(/([A-Z])/g, ' $1')
-    return menu
-  })
 
-  // const [info, setInfo] = useState([
-  //   "Entradas",
-  //   "Platos de fondo",
-  //   "Postres",
-  //   "Bebidas",
-  // ]);
+  const filterMenu = Object.keys(restaurants[0]?.menu);
+  filterMenu[1] = filterMenu[1].replace(/([A-Z])/g, ' $1').trim()
+ 
   const filter = (el) => {
     setSelect(el)
   }
-
+  const quantityGet = (id) => {
+    let order = preOrder?.find((orderItem) => orderItem.id == id)
+    return order?.quantity?.toString().padStart(2, '0')  || '00'
+  }
   return (
     <View style={style.container}>
       <View style={style.containerView}>
-        {filterMenu[0]?.map((el, index) => (
+        {filterMenu?.map((el, index) => (
           <TouchableOpacity
             style={select === el ? style.buttonSelected : style.button}
             key={index}
@@ -87,53 +64,41 @@ const LetterFilters = () => {
       {
         <ScrollView>
           {select === 'Entradas' &&
-            filterRestaurant[0].menu.Entradas.map((Entradas, index) => (
+            restaurants[0]?.menu?.Entradas?.map((entrada, index) => (
               <View key={index}>
                 <FoodCard
-                  id={Entradas.id}
-                  name={Entradas.name}
-                  description={Entradas.description}
-                  image={Entradas.imageDish}
-                  price={Entradas.price}
-                  onAddOrder={handleAddOrder}
-                  onDelete={handleDeleteOrder}
-                  quantity={order.find(
-                    (orderItem) => (orderItem.id === id)?.quantity || '0'
-                  )}
+                  id={entrada.id}
+                  name={entrada.name}
+                  description={entrada.description}
+                  image={entrada.imageDish}
+                  price={entrada.price}
+                  quantity={quantityGet(entrada?.id)}
                 />
               </View>
             ))}
           {select === 'Bebidas' &&
-            filterRestaurant[0].menu.Bebidas.map((Bebidas, index) => (
+            restaurants[0]?.menu?.Bebidas?.map((bebidas, index) => (
               <View key={index}>
                 <FoodCard
-                  id={Bebidas.id}
-                  name={Bebidas.name}
-                  description={Bebidas.description}
-                  image={Bebidas.imageDrink}
-                  price={Bebidas.price}
-                  onAddOrder={handleAddOrder}
-                  onDelete={handleDeleteOrder}
-                  quantity={order.find(
-                    (orderItem) => (orderItem.id === id)?.quantity || '0'
-                  )}
+                  id={bebidas.id}
+                  name={bebidas.name}
+                  description={bebidas.description}
+                  image={bebidas.imageDrink}
+                  price={bebidas.price}
+                  quantity={quantityGet(bebidas.id)}
                 />
               </View>
             ))}
-          {select === ' Plato De Fondo' &&
-            filterRestaurant[0].menu.PlatoDeFondo.map((PlatoDeFondo, index) => (
+          {select === 'Plato De Fondo' &&
+             restaurants[0]?.menu?.PlatoDeFondo?.map((plato, index) => (
               <View key={index}>
                 <FoodCard
-                  id={PlatoDeFondo.id}
-                  name={PlatoDeFondo.name}
-                  description={PlatoDeFondo.description}
-                  image={PlatoDeFondo.imageDish}
-                  price={PlatoDeFondo.price}
-                  onAddOrder={handleAddOrder}
-                  onDelete={handleDeleteOrder}
-                  quantity={order.find(
-                    (orderItem) => (orderItem.id === id)?.quantity || '0'
-                  )}
+                  id={plato.id}
+                  name={plato.name}
+                  description={plato.description}
+                  image={plato.imageDish}
+                  price={plato.price}
+                  quantity={quantityGet(plato.id)}
                 />
               </View>
             ))}

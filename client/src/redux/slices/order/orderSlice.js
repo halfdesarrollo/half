@@ -1,66 +1,54 @@
-import { createSlice } from "@reduxjs/toolkit";
-import {
-  addOrder,
-  removeOrder,
-  increaseOrderQuantity,
-  decreaseOrderQuantity,
-} from "./orderActions";
+import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   nTable: 0,
+  preOrder: [],
   order: [],
   offersUserSelected: [], // array de ids
-  orderStatus: "",
+  orderStatus: '',
   paymentMethod: false,
   cash: 0,
   tip: 0,
-};
+}
 
 export const orderSlice = createSlice({
-  name: "order",
+  name: 'order',
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(addOrder, (state, action) => {
-        const orderIndex = state.order.findIndex(
-          (item) => item.id === action.payload.id
-        );
-
-        if (orderIndex === -1) {
-          state.order.push({ ...action.payload, quantity: 1 });
+  reducers: {
+    // Pre Order
+    addOrder: (state, action) => {
+      const orderIndex = state.preOrder.findIndex(
+        (item) => item?.id === action.payload.id
+      )
+      if(orderIndex === -1){
+        state.preOrder.push({ ...action.payload, quantity: 1 })
+      }else{
+        state.preOrder[orderIndex].quantity++
+      }
+    },
+    removeOrder: (state, action) => {
+      state.preOrder = state.preOrder.filter(
+        (item) => item.id !== action.payload
+      )
+    },
+    decreaseOrderQuantity: (state, action) => {
+      const orderIndex = state.preOrder.findIndex(
+        (item) => item.id === action.payload.id
+      )
+      if (orderIndex !== -1) {
+        if (state.preOrder[orderIndex].quantity > 1) {
+          state.preOrder[orderIndex].quantity--
         } else {
-          state.order[orderIndex].quantity++;
+          state.preOrder = state.preOrder.filter(
+            (item) => item.id !== action.payload.id
+          )
         }
-      })
-      .addCase(removeOrder, (state, action) => {
-        state.order = state.order.filter(
-          (item) => item.id !== action.payload.id
-        );
-      })
-      .addCase(increaseOrderQuantity, (state, action) => {
-        const orderIndex = state.order.findIndex(
-          (item) => item.id === action.payload.id
-        );
-        if (orderIndex !== -1) {
-          state.order[orderIndex].quantity++;
-        }
-      })
-      .addCase(decreaseOrderQuantity, (state, action) => {
-        const orderIndex = state.order.findIndex(
-          (item) => item.id === action.payload.id
-        );
-        if (orderIndex !== -1) {
-          if (state.order[orderIndex].quantity > 1) {
-            state.order[orderIndex].quantity--;
-          } else {
-            state.order = state.order.filter(
-              (item) => item.id !== action.payload.id
-            );
-          }
-        }
-      });
+      }
+    },
   },
-});
+})
 
-export default orderSlice.reducer;
+export const { addOrder, removeOrder, decreaseOrderQuantity } =
+  orderSlice.actions
+
+export default orderSlice.reducer
