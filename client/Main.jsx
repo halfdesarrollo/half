@@ -12,6 +12,7 @@ import ViewOrderScreen from './src/screens/ViewOrderScreen'
 import { MenuCardScreen } from './src/screens/MenuCardScreen'
 import InviteFriendsScreen from './src/screens/InviteFriendsScreen'
 import CouponScreen from './src/screens/CouponScreen'
+import AddCardPayScreen from './src/screens/AddCardPayScreen'
 
 export default function Main() {
   return (
@@ -29,6 +30,7 @@ export default function Main() {
         <Route path='/menucard/:id' element={<MenuCardScreen />} />
         <Route path='/invitefriends' element={<InviteFriendsScreen />} />
         <Route path='/couponscreen' element={<CouponScreen/>}/>
+        <Route path='/addcard' element={<AddCardPayScreen/>}/>{/* /addpaymethod */}
       </Routes>
     </View>
   );
