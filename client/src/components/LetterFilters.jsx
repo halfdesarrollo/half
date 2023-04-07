@@ -20,27 +20,12 @@ import BigButtonOrder from './BigButtonOrder'
 const LetterFilters = () => {
   //Traemos el estado restaurante del redux
   const { restaurants } = useSelector((state) => state.restaurantState)
-  const { order } = useSelector((state) => state.orderState)
+  const { preOrder } = useSelector((state) => state.orderState)
 
+  console.log('hola', preOrder[0].quantity)
+
+  console.log('PREORDER PADRE: ', preOrder)
   const [select, setSelect] = useState('Entradas')
-  const [orders, setOrders] = useState([])
-
-  const handleDeleteOrder = (id) => {
-    const newOrder = order.filter((item) => item.id !== id)
-    setOrders(newOrder)
-  }
-
-  const handleAddOrder = (item, quantity) => {
-    const index = order.findIndex((orderItem) => orderItem.id === item.id)
-    if (index === -1) {
-      const newOrder = [...order, { ...item, quantity }]
-      setOrders(newOrder)
-    } else {
-      const newOrder = [...order]
-      newOrder[index].quantity = quantity
-      setOrders(newOrder)
-    }
-  }
 
   const { id } = useParams()
   const filterRestaurant = restaurants.filter(
@@ -54,16 +39,13 @@ const LetterFilters = () => {
     return menu
   })
 
-  // const [info, setInfo] = useState([
-  //   "Entradas",
-  //   "Platos de fondo",
-  //   "Postres",
-  //   "Bebidas",
-  // ]);
   const filter = (el) => {
     setSelect(el)
   }
-
+  const quantityCalc = (id) => {
+    let order = preOrder?.find((orderItem) => orderItem.id == id)
+    return order?.quantity || undefined
+  }
   return (
     <View style={style.container}>
       <View style={style.containerView}>
@@ -87,19 +69,15 @@ const LetterFilters = () => {
       {
         <ScrollView>
           {select === 'Entradas' &&
-            filterRestaurant[0].menu.Entradas.map((Entradas, index) => (
+            filterRestaurant[0].menu.Entradas.map((entradas, index) => (
               <View key={index}>
                 <FoodCard
-                  id={Entradas.id}
-                  name={Entradas.name}
-                  description={Entradas.description}
-                  image={Entradas.imageDish}
-                  price={Entradas.price}
-                  onAddOrder={handleAddOrder}
-                  onDelete={handleDeleteOrder}
-                  quantity={order.find(
-                    (orderItem) => (orderItem.id === id)?.quantity || '0'
-                  )}
+                  id={entradas.id}
+                  name={entradas.name}
+                  description={entradas.description}
+                  image={entradas.imageDish}
+                  price={entradas.price}
+                  qua={preOrder[0]?.quantity}
                 />
               </View>
             ))}
@@ -114,8 +92,8 @@ const LetterFilters = () => {
                   price={Bebidas.price}
                   onAddOrder={handleAddOrder}
                   onDelete={handleDeleteOrder}
-                  quantity={order.find(
-                    (orderItem) => (orderItem.id === id)?.quantity || '0'
+                  quantity={preOrder.find((orderItem) =>
+                    orderItem.id === Entradas.id ? orderItem.quantity : '0'
                   )}
                 />
               </View>
@@ -131,8 +109,8 @@ const LetterFilters = () => {
                   price={PlatoDeFondo.price}
                   onAddOrder={handleAddOrder}
                   onDelete={handleDeleteOrder}
-                  quantity={order.find(
-                    (orderItem) => (orderItem.id === id)?.quantity || '0'
+                  quantity={preOrder.find((orderItem) =>
+                    orderItem.id === Entradas.id ? orderItem.quantity : '0'
                   )}
                 />
               </View>

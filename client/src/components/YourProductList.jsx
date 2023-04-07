@@ -15,7 +15,7 @@ const YourProductList = ({ screen }) => {
     'Jarra de chicha morada',
   ])
 
-  const { order } = useSelector((state) => state.orderState)
+  const { preOrder } = useSelector((state) => state.orderState)
 
   return (
     <View style={styles.container}>
@@ -30,10 +30,10 @@ const YourProductList = ({ screen }) => {
         {screen === 'payScreen' && <Text></Text>}
       </View>
       <View style={styles.platesContainer}>
-        {plates?.map((plate, i) => {
+        {preOrder?.map((dish, i) => {
           return (
             <View key={i}>
-              <OrderList plate={plate} screen={screen} />
+              <OrderList dish={dish} screen={screen} />
             </View>
           )
         })}
