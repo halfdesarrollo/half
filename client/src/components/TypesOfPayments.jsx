@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet } from 'react-native';
-import React, {useState} from 'react';
-import { CheckBox } from 'react-native-elements';
+import { View, Text, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
+import { CheckBox } from 'react-native-elements'
 import { fonts } from '../utils/theme'
 
 const TypesOfPayments = () => {
@@ -9,58 +9,64 @@ const TypesOfPayments = () => {
   const [check3, setCheck3] = useState(false)
   const [check4, setCheck4] = useState(false)
 
-  console.log(check1);
-
   return (
     <View style={styles.types}>
       <Text style={styles.typesTitle}>Tipos de pago</Text>
       <View style={styles.typesElements}>
-        <Text style={styles.typesSubtitle}>{`Dividir pagos por igual \n(Todos deben aceptar)`}</Text>
+        <Text
+          style={styles.typesSubtitle}
+        >{`Dividir pagos por igual \n(Todos deben aceptar)`}</Text>
         <CheckBox
           checkedIcon='checkbox-outline'
           uncheckedIcon={'checkbox-blank-outline'}
           iconType='material-community'
           checked={check1}
-          onPress={()=>setCheck1(!check1)}
+          onPress={() => setCheck1(!check1)}
           checkedColor='green'
         />
       </View>
       <View style={styles.typesElements}>
-        <Text style={styles.typesSubtitle}>{`Yo pago todo \n(Todos deben aceptar)`}</Text>
+        <Text
+          style={styles.typesSubtitle}
+        >{`Yo pago todo \n(Todos deben aceptar)`}</Text>
         <CheckBox
           checkedIcon='checkbox-outline'
           uncheckedIcon={'checkbox-blank-outline'}
           iconType='material-community'
           checked={check2}
-          onPress={()=>setCheck2(!check2)}
+          onPress={() => setCheck2(!check2)}
           checkedColor='green'
         />
       </View>
       <View style={styles.typesElements}>
-        <Text style={styles.typesSubtitle}>{`Pagar saldo en efectivo \n(Todos deben aceptar)`}</Text>
+        <Text
+          style={styles.typesSubtitle}
+        >{`Pagar saldo en efectivo \n(Todos deben aceptar)`}</Text>
         <CheckBox
           checkedIcon='checkbox-outline'
           uncheckedIcon={'checkbox-blank-outline'}
           iconType='material-community'
           checked={check3}
-          onPress={()=>setCheck3(!check3)}
+          onPress={() => setCheck3(!check3)}
           checkedColor='green'
         />
       </View>
       <View style={styles.typesElements}>
-        <Text style={styles.typesSubtitle}>{`Paga jugando \n(Todos deben aceptar)`}</Text>
+        <Text
+          style={styles.typesSubtitle}
+        >{`Paga jugando \n(Todos deben aceptar)`}</Text>
         <CheckBox
           checkedIcon='checkbox-outline'
           uncheckedIcon={'checkbox-blank-outline'}
           iconType='material-community'
           checked={check4}
-          onPress={()=>setCheck4(!check4)}
+          onPress={() => setCheck4(!check4)}
           checkedColor='green'
         />
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   types: {
@@ -73,7 +79,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#000',
     borderBottomWidth: 1,
     paddingVertical: 4,
-    fontFamily: fonts.poppins.medium
+    fontFamily: fonts.poppins.medium,
   },
   typesElements: {
     flexDirection: 'row',
@@ -81,8 +87,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   typesSubtitle: {
-    fontFamily: fonts.poppins.medium
-  }
+    fontFamily: fonts.poppins.medium,
+  },
 })
 
-export default TypesOfPayments;
+export default TypesOfPayments
