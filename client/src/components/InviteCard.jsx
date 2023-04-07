@@ -3,10 +3,15 @@ import { CheckBox } from 'react-native-elements';
 import { colors, fonts } from '../utils/theme';
 import { useState } from 'react';
 
-const InviteCard = ({ id, name, img }) => {
+const InviteCard = ({ id, name, img, guests, setGuests }) => {
     const [checked, setChecked] = useState(false);
     const handlePress = () => {
         setChecked(!checked)
+        if (!checked) {
+            setGuests([...guests, { id, name, img }])
+        } else {
+            setGuests(guests.filter(e => e.id !== id))
+        }
     }
 
     return (
