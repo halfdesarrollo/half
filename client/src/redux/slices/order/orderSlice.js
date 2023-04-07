@@ -20,13 +20,10 @@ export const orderSlice = createSlice({
       const orderIndex = state.preOrder.findIndex(
         (item) => item?.id === action.payload.id
       )
-
-      if (orderIndex === -1) {
+      if(orderIndex === -1){
         state.preOrder.push({ ...action.payload, quantity: 1 })
-        console.log('Pree Orders State Global: ', state.preOrder)
-      } else {
+      }else{
         state.preOrder[orderIndex].quantity++
-        console.log('Pree Orders State AAAAA: ', state.preOrder)
       }
     },
     removeOrder: (state, action) => {

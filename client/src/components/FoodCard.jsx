@@ -20,16 +20,12 @@ import {
 } from '../redux/slices/order/orderSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
-const FoodCard = ({ name, description, image, price, id, qua }) => {
+const FoodCard = ({ name, description, image, price, id, quantity }) => {
   const dispatch = useDispatch()
   const { preOrder } = useSelector((state) => state.orderState)
 
-  console.log('quantity', qua)
-
   const quantityCalculate = (sign) => {
-    // const currentQuantityIndex = preOrder.findIndex((item) => item.id === id)
-
-    if (sign === '-' && qua !== undefined) {
+    if (sign === '-' && quantity !== undefined) {
       dispatch(decreaseOrderQuantity({ id }))
     } else {
       dispatch(
@@ -68,7 +64,7 @@ const FoodCard = ({ name, description, image, price, id, qua }) => {
               <MinusButton style={styles.svgs} />
             </TouchableOpacity>
             <Text style={styles.priceAndQuantity}>
-              {qua?.toString().padStart(2, '0') || '00'}
+              {quantity}
             </Text>
             <TouchableOpacity onPress={() => quantityCalculate('+')}>
               <MoreButton style={styles.svgs} />
