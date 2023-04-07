@@ -1,6 +1,6 @@
-import { createAction } from "@reduxjs/toolkit";
+// import { createAction } from '@reduxjs/toolkit'
 
-export const addOrder = createAction("order/add");
-export const removeOrder = createAction("order/remove");
-export const increaseOrderQuantity = createAction("order/increaseQuantity");
-export const decreaseOrderQuantity = createAction("order/decreaseQuantity");
+// export const addOrder = createAction('addPreOrder')
+// export const removeOrder = createAction('removePreOrder')
+// export const increaseOrderQuantity = createAction('increaseQuantityPreOrder')
+// export const decreaseOrderQuantity = createAction('decreaseQuantityPreOrder')

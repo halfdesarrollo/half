@@ -1,10 +1,19 @@
 import { useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import TrashIcon from '../../assets/trash.svg'
 import { fonts } from '../utils/theme'
+import { removeOrder } from '../redux/slices/order/orderSlice'
+import { useDispatch } from 'react-redux'
 
-const OrderList = ({ screen, plate }) => {
+const OrderList = ({ screen, dish }) => {
+  const dispatch = useDispatch()
+
   const [state, setState] = useState('Entregado')
+
+  const deleteDish = (dishId) => {
+    console.log(Number(dish.id))
+    dispatch(removeOrder(dishId))
+  }
 
   return (
     <View>
@@ -12,25 +21,27 @@ const OrderList = ({ screen, plate }) => {
         <View>
           <View style={styles.spaceText}>
             <View>
-              <Text style={styles.text}>{plate}</Text>
+              <Text style={styles.text}>{dish.name}</Text>
               <Text style={styles.text}>S/.22.90</Text>
             </View>
             <View style={styles.quantIcon}>
-              <Text style={styles.text}>01</Text>
-              <TrashIcon />
+              <Text style={styles.text}>{dish.quantity}</Text>
+              <TouchableOpacity onPress={() => deleteDish(dish.id)}>
+                <TrashIcon />
+              </TouchableOpacity>
             </View>
           </View>
         </View>
       )}
       {screen === 'viewOrderScreen' && (
         <View style={styles.spaceText}>
-          <Text style={styles.text}>{plate}</Text>
+          <Text style={styles.text}>{dish.name}</Text>
           <Text style={styles.text}>{state}</Text>
         </View>
       )}
       {screen === 'payScreen' && (
         <View style={styles.payContainer}>
-          <Text style={styles.text}>{plate}</Text>
+          <Text style={styles.text}>{dish.name}</Text>
           <Text style={styles.text}>S/.22.90</Text>
         </View>
       )}
