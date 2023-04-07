@@ -3,7 +3,7 @@ export const colors = {
   primaryOrange: '#FFAD3F',
   secundary1: '#00000005', // gris medio
   secundary2: '#313232', // gris oscuro
-  secundary3: '#EOEOEO', // gris claro
+  secundary3: '#E0E0E0', // gris claro
   secundary4: '#4B5563', // mezcla azul y gris
   secundary5: '#EB5757', // rojo claro / rosa oscuro
   secundary6: '#F0ECE6',
