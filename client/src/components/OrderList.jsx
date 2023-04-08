@@ -11,7 +11,6 @@ const OrderList = ({ screen, dish }) => {
   const [state, setState] = useState('Entregado')
 
   const deleteDish = (dishId) => {
-    console.log(Number(dish.id))
     dispatch(removeOrder(dishId))
   }
 

@@ -1,5 +1,5 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import TipIcon from '../../assets/tipIcon.svg'
 import { fonts, colors } from '../utils/theme'
 
@@ -9,27 +9,30 @@ const Tip = () => {
 
   // capturamos el texto ingresado en el input
   const onChangeTipInput = (value) => {
-    setTipInput(parseInt(value))
+    setTipInput(Number(value))
   }
 
   return (
     <>
       <View style={styles.tipContent}>
         <View style={styles.tipItems}>
-          <TipIcon/>
+          <TipIcon />
           <Text style={styles.tipText}>Propina</Text>
         </View>
-        <TextInput value={tipInput} onChangeText={onChangeTipInput} style={styles.tipInput} inputMode='numeric'/>
+        <TextInput
+          value={tipInput?.toString()}
+          onChangeText={onChangeTipInput}
+          style={styles.tipInput}
+          inputMode='numeric'
+        />
       </View>
     </>
   )
 }
 
 const styles = StyleSheet.create({
-  tip: {
-
-  },
-  tipContent:{
+  tip: {},
+  tipContent: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -40,11 +43,9 @@ const styles = StyleSheet.create({
   tipItems: {
     flexDirection: 'row',
     gap: 10,
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  tipIcon: {
-
-  },
+  tipIcon: {},
   tipText: {
     fontFamily: fonts.poppins.medium,
   },
