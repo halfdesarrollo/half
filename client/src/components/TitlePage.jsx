@@ -35,7 +35,7 @@ export default TitlePage;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.primaryGreen,
-    height: 80,
+    height: hp(8),
     justifyContent: "flex-end",
     paddingHorizontal: 25,
     paddingVertical: 15,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   whiteContainer: {
     backgroundColor: "#fff",
-    height: 80,
+    height: hp(8),
     justifyContent: "flex-end",
     paddingHorizontal: 25,
     paddingVertical: 15,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   whiteText: {
     color: "#000",
-    fontFamily: fonts.poppins.bold,
+    fontFamily: fonts.roboto.medium,
     fontSize: 18,
     alignSelf: "center",
   },
