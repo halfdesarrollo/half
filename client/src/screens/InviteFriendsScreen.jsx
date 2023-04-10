@@ -11,6 +11,7 @@ import Contacts from '../components/Contacts'
 import SendInviteModal from '../components/SendInviteModal'
 import { colors, fonts } from '../utils/theme'
 import { useDispatch } from 'react-redux'
+import { addNewGuest } from '../redux/slices/table/tableSlice'
 
 const InviteFriendsScreen = () => {
   const [guests, setGuests] = useState([]);
