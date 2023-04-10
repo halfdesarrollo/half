@@ -6,9 +6,9 @@ import {
 import { useSelector } from 'react-redux';
 import { colors, fonts } from '../utils/theme';
 
-const TotalCost = ({titleTwo}) => {
-const totalPrice = useSelector(state => state.orderState.cash)
-const precioTotal = totalPrice ==  0  ? "49.70" : totalPrice.toFixed(2)
+const TotalCost = ({titleTwo, sliceState}) => {
+const totalPrice = useSelector(state => state.orderState[sliceState || 'totalPrice'])
+const precioTotal = totalPrice ==  0  ? "00.00" : totalPrice.toFixed(2)
 
   return (
     <View>

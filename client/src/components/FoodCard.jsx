@@ -22,7 +22,6 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const FoodCard = ({ name, description, image, price, id, quantity }) => {
   const dispatch = useDispatch()
-  const { preOrder } = useSelector((state) => state.orderState)
 
   const quantityCalculate = (sign) => {
     if (sign === '-' && quantity !== undefined) {

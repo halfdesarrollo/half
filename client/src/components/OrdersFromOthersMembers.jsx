@@ -4,33 +4,33 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
-import { useState } from 'react'
-import { TouchableOpacity } from 'react-native'
 import { colors, fonts } from '../utils/theme'
-import { useSelector } from 'react-redux'
-import { useBoolean } from '../customHooks'
+import { useDispatch, useSelector } from 'react-redux'
+import { useToggle } from '../customHooks'
 import { CheckBox } from 'react-native-elements'
+import { addToTotalPrice, removeToTotalPrice } from '../redux/slices/order/orderSlice'
 
 const OrdersFromOthersMembers = () => {
   const membersOrders = useSelector((state) => state.tableState.orders)
-  const finalPriceMore = (price) => {}
-  const finalPriceMinus = (price) => {}
+  const dispatch = useDispatch()
+  const finalPriceMore = (price) => dispatch(addToTotalPrice(+price))
+  const finalPriceMinus = (price) => dispatch(removeToTotalPrice(+price))
+
   return (
     <View style={styles.container}>
       <View style={styles.containerInfo}>
         <Text style={styles.text}>Pedidos de los demás miembros</Text>
-        {membersOrders?.map((el) => (
-          <>
+        {membersOrders?.map((el, index) => (
+          <View key={index}>
             <View style={styles.line} />
             <MembersOrdersCard
-              key={el.user.id}
               userName={el.user.name}
               foodName={el.name}
               foodPrice={el.price}
               finalPriceMore={finalPriceMore}
               finalPriceMinus={finalPriceMinus}
             />
-          </>
+          </View>
         ))}
       </View>
     </View>
@@ -44,10 +44,12 @@ const MembersOrdersCard = ({
   finalPriceMore,
   finalPriceMinus,
 }) => {
-  const { boolean, changeOpposite } = useBoolean()
+  const { toggle, changeOpposite } = useToggle()
 
   const handleChangeSelect = () => {
-    boolean ? finalPriceMore(+foodPrice) : finalPriceMinus(+foodPrice)
+    !toggle
+      ? finalPriceMore(foodPrice)
+      : finalPriceMinus(foodPrice)
     changeOpposite()
   }
   return (
@@ -59,7 +61,7 @@ const MembersOrdersCard = ({
       </View>
       <View style={stylesMembers.viewCheckBox}>
         <CheckBox
-          checked={boolean}
+          checked={toggle}
           onPress={handleChangeSelect}
           iconType='material-community'
           checkedIcon='checkbox-marked'
@@ -75,7 +77,7 @@ const MembersOrdersCard = ({
 
 const styles = StyleSheet.create({
   container: {
-    padding: hp(3),
+    paddingVertical: hp(3),
     width: wp(100),
     justifyContent: 'center',
     alignItems: 'center',
@@ -152,4 +154,4 @@ const stylesMembers = StyleSheet.create({
   },
 })
 
-export default OrdersFromOthersMembers
+export default OrdersFromOthersMembers;

@@ -20,7 +20,7 @@ export const MainMenuScreen = () => {
   return (
     <View style={styles.container}>
       <TitlePageLocation />
-      <WelcomeUser user={'Usuario'} />
+      <WelcomeUser />
       <Search />
       <StartBooking />
       <SpecialHalf />
