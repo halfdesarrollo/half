@@ -6,12 +6,15 @@ import {
   TouchableHighlight,
   TextInput,
   StyleSheet,
-  Dimensions,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 
 import FacebookLogo from "../../assets/facebooklogosvg.svg";
 import GmailLogo from "../../assets/gmaillogosvg.svg";
@@ -52,9 +55,7 @@ const LoginComponent = () => {
           )}
         />
         {errors.email && (
-          <Text style={{ fontSize: 15, textAlign: "center" }}>
-            {errors.email.message}
-          </Text>
+          <Text style={styles.text_error}>{errors.email.message}</Text>
         )}
         <Controller
           control={control}
@@ -71,7 +72,9 @@ const LoginComponent = () => {
             />
           )}
         />
-
+        {errors.password && (
+          <Text style={styles.text_error}>{errors.password.message}</Text>
+        )}
         <View
           style={{
             flex: 1,
@@ -142,7 +145,7 @@ const styles = StyleSheet.create({
   },
 
   inputs_container: {
-    height: Dimensions.get("window").height / 2.5,
+    height: hp("40.00%"),
     backgroundColor: "white",
     width: 350,
     borderTopColor: "#A4A4A4",
@@ -184,5 +187,11 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     margin: 10,
+  },
+
+  text_error: {
+    color: "red",
+    fontSize: 10,
+    marginHorizontal: 10,
   },
 });

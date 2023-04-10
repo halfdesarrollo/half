@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   KeyboardAvoidingView,
   SafeAreaView,
@@ -15,32 +15,33 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
-import EclipseBot from "../../assets/green-bottom-ellipse.svg";
-import HalfLogo from "../../assets/HalfSVG.svg";
-// import LoginComponent from "../components/LoginComponent";
-import RegsiterForm from "../components/RegisterForm";
 
-import WelcomeElipse from "../../assets/orange-top-ellipse.svg";
+import RegsiterForm from "../components/RegisterForm";
+import LoginComponent from "../components/LoginComponent";
+import HalfLogo from "../../assets/HalfSVG.svg";
+import WelcomeElipse from "../../assets/EllipseOrange.svg";
 import ElipseHalf1 from "../../assets/elipseHalf1.svg";
 import ElipseHalf2 from "../../assets/elipseHalf2.svg";
-import LoginComponent from "../components/LoginComponent";
 import BotElipse from "../../assets/welcome-ellipse.svg";
-
+import { fonts } from "../utils/theme";
 export const LoginScreen = () => {
   const [login, setLogin] = useState(false);
+  console.log(login);
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
-      <KeyboardAvoidingView style={{ flex: 1 }}>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        keyboardVerticalOffset={-200}
+      >
         <WelcomeElipse
           style={{
             position: "absolute",
-            marginHorizontal: -3,
+            marginHorizontal: "-12%",
             marginVertical: 15,
             width: 400,
             height: 200,
-            top: -110,
-            zIndex: 1,
-            top: -184,
+            top: "-8.5%",
           }}
         />
 
@@ -73,25 +74,39 @@ export const LoginScreen = () => {
               width: "100%",
             }}
           >
-            <TouchableHighlight onPress={() => setLogin(true)}>
-              <Text>Registrate</Text>
+            <TouchableHighlight
+              underlayColor={"rgba(255, 173, 63, 0.7)"}
+              activeOpacity={0.8}
+              style={styles.container_buttons}
+              onPress={() => setLogin(true)}
+            >
+              <Text style={!login ? { fontSize: 20 } : styles.textSelector}>
+                Registrate
+              </Text>
             </TouchableHighlight>
-            <TouchableHighlight onPress={() => setLogin(false)}>
-              <Text>Inicia Sesion</Text>
+            <TouchableHighlight
+              underlayColor={"rgba(255, 173, 63, 0.7)"}
+              onPress={() => setLogin(false)}
+              style={styles.container_buttons}
+            >
+              <Text style={login ? { fontSize: 20 } : styles.textSelector}>
+                Inicia Sesion
+              </Text>
             </TouchableHighlight>
           </View>
-          {login ? <RegsiterForm /> : <LoginComponent />}
+          <KeyboardAvoidingView style={[styles.inputs_container]}>
+            {login ? <RegsiterForm /> : <LoginComponent />}
+          </KeyboardAvoidingView>
         </View>
-
-        <BotElipse
-          style={{
-            zIndex: -1,
-            position: "absolute",
-            bottom: -520,
-            with: 300,
-          }}
-        />
       </KeyboardAvoidingView>
+      <BotElipse
+        style={{
+          zIndex: -1,
+          position: "absolute",
+          bottom: -520,
+          with: 300,
+        }}
+      />
     </SafeAreaView>
   );
 };
@@ -115,8 +130,9 @@ export const styles = StyleSheet.create({
   image_logo: {
     width: 290,
     height: 100,
-    top: -6,
+    top: "-3%",
     resizeMode: "contain",
+    zIndex: 1,
   },
   image_eclipseTop: {
     backgroundColor: "#FFAD3F",
@@ -139,9 +155,8 @@ export const styles = StyleSheet.create({
   },
 
   inputs_container: {
-    height: Dimensions.get("window").height / 2.5,
-    backgroundColor: "white",
-    width: 350,
+    height: hp("45.00%"),
+    width: "86%",
     borderTopColor: "#A4A4A4",
     borderTopWidth: 1,
   },
@@ -181,5 +196,16 @@ export const styles = StyleSheet.create({
     width: 60,
     height: 60,
     margin: 10,
+  },
+  textSelector: {
+    fontSize: 20,
+    fontFamily: fonts.poppins.bold,
+    borderRadius: 30,
+  },
+
+  container_buttons: {
+    borderRadius: 30,
+    width: "40%",
+    alignItems: "center",
   },
 });
