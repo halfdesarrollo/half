@@ -13,8 +13,10 @@ const OrderScreen = () => {
     <View style={styles.container}>
       <TitlePage text={'Ordernar'} route={'/menucard/1'} />
       <YourProductList screen={'orderScreen'} />
-      <TotalCost titleTwo={'(Este monto aún no será cobrado)'}/>
-      <BigButtonPay text='Ordenar' route='/menucard/1' />
+      <TotalCost titleTwo={'(Este monto aún no será cobrado)'} />
+      <View style={styles.btn}>
+        <BigButtonPay text='Ordenar' route='/menucard/1' />
+      </View>
     </View>
   )
 }
@@ -26,5 +28,9 @@ const styles = StyleSheet.create({
     width: wp(100),
     height: hp(100),
     alignItems: 'center',
+  },
+  btn: {
+    position: "absolute",
+    bottom: hp(5),
   },
 })

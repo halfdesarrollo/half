@@ -19,6 +19,9 @@ export const MenuCardScreen = () => {
     <SafeAreaView style={styles.container}>
       <BackgroundCard logo={logo} />
       <OptionsViewRestorant />
+      <View style={styles.btn}>
+        <BigButtonOrder route='/order' />
+      </View>
     </SafeAreaView>
   );
 };
@@ -31,6 +34,6 @@ const styles = StyleSheet.create({
   },
   btn: {
     position: "absolute",
-    bottom: 25,
+    bottom: hp(5),
   },
 });

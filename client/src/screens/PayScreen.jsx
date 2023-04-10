@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -14,11 +14,16 @@ const PayScreen = () => {
   return (
     <View style={styles.container}>
       <TitlePage text='Pagar' route='/vieworder' white={false} />
-      <YourProductList screen={'payScreen'} />
-      <OrdersFromOthersMembers />
-      <TypesOfPayments />
-      <TotalCost sliceState={'totalPrice'}/>
-      <BigButtonPay text='Pagar' route='/addpaymethod' />
+      <ScrollView contentContainerStyle={styles.visibleBox} >
+        <YourProductList screen={'payScreen'} />
+        <OrdersFromOthersMembers />
+        <TypesOfPayments />
+        <TotalCost sliceState={'totalPrice'} />
+      </ScrollView>
+      <View style={styles.btn}>
+        <BigButtonPay text='Pagar' route='/addpaymethod' />
+      </View>
+
     </View>
   )
 }
@@ -27,8 +32,16 @@ export default PayScreen
 
 const styles = StyleSheet.create({
   container: {
-    width: wp(100),
-    height: hp(100),
+    width: wp('100.00%'),
+    height: hp('100.00%'),
     alignItems: 'center',
   },
+  btn: {
+    position: "absolute",
+    bottom: hp(5),
+  },
+  visibleBox: {
+    height: hp(78),
+    alignItems: 'center'
+  }
 })

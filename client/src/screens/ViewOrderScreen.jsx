@@ -15,7 +15,9 @@ const ViewOrderScreen = () => {
       <TitlePage text='Ver pedidos' route='/menucard/1' white={false} />
       <StateOrder />
       <YourProductList screen={'viewOrderScreen'} />
-      <BigButtonPay text='Pagar' route='/pay' />
+      <View style={styles.btn}>
+        <BigButtonPay text='Pagar' route='/pay' />
+      </View>
     </View>
   )
 }
@@ -27,5 +29,9 @@ const styles = StyleSheet.create({
     width: wp('100.00%'),
     height: hp('100.00%'),
     alignItems: 'center',
+  },
+  btn: {
+    position: "absolute",
+    bottom: hp(5),
   },
 })

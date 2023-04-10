@@ -21,17 +21,16 @@ const OrdersFromOthersMembers = () => {
       <View style={styles.containerInfo}>
         <Text style={styles.text}>Pedidos de los demás miembros</Text>
         {membersOrders?.map((el, index) => (
-          <>
+          <View key={index}>
             <View style={styles.line} />
             <MembersOrdersCard
-              key={index}
               userName={el.user.name}
               foodName={el.name}
               foodPrice={el.price}
               finalPriceMore={finalPriceMore}
               finalPriceMinus={finalPriceMinus}
             />
-          </>
+          </View>
         ))}
       </View>
     </View>
@@ -45,12 +44,12 @@ const MembersOrdersCard = ({
   finalPriceMore,
   finalPriceMinus,
 }) => {
-  const { toggle , changeOpposite } = useToggle()
+  const { toggle, changeOpposite } = useToggle()
 
   const handleChangeSelect = () => {
     !toggle
-    ? finalPriceMore(foodPrice) 
-    : finalPriceMinus(foodPrice)
+      ? finalPriceMore(foodPrice)
+      : finalPriceMinus(foodPrice)
     changeOpposite()
   }
   return (
@@ -78,7 +77,7 @@ const MembersOrdersCard = ({
 
 const styles = StyleSheet.create({
   container: {
-    padding: hp(3),
+    paddingVertical: hp(3),
     width: wp(100),
     justifyContent: 'center',
     alignItems: 'center',
