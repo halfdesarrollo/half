@@ -6,11 +6,8 @@ import {
 } from 'react-native-responsive-screen'
 import Confeti from '../../assets/confeti'
 import { useNavigate } from 'react-router-native'
-import { useState } from 'react'
-import BigButtonPay from './BigButtonPay'
 
-const ModalPaymentConfirmed = ({ paymentCode }) => {
-  const [modalVisible, setModalVisible] = useState(false)
+const ModalPaymentConfirmed = ({ paymentCode, modalVisible, setModalVisible }) => {
 
   const navigation = useNavigate()
   const handleRediret = () => {
@@ -43,12 +40,6 @@ const ModalPaymentConfirmed = ({ paymentCode }) => {
           </View>
         </View>
       </Modal>
-      <Pressable
-        style={styles.pressButton}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle2}>Pagar</Text>
-      </Pressable>
     </View>
   )
 }
@@ -82,24 +73,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-
-  // button to active modal
-  pressButton: {
-    width: wp('90%'),
-    marginTop: hp(5),
-    elevation: 5,
-    backgroundColor: colors.primaryGreen,
-    paddingVertical: 11,
-    borderRadius: 6,
-  },
-  textStyle2: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontSize: wp('4.00%'),
-    fontFamily: fonts.poppins.bold,
-  },
-
   // modal button
   button: {
     borderRadius: 5,

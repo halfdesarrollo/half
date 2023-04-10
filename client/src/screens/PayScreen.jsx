@@ -14,7 +14,9 @@ const PayScreen = () => {
       <TitlePage text='Pagar' route='/vieworder' white={false} />
       <YourProductList screen={'payScreen'} />
       <TotalCost />
-      <BigButtonPay text='Pagar' route='/addpaymethod' />
+      <View style={styles.btn}>
+        <BigButtonPay text='Pagar' route='/addpaymethod' />
+      </View>
     </View>
   )
 }
@@ -26,5 +28,9 @@ const styles = StyleSheet.create({
     width: wp(100),
     height: hp(100),
     alignItems: 'center',
+  },
+  btn: {
+    position: "absolute",
+    bottom: hp(5),
   },
 })
