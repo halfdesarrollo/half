@@ -10,9 +10,6 @@ import GuestCard from './GuestCard';
 import { useEffect } from 'react';
 const ModalGuests = ({ displayGuests, setDisplayGuests }) => {
     const guests = useSelector(state => state.tableState.guests)
-    useEffect(() => {
-        console.log('Guests', guests);
-    }, [guests])
     return (
         <Modal
             visible={displayGuests}
