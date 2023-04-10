@@ -6,6 +6,8 @@ import {
 } from 'react-native-responsive-screen'
 import { fonts } from '../utils/theme'
 import { CheckBox, Icon } from 'react-native-elements'
+
+
 export const CashPayment = () => {
   const [textInputValue, setTextInputValue] = useState('')
   const [check, setCheck] = useState(false)
