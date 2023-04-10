@@ -33,13 +33,13 @@ const LetterFilters = () => {
 
   const filterMenu = Object.keys(restaurants[0]?.menu);
   filterMenu[1] = filterMenu[1].replace(/([A-Z])/g, ' $1').trim()
- 
+
   const filter = (el) => {
     setSelect(el)
   }
   const quantityGet = (id) => {
     let order = preOrder?.find((orderItem) => orderItem.id == id)
-    return order?.quantity?.toString().padStart(2, '0')  || '00'
+    return order?.quantity?.toString().padStart(2, '0') || '00'
   }
   return (
     <View style={style.container}>
@@ -60,8 +60,7 @@ const LetterFilters = () => {
           </TouchableOpacity>
         ))}
       </View>
-
-      {
+      <View style={style.cardBox}>
         <ScrollView>
           {select === 'Entradas' &&
             restaurants[0]?.menu?.Entradas?.map((entrada, index) => (
@@ -90,7 +89,7 @@ const LetterFilters = () => {
               </View>
             ))}
           {select === 'Plato De Fondo' &&
-             restaurants[0]?.menu?.PlatoDeFondo?.map((plato, index) => (
+            restaurants[0]?.menu?.PlatoDeFondo?.map((plato, index) => (
               <View key={index}>
                 <FoodCard
                   id={plato.id}
@@ -102,11 +101,8 @@ const LetterFilters = () => {
                 />
               </View>
             ))}
-          <View style={{ marginHorizontal: 20, marginVertical: 10 }}>
-            <BigButtonOrder route='/order' />
-          </View>
         </ScrollView>
-      }
+      </View>
     </View>
   )
 }
@@ -121,7 +117,6 @@ const style = StyleSheet.create({
     backgroundColor: 'white',
   },
   containerView: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
     marginVertical: 2,
@@ -134,6 +129,10 @@ const style = StyleSheet.create({
     color: colors.primaryGreen,
     lineHeight: 16.41,
     fontSize: 15,
+  },
+  cardBox: {
+    height: hp(40),
+    marginTop: 5
   },
   button: {
     justifyContent: 'center',
