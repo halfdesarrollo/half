@@ -1,23 +1,33 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { widthPercentageToDP as wp } from "react-native-responsive-screen";
+import { useSelector } from "react-redux";
 
-export const OrderSummary = ({ total, subTotal }) => {
-  
-  let totalDinero = total || "40.30";
-  let subTotalDinero = subTotal || "40.30";
-
+export const OrderSummary = () => {
+  const orderState = useSelector(state => state.orderState)
+  const subTotal = orderState.totalPrice.toFixed(2)
+  const coupon = (subTotal*orderState.offersUserSelected).toFixed(2)
+  const propinas = orderState.tip
+  const totalPrice = (subTotal-coupon+propinas).toFixed(2)
   return (
     <View style={styles.conteiner}>
       <Text style={styles.title}>Resumen del Pedido</Text>
       <View style={styles.pedidos}>
+      <View style={styles.line}>
+          <Text>Propinas</Text>
+          <Text>S/.{propinas}</Text>
+        </View>
+        <View style={styles.line}>
+          <Text>Cupon de Descuento</Text>
+          <Text>S/.{coupon}</Text>
+        </View>
         <View style={styles.line}>
           <Text>Subtotal</Text>
-          <Text>S/.{totalDinero}</Text>
+          <Text>S/.{subTotal}</Text>
         </View>
         <View style={styles.line}>
           <Text>Total a Pagar</Text>
-          <Text style={styles.textMoney}>S/.{subTotalDinero}</Text>
+          <Text style={styles.textMoney}>S/.{totalPrice}</Text>
         </View>
       </View>
     </View>
@@ -32,7 +42,7 @@ const styles = StyleSheet.create({
   },
   pedidos: {
     width: wp(85),
-    height: 96,
+    minHeight: 96,
     alignSelf: "center",
     display: "flex",
     justifyContent: "center",
