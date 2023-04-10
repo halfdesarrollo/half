@@ -16,7 +16,9 @@ import FacebookLogo from '../../assets/facebooklogosvg.svg'
 import GmailLogo from '../../assets/gmaillogosvg.svg'
 import { login } from '../redux/slices/user/userActions'
 import { loginSchema } from '../utils/validationSearchScheme'
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp,} from "react-native-responsive-screen";
+import GreenBottomEllipse from '../../assets/green-bottom-ellipse.svg'
+import GreenBottomThinEllipse from '../../assets/green-bottom-thin-ellipse.svg'
 const LoginComponent = () => {
   const dispatch = useDispatch()
   const {
@@ -80,13 +82,15 @@ const LoginComponent = () => {
             <Text style={{ color: 'white', fontSize: 20 }}>Iniciar</Text>
           </TouchableHighlight>
 
-          <Text>Aun no tienes cuenta? Registrate aca</Text>
+        <GreenBottomThinEllipse style={styles.greenBottomThinEllipse} />
+        <GreenBottomEllipse style={styles.greenBottomEllipse} />
+          <Text>Aún no tienes cuenta? Registrate acá</Text>
           <Text>o Ingresa con: </Text>
         </View>
 
         <View style={styles.socialMedia_container}>
-          <FacebookLogo style={styles.socialMedia_logo} />
           <GmailLogo style={styles.socialMedia_logo} />
+          <FacebookLogo style={styles.socialMedia_logo} />
         </View>
       </View>
     </SafeAreaView>
@@ -177,5 +181,20 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     margin: 10,
+  },
+
+  greenBottomThinEllipse: {
+    width: wp('100.00%'),
+    height: hp('100.00%'),
+    position: 'absolute',
+    bottom: hp('-70.00%'),
+    zIndex: 0,
+  },
+  greenBottomEllipse: {
+    width: wp('100.00%'),
+    height: hp('100.00%'),
+    position: 'absolute',
+    bottom: hp('-70.00%'),
+    zIndex: 0,
   },
 })
