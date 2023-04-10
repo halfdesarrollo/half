@@ -9,6 +9,7 @@ import {
   Dimensions,
   Button,
   TouchableHighlight,
+  TouchableOpacity,
   ScrollView,
 } from "react-native";
 import {
@@ -25,9 +26,16 @@ import ElipseHalf1 from "../../assets/elipseHalf1.svg";
 import ElipseHalf2 from "../../assets/elipseHalf2.svg";
 import LoginComponent from "../components/LoginComponent";
 import BotElipse from "../../assets/welcome-ellipse.svg";
+import { fonts } from "../utils/theme";
+import { color } from "react-native-elements/dist/helpers";
 
 export const LoginScreen = () => {
   const [login, setLogin] = useState(false);
+
+
+  if (setLogin === true) {
+
+  } 
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
       <KeyboardAvoidingView style={{ flex: 1 }}>
@@ -73,17 +81,17 @@ export const LoginScreen = () => {
               width: "100%",
             }}
           >
-            <TouchableHighlight onPress={() => setLogin(true)}>
-              <Text>Registrate</Text>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => setLogin(false)}>
-              <Text>Inicia Sesion</Text>
-            </TouchableHighlight>
+            <TouchableOpacity onPress={() => setLogin(false)}>
+              <Text style={[styles.text, login === false && styles.line ]}>Inicia Sesion</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setLogin(true)}>
+              <Text style={[styles.text, login === true && styles.line ]}>Registrate</Text>
+            </TouchableOpacity>
           </View>
-          <View style={{ flexDirection: "row" }}>
+          {/* <View style={{ flexDirection: "row" }}>
             <Button title="Inicia Sesion" onPress={() => setLogin(true)} />
             <Button title="Registrate" onPress={() => setLogin(false)} />
-          </View>
+          </View> */}
           {login ? <RegsiterForm /> : <LoginComponent />}
         </View>
 
@@ -186,4 +194,13 @@ export const styles = StyleSheet.create({
     height: 60,
     margin: 10,
   },
+
+  text: {
+    fontFamily:fonts.poppins.bold,
+    color:"#4B5563"
+  },
+  line:{
+    borderBottomWidth: 2,
+    borderBottomColor: '#4B5563',
+  }
 });
