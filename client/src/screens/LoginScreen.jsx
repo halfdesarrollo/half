@@ -32,10 +32,6 @@ import { color } from "react-native-elements/dist/helpers";
 export const LoginScreen = () => {
   const [login, setLogin] = useState(false);
 
-
-  if (setLogin === true) {
-
-  } 
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
       <KeyboardAvoidingView style={{ flex: 1 }}>
