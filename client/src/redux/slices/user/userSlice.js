@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
+import contacts from '../../../mocks/contactos'
 
 const initialState = {
   user: {},
   token: null,
-  contacts: [],
+  contacts: contacts,
 }
 
 export const userSlice = createSlice({

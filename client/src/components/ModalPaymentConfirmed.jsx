@@ -1,102 +1,158 @@
-import { 
-  StyleSheet,
-  View,
-  Text
-} from "react-native";
-import { fonts, colors } from "../utils/theme";
+import { StyleSheet, View, Text, Modal, Pressable } from 'react-native'
+import { fonts, colors } from '../utils/theme'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
-import Confeti from "../../assets/confeti";
-import ButtonReutil from "./ButtonReutil";
+} from 'react-native-responsive-screen'
+import Confeti from '../../assets/confeti'
+import { useNavigate } from 'react-router-native'
+import { useState } from 'react'
+import BigButtonPay from './BigButtonPay'
 
-const ModalPaymentConfirmed = ({paymentCode}) => {
-  return(
-      <View style={styles.container}>
-        <View style={styles.containerDatas}>
-          <Confeti style={styles.svg}/>
-          <Text style={styles.title}>Pago Confirmado</Text>
-          <Text style={styles.subTitle}>Código de pago: {paymentCode || '#9876543'}</Text>
-          <ButtonReutil 
-            colorBtn={styles.button} 
-            styleText={styles.textButton}
-            action={()=>null}
-            text={"Revisar Comprobante"}/>
+const ModalPaymentConfirmed = ({ paymentCode }) => {
+  const [modalVisible, setModalVisible] = useState(false)
+
+  const navigation = useNavigate()
+  const handleRediret = () => {
+    setModalVisible(false)
+    navigation('/menucard/1')
+  }
+
+  return (
+    <View style={styles.container}>
+      <Modal
+        animationType='fade'
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.')
+          setModalVisible(!modalVisible)
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Confeti style={styles.iconModal} />
+
+            <Text style={styles.modalText}>Pago Confirmado</Text>
+            <Text style={styles.modalText2}>Código de pago: #9876543</Text>
+            <View style={styles.buttonModalContainer}>
+              <Pressable style={styles.button} onPress={handleRediret}>
+                <Text style={styles.textStyle}>Revisar Comprobante</Text>
+              </Pressable>
+            </View>
+          </View>
         </View>
-        <View style={styles.containerBackground}></View>
-      </View>
-   )
+      </Modal>
+      <Pressable
+        style={styles.pressButton}
+        onPress={() => setModalVisible(true)}
+      >
+        <Text style={styles.textStyle2}>Pagar</Text>
+      </Pressable>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
-  container:{
-    width: wp('100.00%'),
-    height: hp('100.00%'),
-    alignItems:'center',
-    justifyContent:'center',
-    position:'absolute',
+  container: {
+    alignItems: 'center',
   },
-  containerBackground:{
-    width: wp('100.00%'),
-    height: hp('100.00%'),
-    position:'absolute',
-    backgroundColor:'#000000',
-    opacity:0.5,
+  // modal container
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  containerDatas:{
-    width:wp(90),
-    height: hp(55),
-    backgroundColor:'#FFFFFF',
-    borderRadius:10,
-    justifyContent:'center',
-    alignItems:'center',
-    position:'absolute',
-    zIndex:2,
+
+  // modal
+  modalView: {
+    width: wp('80.00%'),
+    height: hp('50.00%'),
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
-  svg:{
-    width:wp(50),
-    height:hp(20),
+
+  // button to active modal
+  pressButton: {
+    width: wp('90%'),
+    marginTop: hp(5),
+    elevation: 5,
+    backgroundColor: colors.primaryGreen,
+    paddingVertical: 11,
+    borderRadius: 6,
   },
+  textStyle2: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: wp('4.00%'),
+    fontFamily: fonts.poppins.bold,
+  },
+
+  // modal button
   button: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignContent: "center",
+    borderRadius: 5,
+    padding: 10,
+    elevation: 5,
+    width: wp('60.00%'),
+    height: hp('6.00%'),
+    backgroundColor: colors.primaryOrange,
+  },
+
+  buttonModalContainer: {
+    flexDirection: 'row',
+    gap: 20,
+    marginTop: hp('5%'),
+  },
+
+  modalButton: {
+    width: wp('20.00%'),
+    height: hp('5.00%'),
+  },
+  // modal button text
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize: wp('4.00%'),
     fontFamily: fonts.poppins.regular,
-    marginTop: 45,
-    backgroundColor: "#FFAD3F",
-    minWidth: 193,
-    minHeight: 44,
-    textAlign: "center",
-    borderRadius: 8,
-    shadowColor: "#000000",
-    shadowOffset: { width: 1, height: 3 },
-    shadowOpacity: 0.2,
-    paddingVertical:15,
-    paddingHorizontal:20,
+    fontWeight: '500',
   },
-  textButton: {
-      color: "#ffff",
-      fontStyle: "normal",
-      fontSize: 14,
-      lineHeight: 24,
-      fontFamily: fonts.poppins.medium,
-      textAlign: "center",
-      letterSpacing: -0.01,
+  modalText: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    fontFamily: fonts.poppins.medium,
+    fontWeight: '400',
+    marginBottom: 15,
+    textAlign: 'center',
+    marginTop: hp('3%'),
+    color: colors.primaryGreen,
   },
-  title:{
-    marginTop:16,
-    fontSize:24,
-    fontFamily:fonts.poppins.regular,
-    color:colors.primaryGreen
+  modalText2: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    fontFamily: fonts.poppins.medium,
+    fontWeight: '300',
+    textAlign: 'center',
+    marginTop: hp('-2%'),
+    color: colors.secundary8,
   },
-  subTitle:{
-    paddingTop:0,
-    marginTop:0,
-    color:colors.secundary8,
-    fontSize:12,
-    fontFamily: fonts.poppins.regular
-  }
+
+  iconModal: {
+    width: wp('50.00%'),
+    height: hp('20.00%'),
+  },
 })
 
-export default ModalPaymentConfirmed;
+export default ModalPaymentConfirmed

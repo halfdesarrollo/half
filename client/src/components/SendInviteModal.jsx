@@ -7,13 +7,7 @@ import {
 import { fonts, colors } from '../utils/theme'
 import SendInviteIcon from '../../assets/send-invite-icon.svg'
 
-const SendInviteModal = () => {
-  const [modalVisible, setModalVisible] = useState(false)
-
-  // cuando el usuario elige "Si"
-  const handlePress = () => {
-    setModalVisible(!modalVisible)
-  }
+const SendInviteModal = ({ modalVisible, setModalVisible }) => {
 
   // useEffect para que luego de tocar "Enviar Invitacion" el modal se cierre despues de los 2.5 segs
   const delay = 2.5
@@ -47,13 +41,6 @@ const SendInviteModal = () => {
           </View>
         </View>
       </Modal>
-
-      {/* Boton para enviar invitacion */}
-      <Pressable onPress={handlePress}>
-        <View style={styles.button}>
-          <Text style={styles.text}>Enviar invitación</Text>
-        </View>
-      </Pressable>
     </View>
   )
 }
@@ -88,20 +75,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  button: {
-    backgroundColor: colors.primaryGreen,
-    paddingVertical: 11,
-    borderRadius: 6,
-    width: wp('90%'),
-  },
-  text: {
-    color: '#fff',
-    fontSize: 17,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontFamily: fonts.poppins.bold,
-  },
-
   //
   modalText: {
     marginBottom: 15,

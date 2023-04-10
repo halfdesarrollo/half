@@ -1,78 +1,81 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { useState } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import ListOfOrder from "./ListOfOrder";
+} from 'react-native-responsive-screen'
+import OrderList from './OrderList'
+import { colors, fonts } from '../utils/theme'
+import { useSelector } from 'react-redux'
 
-const YourProductList = () => {
-   const [plates, setPlates] = useState([
-    "Caldo de Gallina",
-    "Papa a la huancaína",
-    "Jarra de chicha morada"
-   ])
+const YourProductList = ({ screen }) => {
+  const [plates, setPlates] = useState([
+    'Caldo de Gallina',
+    'Papa a la huancaína',
+    'Jarra de chicha morada',
+  ])
+
+  const { preOrder } = useSelector((state) => state.orderState)
 
   return (
     <View style={styles.container}>
-        <View style={styles.container2}>
-      <View style={styles.spaceText}>
+      <View style={styles.top}>
         <Text style={styles.text}>Tu Lista de Pedidos</Text>
-        <Text style={styles.text}>Estado</Text>
+        {screen === 'orderScreen' && (
+          <Text style={styles.secondTitle}>Cantidad</Text>
+        )}
+        {screen === 'viewOrderScreen' && (
+          <Text style={[styles.text, styles.secondTitle]}>Estado</Text>
+        )}
+        {screen === 'payScreen' && <Text></Text>}
       </View>
-        </View>
-      <View style={styles.container3}>
-        {
-          plates?.map((plate, i)=>{
-            return (
-              <View  key={i}>
-                <ListOfOrder plate={plate} />
-              </View>
-                )
-          })
-        }
+      <View style={styles.platesContainer}>
+        {preOrder?.map((dish, i) => {
+          return (
+            <View key={i}>
+              <OrderList dish={dish} screen={screen} />
+            </View>
+          )
+        })}
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
     width: wp('90%'),
-    height: 200,
-    top: 5,
+    height: hp(40),
+    marginTop: hp(3),
     shadowColor: '#000000',
     shadowOffset: { width: 3, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    textAlign: "center",
-    overflow : "hidden" ,
-    elevation: 3,
-    marginBottom: hp('90'),
+    textAlign: 'center',
+    overflow: 'hidden',
+    elevation: 4,
   },
 
-  container2:{
-    borderColor: "000000",
-    borderBottomWidth:2,
-    top: 20,
-  },
-
-  container3:{
-    top: 28.97,
-    bottom: 68.33,
+  top: {
+    borderColor: colors.secundary4,
+    borderBottomWidth: 1,
+    flexDirection: 'row',
     padding: 10,
   },
 
-  spaceText:{
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 5,
-},
-
-text:{
-    fontWeight: "600",
+  platesContainer: {
+    padding: 10,
   },
-});
 
-export default YourProductList;
+  text: {
+    fontFamily: fonts.poppins.medium,
+  },
+
+  // Cantidad / Estado
+  secondTitle: {
+    marginLeft: 150,
+  },
+})
+
+export default YourProductList

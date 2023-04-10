@@ -7,8 +7,12 @@ import Close from '../../assets/close.svg'
 import { colors, fonts } from '../utils/theme';
 import { useSelector } from 'react-redux'
 import GuestCard from './GuestCard';
+import { useEffect } from 'react';
 const ModalGuests = ({ displayGuests, setDisplayGuests }) => {
     const guests = useSelector(state => state.tableState.guests)
+    useEffect(() => {
+        console.log('Guests', guests);
+    }, [guests])
     return (
         <Modal
             visible={displayGuests}
@@ -27,7 +31,7 @@ const ModalGuests = ({ displayGuests, setDisplayGuests }) => {
                     <ScrollView>
                         {
                             guests?.map(e => (
-                                <GuestCard key={e.id} name={e.name} img={e.img} />
+                                <GuestCard key={e.id} id={e.id} name={e.name} img={e.img} />
                             ))
                         }
                     </ScrollView>
@@ -68,6 +72,5 @@ const styles = StyleSheet.create({
     },
     headerText: {
         fontFamily: fonts.poppins.medium,
-        color: colors.secundary3
-    }
+    },
 })

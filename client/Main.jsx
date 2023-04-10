@@ -12,6 +12,7 @@ import ViewOrderScreen from "./src/screens/ViewOrderScreen";
 import { MenuCardScreen } from "./src/screens/MenuCardScreen";
 import InviteFriendsScreen from "./src/screens/InviteFriendsScreen";
 import CouponScreen from "./src/screens/CouponScreen";
+import AddCardPayScreen from "./src/screens/AddCardPayScreen";
 
 export default function Main() {
   return (

@@ -6,6 +6,8 @@ import {
 } from 'react-native-responsive-screen'
 import { fonts } from '../utils/theme'
 import { CheckBox, Icon } from 'react-native-elements'
+
+
 export const CashPayment = () => {
   const [textInputValue, setTextInputValue] = useState('')
   const [check, setCheck] = useState(false)
@@ -15,10 +17,10 @@ export const CashPayment = () => {
       <View style={styles.inputcheck}>
         <TextInput
           style={styles.input}
-          onChangeText={(text) => setTextInputValue(text)}
+          onChangeText={(text) => setTextInputValue(Number(text))}
           value={textInputValue}
           placeholder='Con cuanto pagarás'
-          placehol
+          inputMode='numeric'
         />
         <View style={styles.checkbox}>
           <CheckBox
@@ -68,7 +70,6 @@ const styles = StyleSheet.create({
     borderColor: '#BEC5D1',
     borderWidth: 1,
     borderRadius: 5,
-    placeholderTextColor: 'gray',
   },
   checkbox: {
     marginLeft: wp('5%'),
