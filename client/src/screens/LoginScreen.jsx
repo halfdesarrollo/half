@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from 'react';
 import {
   KeyboardAvoidingView,
   SafeAreaView,
@@ -11,40 +11,40 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   ScrollView,
-} from "react-native";
+} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import EclipseBot from "../../assets/green-bottom-ellipse.svg";
-import HalfLogo from "../../assets/HalfSVG.svg";
-// import LoginComponent from "../components/LoginComponent";
-import RegsiterForm from "../components/RegisterForm";
+} from 'react-native-responsive-screen';
 
-import WelcomeElipse from "../../assets/orange-top-ellipse.svg";
-import ElipseHalf1 from "../../assets/elipseHalf1.svg";
-import ElipseHalf2 from "../../assets/elipseHalf2.svg";
-import LoginComponent from "../components/LoginComponent";
-import BotElipse from "../../assets/welcome-ellipse.svg";
-import { fonts } from "../utils/theme";
-import { color } from "react-native-elements/dist/helpers";
+import RegsiterForm from '../components/RegisterForm';
+import LoginComponent from '../components/LoginComponent';
+import HalfLogo from '../../assets/HalfSVG.svg';
+import WelcomeElipse from '../../assets/EllipseOrange.svg';
+import ElipseHalf1 from '../../assets/elipseHalf1.svg';
+import ElipseHalf2 from '../../assets/elipseHalf2.svg';
+import BotElipse from '../../assets/welcome-ellipse.svg';
+import { fonts } from '../utils/theme';
+import { color } from 'react-native-elements/dist/helpers';
 
 export const LoginScreen = () => {
   const [login, setLogin] = useState(false);
 
   return (
-    <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
-      <KeyboardAvoidingView style={{ flex: 1 }}>
+    <SafeAreaView style={{ height: '100%', backgroundColor: 'white' }}>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={-200}
+      >
         <WelcomeElipse
           style={{
-            position: "absolute",
-            marginHorizontal: -3,
+            position: 'absolute',
+            marginHorizontal: '-12%',
             marginVertical: 15,
             width: 400,
             height: 200,
-            top: -110,
-            zIndex: 1,
-            top: -184,
+            top: '-8.5%',
           }}
         />
 
@@ -53,7 +53,7 @@ export const LoginScreen = () => {
             <HalfLogo style={styles.image_logo} />
             <ElipseHalf1
               style={{
-                position: "absolute",
+                position: 'absolute',
                 width: 480,
                 height: 373,
                 left: -93,
@@ -62,7 +62,7 @@ export const LoginScreen = () => {
             />
             <ElipseHalf2
               style={{
-                position: "absolute",
+                position: 'absolute',
                 width: 480,
                 height: 373,
                 left: -93,
@@ -72,34 +72,33 @@ export const LoginScreen = () => {
           </View>
           <View
             style={{
-              flexDirection: "row",
-              justifyContent: "space-around",
-              width: "100%",
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              width: '100%',
             }}
           >
             <TouchableOpacity onPress={() => setLogin(false)}>
-              <Text style={[styles.text, login === false && styles.line ]}>Inicia Sesion</Text>
+              <Text style={[styles.text, login === false && styles.line]}>
+                Inicia Sesion
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setLogin(true)}>
-              <Text style={[styles.text, login === true && styles.line ]}>Registrate</Text>
+              <Text style={[styles.text, login === true && styles.line]}>
+                Registrate
+              </Text>
             </TouchableOpacity>
           </View>
-          {/* <View style={{ flexDirection: "row" }}>
-            <Button title="Inicia Sesion" onPress={() => setLogin(true)} />
-            <Button title="Registrate" onPress={() => setLogin(false)} />
-          </View> */}
           {login ? <RegsiterForm /> : <LoginComponent />}
         </View>
-
-        <BotElipse
-          style={{
-            zIndex: -1,
-            position: "absolute",
-            bottom: -520,
-            with: 300,
-          }}
-        />
       </KeyboardAvoidingView>
+      <BotElipse
+        style={{
+          zIndex: -1,
+          position: 'absolute',
+          bottom: -520,
+          with: 300,
+        }}
+      />
     </SafeAreaView>
   );
 };
@@ -107,38 +106,39 @@ export const LoginScreen = () => {
 export const styles = StyleSheet.create({
   login_container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
   },
 
   login_topLogo: {
-    backgroundColor: "white",
-    height: "25%",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "80%",
+    backgroundColor: 'white',
+    height: '25%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '80%',
     top: -40,
   },
   image_logo: {
     width: 290,
     height: 100,
-    top: -6,
-    resizeMode: "contain",
+    top: '-3%',
+    resizeMode: 'contain',
+    zIndex: 1,
   },
   image_eclipseTop: {
-    backgroundColor: "#FFAD3F",
-    position: "absolute",
+    backgroundColor: '#FFAD3F',
+    position: 'absolute',
     top: 170,
     borderRadius: 100,
 
-    width: wp("100.00%"),
-    height: hp("10.00%"),
-    position: "absolute",
+    width: wp('100.00%'),
+    height: hp('10.00%'),
+    position: 'absolute',
   },
   image_eclipseBot: {
-    backgroundColor: "#87BE56",
-    position: "absolute",
+    backgroundColor: '#87BE56',
+    position: 'absolute',
     bottom: -60,
     right: -55,
     width: 500,
@@ -147,56 +147,55 @@ export const styles = StyleSheet.create({
   },
 
   inputs_container: {
-    height: Dimensions.get("window").height / 2.5,
-    backgroundColor: "white",
-    width: 350,
-    borderTopColor: "#A4A4A4",
+    height: hp('45.00%'),
+    width: '86%',
+    borderTopColor: '#A4A4A4',
     borderTopWidth: 1,
   },
   button: {
-    backgroundColor: "#87BE56",
-    width: "100%",
+    backgroundColor: '#87BE56',
+    width: '100%',
     borderRadius: 10,
     padding: 10,
-    alignItems: "center",
+    alignItems: 'center',
   },
 
   inputs: {
     borderWidth: 1,
-    borderColor: "#A4A4A4",
+    borderColor: '#A4A4A4',
     marginHorizontal: 1,
     marginVertical: 20,
     paddingVertical: 10,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     paddingHorizontal: 20,
     borderRadius: 10,
   },
 
   socialMedia_container: {
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    alignItems: 'center',
     paddingHorizontal: 20,
     marginHorizontal: 50,
-    justifyContent: "space-between",
-    flexDirection: "row",
-    position: "absolute",
-    width: "70%",
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    position: 'absolute',
+    width: '70%',
     bottom: -60,
   },
 
   socialMedia_logo: {
-    resizeMode: "contain",
+    resizeMode: 'contain',
     width: 60,
     height: 60,
     margin: 10,
   },
 
   text: {
-    fontFamily:fonts.poppins.bold,
-    color:"#4B5563"
+    fontFamily: fonts.poppins.bold,
+    color: '#4B5563',
   },
-  line:{
+  line: {
     borderBottomWidth: 2,
     borderBottomColor: '#4B5563',
-  }
+  },
 });
