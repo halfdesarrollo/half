@@ -78,22 +78,22 @@ export default [
           price: 32.5,
           orderStatus: 'Entregado',
         },
-        {
-          id: '4',
-          name: 'Ceviche Mixto',
-          description: 'Plato típico peruano a base de pescado y mariscos',
-          imageDish: 'https://i.imgur.com/UCIOzJh.jpg',
-          price: 27.0,
-          orderStatus: 'Entregado',
-        },
-        {
-          id: '5',
-          name: 'Ají de Gallina',
-          description: 'Pollo deshilachado en salsa de ají amarillo y leche',
-          imageDish: 'https://i.imgur.com/pqCwv20.jpg',
-          price: 20.0,
-          orderStatus: 'Entregado',
-        },
+        // {
+        //   id: '4',
+        //   name: 'Ceviche Mixto',
+        //   description: 'Plato típico peruano a base de pescado y mariscos',
+        //   imageDish: 'https://i.imgur.com/UCIOzJh.jpg',
+        //   price: 27.0,
+        //   orderStatus: 'Entregado',
+        // },
+        // {
+        //   id: '5',
+        //   name: 'Ají de Gallina',
+        //   description: 'Pollo deshilachado en salsa de ají amarillo y leche',
+        //   imageDish: 'https://i.imgur.com/pqCwv20.jpg',
+        //   price: 20.0,
+        //   orderStatus: 'Entregado',
+        // },
       ],
       Bebidas: [
         {
