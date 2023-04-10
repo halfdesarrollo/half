@@ -13,14 +13,12 @@ import TypesOfPayments from '../components/TypesOfPayments'
 const PayScreen = () => {
   return (
     <View style={styles.container}>
-      <ScrollView>
       <TitlePage text='Pagar' route='/vieworder' white={false} />
       <YourProductList screen={'payScreen'} />
       <OrdersFromOthersMembers />
       <TypesOfPayments />
       <TotalCost sliceState={'totalPrice'}/>
       <BigButtonPay text='Pagar' route='/addpaymethod' />
-      </ScrollView>
     </View>
   )
 }

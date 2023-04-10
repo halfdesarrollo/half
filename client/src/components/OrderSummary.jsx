@@ -5,29 +5,29 @@ import { useSelector } from "react-redux";
 
 export const OrderSummary = () => {
   const orderState = useSelector(state => state.orderState)
-  const subTotal = orderState.totalPrice.toFixed(2)
-  const coupon = (subTotal*orderState.offersUserSelected).toFixed(2)
+  const subTotal = orderState.totalPrice
+  const coupon = orderState.offersUserSelected>0?(subTotal*orderState.offersUserSelected) : 0
   const propinas = orderState.tip
-  const totalPrice = (subTotal-coupon+propinas).toFixed(2)
+  const totalPrice = (subTotal-coupon+propinas)
   return (
     <View style={styles.conteiner}>
       <Text style={styles.title}>Resumen del Pedido</Text>
       <View style={styles.pedidos}>
       <View style={styles.line}>
           <Text>Propinas</Text>
-          <Text>S/.{propinas}</Text>
+          <Text>S/.{propinas?.toFixed(2)}</Text>
         </View>
         <View style={styles.line}>
           <Text>Cupon de Descuento</Text>
-          <Text>S/.{coupon}</Text>
+          <Text>S/.{coupon?.toFixed(2)}</Text>
         </View>
         <View style={styles.line}>
           <Text>Subtotal</Text>
-          <Text>S/.{subTotal}</Text>
+          <Text>S/.{subTotal?.toFixed(2)}</Text>
         </View>
         <View style={styles.line}>
           <Text>Total a Pagar</Text>
-          <Text style={styles.textMoney}>S/.{totalPrice}</Text>
+          <Text style={styles.textMoney}>S/.{totalPrice?.toFixed(2)}</Text>
         </View>
       </View>
     </View>
