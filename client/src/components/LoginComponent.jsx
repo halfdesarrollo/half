@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     position: "absolute",
     width: "70%",
-    bottom: -60,
+    bottom: -70,
   },
 
   socialMedia_logo: {
