@@ -1,8 +1,13 @@
 export default [
     {
         id: 1,
-        name: 'Ana',
+        name: 'Ana Suárez',
         img: 'https://i.pravatar.cc/150?img=1'
+    },
+    {
+        id: 10,
+        name: 'Anibal López',
+        img: 'https://i.pravatar.cc/150?img=11'
     },
     {
         id: 2,

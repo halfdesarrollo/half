@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import SearchFriends from '../components/SearchFriends'
 import TitlePage from '../components/TitlePage'
 import {
@@ -9,16 +9,31 @@ import {
 import SocialMedias from '../components/SocialMedias'
 import Contacts from '../components/Contacts'
 import SendInviteModal from '../components/SendInviteModal'
+import { colors, fonts } from '../utils/theme'
+import { useDispatch } from 'react-redux'
+import { addNewGuest } from '../redux/slices/table/tableSlice'
 
 const InviteFriendsScreen = () => {
+  const [guests, setGuests] = useState([]);
   const [modalVisible, setModalVisible] = useState(false)
+
+  const dispatch = useDispatch()
+
+  const handlePress = () => {
+    setModalVisible(!modalVisible)
+    dispatch(addNewGuest(guests))
+  }
 
   return (
     <View style={styles.container}>
       <TitlePage text={'Invita amigos a tu mesa'} white={true} route={'/menucard/4'} />
       <SearchFriends />
       <SocialMedias />
-      <Contacts modalVisible={modalVisible} setModalVisible={setModalVisible} />
+      <Contacts guests={guests} setGuests={setGuests} modalVisible={modalVisible} setModalVisible={setModalVisible} />
+      {/* Boton para enviar invitacion */}
+      <TouchableOpacity style={styles.button} onPress={handlePress} disabled={guests.length < 1} >
+        <Text style={styles.text}>Enviar invitación</Text>
+      </TouchableOpacity>
       <SendInviteModal modalVisible={modalVisible} setModalVisible={setModalVisible} />
     </View>
   )
@@ -35,5 +50,20 @@ const styles = StyleSheet.create({
   btn: {
     position: 'absolute',
     bottom: 25,
+  },
+  button: {
+    backgroundColor: colors.primaryGreen,
+    paddingVertical: 11,
+    borderRadius: 6,
+    width: wp('90%'),
+    position: 'absolute',
+    bottom: hp(5)
+  },
+  text: {
+    color: '#fff',
+    fontSize: 17,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontFamily: fonts.poppins.bold,
   },
 })
