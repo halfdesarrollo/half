@@ -8,7 +8,7 @@ import { colors, fonts } from '../utils/theme';
 
 const TotalCost = ({titleTwo, sliceState}) => {
 const totalPrice = useSelector(state => state.orderState[sliceState || 'totalPrice'])
-const precioTotal = totalPrice ==  0  ? "00.00" : totalPrice.toFixed(2)
+const precioTotal = totalPrice ==  0  ? "0.00" : totalPrice.toFixed(2)
 
   return (
     <View>

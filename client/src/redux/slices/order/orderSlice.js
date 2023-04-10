@@ -4,7 +4,7 @@ const initialState = {
   nTable: 0,
   preOrder: [],
   order: [],
-  offersUserSelected: [], // array de ids
+  offersUserSelected: {}, // array de ids
   orderStatus: '',
   paymentMethod: false,
   cash: 0,
@@ -55,6 +55,10 @@ export const orderSlice = createSlice({
     },
     removeToTotalPrice: (state, action) => {
       state.totalPrice = +(state.totalPrice - action.payload).toFixed(2)
+    },
+    addCoupon: (state, action) => {
+      const discount = action.payload[2] && '1.00' || '0.'+action.payload;
+      state.offersUserSelected = discount
     }
   },
 })
@@ -65,7 +69,8 @@ export const {
   decreaseOrderQuantity, 
   addAllOrder, 
   addToTotalPrice, 
-  removeToTotalPrice } =
+  removeToTotalPrice,
+  addCoupon } =
   orderSlice.actions
 
 export default orderSlice.reducer

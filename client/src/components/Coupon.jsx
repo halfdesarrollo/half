@@ -8,41 +8,49 @@ import {
 import { CheckBox } from 'react-native-elements';
 import ModalReutil from './ModalReutil';
 import { useNavigate } from 'react-router-native';
+import { useDispatch } from 'react-redux';
+import { addCoupon } from '../redux/slices/order/orderSlice';
 
 const Coupon = ({ viewCheck }) => {
 
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
   // estados capturadores de los cupones
   const [checkedOne, setCheckedOne] = useState(false);
   const [checkedTwo, setCheckedTwo] = useState(false);
-
+  const [discount, setDiscount] = useState(0);  
   const [viewModal, setViewModal] = useState();
 
 
   // valida que exista un cupon seleccionado, agrega el valor del cupo al estado para aplicar descuento y redirecciona a la ventana anterior
   const addCouponValidate = () => {
-    if(!checkedOne || !checkedTwo){
+    if(!checkedOne && !checkedTwo){           
       setViewModal(<ModalReutil  textPrimary={'No hay cupon seleccionado'} />)
       setTimeout(()=>{
         setViewModal()
       },1000)
     }
-
-    if(checkedOne && checkedTwo){
-      setViewModal(<ModalReutil  textPrimary={'Solo puede agregar un cupón'} />)
+    else if(checkedOne && checkedTwo){         
+      setViewModal(<ModalReutil  textPrimary={'solo un cupon a la vez'} />)
       setTimeout(()=>{
         setViewModal()
       },1500)
-    }else if(checkedOne || checkedTwo){
+    }else {
       setViewModal(<ModalReutil  textPrimary={'Cupon Agregado'} asset={'ok'} />)
       setTimeout(()=>{
         setViewModal()
         navigate('/addpaymethod')
       },1500)
+      dispatch(addCoupon(discount))
     }
   }
 
+  const addDiscount = (percentage, state, setState) => {
+    if(!state && discount === 0) setDiscount(percentage)
+    else setDiscount(0)
+    setState(!state)
+  }
   return (
     <View style={styles.coupon}>
       <ScrollView style={styles.couponScroll}>
@@ -68,9 +76,9 @@ const Coupon = ({ viewCheck }) => {
               uncheckedIcon={'checkbox-blank-outline'}
               iconType="material-community"
               checked={checkedOne}
-              onPress={()=>setCheckedOne(!checkedOne)}
-              checkedColor="green"
-              name='10'
+              onPress={()=>addDiscount(10, checkedOne, setCheckedOne)}
+              checkedColor={colors.primaryGreen}
+              size={26}
             />
           )}
         </View>
@@ -97,8 +105,9 @@ const Coupon = ({ viewCheck }) => {
               uncheckedIcon={'checkbox-blank-outline'}
               iconType="material-community"
               checked={checkedTwo}
-              onPress={() => setCheckedTwo(50)}
-              checkedColor="green"
+              onPress={() => addDiscount(50, checkedTwo, setCheckedTwo)}
+              checkedColor={colors.primaryGreen}
+              size={26}
             />
           )}
         </View>
