@@ -7,13 +7,17 @@ import TitlePage from '../components/TitlePage'
 import YourProductList from '../components/YourProductList'
 import TotalCost from '../components/TotalCost'
 import BigButtonPay from '../components/BigButtonPay'
+import OrdersFromOthersMembers from '../components/OrdersFromOthersMembers'
+import TypesOfPayments from '../components/TypesOfPayments'
 
 const PayScreen = () => {
   return (
     <View style={styles.container}>
       <TitlePage text='Pagar' route='/vieworder' white={false} />
       <YourProductList screen={'payScreen'} />
-      <TotalCost />
+      <OrdersFromOthersMembers />
+      <TypesOfPayments />
+      <TotalCost sliceState={'totalPrice'}/>
       <BigButtonPay text='Pagar' route='/addpaymethod' />
     </View>
   )

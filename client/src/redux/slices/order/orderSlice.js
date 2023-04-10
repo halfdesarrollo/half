@@ -9,6 +9,7 @@ const initialState = {
   paymentMethod: false,
   cash: 0,
   tip: 0,
+  totalPrice:0,
 }
 
 export const orderSlice = createSlice({
@@ -45,10 +46,26 @@ export const orderSlice = createSlice({
         }
       }
     },
+    addAllOrder: (state, action) => {
+      state.order = state.preOrder
+      state.totalPrice = action.payload
+    },
+    addToTotalPrice: (state, action) => {
+      state.totalPrice = +(state.totalPrice + action.payload).toFixed(2)
+    },
+    removeTotalPrice: (state, action) => {
+      state.totalPrice = +(state.totalPrice - action.payload).toFixed(2)
+    }
   },
 })
 
-export const { addOrder, removeOrder, decreaseOrderQuantity } =
+export const {
+  addOrder, 
+  removeOrder, 
+  decreaseOrderQuantity, 
+  addAllOrder, 
+  addToTotalPrice, 
+  removeTotalPrice } =
   orderSlice.actions
 
 export default orderSlice.reducer
