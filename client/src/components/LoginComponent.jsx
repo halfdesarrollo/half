@@ -30,6 +30,7 @@ const LoginComponent = () => {
     formState: { errors },
   } = useForm({ mode: "onChange", resolver: yupResolver(loginSchema) });
   const onPressButton = (data) => {
+    console.log("login");
     try {
       dispatch(login(data.email, data.password));
       navigate("/mainmenu");
@@ -49,7 +50,7 @@ const LoginComponent = () => {
               placeholder="Correo Electronico"
               onChangeText={onChange}
               onBlur={onBlur}
-              velue={value}
+              value={value}
               style={styles.inputs}
             />
           )}
@@ -60,7 +61,6 @@ const LoginComponent = () => {
         <Controller
           control={control}
           name="password"
-          defaultValue=""
           render={({ field: { value, onBlur, onChange } }) => (
             <TextInput
               placeholder="Contraseña"
@@ -89,14 +89,13 @@ const LoginComponent = () => {
           >
             <Text style={{ color: "white", fontSize: 20 }}>Iniciar</Text>
           </TouchableHighlight>
-
-          <Text>Aun no tienes cuenta? Registrate aca</Text>
+          <Text>Aún no tienes cuenta? Registrate acá</Text>
           <Text>o Ingresa con: </Text>
         </View>
 
         <View style={styles.socialMedia_container}>
-          <FacebookLogo style={styles.socialMedia_logo} />
           <GmailLogo style={styles.socialMedia_logo} />
+          <FacebookLogo style={styles.socialMedia_logo} />
         </View>
       </View>
     </SafeAreaView>
@@ -187,6 +186,21 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     margin: 10,
+  },
+
+  greenBottomThinEllipse: {
+    width: wp("100.00%"),
+    height: hp("100.00%"),
+    position: "absolute",
+    bottom: hp("-70.00%"),
+    zIndex: 0,
+  },
+  greenBottomEllipse: {
+    width: wp("100.00%"),
+    height: hp("100.00%"),
+    position: "absolute",
+    bottom: hp("-70.00%"),
+    zIndex: 0,
   },
 
   text_error: {

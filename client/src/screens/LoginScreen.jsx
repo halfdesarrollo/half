@@ -9,6 +9,7 @@ import {
   Dimensions,
   Button,
   TouchableHighlight,
+  TouchableOpacity,
   ScrollView,
 } from "react-native";
 import {
@@ -24,9 +25,11 @@ import ElipseHalf1 from "../../assets/elipseHalf1.svg";
 import ElipseHalf2 from "../../assets/elipseHalf2.svg";
 import BotElipse from "../../assets/welcome-ellipse.svg";
 import { fonts } from "../utils/theme";
+import { color } from "react-native-elements/dist/helpers";
+
 export const LoginScreen = () => {
   const [login, setLogin] = useState(false);
-  console.log(login);
+
   return (
     <SafeAreaView style={{ height: "100%", backgroundColor: "white" }}>
       <KeyboardAvoidingView
@@ -74,29 +77,22 @@ export const LoginScreen = () => {
               width: "100%",
             }}
           >
-            <TouchableHighlight
-              underlayColor={"rgba(255, 173, 63, 0.7)"}
-              activeOpacity={0.8}
-              style={styles.container_buttons}
-              onPress={() => setLogin(true)}
-            >
-              <Text style={!login ? { fontSize: 20 } : styles.textSelector}>
-                Registrate
-              </Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              underlayColor={"rgba(255, 173, 63, 0.7)"}
-              onPress={() => setLogin(false)}
-              style={styles.container_buttons}
-            >
-              <Text style={login ? { fontSize: 20 } : styles.textSelector}>
+            <TouchableOpacity onPress={() => setLogin(false)}>
+              <Text style={[styles.text, login === false && styles.line]}>
                 Inicia Sesion
               </Text>
-            </TouchableHighlight>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => setLogin(true)}>
+              <Text style={[styles.text, login === true && styles.line]}>
+                Registrate
+              </Text>
+            </TouchableOpacity>
           </View>
-          <KeyboardAvoidingView style={[styles.inputs_container]}>
-            {login ? <RegsiterForm /> : <LoginComponent />}
-          </KeyboardAvoidingView>
+          {/* <View style={{ flexDirection: "row" }}>
+            <Button title="Inicia Sesion" onPress={() => setLogin(true)} />
+            <Button title="Registrate" onPress={() => setLogin(false)} />
+          </View> */}
+          {login ? <RegsiterForm /> : <LoginComponent />}
         </View>
       </KeyboardAvoidingView>
       <BotElipse
@@ -197,15 +193,13 @@ export const styles = StyleSheet.create({
     height: 60,
     margin: 10,
   },
-  textSelector: {
-    fontSize: 20,
-    fontFamily: fonts.poppins.bold,
-    borderRadius: 30,
-  },
 
-  container_buttons: {
-    borderRadius: 30,
-    width: "40%",
-    alignItems: "center",
+  text: {
+    fontFamily: fonts.poppins.bold,
+    color: "#4B5563",
+  },
+  line: {
+    borderBottomWidth: 2,
+    borderBottomColor: "#4B5563",
   },
 });

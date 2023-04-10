@@ -1,12 +1,14 @@
 import { useState } from "react"
 
-export const useBoolean = () => {
-  const [ boolean, setBoolean ] = useState(false)
+export const useToggle = () => {
+  const [ toggle, setToggle ] = useState(false)
 
-  const changeOpposite = () => setBoolean(!boolean)
+  const changeOpposite = () => setToggle(!toggle)
 
   return{
-    boolean,
+    toggle,
     changeOpposite
   }
 }
+
+
