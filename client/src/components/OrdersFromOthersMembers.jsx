@@ -8,13 +8,13 @@ import { colors, fonts } from '../utils/theme'
 import { useDispatch, useSelector } from 'react-redux'
 import { useToggle } from '../customHooks'
 import { CheckBox } from 'react-native-elements'
-import { addToTotalPrice, removeTotalPrice } from '../redux/slices/order/orderSlice'
+import { addToTotalPrice, removeToTotalPrice } from '../redux/slices/order/orderSlice'
 
 const OrdersFromOthersMembers = () => {
   const membersOrders = useSelector((state) => state.tableState.orders)
   const dispatch = useDispatch()
   const finalPriceMore = (price) => dispatch(addToTotalPrice(+price))
-  const finalPriceMinus = (price) => dispatch(removeTotalPrice(+price))
+  const finalPriceMinus = (price) => dispatch(removeToTotalPrice(+price))
 
   return (
     <View style={styles.container}>

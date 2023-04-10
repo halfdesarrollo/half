@@ -53,7 +53,7 @@ export const orderSlice = createSlice({
     addToTotalPrice: (state, action) => {
       state.totalPrice = +(state.totalPrice + action.payload).toFixed(2)
     },
-    removeTotalPrice: (state, action) => {
+    removeToTotalPrice: (state, action) => {
       state.totalPrice = +(state.totalPrice - action.payload).toFixed(2)
     }
   },
@@ -65,7 +65,7 @@ export const {
   decreaseOrderQuantity, 
   addAllOrder, 
   addToTotalPrice, 
-  removeTotalPrice } =
+  removeToTotalPrice } =
   orderSlice.actions
 
 export default orderSlice.reducer
