@@ -18,7 +18,7 @@ export const AddCard = () => {
         <DebitCard style={styles.debitCard} />
         <Text style={styles.title}>Puedes agregar un TC o débito</Text>
       </View>
-      <AddCardButton action={()=>navigate('/addcard')}/>
+      <AddCardButton action={()=>navigate('/addCard')}/>
     </View>
   )
 }

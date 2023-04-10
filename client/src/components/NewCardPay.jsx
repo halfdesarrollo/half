@@ -1,13 +1,12 @@
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Image } from 'react-native'
 import React, {useState} from 'react'
 import AddSvg from '../../assets/add.svg'
-import IconVisa from '../../assets/iconVisa.svg'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import {colors, fonts} from '../utils/theme'
 import Admiracion from '../../assets/admiracion.svg'
-import { CheckBox } from 'react-native-elements'
 import ModalReutil from './ModalReutil'
 import { useNavigate } from 'react-router-native'
+import ExistingCard from './ExistingCard'
 
 const NewCardPay = () => {
 
@@ -52,14 +51,7 @@ const NewCardPay = () => {
       </View>
 
       <ScrollView>
-        <View style={styles.cardPayElement}>
-          <IconVisa style={styles.cardPayIcon}/>
-          <View>
-            <Text style={styles.cardPayText}>Kelly Márquez</Text>
-            <Text style={styles.cardPayText}>xxxx xxxx xxxx xx90</Text>
-          </View>
-          <CheckBox checkedColor='red' checked={addCard} uncheckedIcon={"circle-o"} checkedIcon={"dot-circle-o"} onPress={()=>setAddCard(!addCard)}/>
-        </View>
+        <ExistingCard addCard={addCard} setAddCard={setAddCard}/>
       </ScrollView>
 
       <View style={styles.contentModal}>
@@ -114,18 +106,6 @@ const styles = StyleSheet.create({
   },
   cardPayContent:{
 
-  },
-  cardPayElement:{
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-  },
-  cardPayIcon: {
-    elevation: 2,
-  },
-  cardPayText: {
-    fontFamily: fonts.poppins.regular,
-    fontSize: 15
   },
   addCardContent: {
     justifyContent: 'center',
