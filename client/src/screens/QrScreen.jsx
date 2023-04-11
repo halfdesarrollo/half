@@ -26,14 +26,14 @@ export function QrScreen() {
       '¿Das permisos para activar la cámara?',
       [
         { text: 'Si', onPress: () => setHasPermission(true) },
-        { text: 'No', onPress: () => navigate('/'), style: 'cancel' },
+        { text: 'No', onPress: () => navigate('/mainmenu'), style: 'cancel' },
       ]
     )
   }, [])
 
   return (
     <SafeAreaView style={styles.container_Qr}>
-      <TitlePage text='Volver a Inicio' route='/' />
+      <TitlePage text='Volver a Inicio' route='/mainmenu' />
       <View style={{ height: Dimensions.get('window').height / 1.2 }}>
         <Image source={QrImage} style={styles.image} />
         {hasPermission && (

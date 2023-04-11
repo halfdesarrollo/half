@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react'
 import {
   KeyboardAvoidingView,
   SafeAreaView,
@@ -11,24 +11,24 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   ScrollView,
-} from 'react-native';
+} from 'react-native'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+} from 'react-native-responsive-screen'
 
-import RegsiterForm from '../components/RegisterForm';
-import LoginComponent from '../components/LoginComponent';
-import HalfLogo from '../../assets/HalfSVG.svg';
-import WelcomeElipse from '../../assets/EllipseOrange.svg';
-import ElipseHalf1 from '../../assets/elipseHalf1.svg';
-import ElipseHalf2 from '../../assets/elipseHalf2.svg';
-import BotElipse from '../../assets/welcome-ellipse.svg';
-import { fonts } from '../utils/theme';
-import { color } from 'react-native-elements/dist/helpers';
+import RegsiterForm from '../components/RegisterForm'
+import LoginComponent from '../components/LoginComponent'
+import HalfLogo from '../../assets/HalfSVG.svg'
+import WelcomeElipse from '../../assets/EllipseOrange.svg'
+import ElipseHalf1 from '../../assets/elipseHalf1.svg'
+import ElipseHalf2 from '../../assets/elipseHalf2.svg'
+import BotElipse from '../../assets/welcome-ellipse.svg'
+import { fonts } from '../utils/theme'
+import { color } from 'react-native-elements/dist/helpers'
 
 export const LoginScreen = () => {
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(false)
 
   return (
     <SafeAreaView style={{ height: '100%', backgroundColor: 'white' }}>
@@ -75,6 +75,7 @@ export const LoginScreen = () => {
               flexDirection: 'row',
               justifyContent: 'space-around',
               width: '100%',
+              marginTop: hp(3),
             }}
           >
             <TouchableOpacity onPress={() => setLogin(false)}>
@@ -96,8 +97,8 @@ export const LoginScreen = () => {
         }}
       />
     </SafeAreaView>
-  );
-};
+  )
+}
 
 export const styles = StyleSheet.create({
   login_container: {
@@ -194,4 +195,4 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 2,
     borderBottomColor: '#4B5563',
   },
-});
+})

@@ -4,7 +4,7 @@ const initialState = {
   nTable: 0,
   preOrder: [],
   order: [],
-  offersUserSelected: {}, // array de ids
+  offersUserSelected: {},
   orderStatus: '',
   paymentMethod: false,
   cash: 0,
@@ -57,13 +57,14 @@ export const orderSlice = createSlice({
       state.totalPrice = +(state.totalPrice - action.payload).toFixed(2)
     },
     addCoupon: (state, action) => {
-      const discount = action.payload.value[2] && '1.00' || '0.' + action.payload.value;
+      const discount =
+        (action.payload.value[2] && '1.00') || '0.' + action.payload.value
       state.offersUserSelected = { ...action.payload, value: discount }
     },
     addTip: (state, action) => {
       state.tip = action.payload
-    }
-  }
+    },
+  },
 })
 
 export const {
@@ -74,7 +75,7 @@ export const {
   addToTotalPrice,
   removeToTotalPrice,
   addCoupon,
-  addTip
+  addTip,
 } = orderSlice.actions
 
 export default orderSlice.reducer

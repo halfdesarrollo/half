@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   continueBtn: {
     zIndex: 1,
     position: 'absolute',
-    bottom: hp('-50.00%'),
+    bottom: hp('-35.00%'),
     left: wp(25),
     borderRadius: 7,
   },
