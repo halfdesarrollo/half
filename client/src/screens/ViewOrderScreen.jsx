@@ -12,7 +12,7 @@ import BigButtonPay from '../components/BigButtonPay'
 const ViewOrderScreen = () => {
   return (
     <View style={styles.container}>
-      <TitlePage text='Ver pedidos' route='/menucard/1' white={false} />
+      <TitlePage text='Ver pedidos' route='/menucard/0' white={false} />
       <StateOrder />
       <YourProductList screen={'viewOrderScreen'} />
       <View style={styles.btn}>

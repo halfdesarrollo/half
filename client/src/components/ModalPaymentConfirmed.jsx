@@ -12,7 +12,7 @@ const ModalPaymentConfirmed = ({ paymentCode, modalVisible, setModalVisible }) =
   const navigation = useNavigate()
   const handleRediret = () => {
     setModalVisible(false)
-    navigation('/menucard/1')
+    navigation('/menucard/0')
   }
 
   return (
