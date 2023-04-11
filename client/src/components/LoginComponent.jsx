@@ -8,21 +8,20 @@ import {
   StyleSheet,
   Dimensions,
   Image,
-} from 'react-native'
-import { useForm, Controller } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useDispatch } from 'react-redux'
+} from 'react-native';
+import { useForm, Controller } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-native';
-import FacebookLogo from '../../assets/facebooklogosvg.svg'
-import gmail from '../../assets/gmail-logo.png'
-import { login } from '../redux/slices/user/userActions'
-import { loginSchema } from '../utils/validationSearchScheme'
+import FacebookLogo from '../../assets/facebooklogosvg.svg';
+import gmail from '../../assets/gmail-logo.png';
+import { login } from '../redux/slices/user/userActions';
+import { loginSchema } from '../utils/validationSearchScheme';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import GreenBottomEllipse from '../../assets/green-bottom-ellipse.svg'
-import GreenBottomThinEllipse from '../../assets/green-bottom-thin-ellipse.svg'
+} from 'react-native-responsive-screen';
+
 const LoginComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,7 +31,6 @@ const LoginComponent = () => {
     formState: { errors },
   } = useForm({ mode: 'onChange', resolver: yupResolver(loginSchema) });
   const onPressButton = (data) => {
-    console.log('login');
     try {
       dispatch(login(data.email, data.password));
       navigate('/mainmenu');
@@ -92,8 +90,6 @@ const LoginComponent = () => {
             <Text style={{ color: 'white', fontSize: 20 }}>Iniciar</Text>
           </TouchableHighlight>
 
-          <GreenBottomThinEllipse style={styles.greenBottomThinEllipse} />
-          <GreenBottomEllipse style={styles.greenBottomEllipse} />
           <Text>Aún no tienes cuenta? Registrate acá</Text>
           <Text>o Ingresa con: </Text>
         </View>

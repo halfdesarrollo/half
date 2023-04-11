@@ -1,8 +1,11 @@
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import { registerUser } from './userSlice';
+import { loginUser, registerUser } from './userSlice';
 
-const URL_LOGIN = '';
+const URL_LOGIN =
+  'https://production-nestjs-back-production.up.railway.app/auth/login';
+const URL_REGISTER =
+  'https://production-nestjs-back-production.up.railway.app/auth/register';
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -29,6 +32,7 @@ export const login = (email, password) => async (dispatch) => {
 
 export const register = (name, email, password) => async (dispatch) => {
   try {
+    console.log('dispatch', name, email, password);
     const response = await axios.post(URL_REGISTER, {
       name,
       email,
