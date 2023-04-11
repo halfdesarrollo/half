@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {
-  Button,
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-} from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
 import { BarCodeScanner } from 'expo-barcode-scanner'
 import { StatusBar } from 'expo-status-bar'
 import { useNavigate } from 'react-router-native'
@@ -35,7 +29,7 @@ export default function ScanQRComponent() {
     return (
       <View>
         <Text>Da Permisos a la camara por favor</Text>
-        <Button title='Volver Inicio' onPress={() => navigate('/')}>
+        <Button title='Volver Inicio' onPress={() => navigate('/mainmenu')}>
           Inicio
         </Button>
       </View>
@@ -45,8 +39,8 @@ export default function ScanQRComponent() {
   const handleBarCodeScanned = ({ data }) => {
     setScanned(true)
     setHasPermission(!hasPermission)
-    alert(`la data del codigo QR es:  ${data} `)
-    navigate('/')
+    alert(`La data del codigo QR es:  ${data} `)
+    navigate('/mainmenu')
   }
 
   return (

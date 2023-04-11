@@ -18,19 +18,19 @@ export default function Main() {
   return (
     <View>
       <Routes>
-        <Route path='/login' element={<LoginScreen />} />
-        <Route path='/qrscreen' element={<QrScreen />} />
-        <Route path='/welcome' element={<WelcomeScreen />} />
+        <Route path='/' element={<WelcomeScreen />} />
         <Route path='/howdoesitworks' element={<HowDoesItWorksScreen />} />
-        <Route path='/' element={<MainMenuScreen />} />
-        <Route path='/addpaymethod' element={<AddPayMethodScreen />} />
-        <Route path='/order' element={<OrderScreen />} />
-        <Route path='/pay' element={<PayScreen />} />
-        <Route path='/vieworder' element={<ViewOrderScreen />} />
+        <Route path='/login' element={<LoginScreen />} />
+        <Route path='/mainmenu' element={<MainMenuScreen />} />
+        <Route path='/qrscreen' element={<QrScreen />} />
         <Route path='/menucard/:id' element={<MenuCardScreen />} />
+        <Route path='/order' element={<OrderScreen />} />
+        <Route path='/vieworder' element={<ViewOrderScreen />} />
+        <Route path='/pay' element={<PayScreen />} />
+        <Route path='/addpaymethod' element={<AddPayMethodScreen />} />
         <Route path='/invitefriends' element={<InviteFriendsScreen />} />
-        <Route path='/couponscreen' element={<CouponScreen/>}/>
+        <Route path='/couponscreen' element={<CouponScreen />} />
       </Routes>
     </View>
-  );
+  )
 }
