@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 export const OrderSummary = () => {
   const orderState = useSelector(state => state.orderState)
   const subTotal = orderState.totalPrice
-  const coupon = orderState.offersUserSelected>0?(subTotal*orderState.offersUserSelected) : 0
+  const coupon = orderState.offersUserSelected.value>0?(subTotal*orderState.offersUserSelected.value) : 0
   const propinas = orderState.tip
   const totalPrice = (subTotal-coupon+propinas)
   return (

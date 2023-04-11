@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, Modal, Pressable, Alert } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  Modal,
+  Pressable,
+  Alert,
+  TouchableOpacity,
+} from 'react-native'
 import React, { useState, useEffect } from 'react'
 import WaiterIcon from '../../assets/waiter.svg'
 import ClockWaiterModal from '../../assets/clock-waiter-modal.svg'
@@ -86,9 +94,12 @@ export const WaiterModalConfirm = () => {
           </View>
         </Modal>
       )}
-      <Pressable onPress={() => setModalVisible(true)}>
+      <TouchableOpacity
+        style={styles.mainButton}
+        onPress={() => setModalVisible(true)}
+      >
         <WaiterIcon style={styles.waiterIconButton} />
-      </Pressable>
+      </TouchableOpacity>
     </View>
   )
 }
@@ -178,5 +189,22 @@ const styles = StyleSheet.create({
   waiterIconModal: {
     width: wp('29.00%'),
     height: hp('15.00%'),
+  },
+
+  //main button
+  mainButton: {
+    height: hp(8),
+    width: wp(14),
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    backgroundColor: 'white',
   },
 })

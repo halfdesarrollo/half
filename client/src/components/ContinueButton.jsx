@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#FFAD3F',
     width: wp('50.00%'),
-    height: hp('6.00%'),
+    height: hp('7.00%'),
     borderRadius: 7,
   },
   textButton: {
-    textAlign: 'center',
     justifyContent: 'center',
+    textAlign: 'center',
     fontSize: 25,
     color: '#FFFFFF',
     fontWeight: 'bold',
