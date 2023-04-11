@@ -27,8 +27,9 @@ export default function RegisterForm() {
     formState: { errors },
   } = useForm({ mode: 'onChange', resolver: yupResolver(registerSchema) });
   const onSubmit = (data) => {
+    const { name, email, password } = data;
     try {
-      dispatch(register(data));
+      dispatch(register(name, email, password));
       navigate('/mainmenu');
     } catch (error) {
       alert(error);

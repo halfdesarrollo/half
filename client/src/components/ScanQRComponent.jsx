@@ -1,47 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import { Button, StyleSheet, Text, View } from 'react-native'
-import { BarCodeScanner } from 'expo-barcode-scanner'
-import { StatusBar } from 'expo-status-bar'
-import { useNavigate } from 'react-router-native'
+import React, { useState, useEffect } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import { BarCodeScanner } from 'expo-barcode-scanner';
+import { StatusBar } from 'expo-status-bar';
+import { useNavigate } from 'react-router-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from 'react-native-responsive-screen'
+} from 'react-native-responsive-screen';
 
-import TopLeft from '../../assets/qrtopizquierdo.svg'
-import TopRight from '../../assets/qrtopderecho.svg'
-import BotRight from '../../assets/qrbotderecho.svg'
-import BotLeft from '../../assets/qrbotizquierdo.svg'
+import TopLeft from '../../assets/qrtopizquierdo.svg';
+import TopRight from '../../assets/qrtopderecho.svg';
+import BotRight from '../../assets/qrbotderecho.svg';
+import BotLeft from '../../assets/qrbotizquierdo.svg';
 
 export default function ScanQRComponent() {
-  const [hasPermission, setHasPermission] = useState(false)
-  const [scanned, setScanned] = useState(false)
-  const navigate = useNavigate()
+  const [hasPermission, setHasPermission] = useState(false);
+  const [scanned, setScanned] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    ;(async () => {
-      const { status } = await BarCodeScanner.requestPermissionsAsync()
-      setHasPermission(status === 'granted')
-    })()
-  }, [])
+    (async () => {
+      const { status } = await BarCodeScanner.requestPermissionsAsync();
+      setHasPermission(status === 'granted');
+    })();
+  }, []);
 
   if (!hasPermission) {
     return (
       <View>
         <Text>Da Permisos a la camara por favor</Text>
-        <Button title='Volver Inicio' onPress={() => navigate('/mainmenu')}>
+        <Button title="Volver Inicio" onPress={() => navigate('/mainmenu')}>
           Inicio
         </Button>
       </View>
-    )
+    );
   }
 
   const handleBarCodeScanned = ({ data }) => {
-    setScanned(true)
-    setHasPermission(!hasPermission)
-    alert(`La data del codigo QR es:  ${data} `)
-    navigate('/mainmenu')
-  }
+    setScanned(true);
+    setHasPermission(!hasPermission);
+    navigate(`/menucard/${data}`);
+  };
 
   return (
     <View style={styles.container}>
@@ -49,7 +48,7 @@ export default function ScanQRComponent() {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={[styles.barscan, StyleSheet.absoluteFillObject]}
       />
-      <StatusBar style='auto' />
+      <StatusBar style="auto" />
       <View style={{ bottom: 430, position: 'absolute' }}>
         <TopLeft style={{ position: 'absolute', top: -260, left: -180 }} />
         <TopRight style={{ position: 'absolute', top: -260, left: 110 }} />
@@ -57,7 +56,7 @@ export default function ScanQRComponent() {
         <BotRight style={{ position: 'absolute', top: 140, left: 100 }} />
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -94,4 +93,4 @@ const styles = StyleSheet.create({
     width: wp('100.00%'),
     position: 'relative',
   },
-})
+});
