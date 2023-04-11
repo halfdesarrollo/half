@@ -17,21 +17,30 @@ const Coupon = ({ viewCheck }) => {
 
   const dispatch = useDispatch();
   // estados capturadores de los cupones
-  const [checkedOne, setCheckedOne] = useState(false);
-  const [checkedTwo, setCheckedTwo] = useState(false);
-  const [discount, setDiscount] = useState(0);  
+  const [checkedOne, setCheckedOne] = useState({
+    value:false,
+    name:'descuento por el 10% total del pago de todos tus platos'
+  });
+  const [checkedTwo, setCheckedTwo] = useState({
+    value:false,
+    name:'descuento del 50% en todos tus platos de entradas'
+  });
+  const [discount, setDiscount] = useState({
+    name:'',
+    value:0
+  });  
   const [viewModal, setViewModal] = useState();
 
 
   // valida que exista un cupon seleccionado, agrega el valor del cupo al estado para aplicar descuento y redirecciona a la ventana anterior
   const addCouponValidate = () => {
-    if(!checkedOne && !checkedTwo){           
+    if(!checkedOne.value && !checkedTwo.value){           
       setViewModal(<ModalReutil  textPrimary={'No hay cupon seleccionado'} />)
       setTimeout(()=>{
         setViewModal()
       },1000)
     }
-    else if(checkedOne && checkedTwo){         
+    else if(checkedOne.value && checkedTwo.value){         
       setViewModal(<ModalReutil  textPrimary={'solo un cupon a la vez'} />)
       setTimeout(()=>{
         setViewModal()
@@ -47,9 +56,9 @@ const Coupon = ({ viewCheck }) => {
   }
 
   const addDiscount = (percentage, state, setState) => {
-    if(!state && discount === 0) setDiscount(percentage)
-    else setDiscount(0)
-    setState(!state)
+    if(!state.value && discount.value === 0) setDiscount({name:state.name,value:percentage})
+    else setDiscount({name:'',value:0})
+    setState({...state,value:!state.value})
   }
   return (
     <View style={styles.coupon}>
@@ -75,7 +84,7 @@ const Coupon = ({ viewCheck }) => {
               checkedIcon="checkbox-outline"
               uncheckedIcon={'checkbox-blank-outline'}
               iconType="material-community"
-              checked={checkedOne}
+              checked={checkedOne.value}
               onPress={()=>addDiscount(10, checkedOne, setCheckedOne)}
               checkedColor={colors.primaryGreen}
               size={26}
@@ -104,7 +113,7 @@ const Coupon = ({ viewCheck }) => {
               checkedIcon="checkbox-outline"
               uncheckedIcon={'checkbox-blank-outline'}
               iconType="material-community"
-              checked={checkedTwo}
+              checked={checkedTwo.value}
               onPress={() => addDiscount(50, checkedTwo, setCheckedTwo)}
               checkedColor={colors.primaryGreen}
               size={26}
