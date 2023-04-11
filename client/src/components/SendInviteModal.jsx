@@ -1,14 +1,13 @@
-import { StyleSheet, Text, View, Pressable, Modal, Alert } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { StyleSheet, Text, View, Modal, Alert } from 'react-native'
+import React, { useEffect } from 'react'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
-import { fonts, colors } from '../utils/theme'
+import { fonts } from '../utils/theme'
 import SendInviteIcon from '../../assets/send-invite-icon.svg'
 
 const SendInviteModal = ({ modalVisible, setModalVisible }) => {
-
   // useEffect para que luego de tocar "Enviar Invitacion" el modal se cierre despues de los 2.5 segs
   const delay = 2.5
 
@@ -22,36 +21,30 @@ const SendInviteModal = ({ modalVisible, setModalVisible }) => {
   }, [modalVisible])
 
   return (
-    <View style={styles.container}>
-      <Modal
-        animationType='slide'
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.')
-          setModalVisible(!modalVisible)
-        }}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <SendInviteIcon style={styles.modalIcon} />
-            <Text style={styles.modalText}>
-              Hemos enviado tu{'\n'} invitación
-            </Text>
-          </View>
+    <Modal
+      animationType='slide'
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={() => {
+        Alert.alert('Modal has been closed.')
+        setModalVisible(!modalVisible)
+      }}
+    >
+      <View style={styles.centeredView}>
+        <View style={styles.modalView}>
+          <SendInviteIcon style={styles.modalIcon} />
+          <Text style={styles.modalText}>
+            Hemos enviado tu{'\n'} invitación
+          </Text>
         </View>
-      </Modal>
-    </View>
+      </View>
+    </Modal>
   )
 }
 
 export default SendInviteModal
 
 const styles = StyleSheet.create({
-  container: {
-    position: 'absolute',
-    bottom: 25,
-  },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
@@ -60,7 +53,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     width: wp('80.00%'),
-    height: hp('50.00%'),
+    height: hp('60.00%'),
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 20,
