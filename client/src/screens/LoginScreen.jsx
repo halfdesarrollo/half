@@ -79,14 +79,10 @@ export const LoginScreen = () => {
             }}
           >
             <TouchableOpacity onPress={() => setLogin(false)}>
-              <Text style={[styles.text, login === false && styles.line]}>
-                Inicia Sesion
-              </Text>
+              <Text style={[styles.text, login === false && styles.line]}>Inicia sesión</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setLogin(true)}>
-              <Text style={[styles.text, login === true && styles.line]}>
-                Registrate
-              </Text>
+              <Text style={[styles.text, login === true && styles.line]}>Regístrate</Text>
             </TouchableOpacity>
           </View>
           {login ? <RegsiterForm /> : <LoginComponent />}
@@ -193,7 +189,7 @@ export const styles = StyleSheet.create({
 
   text: {
     fontFamily: fonts.poppins.bold,
-    color: '#4B5563',
+    color: "#4B5563"
   },
   line: {
     borderBottomWidth: 2,

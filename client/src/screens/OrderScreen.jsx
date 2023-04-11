@@ -11,11 +11,11 @@ import TotalCost from '../components/TotalCost'
 const OrderScreen = () => {
   return (
     <View style={styles.container}>
-      <TitlePage text={'Ordernar'} route={'/menucard/1'} />
+      <TitlePage text={'Ordernar'} route={'/menucard/0'} />
       <YourProductList screen={'orderScreen'} />
       <TotalCost titleTwo={'(Este monto aún no será cobrado)'} />
       <View style={styles.btn}>
-        <BigButtonPay text='Ordenar' route='/menucard/1' />
+        <BigButtonPay text='Ordenar' route='/menucard/0' />
       </View>
     </View>
   )

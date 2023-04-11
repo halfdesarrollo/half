@@ -22,15 +22,14 @@ const SendInviteModal = ({ modalVisible, setModalVisible }) => {
 
   return (
     <Modal
-      animationType='slide'
-      transparent={true}
       visible={modalVisible}
+      transparent={true}
+      animationType='slide'
       onRequestClose={() => {
-        Alert.alert('Modal has been closed.')
         setModalVisible(!modalVisible)
       }}
     >
-      <View style={styles.centeredView}>
+      <View style={styles.container}>
         <View style={styles.modalView}>
           <SendInviteIcon style={styles.modalIcon} />
           <Text style={styles.modalText}>
@@ -45,20 +44,19 @@ const SendInviteModal = ({ modalVisible, setModalVisible }) => {
 export default SendInviteModal
 
 const styles = StyleSheet.create({
-  centeredView: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22,
   },
   modalView: {
     width: wp('80.00%'),
-    height: hp('60.00%'),
-    margin: 20,
+    height: hp('50.00%'),
     backgroundColor: 'white',
+    padding: 20,
     borderRadius: 20,
-    padding: 35,
     alignItems: 'center',
+    justifyContent: 'center',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

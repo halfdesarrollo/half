@@ -61,6 +61,9 @@ export const orderSlice = createSlice({
         (action.payload.value[2] && '1.00') || '0.' + action.payload.value
       state.offersUserSelected = { ...action.payload, value: discount }
     },
+    addTip: (state, action) => {
+      state.tip = action.payload
+    },
   },
 })
 
@@ -72,6 +75,7 @@ export const {
   addToTotalPrice,
   removeToTotalPrice,
   addCoupon,
+  addTip,
 } = orderSlice.actions
 
 export default orderSlice.reducer

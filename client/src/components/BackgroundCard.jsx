@@ -5,9 +5,9 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
-import BackgroundImage from '../../assets/backgroundCard.svg'
 import ViewOrderButton from './ViewOrderButton'
 import HeartLogo from '../../assets/CorazonLogo.svg'
+import img from '../../assets/image154.png'
 import InviteBtn from './InviteBtn'
 
 const BackgroundCard = ({ logo }) => {
@@ -15,42 +15,16 @@ const BackgroundCard = ({ logo }) => {
     <SafeAreaView>
       <TitlePage text='Inicio' route={'/mainmenu'} />
       <View style={styles.backgroundCard_container}>
-        <BackgroundImage
-          style={{
-            resizeMode: 'contain',
-            flex: 1,
-            filter: 'brightness(90%) saturate(0%)',
-            opacity: 0.76,
-            backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          }}
-        />
+        <Image style={styles.backgroundImage} source={img} />
         <Image
           source={{ uri: logo }}
           resizeMode='cover'
-          alt='algo paso'
+          alt='Image error'
           style={styles.backgroundCard_logo}
         />
         <View style={styles.background_text}>
-          <Text
-            style={{
-              color: '#fff',
-              textShadowColor: '#000',
-              textShadowOffset: { width: 1, height: 1 },
-              textShadowRadius: 1,
-            }}
-          >
-            N° de Mesa: 05
-          </Text>
-          <Text
-            style={{
-              color: '#fff',
-              textShadowColor: '#000',
-              textShadowOffset: { width: 1, height: 1 },
-              textShadowRadius: 1,
-            }}
-          >
-            N° de Comensales:{' 1 '}
-          </Text>
+          <Text style={styles.text}>N° de Mesa: 05</Text>
+          <Text style={styles.text}>N° de Comensales:{' 1 '}</Text>
           <HeartLogo style={{ marginVertical: 10 }} />
         </View>
         <View style={styles.backgroundCard_button}>
@@ -64,21 +38,25 @@ const BackgroundCard = ({ logo }) => {
 
 const styles = StyleSheet.create({
   backgroundCard_container: {
-    width: wp('100'),
-    maxWidth: wp('100'),
-    height: hp('25'),
+    width: wp(100),
+    maxWidth: wp(100),
+    height: hp(25),
     backgroundColor: '#fff',
-    marginHorizontal: -105,
+    alignItems: 'center',
+    // paddingRight: 300,
   },
-  backgroundCard_top: {
-    backgroundColor: 'blue',
+  backgroundImage: {
+    width: wp(100),
+    height: hp(25),
+    resizeMode: 'cover',
+    opacity: 0.56,
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
-
   backgroundCard_logo: {
     height: '40%',
     width: '35%',
     position: 'absolute',
-    left: '30%',
+    left: '7%',
     top: '10%',
   },
 
@@ -86,16 +64,22 @@ const styles = StyleSheet.create({
     color: 'white',
     position: 'absolute',
     width: '50%',
-    left: '30%',
+    left: '7%',
     top: '60%',
   },
   backgroundCard_button: {
     position: 'absolute',
     width: '50%',
     height: '80%',
-    left: '83%',
+    left: '56%',
     top: '0%',
     flexDirection: 'column',
+  },
+  text: {
+    color: '#fff',
+    textShadowColor: '#000',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 2,
   },
 })
 
