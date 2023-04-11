@@ -57,8 +57,8 @@ export const orderSlice = createSlice({
       state.totalPrice = +(state.totalPrice - action.payload).toFixed(2)
     },
     addCoupon: (state, action) => {
-      const discount = action.payload[2] && '1.00' || '0.' + action.payload;
-      state.offersUserSelected = discount
+      const discount = action.payload.value[2] && '1.00' || '0.' + action.payload.value;
+      state.offersUserSelected = { ...action.payload, value: discount }
     },
     addTip: (state, action) => {
       state.tip = action.payload
