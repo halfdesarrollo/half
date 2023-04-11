@@ -6,21 +6,23 @@ import {
   TouchableHighlight,
   TextInput,
   StyleSheet,
-} from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useDispatch } from 'react-redux';
+  Dimensions,
+  Image,
+} from 'react-native'
+import { useForm, Controller } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-native';
+import FacebookLogo from '../../assets/facebooklogosvg.svg'
+import gmail from '../../assets/gmail-logo.png'
+import { login } from '../redux/slices/user/userActions'
+import { loginSchema } from '../utils/validationSearchScheme'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
-
-import FacebookLogo from '../../assets/facebooklogosvg.svg';
-import GmailLogo from '../../assets/gmaillogosvg.svg';
-import { login } from '../redux/slices/user/userActions';
-import { loginSchema } from '../utils/validationSearchScheme';
-
+} from "react-native-responsive-screen";
+import GreenBottomEllipse from '../../assets/green-bottom-ellipse.svg'
+import GreenBottomThinEllipse from '../../assets/green-bottom-thin-ellipse.svg'
 const LoginComponent = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -89,12 +91,15 @@ const LoginComponent = () => {
           >
             <Text style={{ color: 'white', fontSize: 20 }}>Iniciar</Text>
           </TouchableHighlight>
+
+          <GreenBottomThinEllipse style={styles.greenBottomThinEllipse} />
+          <GreenBottomEllipse style={styles.greenBottomEllipse} />
           <Text>Aún no tienes cuenta? Registrate acá</Text>
           <Text>o Ingresa con: </Text>
         </View>
 
         <View style={styles.socialMedia_container}>
-          <GmailLogo style={styles.socialMedia_logo} />
+          <Image style={styles.socialMedia_logo} source={gmail} />
           <FacebookLogo style={styles.socialMedia_logo} />
         </View>
       </View>

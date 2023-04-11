@@ -1,12 +1,8 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native'
-import React, { useState } from 'react'
 import TipIcon from '../../assets/tipIcon.svg'
 import { fonts, colors } from '../utils/theme'
 
-const Tip = () => {
-  // guarda el valor ingresado en el input
-  const [tipInput, setTipInput] = useState()
-
+const Tip = ({ tipInput, setTipInput }) => {
   // capturamos el texto ingresado en el input
   const onChangeTipInput = (value) => {
     setTipInput(Number(value))

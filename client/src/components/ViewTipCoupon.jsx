@@ -1,17 +1,15 @@
 import { View, StyleSheet } from 'react-native'
-import React from 'react'
 import Tip from './Tip'
 import AddCouponBtn from './AddCouponBtn'
 import { colors } from '../utils/theme'
-
-const ViewTipCoupon = () => {
+const ViewTipCoupon = ({ tipInput, setTipInput }) => {
   return (
     <View style={[styles.viewPropinaCupon, styles.shadowProps]}>
       <View style={styles.viewPropinaContentPropina}>
-        <Tip/>
+        <Tip tipInput={tipInput} setTipInput={setTipInput} />
       </View>
       <View style={styles.viewPropinaContentCupon}>
-        <AddCouponBtn/>
+        <AddCouponBtn />
       </View>
     </View>
   )

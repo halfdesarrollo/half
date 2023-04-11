@@ -9,7 +9,7 @@ const initialState = {
   paymentMethod: false,
   cash: 0,
   tip: 0,
-  totalPrice:0,
+  totalPrice: 0,
 }
 
 export const orderSlice = createSlice({
@@ -21,9 +21,9 @@ export const orderSlice = createSlice({
       const orderIndex = state.preOrder.findIndex(
         (item) => item?.id === action.payload.id
       )
-      if(orderIndex === -1){
+      if (orderIndex === -1) {
         state.preOrder.push({ ...action.payload, quantity: 1 })
-      }else{
+      } else {
         state.preOrder[orderIndex].quantity++
       }
     },
@@ -57,20 +57,24 @@ export const orderSlice = createSlice({
       state.totalPrice = +(state.totalPrice - action.payload).toFixed(2)
     },
     addCoupon: (state, action) => {
-      const discount = action.payload.value[2] && '1.00' || '0.'+action.payload.value;
-      state.offersUserSelected = {...action.payload, value:discount}
+      const discount = action.payload.value[2] && '1.00' || '0.' + action.payload.value;
+      state.offersUserSelected = { ...action.payload, value: discount }
+    },
+    addTip: (state, action) => {
+      state.tip = action.payload
     }
-  },
+  }
 })
 
 export const {
-  addOrder, 
-  removeOrder, 
-  decreaseOrderQuantity, 
-  addAllOrder, 
-  addToTotalPrice, 
+  addOrder,
+  removeOrder,
+  decreaseOrderQuantity,
+  addAllOrder,
+  addToTotalPrice,
   removeToTotalPrice,
-  addCoupon } =
-  orderSlice.actions
+  addCoupon,
+  addTip
+} = orderSlice.actions
 
 export default orderSlice.reducer

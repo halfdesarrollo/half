@@ -26,7 +26,7 @@ const InviteFriendsScreen = () => {
 
   return (
     <View style={styles.container}>
-      <TitlePage text={'Invita amigos a tu mesa'} white={true} route={'/menucard/4'} />
+      <TitlePage text={'Invita amigos a tu mesa'} white={true} route={'/menucard/0'} />
       <SearchFriends />
       <SocialMedias />
       <Contacts guests={guests} setGuests={setGuests} modalVisible={modalVisible} setModalVisible={setModalVisible} />
