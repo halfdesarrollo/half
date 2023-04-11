@@ -28,11 +28,6 @@ export default function RegisterForm() {
   } = useForm({ mode: 'onChange', resolver: yupResolver(registerSchema) });
   const onSubmit = (data) => {
     const { name, email, password } = data;
-    console.log({
-      name,
-      email,
-      password,
-    });
     try {
       dispatch(register(name, email, password));
       navigate('/mainmenu');

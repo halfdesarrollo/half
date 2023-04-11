@@ -7,7 +7,6 @@ import {
 import { useSelector } from 'react-redux';
 const WelcomeUser = () => {
   const { user } = useSelector((state) => state.userState);
-  console.log(user);
   return (
     <View style={styles.border}>
       <View style={styles.container}>

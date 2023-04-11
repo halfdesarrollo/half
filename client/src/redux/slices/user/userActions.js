@@ -1,6 +1,6 @@
 import jwt_decode from 'jwt-decode';
 import axios from 'axios';
-import { registerUser, loginUser } from './userSlice';
+import { loginUser, registerUser } from './userSlice';
 
 const URL_LOGIN =
   'https://production-nestjs-back-production.up.railway.app/auth/login';
