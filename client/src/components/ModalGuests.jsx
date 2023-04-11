@@ -4,10 +4,9 @@ import {
     heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
 import Close from '../../assets/close.svg'
-import { colors, fonts } from '../utils/theme';
+import { fonts } from '../utils/theme';
 import { useSelector } from 'react-redux'
 import GuestCard from './GuestCard';
-import { useEffect } from 'react';
 const ModalGuests = ({ displayGuests, setDisplayGuests }) => {
     const guests = useSelector(state => state.tableState.guests)
     return (
