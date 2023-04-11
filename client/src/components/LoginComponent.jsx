@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   View,
   Text,
@@ -12,53 +12,60 @@ import {
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useDispatch } from 'react-redux'
-
+import { useNavigate } from 'react-router-native';
 import FacebookLogo from '../../assets/facebooklogosvg.svg'
 import gmail from '../../assets/gmail-logo.png'
 import { login } from '../redux/slices/user/userActions'
 import { loginSchema } from '../utils/validationSearchScheme'
-import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from "react-native-responsive-screen";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import GreenBottomEllipse from '../../assets/green-bottom-ellipse.svg'
 import GreenBottomThinEllipse from '../../assets/green-bottom-thin-ellipse.svg'
 const LoginComponent = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(loginSchema) })
+  } = useForm({ mode: 'onChange', resolver: yupResolver(loginSchema) });
   const onPressButton = (data) => {
-    dispatch(login(data.email, data.password))
-  }
+    console.log('login');
+    try {
+      dispatch(login(data.email, data.password));
+      navigate('/mainmenu');
+    } catch (error) {
+      alert(error);
+    }
+  };
   return (
     <SafeAreaView>
       <View style={styles.inputs_container}>
         <Controller
           control={control}
-          name='email'
-          defaultValue=''
+          name="email"
+          defaultValue=""
           render={({ field: { value, onBlur, onChange } }) => (
             <TextInput
-              placeholder='Correo Electronico'
+              placeholder="Correo Electronico"
               onChangeText={onChange}
               onBlur={onBlur}
-              velue={value}
+              value={value}
               style={styles.inputs}
             />
           )}
         />
         {errors.email && (
-          <Text style={{ fontSize: 15, textAlign: 'center' }}>
-            {errors.email.message}
-          </Text>
+          <Text style={styles.text_error}>{errors.email.message}</Text>
         )}
         <Controller
           control={control}
-          name='password'
-          defaultValue=''
+          name="password"
           render={({ field: { value, onBlur, onChange } }) => (
             <TextInput
-              placeholder='Contraseña'
+              placeholder="Contraseña"
               value={value}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -67,7 +74,9 @@ const LoginComponent = () => {
             />
           )}
         />
-
+        {errors.password && (
+          <Text style={styles.text_error}>{errors.password.message}</Text>
+        )}
         <View
           style={{
             flex: 1,
@@ -76,7 +85,7 @@ const LoginComponent = () => {
           }}
         >
           <TouchableHighlight
-            underlayColor='#FFAD3F'
+            underlayColor="#FFAD3F"
             onPress={handleSubmit(onPressButton)}
             style={styles.button}
           >
@@ -95,10 +104,10 @@ const LoginComponent = () => {
         </View>
       </View>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default LoginComponent
+export default LoginComponent;
 
 const styles = StyleSheet.create({
   login_container: {
@@ -140,7 +149,7 @@ const styles = StyleSheet.create({
   },
 
   inputs_container: {
-    height: Dimensions.get('window').height / 2.5,
+    height: hp('40.00%'),
     backgroundColor: 'white',
     width: 350,
     borderTopColor: '#A4A4A4',
@@ -174,7 +183,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     position: 'absolute',
     width: '70%',
-    bottom: -60,
+    bottom: -70,
   },
 
   socialMedia_logo: {
@@ -198,4 +207,10 @@ const styles = StyleSheet.create({
     bottom: hp('-70.00%'),
     zIndex: 0,
   },
-})
+
+  text_error: {
+    color: 'red',
+    fontSize: 10,
+    marginHorizontal: 10,
+  },
+});

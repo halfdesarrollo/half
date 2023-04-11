@@ -1,29 +1,40 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
   Text,
   View,
   TextInput,
-  Button,
   StyleSheet,
   TouchableOpacity,
-  Dimensions,
-} from 'react-native'
-import { useForm, Controller } from 'react-hook-form'
-import { useDispatch } from 'react-redux'
-import { CheckBox } from 'react-native-elements'
-import { colors, fonts } from '../utils/theme'
+  TouchableHighlight,
+} from 'react-native';
+import { useForm, Controller } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { CheckBox } from 'react-native-elements';
+import { register } from '../redux/slices/user/userActions';
+import { useNavigate } from 'react-router-native';
+
+import { colors, fonts } from '../utils/theme';
+import { registerSchema } from '../utils/validationSearchScheme';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 export default function RegisterForm() {
-  const dispatch = useDispatch()
-  const [isSelected, setSelection] = useState(false)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [isSelected, setSelection] = useState(false);
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm({ mode: 'onChange', resolver: yupResolver(registerSchema) });
   const onSubmit = (data) => {
-    console.log(data)
-  }
+    try {
+      dispatch(register(data));
+      navigate('/mainmenu');
+    } catch (error) {
+      alert(error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View>
@@ -35,14 +46,14 @@ export default function RegisterForm() {
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              placeholder='ingresa tu nombre'
+              placeholder="ingresa tu nombre"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
               style={styles.inputs}
             />
           )}
-          name='name'
+          name="name"
         />
         {errors.name && <Text style={styles.text4}>Ingresar nombre</Text>}
       </View>
@@ -50,22 +61,24 @@ export default function RegisterForm() {
         <Text>Correo</Text>
         <Controller
           control={control}
+          name="email"
           rules={{
             maxLength: 30,
             required: true,
           }}
           render={({ field: { onChange, onBlur, value } }) => (
             <TextInput
-              placeholder='prueba@prueba.com'
+              placeholder="prueba@prueba.com"
               onBlur={onBlur}
               onChangeText={onChange}
               value={value}
               style={styles.inputs}
             />
           )}
-          name='email'
         />
-        {errors.email && <Text style={styles.text4}>Ingresar correo</Text>}
+        {errors.email && (
+          <Text style={styles.text4}>{errors.email.message}</Text>
+        )}
       </View>
       <View>
         <Text>Contraseña</Text>
@@ -84,7 +97,7 @@ export default function RegisterForm() {
               style={styles.inputs}
             />
           )}
-          name='password'
+          name="password"
         />
         {errors.password && (
           <Text style={styles.text4}>Contraseña no menor a 8 caracteres</Text>
@@ -104,16 +117,19 @@ export default function RegisterForm() {
           Términos y condiciones y la Política de privacidad.
         </Text>
       </View>
-      <TouchableOpacity onPress={handleSubmit(onSubmit)} style={styles.but}>
+      <TouchableHighlight
+        underlayColor="#FFAD3F"
+        onPress={handleSubmit(onSubmit)}
+        style={styles.but}
+      >
         <Text style={styles.text3}>Crear cuenta</Text>
-      </TouchableOpacity>
+      </TouchableHighlight>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    //  height: Dimensions.get('window').height / 2.5,
     backgroundColor: 'white',
     width: 340,
     borderColor: '#A4A4A4',
@@ -167,5 +183,6 @@ const styles = StyleSheet.create({
   },
   text4: {
     color: 'red',
+    fontSize: 10,
   },
-})
+});
