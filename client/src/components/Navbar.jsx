@@ -47,10 +47,11 @@ const Navbar = () => {
         underlayColor="none"
         activeOpacity={1}
         onPress={() => {
-          setActiveButton('qr');
+          let timer = setActiveButton('qr');
           setTimeout(() => {
             navigation('/qrscreen');
           }, 300);
+          clearTimeout(timer);
         }}
       >
         <View
@@ -72,10 +73,11 @@ const Navbar = () => {
         underlayColor="none"
         activeOpacity={1}
         onPress={() => {
-          setActiveButton('perfil');
+          let timer = setActiveButton('perfil');
           setTimeout(() => {
             navigation('/menucard/0');
           }, 300);
+          clearTimeout(timer);
         }}
       >
         <View
