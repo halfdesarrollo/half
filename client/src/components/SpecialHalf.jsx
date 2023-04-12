@@ -89,8 +89,9 @@ const SpecialHalf = () => {
 
 const styles = StyleSheet.create({
   carouselContainer: {
-    width: wp("90%"),
+    width: wp(95),
     overflow: "hidden",
+    borderRadius: 8
   },
   slideContainer: {
     marginRight: 25,

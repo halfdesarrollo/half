@@ -104,8 +104,8 @@ export default Navbar;
 const styles = StyleSheet.create({
   navbar_container: {
     backgroundColor: 'white',
-    borderTopStartRadius: 80,
-    borderTopEndRadius: 80,
+    borderTopStartRadius: 50,
+    borderTopEndRadius: 50,
     height: 90,
     width: wp(100),
     flexDirection: 'row',
