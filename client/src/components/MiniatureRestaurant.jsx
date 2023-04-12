@@ -4,7 +4,6 @@ import ImageRestaurant from "../../assets/ImageRestaurant.svg";
 import Discount from "../../assets/Discount.svg";
 import HeartLike from "../../assets/HeartLike.svg";
 import Stars from "../../assets/stars.svg";
-import { fonts } from "../utils/theme";
 
 const MiniatureRestaurant = () => {
   return (
@@ -39,12 +38,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
   },
+
   text: {
     top: 50,
   },
+
   heart: {
     position: "absolute",
   },
+
   imagerestaurant: {
     position: "absolute",
   },
