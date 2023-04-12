@@ -22,6 +22,7 @@ const MiniatureRestaurant = () => {
 };
 
 const styles = StyleSheet.create({
+  
   container: {
     width: 318,
     height: 160,
