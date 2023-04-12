@@ -31,7 +31,7 @@ export const AddPayMethodScreen = () => {
     <View style={styles.container}>
       <TitlePage text='Agregar método de pago' route='/pay' />
       <View style={styles.visibleBox}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.scroll}>
           <AddCard />
           <CashPayment />
           <ViewTipCoupon tipInput={tipInput} setTipInput={setTipInput} />
@@ -55,6 +55,10 @@ const styles = StyleSheet.create({
     width: wp(100),
     height: hp(100),
     alignItems: 'center',
+  },
+  scroll:{
+    alignItems:'center',
+    paddingBottom:hp(1)
   },
   // button to active modal
   pressButton: {

@@ -15,7 +15,7 @@ const PayScreen = () => {
     <View style={styles.container}>
       <TitlePage text='Pagar' route='/vieworder' white={false} />
       <View style={styles.visibleBox}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.scrollView} >
           <YourProductList screen={'payScreen'} />
           <OrdersFromOthersMembers />
           <TypesOfPayments />
@@ -37,17 +37,20 @@ const styles = StyleSheet.create({
     height: hp('100.00%'),
     alignItems: 'center',
   },
+  scrollView:{
+    width: wp(100),
+    alignItems:'center',
+    gap:hp(2.5),
+  },
   btn: {
-    marginTop:100,
-    height: hp(22),
+    height: hp(13),
     width: wp(100),
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:'red',
-    color:'red'
+    backgroundColor:'#fff',
   },
   visibleBox: {
-    height: hp(78),
+    height: hp(79),
     alignItems: 'center'
   }
 })
