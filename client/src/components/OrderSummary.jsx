@@ -14,15 +14,14 @@ export const OrderSummary = () => {
   const subTotal = totalPrice
   const coupon =
     offersUserSelected.value > 0 ? subTotal * offersUserSelected.value : 0
-  const propinas = tip
-  const precioTotal = subTotal - coupon + propinas
+  const total = subTotal - coupon + tip
   return (
     <View style={styles.conteiner}>
       <Text style={styles.title}>Resumen del Pedido</Text>
       <View style={styles.pedidos}>
         <View style={styles.line}>
           <Text style={styles.text}>Propinas</Text>
-          <Text style={styles.textMoney}>S/.{propinas?.toFixed(2)}</Text>
+          <Text style={styles.textMoney}>S/.{tip?.toFixed(2)}</Text>
         </View>
         <View style={styles.line}>
           <Text style={styles.text}>Cupon de Descuento</Text>
@@ -34,7 +33,7 @@ export const OrderSummary = () => {
         </View>
         <View style={styles.line}>
           <Text style={styles.text}>Total a Pagar</Text>
-          <Text style={styles.textMoney}>S/.{totalPrice?.toFixed(2)}</Text>
+          <Text style={styles.textMoney}>S/.{total?.toFixed(2)}</Text>
         </View>
       </View>
     </View>
