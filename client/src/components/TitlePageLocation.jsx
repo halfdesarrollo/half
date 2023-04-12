@@ -28,10 +28,9 @@ export default TitlePageLocation;
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.primaryGreen,
-        height: 80,
+        height: hp(8),
         flexDirection: 'row',
         justifyContent: 'space-between',
-        alignItems: 'flex-end',
         paddingHorizontal: 25,
         paddingVertical: 10,
         width: wp('100%')
