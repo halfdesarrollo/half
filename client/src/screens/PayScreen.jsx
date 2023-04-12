@@ -14,16 +14,17 @@ const PayScreen = () => {
   return (
     <View style={styles.container}>
       <TitlePage text='Pagar' route='/vieworder' white={false} />
-      <ScrollView contentContainerStyle={styles.visibleBox} >
-        <YourProductList screen={'payScreen'} />
-        <OrdersFromOthersMembers />
-        <TypesOfPayments />
-        <TotalCost sliceState={'totalPrice'} />
-      </ScrollView>
+      <View style={styles.visibleBox}>
+        <ScrollView>
+          <YourProductList screen={'payScreen'} />
+          <OrdersFromOthersMembers />
+          <TypesOfPayments />
+          <TotalCost sliceState={'totalPrice'} />
+        </ScrollView>
+      </View>
       <View style={styles.btn}>
         <BigButtonPay text='Pagar' route='/addpaymethod' />
       </View>
-
     </View>
   )
 }
@@ -37,8 +38,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btn: {
-    position: "absolute",
-    bottom: hp(5),
+    marginTop:100,
+    height: hp(22),
+    width: wp(100),
+    alignItems:'center',
+    justifyContent:'center',
+    backgroundColor:'red',
+    color:'red'
   },
   visibleBox: {
     height: hp(78),
