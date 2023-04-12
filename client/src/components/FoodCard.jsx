@@ -23,6 +23,11 @@ import { useDispatch, useSelector } from 'react-redux'
 const FoodCard = ({ name, description, image, price, id, quantity }) => {
   const dispatch = useDispatch()
 
+  const { preOrder } = useSelector((state) => state.orderState)
+  const { totalPrice } = useSelector((state) => state.orderState)
+
+  // console.log('tp', totalPrice)
+
   const quantityCalculate = (sign) => {
     if (sign === '-' && quantity !== undefined) {
       dispatch(decreaseOrderQuantity({ id }))
@@ -62,9 +67,7 @@ const FoodCard = ({ name, description, image, price, id, quantity }) => {
             <TouchableOpacity onPress={() => quantityCalculate('-')}>
               <MinusButton style={styles.svgs} />
             </TouchableOpacity>
-            <Text style={styles.priceAndQuantity}>
-              {quantity}
-            </Text>
+            <Text style={styles.priceAndQuantity}>{quantity}</Text>
             <TouchableOpacity onPress={() => quantityCalculate('+')}>
               <MoreButton style={styles.svgs} />
             </TouchableOpacity>

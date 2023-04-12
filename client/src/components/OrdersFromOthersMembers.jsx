@@ -17,11 +17,10 @@ const OrdersFromOthersMembers = () => {
   const finalPriceMinus = (price) => dispatch(removeToTotalPrice(+price))
 
   return (
-    <View style={styles.container}>
-      <View style={styles.containerInfo}>
+      <View style={styles.container}>
         <Text style={styles.text}>Pedidos de los demás miembros</Text>
         {membersOrders?.map((el, index) => (
-          <View key={index}>
+          <View style={styles.containerLine} key={index}>
             <View style={styles.line} />
             <MembersOrdersCard
               userName={el.user.name}
@@ -33,7 +32,6 @@ const OrdersFromOthersMembers = () => {
           </View>
         ))}
       </View>
-    </View>
   )
 }
 
@@ -77,12 +75,6 @@ const MembersOrdersCard = ({
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: hp(3),
-    width: wp(100),
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  containerInfo: {
     width: wp(90),
     justifyContent: 'center',
     alignItems: 'center',
@@ -95,6 +87,10 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
+  },
+  containerLine:{
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     width: wp(85),
@@ -109,7 +105,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
   },
   line: {
-    width: wp(88),
+    width: wp(89),
     borderBottomWidth: 1,
     borderColor: colors.secundary4,
   },

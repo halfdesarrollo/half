@@ -1,21 +1,21 @@
-import { ScrollView, View } from "react-native";
-import { StyleSheet } from "react-native";
+import { ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
-import Navbar from "../components/Navbar";
+} from 'react-native-responsive-screen';
+import Navbar from '../components/Navbar';
 // components
 
-import SpecialHalf from "../components/SpecialHalf";
-import Search from "../components/Search";
-import TitlePageLocation from "../components/TitlePageLocation";
+import SpecialHalf from '../components/SpecialHalf';
+import Search from '../components/Search';
+import TitlePageLocation from '../components/TitlePageLocation';
 import WelcomeUser from '../components/WelcomeUser';
 import StartBooking from '../components/StartBooking';
 import Categories from '../components/Categories';
 import NearMe from '../components/NearMe';
-import MiniatureRestaurant from "../components/MiniatureRestaurant"
+import MiniatureRestaurant from '../components/MiniatureRestaurant';
 
 export const MainMenuScreen = () => {
   return (
@@ -28,7 +28,7 @@ export const MainMenuScreen = () => {
         <SpecialHalf />
         <Categories />
         <NearMe />
-        <MiniatureRestaurant/>
+        <MiniatureRestaurant />
       </ScrollView>
       <Navbar />
     </View>
@@ -37,15 +37,15 @@ export const MainMenuScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: wp("100.00%"),
-    height: hp("100.00%"),
-    alignItems: "center",
-    backgroundColor: "white",
+    width: wp('100.00%'),
+    height: hp('100.00%'),
+    alignItems: 'center',
+    backgroundColor: 'white',
     gap: 15,
-
   },
   scroll: {
     gap: 15,
-    alignItems: 'center'
+    alignItems: 'center',
+    height: hp('120.00%'),
   },
 });

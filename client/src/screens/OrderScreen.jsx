@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native'
+import { ScrollView, StyleSheet, View } from 'react-native'
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
@@ -11,11 +11,15 @@ import TotalCost from '../components/TotalCost'
 const OrderScreen = () => {
   return (
     <View style={styles.container}>
-      <TitlePage text={'Ordernar'} route={'/menucard/0'} />
-      <YourProductList screen={'orderScreen'} />
-      <TotalCost titleTwo={'(Este monto aún no será cobrado)'} />
+      <View style={styles.visibleBox}>
+        <ScrollView contentContainerStyle={styles.scrollView}>
+          <TitlePage text={'Ordernar'} route={'/menucard/0'} />
+          <YourProductList screen={'orderScreen'} />
+          <TotalCost order />
+        </ScrollView>
+      </View>
       <View style={styles.btn}>
-        <BigButtonPay text='Ordenar' route='/menucard/0' />
+        <BigButtonPay text='Ordenar' route='/menucard/0' order />
       </View>
     </View>
   )
@@ -24,13 +28,21 @@ const OrderScreen = () => {
 export default OrderScreen
 
 const styles = StyleSheet.create({
+  scrollView: {
+    width: wp(100),
+    alignItems: 'center',
+    gap: hp(1),
+  },
   container: {
     width: wp(100),
     height: hp(100),
     alignItems: 'center',
   },
   btn: {
-    position: "absolute",
+    position: 'absolute',
     bottom: hp(5),
+  },
+  visibleBox: {
+    maxHeight: hp(86),
   },
 })

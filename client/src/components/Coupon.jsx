@@ -55,10 +55,15 @@ const Coupon = ({ viewCheck }) => {
     }
   }
 
+  const resetStates = () => {
+    setCheckedOne({...checkedOne, value:false})
+    setCheckedTwo({...checkedTwo, value:false})
+  }
+
   const addDiscount = (percentage, state, setState) => {
-    if(!state.value && discount.value === 0) setDiscount({name:state.name,value:percentage})
-    else setDiscount({name:'',value:0})
-    setState({...state,value:!state.value})
+      resetStates()
+      setState({...state,value:!state.value})
+      setDiscount({name:state.name,value:percentage})
   }
   return (
     <View style={styles.coupon}>

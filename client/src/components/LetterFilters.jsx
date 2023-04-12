@@ -37,6 +37,7 @@ const LetterFilters = () => {
   const filter = (el) => {
     setSelect(el)
   }
+
   const quantityGet = (id) => {
     let order = preOrder?.find((orderItem) => orderItem.id == id)
     return order?.quantity?.toString().padStart(2, '0') || '00'
@@ -44,21 +45,23 @@ const LetterFilters = () => {
   return (
     <View style={style.container}>
       <View style={style.containerView}>
-        {filterMenu?.map((el, index) => (
-          <TouchableOpacity
-            style={select === el ? style.buttonSelected : style.button}
-            key={index}
-            onPress={() => filter(el)}
-          >
-            <Text
-              style={
-                select === el ? style.textbuttonSelected : style.textButton
-              }
+        <ScrollView horizontal={true} contentContainerStyle={style.scroll}>
+          {filterMenu?.map((el, index) => (
+            <TouchableOpacity
+              style={select === el ? style.buttonSelected : style.button}
+              key={index}
+              onPress={() => filter(el)}
             >
-              {el}
-            </Text>
-          </TouchableOpacity>
-        ))}
+              <Text
+                style={
+                  select === el ? style.textbuttonSelected : style.textButton
+                }
+              >
+                {el}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
       </View>
       <View style={style.cardBox}>
         <ScrollView>
@@ -88,8 +91,8 @@ const LetterFilters = () => {
                 />
               </View>
             ))}
-          {select === 'Plato De Fondo' &&
-            restaurants[0]?.menu?.PlatoDeFondo?.map((plato, index) => (
+          {select === 'Platos De Fondo' &&
+            restaurants[0]?.menu?.PlatosDeFondo?.map((plato, index) => (
               <View key={index}>
                 <FoodCard
                   id={plato.id}
@@ -112,51 +115,59 @@ const style = StyleSheet.create({
     maxWidth: wp('100'),
     height: hp('60'),
     maxHeight: hp('100'),
-    paddingHorizontal: 5,
-    paddingVertical: -10,
+    alignItems:'center',
     backgroundColor: 'white',
   },
   containerView: {
+    width:wp(100),
     flexDirection: 'row',
     justifyContent: 'center',
-    marginVertical: 2,
     gap: 13,
-    paddingVertical: 3,
+    paddingVertical: 2,
+  },
+  scroll:{
+    paddingBottom:hp(0.5),
+    paddingHorizontal:wp(2),
+    minWidth:wp(100),
+    marginVertical:hp(0.5),
+    flexDirection:'row',
+    gap:10
   },
   textButton: {
     textAlign: 'center',
-    fontFamily: fonts.roboto.bold,
+    fontFamily: fonts.roboto.medium,
     color: colors.primaryGreen,
     lineHeight: 16.41,
     fontSize: 15,
   },
   cardBox: {
     height: hp(40),
-    marginTop: 5
+    marginTop: 6
   },
   button: {
     justifyContent: 'center',
     borderRadius: 8,
     backgroundColor: colors.secundary6,
-    width: wp(30),
-    height: hp(4),
+    minWidth: wp(30),
+    minHeight: hp(4),
+    paddingHorizontal:wp(4),
   },
   buttonSelected: {
-    width: wp(32),
-    height: hp(4),
+    minWidth: wp(30),
+    minHeight: hp(4),
     backgroundColor: colors.primaryGreen,
-    padding: 5,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 1,
     shadowRadius: 6,
-    elevation: 5,
+    elevation: 4,
     borderRadius: 8,
-    color: 'red',
+    paddingHorizontal:wp(4),
+    justifyContent:'center'
   },
   textbuttonSelected: {
     textAlign: 'center',
-    fontFamily: fonts.roboto.bold,
+    fontFamily: fonts.roboto.medium,
     fontSize: 15,
     lineHeight: 16.41,
     color: colors.secundary6,
