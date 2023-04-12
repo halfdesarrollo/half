@@ -1,31 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
   Text,
   View,
   SafeAreaView,
   StyleSheet,
   TouchableHighlight,
-} from 'react-native'
-import PerfilLogo from '../../assets/whitePerson.svg'
-import HomeLogo from '../../assets/Home-logo.svg'
-import QrLogo from '../../assets/QR.svg'
-import { useNavigate } from 'react-router-native'
+} from 'react-native';
+import PerfilLogo from '../../assets/whitePerson.svg';
+import HomeLogo from '../../assets/Home-logo.svg';
+import QrLogo from '../../assets/QR.svg';
+import { useNavigate } from 'react-router-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from "react-native-responsive-screen";
+} from 'react-native-responsive-screen';
 const Navbar = () => {
-  const [activeButton, setActiveButton] = useState('home')
-  const navigation = useNavigate()
+  const [activeButton, setActiveButton] = useState('home');
+  const navigation = useNavigate();
 
   return (
     <SafeAreaView style={styles.navbar_container}>
       <TouchableHighlight
-        underlayColor='none'
+        underlayColor="none"
         activeOpacity={1}
         onPress={() => {
-          navigation('/mainmenu')
-          setActiveButton('home')
+          navigation('/mainmenu');
+          setActiveButton('home');
         }}
       >
         <View
@@ -44,13 +44,14 @@ const Navbar = () => {
         </View>
       </TouchableHighlight>
       <TouchableHighlight
-        underlayColor='none'
+        underlayColor="none"
         activeOpacity={1}
         onPress={() => {
-          setActiveButton('qr')
+          let timer = setActiveButton('qr');
           setTimeout(() => {
-            navigation('/qrscreen')
-          }, 300)
+            navigation('/qrscreen');
+          }, 300);
+          clearTimeout(timer);
         }}
       >
         <View
@@ -69,11 +70,14 @@ const Navbar = () => {
         </View>
       </TouchableHighlight>
       <TouchableHighlight
-        underlayColor='none'
+        underlayColor="none"
         activeOpacity={1}
         onPress={() => {
-          navigation('/menucard/0')
-          setActiveButton('perfil')
+          let timer = setActiveButton('perfil');
+          setTimeout(() => {
+            navigation('/menucard/0');
+          }, 300);
+          clearTimeout(timer);
         }}
       >
         <View
@@ -92,10 +96,10 @@ const Navbar = () => {
         </View>
       </TouchableHighlight>
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
 
 const styles = StyleSheet.create({
   navbar_container: {
@@ -133,4 +137,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 50,
   },
-})
+});

@@ -17,6 +17,7 @@ export const login = (email, password) => async (dispatch) => {
     dispatch(
       loginUser({ user: { userLogged }, token: response.data.access_token }),
     );
+    return { success: true };
   } catch (error) {
     if (error.response) {
       console.log('Error de respuesta:', error.response.data);
@@ -27,6 +28,7 @@ export const login = (email, password) => async (dispatch) => {
       console.log('Error:', error.message);
     }
     console.log('Configuración del error:', error.config);
+    return { success: false, error: error };
   }
 };
 
@@ -45,6 +47,7 @@ export const register = (name, email, password) => async (dispatch) => {
         token: response.data.access_token,
       }),
     );
+    return { success: true };
   } catch (error) {
     if (error.response) {
       console.log('Error de respuesta:', error.response.data);
@@ -55,5 +58,6 @@ export const register = (name, email, password) => async (dispatch) => {
       console.log('Error:', error.message);
     }
     console.log('Configuración del error:', error.config);
+    return { success: false, error: error };
   }
 };
