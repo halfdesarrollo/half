@@ -30,9 +30,10 @@ const LoginComponent = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: 'onChange', resolver: yupResolver(loginSchema) });
-  const onPressButton = (data) => {
+  const onPressButton = async (data) => {
+    const { email, password } = data;
     try {
-      const result = dispatch(login(data.email, data.password));
+      const result = await dispatch(login(email, password));
       result.success ? navigate('/mainmenu') : alert('Datos incorrectos');
     } catch (error) {
       alert(error);
