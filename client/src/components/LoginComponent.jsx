@@ -32,8 +32,8 @@ const LoginComponent = () => {
   } = useForm({ mode: 'onChange', resolver: yupResolver(loginSchema) });
   const onPressButton = (data) => {
     try {
-      dispatch(login(data.email, data.password));
-      navigate('/mainmenu');
+      const result = dispatch(login(data.email, data.password));
+      result.success ? navigate('/mainmenu') : alert('Datos incorrectos');
     } catch (error) {
       alert(error);
     }
