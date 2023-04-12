@@ -7,9 +7,12 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { addPreOrderPrice } from '../redux/slices/order/orderSlice'
 
 const BigButtonOrder = ({ route }) => {
+  const dispatch = useDispatch()
+
   const { preOrder } = useSelector((state) => state.orderState)
 
   const totalPrice = preOrder.reduce((acc, cur) => {
@@ -18,6 +21,7 @@ const BigButtonOrder = ({ route }) => {
 
   const navigate = useNavigate()
   const handlePress = () => {
+    dispatch(addPreOrderPrice(totalPrice))
     navigate(route)
   }
 
