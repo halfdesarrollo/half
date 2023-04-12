@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Dimensions,
   Image,
+  Pressable,
 } from 'react-native';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -21,6 +22,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { colors, fonts } from '../utils/theme';
 
 const LoginComponent = () => {
   const dispatch = useDispatch();
@@ -88,10 +90,15 @@ const LoginComponent = () => {
             onPress={handleSubmit(onPressButton)}
             style={styles.button}
           >
-            <Text style={{ color: 'white', fontSize: 20 }}>Iniciar</Text>
+            <Text style={{ color: 'white', fontSize: 20, fontFamily: fonts.poppins.bold }}>Iniciar</Text>
           </TouchableHighlight>
 
-          <Text>Aún no tienes cuenta? Registrate acá</Text>
+          <View style={styles.row}>
+            <Text style={{ color: colors.secundary2 }} >Aún no tienes cuenta?</Text>
+            <TouchableHighlight>
+              <Text style={{ color: '#1977f3' }}>Registrate acá</Text>
+            </TouchableHighlight>
+          </View>
           <Text>o Ingresa con: </Text>
         </View>
 
@@ -156,7 +163,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#87BE56',
     width: '100%',
     borderRadius: 10,
-    padding: 10,
+    padding: 8,
     alignItems: 'center',
   },
 
@@ -164,13 +171,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#A4A4A4',
     marginHorizontal: 1,
-    marginVertical: 20,
+    marginVertical: 15,
     paddingVertical: 10,
     backgroundColor: 'white',
     paddingHorizontal: 20,
     borderRadius: 10,
   },
-
+  row: {
+    flexDirection: 'row',
+    gap: 8
+  },
   socialMedia_container: {
     display: 'flex',
     alignItems: 'center',

@@ -25,7 +25,9 @@ export const MainMenuScreen = () => {
         <WelcomeUser />
         <Search />
         <StartBooking />
-        <SpecialHalf />
+        <View style={styles.end}>
+          <SpecialHalf />
+        </View>
         <Categories />
         <NearMe />
         <MiniatureRestaurant />
@@ -47,5 +49,9 @@ const styles = StyleSheet.create({
     gap: 15,
     alignItems: 'center',
     height: hp('120.00%'),
+  },
+  end: {
+    alignItems: 'flex-end',
+    width: wp('100.00%'),
   },
 });
