@@ -15,12 +15,15 @@ const YourProductList = ({ screen }) => {
       <View style={styles.top}>
         <Text style={styles.text}>Tu Lista de Pedidos</Text>
         {screen === 'orderScreen' && (
-          <Text style={styles.secondTitle}>Cantidad</Text>
+          <Text style={[styles.secondTitle, styles.text]}>Cantidad</Text>
         )}
         {screen === 'viewOrderScreen' && (
           <Text style={[styles.text, styles.secondTitle]}>Estado</Text>
         )}
         {screen === 'payScreen' && <Text></Text>}
+      </View>
+      <View style={styles.containerLine}>
+        <View style={styles.line}/>
       </View>
       <View style={styles.platesContainer}>
         {preOrder?.map((dish, i) => {
@@ -39,7 +42,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#FFFFFF',
     width: wp('90%'),
-    height: hp(40),
+    minHeight: hp(40),
     marginTop: hp(3),
     textAlign: 'center',
     elevation: 4,
@@ -52,9 +55,17 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
 
-  top: {
+  line:{
+    width:wp(89),
     borderColor: colors.secundary4,
     borderBottomWidth: 1,
+  },
+
+  containerLine:{
+    alignItems:'center',
+  },
+
+  top: {
     flexDirection: 'row',
     paddingVertical: 10,
     justifyContent: 'space-between',
@@ -67,6 +78,10 @@ const styles = StyleSheet.create({
 
   text: {
     fontFamily: fonts.poppins.medium,
+    fontSize: 12,
+    lineHeight: 18,
+    letterSpacing: 0,
+    color: colors.secundary4
   },
 
   // Cantidad / Estado

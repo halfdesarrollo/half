@@ -60,7 +60,7 @@ export default [
         //   orderStatus: 'Entregado',
         // },
       ],
-      PlatoDeFondo: [
+      PlatosDeFondo: [
         {
           id: '1.3',
           name: 'Lomo Saltado',
