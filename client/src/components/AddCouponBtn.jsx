@@ -5,16 +5,19 @@ import { fonts } from '../utils/theme'
 import { useNavigate } from 'react-router-native'
 
 const AddCouponBtn = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   // me lleva a la screen de CouponScreen
   const viewCouponScreen = () => {
-    navigate('/CouponScreen')
+    navigate('/couponScreen')
   }
 
   return (
     <View style={styles.addCupon}>
-      <TouchableOpacity style={styles.addCuponContent} onPress={viewCouponScreen}>
+      <TouchableOpacity
+        style={styles.addCuponContent}
+        onPress={viewCouponScreen}
+      >
         <IconAdd style={styles.addCuponImage} />
         <Text style={styles.addCuponText}>Agregar Cupón</Text>
       </TouchableOpacity>
@@ -24,7 +27,7 @@ const AddCouponBtn = () => {
 
 const styles = StyleSheet.create({
   addCupon: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   addCuponContent: {
     flexDirection: 'row',
@@ -34,14 +37,12 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 10,
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  addCuponImage: {
-
-  },
+  addCuponImage: {},
   addCuponText: {
-    fontFamily: fonts.poppins.bold
-  }
+    fontFamily: fonts.poppins.bold,
+  },
 })
 
 export default AddCouponBtn
