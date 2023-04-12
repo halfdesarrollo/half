@@ -1,11 +1,17 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import TipIcon from '../../assets/tipIcon.svg'
 import { fonts, colors } from '../utils/theme'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { addTip } from '../redux/slices/order/orderSlice'
 
-const Tip = ({ tipInput, setTipInput }) => {
-  // capturamos el texto ingresado en el input
+const Tip = () => {
+  const dispatch = useDispatch()
+
+  const { tip } = useSelector(state => state.orderState)
+
   const onChangeTipInput = (value) => {
-    setTipInput(Number(value))
+    dispatch(addTip(Number(value)))
   }
 
   return (
@@ -16,7 +22,7 @@ const Tip = ({ tipInput, setTipInput }) => {
           <Text style={styles.tipText}>Propina</Text>
         </View>
         <TextInput
-          value={tipInput?.toString()}
+          value={tip?.toString()}
           onChangeText={onChangeTipInput}
           style={styles.tipInput}
           inputMode='numeric'

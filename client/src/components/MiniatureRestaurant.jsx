@@ -1,9 +1,9 @@
-import React from "react";
-import { View, StyleSheet, Text } from "react-native";
-import ImageRestaurant from "../../assets/ImageRestaurant.svg";
-import Discount from "../../assets/Discount.svg";
-import HeartLike from "../../assets/HeartLike.svg";
-import Stars from "../../assets/stars.svg";
+import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import ImageRestaurant from '../../assets/ImageRestaurant.svg';
+import Discount from '../../assets/Discount.svg';
+import HeartLike from '../../assets/HeartLike.svg';
+import Stars from '../../assets/stars.svg';
 
 const MiniatureRestaurant = () => {
   return (
@@ -22,16 +22,15 @@ const MiniatureRestaurant = () => {
 };
 
 const styles = StyleSheet.create({
-  
   container: {
     width: 318,
-    height: 160,
+    height: 190,
     margin: 5,
     borderRadius: 15,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
     borderRadius: 15,
     elevation: 4,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -45,11 +44,11 @@ const styles = StyleSheet.create({
   },
 
   heart: {
-    position: "absolute",
+    position: 'absolute',
   },
 
   imagerestaurant: {
-    position: "absolute",
+    position: 'absolute',
   },
 });
 

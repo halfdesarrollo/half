@@ -12,19 +12,12 @@ import {
 } from 'react-native-responsive-screen'
 import ModalPaymentConfirmed from '../components/ModalPaymentConfirmed'
 import { colors, fonts } from '../utils/theme'
-import { useDispatch } from 'react-redux'
-import { addTip } from '../redux/slices/order/orderSlice'
 
 export const AddPayMethodScreen = () => {
-  // guarda el valor ingresado en el input del componente Tip
-  const [tipInput, setTipInput] = useState()
   const [modalVisible, setModalVisible] = useState(false)
-
-  const dispatch = useDispatch()
 
   const handlePay = () => {
     setModalVisible(true)
-    dispatch(addTip(tipInput))
   }
 
   return (
@@ -34,7 +27,7 @@ export const AddPayMethodScreen = () => {
         <ScrollView contentContainerStyle={styles.scroll}>
           <AddCard />
           <CashPayment />
-          <ViewTipCoupon tipInput={tipInput} setTipInput={setTipInput} />
+          <ViewTipCoupon />
           <PaymentProof />
           <OrderSummary />
         </ScrollView>
