@@ -15,6 +15,7 @@ import WelcomeUser from '../components/WelcomeUser';
 import StartBooking from '../components/StartBooking';
 import Categories from '../components/Categories';
 import NearMe from '../components/NearMe';
+import MiniatureRestaurant from "../components/MiniatureRestaurant"
 
 export const MainMenuScreen = () => {
   return (
@@ -27,6 +28,7 @@ export const MainMenuScreen = () => {
         <SpecialHalf />
         <Categories />
         <NearMe />
+        <MiniatureRestaurant/>
       </ScrollView>
       <Navbar />
     </View>
