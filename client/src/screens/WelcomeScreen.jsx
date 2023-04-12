@@ -21,14 +21,14 @@ export const WelcomeScreen = () => {
         </Text>
       </View>
       <View style={styles.ellipseContainer}>
-        <View style={styles.continueBtn}>
-          <ContinueButton to={'/howdoesitworks'} />
-        </View>
         <WelcomeEllipse style={styles.welcomeEllipse} />
         <Image
           style={styles.welcomeFood}
           source={require('../../assets/welcome-food-png.png')}
         />
+      </View>
+      <View style={styles.continueBtn}>
+        <ContinueButton to={'/howdoesitworks'} />
       </View>
     </View>
   )
@@ -45,13 +45,10 @@ const styles = StyleSheet.create({
     marginTop: 40,
     lineHeight: 30,
   },
-  ellipseContainer: {
-    position: 'relative',
-  },
   continueBtn: {
     zIndex: 1,
     position: 'absolute',
-    bottom: hp('-35.00%'),
+    bottom: hp(10),
     left: wp(25),
     borderRadius: 7,
   },

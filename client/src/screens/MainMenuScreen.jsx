@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { StyleSheet } from "react-native";
 
 import {
@@ -21,13 +21,15 @@ export const MainMenuScreen = () => {
   return (
     <View style={styles.container}>
       <TitlePageLocation />
-      <WelcomeUser />
-      <Search />
-      <StartBooking />
-      <SpecialHalf />
-      <Categories />
-      <NearMe />
-      <MiniatureRestaurant />
+      <ScrollView contentContainerStyle={styles.scroll}>
+        <WelcomeUser />
+        <Search />
+        <StartBooking />
+        <SpecialHalf />
+        <Categories />
+        <NearMe />
+        <MiniatureRestaurant/>
+      </ScrollView>
       <Navbar />
     </View>
   );
@@ -39,10 +41,11 @@ const styles = StyleSheet.create({
     height: hp("100.00%"),
     alignItems: "center",
     backgroundColor: "white",
-    gap: 15
+    gap: 15,
+
   },
-  logo: {
-    width: wp("50.00%"),
-    height: hp("30.00%"),
+  scroll: {
+    gap: 15,
+    alignItems: 'center'
   },
 });
