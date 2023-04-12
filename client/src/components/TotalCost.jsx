@@ -1,6 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { widthPercentageToDP as wp } from 'react-native-responsive-screen'
+import {
+  heightPercentageToDP as hp,
+  widthPercentageToDP as wp,
+} from 'react-native-responsive-screen'
 import { useSelector } from 'react-redux'
 import { colors, fonts } from '../utils/theme'
 
@@ -42,9 +45,10 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     display: 'flex',
     justifyContent: 'center',
+    marginBottom: hp(2.5),
   },
   box: {
-    width: wp(85),
+    width: wp(90),
     alignSelf: 'center',
     display: 'flex',
     justifyContent: 'center',

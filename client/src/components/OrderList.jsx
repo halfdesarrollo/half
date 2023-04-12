@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import TrashIcon from '../../assets/trash.svg'
-import { fonts } from '../utils/theme'
+import { colors, fonts } from '../utils/theme'
 import { removeOrder } from '../redux/slices/order/orderSlice'
 import { useDispatch } from 'react-redux'
 
@@ -13,7 +13,7 @@ const OrderList = ({ screen, dish }) => {
   const deleteDish = (dishId) => {
     dispatch(removeOrder(dishId))
   }
-
+  dish.quantity = dish.quantity?.toString().padStart(2, '0') || '00'
   return (
     <View>
       {screen === 'orderScreen' && (
@@ -21,10 +21,10 @@ const OrderList = ({ screen, dish }) => {
           <View style={styles.spaceText}>
             <View>
               <Text style={styles.text}>{dish.name}</Text>
-              <Text style={styles.text}>{`S/.${dish.price.toFixed(2)}`}</Text>
+              <Text style={styles.price}>{`S/.${dish.price.toFixed(2)}`}</Text>
             </View>
             <View style={styles.quantIcon}>
-              <Text style={styles.text}>{dish.quantity}</Text>
+              <Text style={styles.quantity}>{dish.quantity}</Text>
               <TouchableOpacity onPress={() => deleteDish(dish.id)}>
                 <TrashIcon />
               </TouchableOpacity>
@@ -41,7 +41,7 @@ const OrderList = ({ screen, dish }) => {
       {screen === 'payScreen' && (
         <View style={styles.payContainer}>
           <Text style={styles.text}>{dish.name}</Text>
-          <Text style={styles.text}>{`S/.${dish.price.toFixed(2)}`}</Text>
+          <Text style={styles.price}>S/.{dish.price.toFixed(2) || '0.00'}</Text>
         </View>
       )}
     </View>
@@ -56,6 +56,10 @@ const styles = StyleSheet.create({
 
   text: {
     fontFamily: fonts.poppins.medium,
+    fontSize: 14,
+    lineHeight: 21,
+    letterSpacing: 0,
+    color: colors.secundary2,
   },
 
   // Order Screen
@@ -67,6 +71,22 @@ const styles = StyleSheet.create({
   payContainer: {
     gap: 8,
     marginTop: 15,
+  },
+
+  price: {
+    fontFamily: fonts.poppins.regular,
+    fontSize: 16,
+    lineHeight: 24,
+    letterSpacing: 0,
+    color: colors.secundary2,
+  },
+
+  quantity: {
+    fontFamily: fonts.poppins.medium,
+    fontSize: 16,
+    lineHeight: 24,
+    letterSpacing: 0,
+    color: colors.secundary2,
   },
 })
 
