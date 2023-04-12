@@ -30,6 +30,7 @@ export default function Main() {
         <Route path='/addpaymethod' element={<AddPayMethodScreen />} />
         <Route path='/invitefriends' element={<InviteFriendsScreen />} />
         <Route path='/couponscreen' element={<CouponScreen />} />
+        <Route path='/addcard' element={<AddCardPayScreen />} />
       </Routes>
     </View>
   )

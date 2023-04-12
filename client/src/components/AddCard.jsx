@@ -10,7 +10,7 @@ import DebitCard from '../../assets/debit-card.svg'
 import { useNavigate } from 'react-router-native'
 
 export const AddCard = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <View style={styles.container}>
@@ -18,13 +18,13 @@ export const AddCard = () => {
         <DebitCard style={styles.debitCard} />
         <Text style={styles.title}>Puedes agregar un TC o débito</Text>
       </View>
-      <AddCardButton action={()=>navigate('/addCard')}/>
+      <AddCardButton action={() => navigate('/addcard')} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     height: hp('18%'),
     paddingTop: 10,
   },
