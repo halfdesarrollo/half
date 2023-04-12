@@ -54,12 +54,12 @@ const styles = StyleSheet.create({
     padding: 5,
   },
 
-  text:{
+  text: {
     fontFamily: fonts.poppins.medium,
     fontSize: 14,
     lineHeight: 21,
-    letterSpacing: 0, 
-    color:colors.secundary2
+    letterSpacing: 0,
+    color: colors.secundary2,
   },
 
   // Order Screen
@@ -78,15 +78,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0,
-    color:colors.secundary2
+    color: colors.secundary2,
   },
 
-  quantity:{
+  quantity: {
     fontFamily: fonts.poppins.medium,
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0,
-    color:colors.secundary2
+    color: colors.secundary2,
   },
 })
 

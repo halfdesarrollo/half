@@ -15,11 +15,11 @@ const OrderScreen = () => {
         <ScrollView contentContainerStyle={styles.scrollView}>
           <TitlePage text={'Ordernar'} route={'/menucard/0'} />
           <YourProductList screen={'orderScreen'} />
-          <TotalCost titleTwo={'(Este monto aún no será cobrado)'} />
+          <TotalCost order />
         </ScrollView>
       </View>
       <View style={styles.btn}>
-        <BigButtonPay text='Ordenar' route='/menucard/0' />
+        <BigButtonPay text='Ordenar' route='/menucard/0' order />
       </View>
     </View>
   )
@@ -28,7 +28,7 @@ const OrderScreen = () => {
 export default OrderScreen
 
 const styles = StyleSheet.create({
-  scrollView:{
+  scrollView: {
     width: wp(100),
     alignItems: 'center',
     gap: hp(1),
@@ -39,10 +39,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   btn: {
-    position: "absolute",
+    position: 'absolute',
     bottom: hp(5),
   },
-  visibleBox:{
+  visibleBox: {
     maxHeight: hp(86),
   },
 })

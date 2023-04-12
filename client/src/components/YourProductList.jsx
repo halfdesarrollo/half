@@ -8,7 +8,9 @@ import { colors, fonts } from '../utils/theme'
 import { useSelector } from 'react-redux'
 
 const YourProductList = ({ screen }) => {
-  const { preOrder } = useSelector((state) => state.orderState)
+  const { preOrder, order } = useSelector((state) => state.orderState)
+
+  const orderType = screen === 'orderScreen' ? preOrder : order
 
   return (
     <View style={styles.container}>
@@ -26,7 +28,7 @@ const YourProductList = ({ screen }) => {
         <View style={styles.line}/>
       </View>
       <View style={styles.platesContainer}>
-        {preOrder?.map((dish, i) => {
+        {orderType?.map((dish, i) => {
           return (
             <View key={i}>
               <OrderList dish={dish} screen={screen} />
