@@ -6,8 +6,8 @@ import NewCardPay from '../components/NewCardPay'
 const AddCardPayScreen = () => {
   return (
     <View>
-      <TitlePage text={'Agregar tarjeta'} route={'/addpaymethod'}/>
-      <NewCardPay/>
+      <TitlePage text={'Agregar tarjeta'} route={'/addpaymethod'} />
+      <NewCardPay />
     </View>
   )
 }
