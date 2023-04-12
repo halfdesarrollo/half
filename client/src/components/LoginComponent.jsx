@@ -13,7 +13,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-native';
-import FacebookLogo from '../../assets/facebooklogosvg.svg';
+import FacebookLogo from '../../assets/facebook.svg';
 import gmail from '../../assets/gmail-logo.png';
 import { login } from '../redux/slices/user/userActions';
 import { loginSchema } from '../utils/validationSearchScheme';
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     position: 'absolute',
     width: '70%',
-    bottom: -70,
+    bottom: -50,
   },
 
   socialMedia_logo: {

@@ -101,7 +101,7 @@ export default [
           name: 'Coca-Cola',
           description: 'Bebida gaseosa refrescante',
           imageDrink:
-            'https://www.cocacola.es/content/dam/GO/es/es-1/home/Products/product-tiles/coca-cola-product-tile.png',
+            'https://www.eluniverso.com/resizer/XDCSRrWf-mQVhi9fw2igV2hzPg8=/1005x670/smart/filters:quality(70)/cloudfront-us-east-1.images.arcpublishing.com/eluniverso/6O3SHHDC55GTHHHGY4HAWTVD5A.jpg',
           price: 3.5,
           orderStatus: 'Entregado',
         },
@@ -110,7 +110,7 @@ export default [
           name: 'Jugo de Naranja',
           description: 'Jugo natural de naranjas frescas',
           imageDrink:
-            'https://cdn.pixabay.com/photo/2017/08/08/08/00/orange-2605032_960_720.jpg',
+            'https://images.ecestaticos.com/4pf3S6T-4p3m68lVpNi1FNSsRY0=/0x0:1699x1130/1200x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2Fe8d%2Fa2d%2Ff42%2Fe8da2df4282557bd4975dbf7feb13143.jpg',
           price: 5.0,
           orderStatus: 'Entregado',
         },

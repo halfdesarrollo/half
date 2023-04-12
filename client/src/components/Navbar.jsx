@@ -10,7 +10,10 @@ import PerfilLogo from '../../assets/whitePerson.svg'
 import HomeLogo from '../../assets/Home-logo.svg'
 import QrLogo from '../../assets/QR.svg'
 import { useNavigate } from 'react-router-native'
-
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 const Navbar = () => {
   const [activeButton, setActiveButton] = useState('home')
   const navigation = useNavigate()
@@ -97,17 +100,17 @@ export default Navbar
 const styles = StyleSheet.create({
   navbar_container: {
     backgroundColor: 'white',
-    borderRadius: 80,
+    borderTopStartRadius: 80,
+    borderTopEndRadius: 80,
     height: 90,
+    width: wp(100),
     flexDirection: 'row',
-    elevation: 3,
+    elevation: 7,
     paddingHorizontal: 30,
     position: 'absolute',
-    bottom: 15,
-    left: 10,
-    right: 10,
-    borderTopWidth: 0.5,
-    borderTopColor: '#ccc',
+    bottom: 0,
+    borderWidth: 1,
+    borderColor: '#ddd',
     alignItems: 'center',
     justifyContent: 'space-between',
     shadowColor: '#000',
