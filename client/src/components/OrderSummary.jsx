@@ -14,13 +14,18 @@ export const OrderSummary = () => {
   const subTotal = totalPrice
   const coupon =
     offersUserSelected.value > 0 ? subTotal * offersUserSelected.value : 0
-  const total = subTotal - coupon + tip
+  const serviceFee = 1
+  const total = subTotal - coupon + tip + serviceFee
   return (
     <View style={styles.conteiner}>
       <Text style={styles.title}>Resumen del Pedido</Text>
       <View style={styles.pedidos}>
         <View style={styles.line}>
-          <Text style={styles.text}>Propinas</Text>
+          <Text style={styles.text}>Costo de productos</Text>
+          <Text style={styles.textMoney}>S/.{subTotal?.toFixed(2)}</Text>
+        </View>
+        <View style={styles.line}>
+          <Text style={styles.text}>Propina</Text>
           <Text style={styles.textMoney}>S/.{tip?.toFixed(2)}</Text>
         </View>
         <View style={styles.line}>
@@ -28,12 +33,12 @@ export const OrderSummary = () => {
           <Text style={styles.textMoney}>S/.{coupon?.toFixed(2)}</Text>
         </View>
         <View style={styles.line}>
-          <Text style={styles.text}>Subtotal</Text>
-          <Text style={styles.textMoney}>S/.{subTotal?.toFixed(2)}</Text>
+          <Text style={styles.text}>Tarifa de servicio</Text>
+          <Text style={styles.textMoney}>S/.{serviceFee?.toFixed(2)}</Text>
         </View>
         <View style={styles.line}>
-          <Text style={styles.text}>Total a Pagar</Text>
-          <Text style={styles.textMoney}>S/.{total?.toFixed(2)}</Text>
+          <Text style={styles.textTotal}>Total a Pagar</Text>
+          <Text style={styles.textMoneyTotal}>S/.{total?.toFixed(2)}</Text>
         </View>
       </View>
     </View>
@@ -72,6 +77,13 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     color: colors.secundary2,
   },
+  textTotal: {
+    fontFamily: fonts.poppins.bold,
+    letterSpacing: 0,
+    fontSize: 18,
+    lineHeight: 24,
+    color: colors.secundary2,
+  },
   title: {
     marginBottom: hp(2),
     marginTop: hp(4),
@@ -90,9 +102,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  textMoneyTotal: {
+    fontFamily: fonts.poppins.bold,
+    fontSize: 19,
+    lineHeight: 28.5,
+    color: colors.secundary2,
+  },
   textMoney: {
     fontFamily: fonts.poppins.regular,
-    fontSize: 19,
+    fontSize: 18,
     lineHeight: 28.5,
     color: colors.secundary2,
   },

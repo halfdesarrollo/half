@@ -7,7 +7,6 @@ import {
 import { fonts } from '../utils/theme'
 import { CheckBox, Icon } from 'react-native-elements'
 
-
 export const CashPayment = () => {
   const [textInputValue, setTextInputValue] = useState('')
   const [check, setCheck] = useState(false)
@@ -53,12 +52,12 @@ export const CashPayment = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginLeft: wp('9%'),
+    marginTop: '7%',
   },
   title: {
-    fontFamily: fonts.poppins.bold,
+    fontFamily: fonts.poppins.medium,
     fontSize: 16,
-    marginLeft: wp('5%'),
+    marginLeft: wp('2%'),
   },
   inputcheck: {
     flexDirection: 'row',
