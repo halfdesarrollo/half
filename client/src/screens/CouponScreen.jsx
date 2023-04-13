@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import React from 'react'
 import Coupon from '../components/Coupon'
-import {fonts, colors} from '../utils/theme'
-import ArrowLeft from '../../assets/arrow_left.svg'
+import { fonts, colors } from '../utils/theme'
 import { useNavigate } from 'react-router-native'
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen'
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen'
+import TitlePage from '../components/TitlePage'
 
 const CouponScreen = () => {
 
@@ -17,14 +17,8 @@ const CouponScreen = () => {
 
   return (
     <View style={styles.couponS}>
-      <View style={styles.couponSHeader}>
-        <Text style={styles.couponSTitle}>Agregar cupón</Text>
-        <TouchableOpacity onPress={backViewScreen}>
-          <ArrowLeft/>
-        </TouchableOpacity>
-      </View>
-
-      <Coupon viewCheck={true}/>
+      <TitlePage text='Agregar cupón' route='/addpaymethod' />
+      <Coupon viewCheck={true} />
     </View>
   )
 }

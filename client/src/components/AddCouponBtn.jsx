@@ -1,7 +1,7 @@
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native'
 import React from 'react'
 import IconAdd from '../../assets/icon-add-cupon.svg'
-import { fonts } from '../utils/theme'
+import { colors, fonts } from '../utils/theme'
 import { useNavigate } from 'react-router-native'
 
 const AddCouponBtn = () => {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
   addCuponImage: {},
   addCuponText: {
     fontFamily: fonts.poppins.bold,
+    color: '#fff',
   },
 })
 
