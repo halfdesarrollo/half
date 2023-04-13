@@ -18,6 +18,7 @@ export default function Main() {
   return (
     <View>
       <Routes>
+        <Route path='/' element={<WelcomeScreen />} />
         <Route path='/howdoesitworks' element={<HowDoesItWorksScreen />} />
         <Route path='/login' element={<LoginScreen />} />
         <Route path='/mainmenu' element={<MainMenuScreen />} />
@@ -28,7 +29,7 @@ export default function Main() {
         <Route path='/pay' element={<PayScreen />} />
         <Route path='/addpaymethod' element={<AddPayMethodScreen />} />
         <Route path='/invitefriends' element={<InviteFriendsScreen />} />
-        <Route path='/' element={<CouponScreen />} />
+        <Route path='/couponscreen' element={<CouponScreen />} />
         <Route path='/addcard' element={<AddCardPayScreen />} />
       </Routes>
     </View>
