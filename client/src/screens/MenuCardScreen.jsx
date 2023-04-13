@@ -14,7 +14,7 @@ import { useParams } from "react-router-native";
 export const MenuCardScreen = () => {
   const { id } = useParams();
   const { restaurants } = useSelector((state) => state.restaurantState);
-  const logo = restaurants[id].image;
+  const logo = restaurants[0].image;
   return (
     <SafeAreaView style={styles.container}>
       <BackgroundCard logo={logo} />
@@ -33,7 +33,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   btn: {
-    position: "absolute",
-    bottom: hp(5),
+    width:wp(100),
+    height:hp(10.1),
+    justifyContent:'center',
+    paddingBottom:hp(2),
+    alignItems:'center',
   },
 });

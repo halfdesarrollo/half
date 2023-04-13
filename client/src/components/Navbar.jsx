@@ -32,7 +32,7 @@ const Navbar = () => {
           style={[
             styles.navbar_button,
             {
-              bottom: activeButton === 'home' ? 30 : 0,
+              bottom: activeButton === 'home' ? hp(2.5) : 0,
               backgroundColor: activeButton === 'home' ? '#87BE56' : '#fff',
             },
           ]}
@@ -58,7 +58,7 @@ const Navbar = () => {
           style={[
             styles.navbar_button,
             {
-              bottom: activeButton === 'qr' ? 25 : 0,
+              bottom: activeButton === 'qr' ? hp(2.5) : 0,
               backgroundColor: activeButton === 'qr' ? '#87BE56' : '#fff',
             },
           ]}
@@ -84,7 +84,7 @@ const Navbar = () => {
           style={[
             styles.navbar_button,
             {
-              bottom: activeButton === 'perfil' ? 30 : 0,
+              bottom: activeButton === 'perfil' ? hp(2.5) : 0,
               backgroundColor: activeButton === 'perfil' ? '#87BE56' : '#fff',
             },
           ]}

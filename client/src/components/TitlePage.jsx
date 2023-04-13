@@ -18,14 +18,17 @@ const TitlePage = ({ text, route, white }) => {
   return (
     <View style={white ? styles.whiteContainer : styles.container}>
       <View style={styles.box}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={handlePress}
+          activeOpacity={1}
+        >
           {white ? (
             <View style={styles.backContainer}>
-              <BackBlack style={styles.back} onPress={handlePress} />
+              <BackBlack style={styles.back} />
             </View>
           ) : (
             <View style={styles.backContainer}>
-              <Back style={styles.back} onPress={handlePress} />
+              <Back style={styles.back} />
             </View>
           )}
         </TouchableOpacity>

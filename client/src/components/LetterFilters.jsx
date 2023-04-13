@@ -64,7 +64,7 @@ const LetterFilters = () => {
         </ScrollView>
       </View>
       <View style={style.cardBox}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={style.scrollDish}>
           {select === 'Entradas' &&
             restaurants[0]?.menu?.Entradas?.map((entrada, index) => (
               <View key={index}>
@@ -112,11 +112,9 @@ const LetterFilters = () => {
 const style = StyleSheet.create({
   container: {
     width: wp('100'),
-    maxWidth: wp('100'),
-    height: hp('60'),
-    maxHeight: hp('100'),
+    height: hp('46'),
+    maxHeight: hp('46'),
     alignItems:'center',
-    backgroundColor: 'white',
   },
   containerView: {
     width:wp(100),
@@ -124,6 +122,11 @@ const style = StyleSheet.create({
     justifyContent: 'center',
     gap: 13,
     paddingVertical: 2,
+  },
+  scrollDish:{
+    alignItems:'center',
+    width:wp(100),
+    minHeight:hp(4),
   },
   scroll:{
     paddingBottom:hp(0.5),
