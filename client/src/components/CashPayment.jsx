@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
     borderColor: '#BEC5D1',
     borderWidth: 1,
     borderRadius: 5,
+    paddingHorizontal: 10
   },
   checkbox: {
     marginLeft: wp('5%'),

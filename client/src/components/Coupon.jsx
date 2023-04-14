@@ -74,7 +74,7 @@ const Coupon = ({ viewCheck }) => {
     <View style={styles.container}>
       <ScrollView style={styles.couponScroll}>
         <View style={viewCheck ? styles.couponElements : styles.couponSetWidth}>
-          <View style={styles.couponInfo}>
+          <View style={viewCheck ? styles.couponInfo : styles.couponSetGap}>
             <Image
               style={styles.couponImage}
               source={require('../../assets/ofertaOne.png')}
@@ -103,7 +103,8 @@ const Coupon = ({ viewCheck }) => {
         </View>
 
         <View style={viewCheck ? styles.couponElements : styles.couponSetWidth}>
-          <View style={styles.couponInfo}>
+          <View style={viewCheck ? styles.couponInfo : styles.couponSetGap}>
+
             <Image
               style={styles.couponImage}
               source={require('../../assets/ofertaTwo.png')}
@@ -133,11 +134,6 @@ const Coupon = ({ viewCheck }) => {
       </ScrollView>
 
       <View style={styles.couponModal}>{viewModal && viewModal}</View>
-      <View style={styles.alertBox}>
-        <Alert />
-        <Text>Podrás agregarlo a la hora de pagar.</Text>
-      </View>
-
       <View style={styles.couponAdd}>
         <TouchableOpacity style={styles.couponButton} onPress={addCouponValidate}>
           <Text style={styles.couponTextBtn}>Agregar cupón</Text>
@@ -184,13 +180,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: wp('94%'),
-    height: hp('20%'),
+    height: hp('18%'),
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: colors.secundary2,
     borderRadius: 10,
     justifyContent: 'center',
     marginBottom: 10,
+  },
+  couponSetGap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    gap: 25,
   },
   couponSubtitle: {
     fontFamily: fonts.poppins.bold,
@@ -201,7 +204,7 @@ const styles = StyleSheet.create({
     fontSize: 13
   },
   couponScroll: {
-    height: hp('75%'),
+    height: hp('80%'),
     paddingVertical: 10,
   },
   couponAdd: {
