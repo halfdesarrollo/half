@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef } from 'react';
 import {
   KeyboardAvoidingView,
   SafeAreaView,
@@ -11,31 +11,37 @@ import {
   TouchableHighlight,
   TouchableOpacity,
   ScrollView,
-} from 'react-native'
+} from 'react-native';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from 'react-native-responsive-screen'
+} from 'react-native-responsive-screen';
 
-import RegsiterForm from '../components/RegisterForm'
-import LoginComponent from '../components/LoginComponent'
-import HalfLogo from '../../assets/HalfSVG.svg'
-import WelcomeElipse from '../../assets/EllipseOrange.svg'
-import ElipseHalf1 from '../../assets/elipseHalf1.svg'
-import ElipseHalf2 from '../../assets/elipseHalf2.svg'
-import BotElipse from '../../assets/welcome-ellipse.svg'
-import { fonts } from '../utils/theme'
-import { color } from 'react-native-elements/dist/helpers'
+import RegsiterForm from '../components/RegisterForm';
+import LoginComponent from '../components/LoginComponent';
+import HalfLogo from '../../assets/HalfSVG.svg';
+import WelcomeElipse from '../../assets/EllipseOrange.svg';
+import ElipseHalf1 from '../../assets/elipseHalf1.svg';
+import ElipseHalf2 from '../../assets/elipseHalf2.svg';
+import BotElipse from '../../assets/welcome-ellipse.svg';
+import { fonts } from '../utils/theme';
+import { color } from 'react-native-elements/dist/helpers';
 
 export const LoginScreen = () => {
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(false);
 
   return (
-    <SafeAreaView style={{ height: '100%', backgroundColor: 'white' }}>
+    <SafeAreaView
+      style={{
+        width: wp('100.00%'),
+        height: hp('100.00%'),
+        backgroundColor: 'white',
+      }}
+    >
       <KeyboardAvoidingView
         style={{ flex: 1 }}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={-200}
+        keyboardVerticalOffset={-300}
       >
         <WelcomeElipse
           style={{
@@ -44,7 +50,8 @@ export const LoginScreen = () => {
             marginVertical: 15,
             width: 400,
             height: 200,
-            top: '-8.5%',
+            top: '-9%',
+            zIndex: 1,
           }}
         />
 
@@ -57,7 +64,7 @@ export const LoginScreen = () => {
                 width: 480,
                 height: 373,
                 left: -93,
-                top: -144,
+                top: -80,
               }}
             />
             <ElipseHalf2
@@ -66,7 +73,7 @@ export const LoginScreen = () => {
                 width: 480,
                 height: 373,
                 left: -93,
-                top: -154,
+                top: -90,
               }}
             />
           </View>
@@ -75,17 +82,29 @@ export const LoginScreen = () => {
               flexDirection: 'row',
               justifyContent: 'space-around',
               width: '100%',
-              marginTop: hp(3),
+              marginTop: hp(8),
             }}
           >
             <TouchableOpacity onPress={() => setLogin(false)}>
-              <Text style={[styles.text, login === false && styles.line]}>Inicia sesión</Text>
+              <Text style={[styles.text, login === false && styles.line]}>
+                Inicia sesión
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => setLogin(true)}>
-              <Text style={[styles.text, login === true && styles.line]}>Regístrate</Text>
+              <Text style={[styles.text, login === true && styles.line]}>
+                Regístrate
+              </Text>
             </TouchableOpacity>
           </View>
-          {login ? <RegsiterForm /> : <LoginComponent />}
+          {login ? (
+            <ScrollView>
+              <RegsiterForm />
+            </ScrollView>
+          ) : (
+            <ScrollView>
+              <LoginComponent />
+            </ScrollView>
+          )}
         </View>
       </KeyboardAvoidingView>
       <BotElipse
@@ -97,8 +116,8 @@ export const LoginScreen = () => {
         }}
       />
     </SafeAreaView>
-  )
-}
+  );
+};
 
 export const styles = StyleSheet.create({
   login_container: {
@@ -118,8 +137,8 @@ export const styles = StyleSheet.create({
   },
   image_logo: {
     width: 290,
-    height: 100,
-    top: '-3%',
+    height: 200,
+    top: 80,
     resizeMode: 'contain',
     zIndex: 1,
   },
@@ -189,10 +208,10 @@ export const styles = StyleSheet.create({
 
   text: {
     fontFamily: fonts.poppins.bold,
-    color: "#4B5563"
+    color: '#4B5563',
   },
   line: {
     borderBottomWidth: 2,
     borderBottomColor: '#4B5563',
   },
-})
+});

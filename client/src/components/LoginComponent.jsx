@@ -44,6 +44,7 @@ const LoginComponent = () => {
   return (
     <SafeAreaView>
       <View style={styles.inputs_container}>
+        <Text>Email</Text>
         <Controller
           control={control}
           name="email"
@@ -61,6 +62,7 @@ const LoginComponent = () => {
         {errors.email && (
           <Text style={styles.text_error}>{errors.email.message}</Text>
         )}
+        <Text>Contraseña</Text>
         <Controller
           control={control}
           name="password"
@@ -90,11 +92,21 @@ const LoginComponent = () => {
             onPress={handleSubmit(onPressButton)}
             style={styles.button}
           >
-            <Text style={{ color: 'white', fontSize: 20, fontFamily: fonts.poppins.bold }}>Iniciar</Text>
+            <Text
+              style={{
+                color: 'white',
+                fontSize: 20,
+                fontFamily: fonts.poppins.bold,
+              }}
+            >
+              Iniciar
+            </Text>
           </TouchableHighlight>
 
           <View style={styles.row}>
-            <Text style={{ color: colors.secundary2 }} >Aún no tienes cuenta?</Text>
+            <Text style={{ color: colors.secundary2 }}>
+              Aún no tienes cuenta?
+            </Text>
             <TouchableHighlight>
               <Text style={{ color: '#1977f3' }}>Registrate acá</Text>
             </TouchableHighlight>
@@ -126,7 +138,7 @@ const styles = StyleSheet.create({
     height: '25%',
     justifyContent: 'center',
     alignItems: 'center',
-    width: '80%',
+    width: '75%',
     top: -40,
   },
   image_logo: {
@@ -153,9 +165,9 @@ const styles = StyleSheet.create({
   },
 
   inputs_container: {
-    height: hp('40.00%'),
+    height: hp('50.00%'),
     backgroundColor: 'white',
-    width: 350,
+    width: hp('43%'),
     borderTopColor: '#A4A4A4',
     borderTopWidth: 1,
   },
@@ -171,15 +183,15 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#A4A4A4',
     marginHorizontal: 1,
-    marginVertical: 15,
-    paddingVertical: 10,
+    marginVertical: 17,
+    paddingVertical: 6,
     backgroundColor: 'white',
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     borderRadius: 10,
   },
   row: {
     flexDirection: 'row',
-    gap: 8
+    gap: 8,
   },
   socialMedia_container: {
     display: 'flex',
@@ -190,14 +202,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     position: 'absolute',
     width: '70%',
-    bottom: -50,
+    bottom: 10,
   },
 
   socialMedia_logo: {
     resizeMode: 'contain',
     width: 60,
-    height: 60,
-    margin: 10,
+    height: 90,
+    margin: 6,
   },
 
   greenBottomThinEllipse: {
