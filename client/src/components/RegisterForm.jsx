@@ -4,6 +4,7 @@ import {
   View,
   TextInput,
   StyleSheet,
+  SafeAreaView,
   TouchableOpacity,
   TouchableHighlight,
 } from 'react-native';
@@ -12,6 +13,10 @@ import { useDispatch } from 'react-redux';
 import { CheckBox } from 'react-native-elements';
 import { register } from '../redux/slices/user/userActions';
 import { useNavigate } from 'react-router-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 import { colors, fonts } from '../utils/theme';
 import { registerSchema } from '../utils/validationSearchScheme';
@@ -37,7 +42,7 @@ export default function RegisterForm() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View>
         <Text>Nombre</Text>
         <Controller
@@ -125,7 +130,7 @@ export default function RegisterForm() {
       >
         <Text style={styles.text3}>Crear cuenta</Text>
       </TouchableHighlight>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -133,6 +138,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     width: 340,
+    height: wp('100.00%'),
     borderColor: '#A4A4A4',
     borderTopWidth: 1,
   },
