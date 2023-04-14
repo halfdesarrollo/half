@@ -5,6 +5,7 @@ const initialState = {
   user: {},
   token: null,
   contacts: contacts,
+  creditCard: false
 };
 
 export const userSlice = createSlice({
@@ -23,8 +24,16 @@ export const userSlice = createSlice({
       state.user = action.payload.user;
       state.token = action.payload.token;
     },
+    addCreditCardToPay: (state, action) => {
+      state.creditCard = action.payload
+    }
   },
 });
 
-export const { loginUser, logoutUser, registerUser } = userSlice.actions;
+export const {
+  loginUser,
+  logoutUser,
+  registerUser,
+  addCreditCardToPay
+} = userSlice.actions;
 export default userSlice.reducer;

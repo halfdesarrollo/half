@@ -8,17 +8,32 @@ import AddCardButton from '../components/AddCardButton'
 import { fonts } from '../utils/theme'
 import DebitCard from '../../assets/debit-card.svg'
 import { useNavigate } from 'react-router-native'
+import { useDispatch, useSelector } from 'react-redux'
+import ExistingCard from './ExistingCard'
+import { addCreditCardToPay } from '../redux/slices/user/userSlice'
 
 export const AddCard = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
+  const { creditCard } = useSelector(state => state.userState)
+
+  const handleSelect = () => {
+    navigate('/addcard')
+    dispatch(addCreditCardToPay(true))
+  }
 
   return (
     <View style={styles.container}>
-      <View style={styles.cardContainer}>
-        <DebitCard style={styles.debitCard} />
-        <Text style={styles.title}>Puedes agregar un TC o débito</Text>
-      </View>
-      <AddCardButton action={() => navigate('/addcard')} />
+      {
+        creditCard
+          ? <ExistingCard />
+          : <View style={styles.cardContainer}>
+            <DebitCard style={styles.debitCard} />
+            <Text style={styles.title}>Puedes agregar un TC o débito</Text>
+          </View>
+      }
+
+      <AddCardButton action={handleSelect} />
     </View>
   )
 }

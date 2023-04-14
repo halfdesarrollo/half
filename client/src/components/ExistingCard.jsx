@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 
 const ExistingCard = ({ addCard, setAddCard }) => {
   const { user } = useSelector(state => state.userState)
-  console.log(user);
   return (
     <View style={styles.cardPayElement}>
       <IconVisa style={styles.cardPayIcon} />

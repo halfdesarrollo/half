@@ -26,8 +26,6 @@ const FoodCard = ({ name, description, image, price, id, quantity }) => {
   const { preOrder } = useSelector((state) => state.orderState)
   const { totalPrice } = useSelector((state) => state.orderState)
 
-  // console.log('tp', totalPrice)
-
   const quantityCalculate = (sign) => {
     if (sign === '-' && quantity !== undefined) {
       dispatch(decreaseOrderQuantity({ id }))
