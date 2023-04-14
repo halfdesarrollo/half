@@ -1,7 +1,6 @@
 import { View, Text, TextInput, StyleSheet } from 'react-native'
 import TipIcon from '../../assets/tipIcon.svg'
 import { fonts, colors } from '../utils/theme'
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addTip } from '../redux/slices/order/orderSlice'
 

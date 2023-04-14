@@ -2,15 +2,20 @@ import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { CheckBox } from 'react-native-elements'
 import IconVisa from '../../assets/iconVisa.svg'
-import {fonts} from '../utils/theme'
+import { fonts } from '../utils/theme'
+import { useSelector } from 'react-redux';
 
-const ExistingCard = ({addCard, setAddCard}) => {
+const ExistingCard = ({ addCard, setAddCard }) => {
+  const { user } = useSelector(state => state.userState)
+  console.log(user);
   return (
     <View style={styles.cardPayElement}>
       <IconVisa style={styles.cardPayIcon} />
       <View>
-        <Text style={styles.cardPayText}>Kelly Márquez</Text>
-        <Text style={styles.cardPayText}>xxxx xxxx xxxx xx90</Text>
+        <Text style={styles.cardPayText}>
+          {user.userLogged?.name || user.userRegistered?.name}
+        </Text>
+        <Text style={styles.cardPayText}>xxxx xxxx xxxx 4590</Text>
       </View>
       <CheckBox
         checkedColor="red"
@@ -24,7 +29,7 @@ const ExistingCard = ({addCard, setAddCard}) => {
 };
 
 const styles = StyleSheet.create({
-  cardPayElement:{
+  cardPayElement: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
@@ -34,7 +39,7 @@ const styles = StyleSheet.create({
   },
   cardPayText: {
     fontFamily: fonts.poppins.regular,
-    fontSize: 15
+    fontSize: 15,
   },
 });
 

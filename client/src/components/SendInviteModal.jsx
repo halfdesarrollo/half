@@ -24,7 +24,7 @@ const SendInviteModal = ({ modalVisible, setModalVisible }) => {
     <Modal
       visible={modalVisible}
       transparent={true}
-      animationType='slide'
+      animationType='fade'
       onRequestClose={() => {
         setModalVisible(!modalVisible)
       }}
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#55555555',
   },
   modalView: {
     width: wp('80.00%'),

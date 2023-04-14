@@ -17,6 +17,7 @@ import ModalReutil from './ModalReutil'
 import { useNavigate } from 'react-router-native'
 import { useDispatch } from 'react-redux'
 import { addCoupon } from '../redux/slices/order/orderSlice'
+import Alert from '../../assets/alert.svg'
 
 const Coupon = ({ viewCheck }) => {
   const navigate = useNavigate()
@@ -70,7 +71,7 @@ const Coupon = ({ viewCheck }) => {
     setDiscount({ name: state.name, value: percentage })
   }
   return (
-    <View style={styles.coupon}>
+    <View style={styles.container}>
       <ScrollView style={styles.couponScroll}>
         <View style={viewCheck ? styles.couponElements : styles.couponSetWidth}>
           <View style={styles.couponInfo}>
@@ -84,7 +85,7 @@ const Coupon = ({ viewCheck }) => {
               </Text>
               <Text style={styles.couponText}>
                 Por elegirnos en está ocasión te estaremos brindando 10% de
-                dsct. Podrás agregarlo a la hora de pagar.
+                dsct.
               </Text>
             </View>
           </View>
@@ -113,7 +114,7 @@ const Coupon = ({ viewCheck }) => {
               </Text>
               <Text style={styles.couponText}>
                 Por elegirnos en está ocasión te estaremos brindando una entrada
-                de con 50% de desct. Podrás agregarlo a la hora de pagar.
+                de con 50% de desct.
               </Text>
             </View>
           </View>
@@ -132,12 +133,13 @@ const Coupon = ({ viewCheck }) => {
       </ScrollView>
 
       <View style={styles.couponModal}>{viewModal && viewModal}</View>
+      <View style={styles.alertBox}>
+        <Alert />
+        <Text>Podrás agregarlo a la hora de pagar.</Text>
+      </View>
 
       <View style={styles.couponAdd}>
-        <TouchableOpacity
-          style={styles.couponButton}
-          onPress={addCouponValidate}
-        >
+        <TouchableOpacity style={styles.couponButton} onPress={addCouponValidate}>
           <Text style={styles.couponTextBtn}>Agregar cupón</Text>
         </TouchableOpacity>
       </View>
@@ -146,7 +148,7 @@ const Coupon = ({ viewCheck }) => {
 }
 
 const styles = StyleSheet.create({
-  coupon: {
+  container: {
     width: wp('100%'),
     paddingHorizontal: 10,
     position: 'relative',
@@ -155,10 +157,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     width: wp('80%'),
-    minHeight: hp('20%'),
+    minHeight: hp('18%'),
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: colors.secundary2,
+    borderColor: colors.secundary4,
     borderRadius: 10,
     marginBottom: 10,
   },
@@ -195,9 +197,11 @@ const styles = StyleSheet.create({
   },
   couponText: {
     fontFamily: fonts.poppins.regular,
+    color: '#8C8A9D',
+    fontSize: 13
   },
   couponScroll: {
-    height: hp('82%'),
+    height: hp('75%'),
     paddingVertical: 10,
   },
   couponAdd: {
@@ -222,6 +226,16 @@ const styles = StyleSheet.create({
     left: wp('15%'),
     top: hp('20%'),
     zIndex: 2,
+  },
+  alertBox: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    gap: 10,
+    marginBottom: 10
   },
 })
 
