@@ -44,6 +44,7 @@ const LoginComponent = () => {
   return (
     <SafeAreaView>
       <View style={styles.inputs_container}>
+        <Text>Email</Text>
         <Controller
           control={control}
           name="email"
@@ -61,6 +62,7 @@ const LoginComponent = () => {
         {errors.email && (
           <Text style={styles.text_error}>{errors.email.message}</Text>
         )}
+        <Text>Contraseña</Text>
         <Controller
           control={control}
           name="password"
@@ -181,10 +183,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#A4A4A4',
     marginHorizontal: 1,
-    marginVertical: 20,
+    marginVertical: 17,
     paddingVertical: 6,
     backgroundColor: 'white',
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     borderRadius: 10,
   },
   row: {
@@ -200,14 +202,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     position: 'absolute',
     width: '70%',
-    bottom: 20,
+    bottom: 10,
   },
 
   socialMedia_logo: {
     resizeMode: 'contain',
     width: 60,
     height: 90,
-    margin: 10,
+    margin: 6,
   },
 
   greenBottomThinEllipse: {
