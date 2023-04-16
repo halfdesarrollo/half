@@ -52,7 +52,7 @@ export const CashPayment = () => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: '7%',
+    marginTop: '4%',
   },
   title: {
     fontFamily: fonts.poppins.medium,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     borderColor: '#BEC5D1',
     borderWidth: 1,
     borderRadius: 5,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   checkbox: {
     marginLeft: wp('5%'),
