@@ -6,10 +6,10 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen'
 
-const AddCardButton = ({action}) => {
+const AddCardButton = ({ action }) => {
   return (
     <View style={styles.conteiner}>
-      <TouchableOpacity onPress={()=> action()}>
+      <TouchableOpacity onPress={() => action()}>
         <Text style={styles.text}>Agregar tarjeta</Text>
       </TouchableOpacity>
     </View>
@@ -25,9 +25,15 @@ const styles = StyleSheet.create({
     width: wp(90),
     height: 45,
     borderRadius: 5,
-    shadowColor: '#000000',
-    shadowOffset: { width: 3, height: 5 },
-    shadowOpacity: 0.2,
+    // backgroundColor: 'white',
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
   },
   text: {
     color: '#ffff',

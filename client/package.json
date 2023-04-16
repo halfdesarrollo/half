@@ -25,7 +25,7 @@
     "jwt-decode": "^3.1.2",
     "react": "18.2.0",
     "react-hook-form": "^7.43.8",
-    "react-native": "0.71.4",
+    "react-native": "0.71.6",
     "react-native-elements": "^3.4.3",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-safe-area-context": "4.5.0",

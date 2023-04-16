@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   View,
   Text,
@@ -9,49 +9,49 @@ import {
   Dimensions,
   Image,
   Pressable,
-} from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-native';
-import FacebookLogo from '../../assets/facebook.svg';
-import gmail from '../../assets/gmail-logo.png';
-import { login } from '../redux/slices/user/userActions';
-import { loginSchema } from '../utils/validationSearchScheme';
+} from 'react-native'
+import { useForm, Controller } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-native'
+import FacebookLogo from '../../assets/facebook.svg'
+import gmail from '../../assets/gmail-logo.png'
+import { login } from '../redux/slices/user/userActions'
+import { loginSchema } from '../utils/validationSearchScheme'
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
-import { colors, fonts } from '../utils/theme';
+} from 'react-native-responsive-screen'
+import { colors, fonts } from '../utils/theme'
 
 const LoginComponent = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: 'onChange', resolver: yupResolver(loginSchema) });
+  } = useForm({ mode: 'onChange', resolver: yupResolver(loginSchema) })
   const onPressButton = async (data) => {
-    const { email, password } = data;
+    const { email, password } = data
     try {
-      const result = await dispatch(login(email, password));
-      result.success ? navigate('/mainmenu') : alert('Datos incorrectos');
+      const result = await dispatch(login(email, password))
+      result.success ? navigate('/mainmenu') : alert('Datos incorrectos')
     } catch (error) {
-      alert(error);
+      alert(error)
     }
-  };
+  }
   return (
     <SafeAreaView>
       <View style={styles.inputs_container}>
-        <Text>Email</Text>
+        <Text style={styles.input_label}>Email</Text>
         <Controller
           control={control}
-          name="email"
-          defaultValue=""
+          name='email'
+          defaultValue=''
           render={({ field: { value, onBlur, onChange } }) => (
             <TextInput
-              placeholder="Correo Electronico"
+              placeholder='Correo Electronico'
               onChangeText={onChange}
               onBlur={onBlur}
               value={value}
@@ -65,10 +65,10 @@ const LoginComponent = () => {
         <Text>Contraseña</Text>
         <Controller
           control={control}
-          name="password"
+          name='password'
           render={({ field: { value, onBlur, onChange } }) => (
             <TextInput
-              placeholder="Contraseña"
+              placeholder='Contraseña'
               value={value}
               onChangeText={onChange}
               onBlur={onBlur}
@@ -88,7 +88,7 @@ const LoginComponent = () => {
           }}
         >
           <TouchableHighlight
-            underlayColor="#FFAD3F"
+            underlayColor='#FFAD3F'
             onPress={handleSubmit(onPressButton)}
             style={styles.button}
           >
@@ -105,13 +105,13 @@ const LoginComponent = () => {
 
           <View style={styles.row}>
             <Text style={{ color: colors.secundary2 }}>
-              Aún no tienes cuenta?
+              ¿Aún no tienes cuenta?
             </Text>
             <TouchableHighlight>
               <Text style={{ color: '#1977f3' }}>Registrate acá</Text>
             </TouchableHighlight>
           </View>
-          <Text>o Ingresa con: </Text>
+          <Text>o Ingresa con </Text>
         </View>
 
         <View style={styles.socialMedia_container}>
@@ -120,10 +120,10 @@ const LoginComponent = () => {
         </View>
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
-export default LoginComponent;
+export default LoginComponent
 
 const styles = StyleSheet.create({
   login_container: {
@@ -171,6 +171,9 @@ const styles = StyleSheet.create({
     borderTopColor: '#A4A4A4',
     borderTopWidth: 1,
   },
+  input_label: {
+    marginTop: '2%',
+  },
   button: {
     backgroundColor: '#87BE56',
     width: '100%',
@@ -183,8 +186,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#A4A4A4',
     marginHorizontal: 1,
-    marginVertical: 17,
-    paddingVertical: 6,
+    marginVertical: 15,
+    paddingVertical: 8,
     backgroundColor: 'white',
     paddingHorizontal: 15,
     borderRadius: 10,
@@ -232,4 +235,4 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginHorizontal: 10,
   },
-});
+})
